@@ -1,0 +1,103 @@
+{
+  "app": {
+    "title": "ECHONET Lite Online Control Demonstration Program (EL-Online_Demo)",
+    "copyright": "© Kanagawa Institute of Technology 2022",
+    "dict": {
+      "text": "conf/text.json",
+      "mra": "conf/mraData",
+      "mfrs": "conf/manufacturerCode.json"
+    },
+    "dir": {
+      "html": "dist",
+      "help": "doc",
+      "tmp": "tmp"
+    },
+    "verbose": false,
+    "http": {
+      "port": 3000
+    },
+    "el": {
+      "network": "vpn",
+      "ipv6": false,
+      "multicast": {
+        "ipv4": "224.0.23.0",
+        "ipv6": "FF02::1"
+      },
+      "port": 3610,
+      "self": {
+        "0x0EF0": {
+          "0x01": {
+            "0x80": ["0x30"],
+            "0x82": ["0x01", "0x0C", "0x01", "0x00"],
+            "0x83": null,
+            "0x8A": ["0x00", "0x00", "0x77"],
+            "0x9D": ["0x01", "0x80"],
+            "0x9E": ["0x00"],
+            "0x9F": ["0x0C", "0x80", "0x82", "0x83", "0x8A", "0x9D", "0x9E", "0x9F", "0xD3", "0xD4", "0xD5", "0xD6", "0xD7"],
+            "0xD3": ["0x00", "0x00", "0x03"],
+            "0xD4": ["0x00", "0x02"],
+            "0xD5": ["0x01", "0x05", "0xFF", "0x01"],
+            "0xD6": ["0x01", "0x05", "0xFF", "0x01"],
+            "0xD7": ["0x01", "0x05", "0xFF"]
+          }
+        },
+        "0x05FF": {
+          "0x01": {
+            "0x80": ["0x30"],
+            "0x81": ["0x00"],
+            "0x82": ["0x00", "0x00", "0x4C", "0x00"],
+            "0x83": null,
+            "0x88": ["0x42"],
+            "0x8A": ["0x00", "0x00", "0x77"],
+            "0x8C": "ONLINE_DEMO_",
+            "0x9D": ["0x02", "0x80", "0x88"],
+            "0x9E": ["0x00"],
+            "0x9F": ["0x0A", "0x80", "0x81", "0x82", "0x83", "0x88", "0x8A", "0x8C", "0x9D", "0x9E", "0x9F"]
+          }
+        }
+      },
+      "myeoj": "05FF01",
+      "interval": 200
+    },
+    "settings": {
+      "singleDeviceOptions": [
+        {
+          "class": "0x0130",
+          "checked": true
+        },
+        {
+          "class": "0x0263",
+          "checked": false
+        },
+        {
+          "class": "0x026F",
+          "checked": false
+        },
+        {
+          "class": "0x0279",
+          "checked": false
+        },
+        {
+          "class": "0x027D",
+          "checked": true
+        },
+        {
+          "class": "0x0287",
+          "checked": false
+        },
+        {
+          "class": "0x0288",
+          "checked": false
+        },
+        {
+          "class": "0x028D",
+          "checked": false
+        },
+        {
+          "class": "0x0290",
+          "checked": false
+        }
+      ]
+    }
+  }
+}

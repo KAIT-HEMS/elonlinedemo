@@ -1,0 +1,83 @@
+{
+  "name": "el-demoapp",
+  "version": "1.0.3",
+  "releaseDate": "2022-10-23",
+  "private": true,
+  "description": "The ECHONET Lite (EL) Online Control Demonstration Program provides an easy-to-use UI to allow users to search, confugure, or get/set property values of, any EL-compliant devices (or nodes) that can communicate with your system through UDP.",
+  "author": "ITRA <info+el@itra.co.jp> (https://www.itra.co.jp/)",
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build --skip-plugins @vue/cli-plugin-eslint",
+    "lint": "vue-cli-service lint",
+    "build:test": "vue-cli-service build --mode development",
+    "start": "node ."
+  },
+  "main": "app.js",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "connect-history-api-fallback": "^1.6.0",
+    "core-js": "^3.6.5",
+    "deepmerge": "^4.2.2",
+    "express": "^4.17.1",
+    "json-refs": "^3.0.15",
+    "marked": "^3.0.7",
+    "vue": "^3.0.0",
+    "vue-router": "^4.0.0-0",
+    "vuex": "^4.0.0-0",
+    "ws": "^7.4.2"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^2.33.0",
+    "@typescript-eslint/parser": "^2.33.0",
+    "@vue/cli-plugin-babel": "~4.5.15",
+    "@vue/cli-plugin-eslint": "~4.5.15",
+    "@vue/cli-plugin-router": "~4.5.15",
+    "@vue/cli-plugin-typescript": "~4.5.15",
+    "@vue/cli-plugin-vuex": "~4.5.15",
+    "@vue/cli-service": "~4.5.15",
+    "@vue/compiler-sfc": "^3.0.0",
+    "@vue/eslint-config-prettier": "^6.0.0",
+    "@vue/eslint-config-typescript": "^5.0.2",
+    "eslint": "^6.7.2",
+    "eslint-plugin-prettier": "^3.1.3",
+    "eslint-plugin-vue": "^7.0.0-0",
+    "prettier": "^1.19.1",
+    "sass": "^1.47.0",
+    "sass-loader": "^8.0.2",
+    "typescript": "~4.1.5"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/vue3-essential",
+      "eslint:recommended",
+      "@vue/typescript/recommended",
+      "@vue/prettier",
+      "@vue/prettier/@typescript-eslint"
+    ],
+    "parserOptions": {
+      "ecmaVersion": 2020
+    },
+    "rules": {
+      "@typescript-eslint/ban-ts-comment": "off",
+      "@typescript-eslint/ban-ts-ignore": "off",
+      "prettier/prettier": 0
+    }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ],
+  "keywords": [
+    "echonet",
+    "echonet lite",
+    "el",
+    "iot",
+    "kait"
+  ],
+  "license": "SEE LICENSE IN LICENSE.txt"
+}

@@ -1,0 +1,606 @@
+{
+  "text": {
+    "en": {
+      "header": {
+        "main": {
+          "title": "ISO/IEC 14543-4-3 (ECHONET Lite)",
+          "tagline": "Online Demo System",
+          "ip": "IP",
+          "seoj": "EOJ"
+        },
+        "nav": {
+          "single": {
+            "title": "Opens the Single Device Control page",
+            "label": "Single Device"
+          },
+          "battery": {
+            "title": "Opens the Battery System Control page",
+            "label": "Battery System"
+          },
+          "settings": {
+            "title": "Opens the Settings page",
+            "label": "Settings"
+          },
+          "help": {
+            "title": "Opens the Help page",
+            "label": "Help"
+          }
+        },
+        "network": {
+          "title": "Active network",
+          "lan": "LAN",
+          "vpn": "VPN",
+          "cloud": "CLOUD"
+        }
+      },
+      "footer": {
+        "copyright": "© Kanagawa Institute of Technology 2022"
+      },
+      "home": {
+        "nav": {
+          "single": {
+            "title": "Opens the Single Device Control page",
+            "label": "Single Device"
+          },
+          "battery": {
+            "title": "Opens the Battery System Control page",
+            "label": "Battery System"
+          }
+        }
+      },
+      "logger": {
+        "controls": {
+          "clear": {
+            "title": "Clears the log"
+          },
+          "save": {
+            "title": "Downloads the log"
+          },
+          "pause": {
+            "title": "Pauses logging"
+          },
+          "resume": {
+            "title": "Resumes logging"
+          },
+          "normal": {
+            "title": "Shows the latest at the bottom",
+            "label": "Normal"
+          },
+          "reverse": {
+            "title": "Shows the latest at the top",
+            "label": "Reverse"
+          }
+        }
+      },
+      "single": {
+        "controller": {
+          "heading": "Single Device Control",
+          "epc": {
+            "title": "Select an ECHONET property",
+            "label": "EPC"
+          },
+          "edt": {
+            "title": "Enter new data to set",
+            "label": "EDT"
+          },
+          "set": {
+            "title": "Send a SetC frame",
+            "label": "SET"
+          },
+          "info": {},
+          "cameraSwitcher": {
+            "cam1": {
+              "title": "View the camera A",
+              "label": "Cam A"
+            },
+            "cam2": {
+              "title": "View the camera B",
+              "label": "Cam B"
+            },
+            "cam3": {
+              "title": "View the camera C",
+              "label": "Cam C"
+            },
+            "pan": {
+              "title": "Move the view horizontally",
+              "label": "Pan"
+            },
+            "tilt": {
+              "title": "Move the view vertically",
+              "label": "Tilt"
+            },
+            "zoom": {
+              "title": "Zoom the view",
+              "label": "Zoom"
+            }
+          },
+          "searchNavButton": {
+            "title": "Go to the device search page",
+            "label": "Select a device"
+          },
+          "dataHeading": "EL Properties",
+          "getButton": {
+            "title": "Update all the properties once",
+            "label": "UPDATE"
+          },
+          "dataFields": {
+            "epc": "EPC",
+            "name": "Name",
+            "edt": "EDT",
+            "value": "Value"
+          }
+        },
+        "search": {
+          "heading": "Select a device",
+          "controls": {
+            "search": {
+              "title": "Search for EL devices",
+              "label": "Search"
+            },
+            "clear": {
+              "title": "Clear the search result",
+              "label": "Clear"
+            },
+            "done": {
+              "title": "Confirm the selection",
+              "label": "Select"
+            },
+            "cancel": {
+              "title": "Discard the selection",
+              "label": "Cancel"
+            }
+          }
+        }
+      },
+      "battery": {
+        "main": {
+          "cameraSwitcher": {
+            "pan": {
+              "title": "Move the view horizontally",
+              "label": "Pan"
+            },
+            "tilt": {
+              "title": "Move the view vertically",
+              "label": "Tilt"
+            },
+            "zoom": {
+              "title": "Zoom the view",
+              "label": "Zoom"
+            }
+          }
+        },
+        "controls": {
+          "nav": {
+            "control": {
+              "title": "Change state of system",
+              "label": "Control"
+            },
+            "monitor": {
+              "title": "See details of system",
+              "label": "Monitor"
+            }
+          }
+        }
+      },
+      "settings": {
+        "menu": {
+          "heading": "Settings",
+          "nav": {
+            "single": "Single device",
+            "battery": "Storage battery system",
+            "network": "Network",
+            "cameras": "Streaming video",
+            "ui": "UI"
+          }
+        },
+        "single": {
+          "classList": {
+            "heading": "Select objects to search",
+            "selected": "Selected objects",
+            "propertyListNavButton": {
+              "label": "Select properties",
+              "title": "Go to the property selection page"
+            }
+          },
+          "propertyList": {
+            "heading": "Select properties to monitor and control",
+            "selected": "Selected properties",
+            "allButton": {
+              "label": "All properties",
+              "title": "Select all properties"
+            },
+            "requiredButton": {
+              "label": "Required properties",
+              "title": "Select all required properties"
+            },
+            "clearButton": {
+              "label": "Clear selection",
+              "title": "Clear the current selection"
+            },
+            "doneButton": {
+              "label": "Done",
+              "title": "Enable the selection"
+            },
+            "cancelButton": {
+              "label": "Cancel",
+              "title": "Cancel the selection"
+            }
+          }
+        },
+        "battery": {
+          "modeField": {
+            "heading": "Select a mode",
+            "modes": {
+              "real": "Real Devices",
+              "rhe": "RHE"
+            }
+          },
+          "heading": "Select devices to monitor and control",
+          "searchButton": {
+            "label": "Search",
+            "title": "Search for available devices"
+          },
+          "clearButton": {
+            "label": "Clear",
+            "title": "Clear the search results"
+          },
+          "ipField": "IP",
+          "eojField": "EOJ",
+          "releaseField": "Rel.",
+          "manufacturerField": "Manufacturer",
+          "idField": "ID"
+        },
+        "network": {
+          "typeField": {
+            "heading": "Select a network",
+            "types": {
+              "lan": "LAN",
+              "vpn": "VPN",
+              "cloud": "Cloud"
+            }
+          },
+          "nicField": {
+            "heading": "Select a NIC"
+          }
+        },
+        "cameras": {
+          "searchButton": {
+            "label": "Search",
+            "title": "Search for MJPG-Streamer's"
+          },
+          "portField": "Port",
+          "name": "Cam",
+          "host": "Host",
+          "port": "Port",
+          "protocol": "Protocol",
+          "pan": "Pan",
+          "tilt": "Tilt",
+          "zoom": "Zoom",
+          "assignFields": "Assign",
+          "placeholders": {
+            "singleHeading": "Single Device Control",
+            "single0": "Cam A",
+            "single1": "Cam B",
+            "single2": "Cam C",
+            "batteryHeading": "Battery System Control",
+            "battery0": "PV",
+            "battery1": "Battery",
+            "battery2": "Smart meter",
+            "battery3": "A/C"
+          }
+        },
+        "ui": {
+          "localeField": {
+            "heading": "Select a language"
+          }
+        }
+      },
+      "help": {
+        "menu": {
+          "heading": "Help"
+        }
+      }
+    },
+    "ja": {
+      "header": {
+        "main": {
+          "title": "ISO/IEC 14543-4-3 (ECHONET Lite)",
+          "tagline": "オンラインデモシステム",
+          "ip": "IP",
+          "seoj": "EOJ"
+        },
+        "nav": {
+          "single": {
+            "title": "単体機器制御画面を表示",
+            "label": "単体機器"
+          },
+          "battery": {
+            "title": "蓄電池システム制御画面を表示",
+            "label": "蓄電池システム"
+          },
+          "settings": {
+            "title": "設定画面を表示",
+            "label": "設定"
+          },
+          "help": {
+            "title": "ヘルプ画面を表示",
+            "label": "ヘルプ"
+          }
+        },
+        "network": {
+          "title": "選択中のネットワーク",
+          "lan": "LAN",
+          "vpn": "VPN",
+          "cloud": "CLOUD"
+        }
+      },
+      "footer": {
+        "copyright": "© Kanagawa Institute of Technology 2022"
+      },
+      "home": {
+        "nav": {
+          "single": {
+            "title": "単体機器制御画面を表示",
+            "label": "単体機器"
+          },
+          "battery": {
+            "title": "蓄電池システム制御画面を表示",
+            "label": "蓄電池システム"
+          }
+        }
+      },
+      "logger": {
+        "controls": {
+          "clear": {
+            "title": "ログをクリア"
+          },
+          "save": {
+            "title": "ログをダウンロード"
+          },
+          "pause": {
+            "title": "ログを一時停止"
+          },
+          "resume": {
+            "title": "ログを再開"
+          },
+          "normal": {
+            "title": "最新を下に表示",
+            "label": "下方向"
+          },
+          "reverse": {
+            "title": "最新を上に表示",
+            "label": "上方向"
+          }
+        }
+      },
+      "single": {
+        "controller": {
+          "heading": "単体機器制御",
+          "epc": {
+            "title": "ECHONETプロパティーを選択",
+            "label": "EPC"
+          },
+          "edt": {
+            "title": "新しい設定値を入力",
+            "label": "EDT"
+          },
+          "set": {
+            "title": "SetCフレームを送信",
+            "label": "SET"
+          },
+          "info": {},
+          "cameraSwitcher": {
+            "cam1": {
+              "title": "カメラAを表示",
+              "label": "カメラA"
+            },
+            "cam2": {
+              "title": "カメラBを表示",
+              "label": "カメラB"
+            },
+            "cam3": {
+              "title": "カメラCを表示",
+              "label": "カメラC"
+            },
+            "pan": {
+              "title": "水平方向にカメラを動かす",
+              "label": "左右"
+            },
+            "tilt": {
+              "title": "垂直方向にカメラを動かす",
+              "label": "上下"
+            },
+            "zoom": {
+              "title": "カメラをズーム",
+              "label": "ズーム"
+            }
+          },
+          "searchNavButton": {
+            "title": "機器検索ページへ移動",
+            "label": "機器を選択"
+          },
+          "dataHeading": "ELプロパティー",
+          "getButton": {
+            "title": "全てのプロパティーを更新",
+            "label": "更新"
+          },
+          "dataFields": {
+            "epc": "EPC",
+            "name": "名前",
+            "edt": "EDT",
+            "value": "値"
+          }
+        },
+        "search": {
+          "heading": "機器を選択",
+          "controls": {
+            "search": {
+              "title": "EL機器を検索",
+              "label": "検索"
+            },
+            "clear": {
+              "title": "検索結果をクリア",
+              "label": "クリア"
+            },
+            "done": {
+              "title": "選択を決定",
+              "label": "決定"
+            },
+            "cancel": {
+              "title": "選択を破棄",
+              "label": "キャンセル"
+            }
+          }
+        }
+      },
+      "battery": {
+        "main": {
+          "cameraSwitcher": {
+            "pan": {
+              "title": "水平方向にカメラを動かす",
+              "label": "左右"
+            },
+            "tilt": {
+              "title": "垂直方向にカメラを動かす",
+              "label": "上下"
+            },
+            "zoom": {
+              "title": "カメラをズーム",
+              "label": "ズーム"
+            }
+          }
+        },
+        "controls": {
+          "nav": {
+            "control": {
+              "title": "システム状態を変更",
+              "label": "制御"
+            },
+            "monitor": {
+              "title": "システムの詳細を確認",
+              "label": "監視"
+            }
+          }
+        }
+      },
+      "settings": {
+        "menu": {
+          "heading": "設定",
+          "nav": {
+            "single": "単体機器",
+            "battery": "蓄電池システム",
+            "network": "ネットワーク",
+            "cameras": "ライブ映像",
+            "ui": "UI"
+          }
+        },
+        "single": {
+          "classList": {
+            "heading": "検索するオブジェクトを選択",
+            "selected": "選択したオブジェクト",
+            "propertyListNavButton": {
+              "label": "プロパティーを選択",
+              "title": "プロパティー選択ページへ移動"
+            }
+          },
+          "propertyList": {
+            "heading": "監視・制御するプロパティーを選択",
+            "selected": "選択したプロパティー",
+            "allButton": {
+              "label": "すべてのプロパティー",
+              "title": "すべてのプロパティーを選択"
+            },
+            "requiredButton": {
+              "label": "必須プロパティー",
+              "title": "すべての必須プロパティーを選択"
+            },
+            "clearButton": {
+              "label": "選択をクリア",
+              "title": "現在の選択をクリア"
+            },
+            "doneButton": {
+              "label": "決定",
+              "title": "選択を有効化"
+            },
+            "cancelButton": {
+              "label": "キャンセル",
+              "title": "選択をキャンセル"
+            }
+          }
+        },
+        "battery": {
+          "modeField": {
+            "heading": "モードを選択",
+            "modes": {
+              "real": "実機",
+              "rhe": "RHE"
+            }
+          },
+          "heading": "監視・制御する機器を選択",
+          "searchButton": {
+            "label": "検索",
+            "title": "利用可能な機器を検索"
+          },
+          "clearButton": {
+            "label": "クリア",
+            "title": "検索結果をクリア"
+          },
+          "ipField": "IP",
+          "eojField": "EOJ",
+          "releaseField": "Rel.",
+          "manufacturerField": "メーカー",
+          "idField": "ID"
+        },
+        "network": {
+          "typeField": {
+            "heading": "ネットワークを選択",
+            "types": {
+              "lan": "LAN",
+              "vpn": "VPN",
+              "cloud": "CLOUD"
+            }
+          },
+          "nicField": {
+            "heading": "NICを選択"
+          }
+        },
+        "cameras": {
+          "searchButton": {
+            "label": "検索",
+            "title": "MJPG-Streamerを検索"
+          },
+          "portField": "ポート",
+          "name": "カメラ",
+          "host": "ホスト",
+          "port": "ポート",
+          "protocol": "プロトコル",
+          "pan": "左右",
+          "tilt": "上下",
+          "zoom": "ズーム",
+          "assignFields": "配置",
+          "placeholders": {
+            "singleHeading": "単体機器制御",
+            "single0": "カメラA",
+            "single1": "カメラB",
+            "single2": "カメラC",
+            "batteryHeading": "蓄電池システム制御",
+            "battery0": "PV",
+            "battery1": "蓄電池",
+            "battery2": "スマートメーター",
+            "battery3": "エアコン"
+          }
+        },
+        "ui": {
+          "localeField": {
+            "heading": "言語を選択"
+          }
+        }
+      },
+      "help": {
+        "menu": {
+          "heading": "ヘルプ"
+        }
+      }
+    }
+  }
+}
