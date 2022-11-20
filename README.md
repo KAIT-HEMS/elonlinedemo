@@ -7,7 +7,7 @@ The ECHONET Lite (EL) Online Control Demonstration Program provides an easy-to-u
 1. 該当するGitレポジトリーを `git-clone` 。
 
    ```bash
-   git clone git@bitbucket.org:team-itra/el-demoapp.git
+   git clone git@github.com:KAIT-HEMS/elonlinedemo.git
    cd el-demoapp
    ```
 
