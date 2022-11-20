@@ -21,19 +21,19 @@
           </div>
           <div v-show="!isSimpleModeRef">
             <div class="form-check">
-              <input class="form-check-input" id="f-storage-battery-operation-mode-42" type="radio" name="f-storage-battery-operation-mode" value=0x42>
+              <input class="form-check-input" id="f-storage-battery-operation-mode-42" type="radio" name="f-storage-battery-operation-mode" value="0x42">
               <label class="form-check-label" for="f-storage-battery-operation-mode-42">
                 Charging: 0x42
               </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" id="f-storage-battery-operation-mode-43" type="radio" name="f-storage-battery-operation-mode" value=0x43>
+              <input class="form-check-input" id="f-storage-battery-operation-mode-43" type="radio" name="f-storage-battery-operation-mode" value="0x43">
               <label class="form-check-label" for="f-storage-battery-operation-mode-43">
                 Discharging: 0x43
               </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" id="f-storage-battery-operation-mode-44" type="radio" name="f-storage-battery-operation-mode" value=0x44>
+              <input class="form-check-input" id="f-storage-battery-operation-mode-44" type="radio" name="f-storage-battery-operation-mode" value="0x44">
               <label class="form-check-label" for="f-storage-battery-operation-mode-44">
                 Standby: 0x44
               </label>
@@ -245,56 +245,44 @@ export default defineComponent({
     Set air conditioner properties
     */
     function setAirConditionerProperties() {
-      if (batterySystem.value.airConditioner.ip === '') return;
-
-      const epcList: number[] = [],
-            edtList = [];
+      if (batterySystem.value.airConditioner.ip === '') { return; }
 
       // operation status: 0x80
-      const statusElement = document.getElementsByName('f-air-conditioner-operation-status') ;
-      for (let i = 0; i < statusElement.length; i++) {
-        const operation = statusElement[i] as HTMLInputElement;
-        if (operation.checked) {
-          epcList.push(0x80);
-          edtList.push(parseInt(operation.value));
-        }
-      }
+      const status = (document.querySelector('input[name="f-air-conditioner-operation-status"]:checked') as HTMLInputElement)?.value;
+      if (!status) { return; }
 
       // operation mode: 0xB0
-      const modeElement = document.getElementsByName('f-air-conditioner-operation-mode') ;
-      for (let i = 0; i < modeElement.length; i++) {
-        const mode = modeElement[i] as HTMLInputElement;
-        if (mode.checked) {
-          epcList.push(0xB0);
-          edtList.push(parseInt(mode.value));
-        }
-      }
+      const mode = (document.querySelector('input[name="f-air-conditioner-operation-mode"]:checked') as HTMLInputElement)?.value;
+      if (!mode) { return; }
 
-      // target temperature: 0xB3
-      epcList.push(0xB3);
-      edtList.push(airConditionerTargetTemperature.value);
-
-      for (let i = 0; i < epcList.length; i++) {
-        // Set property
-        store.dispatch('sendEL', {
-          ip: batterySystem.value.airConditioner.ip,
-          el: {
-            deoj: batterySystem.value.airConditioner.eoj,
-            esv: 0x61,
-            opc: {
-              ops: [
-                {
-                  epc: epcList[i],
-                  edt: [edtList[i]]
-                }
-              ]
-            }
+      // Set property
+      store.dispatch('sendEL', {
+        ip: batterySystem.value.airConditioner.ip,
+        el: {
+          deoj: batterySystem.value.airConditioner.eoj,
+          esv: 0x61,
+          opc: {
+            ops: [
+              {
+                epc: 0x80,
+                edt: [parseInt(status)]
+              },
+              {
+                epc: 0xB0,
+                edt: [parseInt(mode)]
+              },
+              {
+                epc: 0xB3,
+                edt: [airConditionerTargetTemperature.value]
+              }
+            ]
           }
-        });
+        }
+      });
 
-        // Get property
-        setTimeout(() => {
-          store.dispatch('sendEL', {
+      // Get property
+      setTimeout(() => {
+        store.dispatch('sendEL', {
           ip: batterySystem.value.airConditioner.ip,
           el: {
             deoj: batterySystem.value.airConditioner.eoj,
@@ -302,15 +290,22 @@ export default defineComponent({
             opc: {
               ops: [
                 {
-                  epc: epcList[i],
+                  epc: 0x80,
+                  edt: []
+                },
+                {
+                  epc: 0xB0,
+                  edt: []
+                },
+                {
+                  epc: 0xB3,
                   edt: []
                 }
               ]
             }
           }
         });
-        }, 1000);
-      }
+      }, 1000);
     }
 
     /*
@@ -333,47 +328,59 @@ export default defineComponent({
     Set storage battery properties
     */
     function setStorageBatteryProperties() {
-      if (batterySystem.value.storageBattery.ip === '') return;
+      if (batterySystem.value.storageBattery.ip === '') { return; }
 
       const epcList: number[] = [],
             edtList = [];
 
       // Operation Mode: 0xDA
-      const modes = document.getElementsByName('f-storage-battery-operation-mode');
-      for (let i = 0; i < modes.length; i++) {
-        const mode = modes[i] as HTMLInputElement;
-        if (mode.checked) {
-          epcList.push(0xDA);
-          edtList.push([parseInt(mode.value)]);
-        }
-      }
+      const mode = (document.querySelector('input[name="f-storage-battery-operation-mode"]:checked') as HTMLInputElement)?.value;
+      if (!mode) { return; }
 
-      // Charge Amount: 0xAA
-      const chargeAmountElement = document.getElementById('f-storage-battery-charge-amount') as HTMLInputElement;
-      chargeAmountElement.classList.remove('is-invalid');
-      if (chargeAmountElement.value !== '') {
-        const chargeAmount = parseInt(chargeAmountElement.value);
-        if (isNaN(chargeAmount) || chargeAmount < 0 || batterySystemData.value.storageBattery.chargeableElectricity < chargeAmount) {
-          chargeAmountElement.classList.add('is-invalid');
-          return;
-        } else {
+      switch (mode) {
+        // Charging
+        case '0x42':
+          const chargeAmountField = document.getElementById('f-storage-battery-charge-amount') as HTMLInputElement;
+          chargeAmountField.classList.remove('is-invalid');
+          if (chargeAmountField.value === '' || Number.isNaN(chargeAmountField.value)) {
+            chargeAmountField.classList.add('is-invalid');
+            return;
+          }
+          const chargeAmount = parseInt(chargeAmountField.value);
+          if (chargeAmount < 0 || batterySystemData.value.storageBattery.chargeableElectricity < chargeAmount) {
+            chargeAmountField.classList.add('is-invalid');
+            return;
+          }
           epcList.push(0xAA);
           edtList.push(chargeAmount.toHex(8).toUint8Array());
-        }
-      }
 
-      // Discharge Amount: 0xAB
-      const dischargeAmountElement = document.getElementById('f-storage-battery-discharge-amount') as HTMLInputElement;
-      dischargeAmountElement.classList.remove('is-invalid');
-      if (dischargeAmountElement.value !== '') {
-        const dischargeAmount = parseInt(dischargeAmountElement.value);
-        if (isNaN(dischargeAmount) || dischargeAmount < 0 || batterySystemData.value.storageBattery.dischargeableElectricity < dischargeAmount) {
-          dischargeAmountElement.classList.add('is-invalid');
-          return;
-        } else {
+          epcList.push(0xDA);
+          edtList.push([0x42]);
+          break;
+        // Discharging
+        case '0x43':
+          const dischargeAmountField = document.getElementById('f-storage-battery-discharge-amount') as HTMLInputElement;
+          dischargeAmountField.classList.remove('is-invalid');
+          if (dischargeAmountField.value === '' || Number.isNaN(dischargeAmountField.value)) {
+            dischargeAmountField.classList.add('is-invalid');
+            return;
+          }
+          const dischargeAmount = parseInt(dischargeAmountField.value);
+          if (dischargeAmount < 0 || batterySystemData.value.storageBattery.chargeableElectricity < dischargeAmount) {
+            dischargeAmountField.classList.add('is-invalid');
+            return;
+          }
           epcList.push(0xAB);
           edtList.push(dischargeAmount.toHex(8).toUint8Array());
-        }
+
+          epcList.push(0xDA);
+          edtList.push([0x43]);
+          break;
+        // Standby
+        case '0x44':
+          epcList.push(0xDA);
+          edtList.push([0x44]);
+          break;
       }
 
       for (let i = 0; i < epcList.length; i++) {
@@ -422,17 +429,16 @@ export default defineComponent({
       switch (mode) {
         case 'charging':
           document.getElementById('f-storage-battery-operation-mode-42')!.click();
+          (document.getElementById('f-storage-battery-charge-amount') as HTMLInputElement).value = '100';
           break;
         case 'discharging':
           document.getElementById('f-storage-battery-operation-mode-43')!.click();
+          (document.getElementById('f-storage-battery-discharge-amount') as HTMLInputElement).value = '100';
           break;
         case 'standby':
           document.getElementById('f-storage-battery-operation-mode-44')!.click();
           break;
       }
-
-      (document.getElementById('f-storage-battery-charge-amount') as HTMLInputElement).value = '100';
-      (document.getElementById('f-storage-battery-discharge-amount') as HTMLInputElement).value = '100';
 
       setStorageBatteryProperties();
     }
