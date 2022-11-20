@@ -245,56 +245,44 @@ export default defineComponent({
     Set air conditioner properties
     */
     function setAirConditionerProperties() {
-      if (batterySystem.value.airConditioner.ip === '') return;
-
-      const epcList: number[] = [],
-            edtList = [];
+      if (batterySystem.value.airConditioner.ip === '') { return; }
 
       // operation status: 0x80
-      const statusElement = document.getElementsByName('f-air-conditioner-operation-status') ;
-      for (let i = 0; i < statusElement.length; i++) {
-        const operation = statusElement[i] as HTMLInputElement;
-        if (operation.checked) {
-          epcList.push(0x80);
-          edtList.push(parseInt(operation.value));
-        }
-      }
+      const status = (document.querySelector('input[name="f-air-conditioner-operation-status"]:checked') as HTMLInputElement)?.value;
+      if (!status) { return; }
 
       // operation mode: 0xB0
-      const modeElement = document.getElementsByName('f-air-conditioner-operation-mode') ;
-      for (let i = 0; i < modeElement.length; i++) {
-        const mode = modeElement[i] as HTMLInputElement;
-        if (mode.checked) {
-          epcList.push(0xB0);
-          edtList.push(parseInt(mode.value));
-        }
-      }
+      const mode = (document.querySelector('input[name="f-air-conditioner-operation-mode"]:checked') as HTMLInputElement)?.value;
+      if (!mode) { return; }
 
-      // target temperature: 0xB3
-      epcList.push(0xB3);
-      edtList.push(airConditionerTargetTemperature.value);
-
-      for (let i = 0; i < epcList.length; i++) {
-        // Set property
-        store.dispatch('sendEL', {
-          ip: batterySystem.value.airConditioner.ip,
-          el: {
-            deoj: batterySystem.value.airConditioner.eoj,
-            esv: 0x61,
-            opc: {
-              ops: [
-                {
-                  epc: epcList[i],
-                  edt: [edtList[i]]
-                }
-              ]
-            }
+      // Set property
+      store.dispatch('sendEL', {
+        ip: batterySystem.value.airConditioner.ip,
+        el: {
+          deoj: batterySystem.value.airConditioner.eoj,
+          esv: 0x61,
+          opc: {
+            ops: [
+              {
+                epc: 0x80,
+                edt: [parseInt(status)]
+              },
+              {
+                epc: 0xB0,
+                edt: [parseInt(mode)]
+              },
+              {
+                epc: 0xB3,
+                edt: [airConditionerTargetTemperature.value]
+              }
+            ]
           }
-        });
+        }
+      });
 
-        // Get property
-        setTimeout(() => {
-          store.dispatch('sendEL', {
+      // Get property
+      setTimeout(() => {
+        store.dispatch('sendEL', {
           ip: batterySystem.value.airConditioner.ip,
           el: {
             deoj: batterySystem.value.airConditioner.eoj,
@@ -302,15 +290,22 @@ export default defineComponent({
             opc: {
               ops: [
                 {
-                  epc: epcList[i],
+                  epc: 0x80,
+                  edt: []
+                },
+                {
+                  epc: 0xB0,
+                  edt: []
+                },
+                {
+                  epc: 0xB3,
                   edt: []
                 }
               ]
             }
           }
         });
-        }, 1000);
-      }
+      }, 1000);
     }
 
     /*
