@@ -4,7 +4,7 @@ ECHONET Lite Online Control Demonstration Program (EL-Online_Demo)
 
 The ECHONET Lite (EL) Online Control Demonstration Program provides an easy-to-use UI to allow users to search, confugure, or get/set property values of, any EL-compliant devices (or nodes) that can communicate with your system through UDP.
 
-v1.0.4
+v1.0.5
 
 © Kanagawa Institute of Technology 2022
 
