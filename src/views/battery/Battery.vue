@@ -8477,7 +8477,7 @@ export default defineComponent({
               // Low-voltage smart electric energy meter
               case 0x0288:
                 if (isRealDevices.value) {
-                  return [0x97, 0xE7];
+                  return [0xE7];
                 } else if (isRHE.value) {
                   return [];
                 }
