@@ -2,6 +2,11 @@
 
 The ECHONET Lite (EL) Online Control Demonstration Program provides an easy-to-use UI to allow users to search, confugure, or get/set property values of, any EL-compliant devices (or nodes) that can communicate with your system through UDP.
 
+## Required Tools :: 必要なツール
+
+* Git
+* Node.js = 18 (`npm run build` fails with v16 or below)
+
 ## インストール手順
 
 1. 該当するGitレポジトリーを `git-clone` 。
