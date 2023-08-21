@@ -19,6 +19,7 @@
       <div class="header-nav-highlight position-absolute bg-white pe-none h-100"></div>
       <router-link class="header-nav-list-item header-nav-single link-light text-decoration-none border-end border-white" :to="{ name: 'single' }" :title="text?.nav?.single?.title">{{ text?.nav?.single?.label }}</router-link>
       <router-link class="header-nav-list-item header-nav-battery link-light text-decoration-none border-end border-white" :to="{ name: 'battery' }" :title="text?.nav?.battery?.title">{{ text?.nav?.battery?.label }}</router-link>
+      <router-link class="header-nav-list-item header-nav-ev link-light text-decoration-none border-end border-white" :to="{ name: 'ev' }" :title="text?.nav?.ev?.title">{{ text?.nav?.ev?.label }}</router-link>
       <router-link class="header-nav-list-item header-nav-settings link-light text-decoration-none border-end border-white" :to="{ name: 'settings.single' }" :title="text?.nav?.settings?.title">{{ text?.nav?.settings?.label }}</router-link>
       <router-link class="header-nav-list-item header-nav-help link-light text-decoration-none" :to="{ name: 'help' }" :title="text?.nav?.help?.title">{{ text?.nav?.help?.label }}</router-link>
     </div>
@@ -75,7 +76,7 @@ export default defineComponent({
   font-weight: var(--weight-light);
 }
 .header-nav-list {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(5, minmax(0, 1fr));
 }
 .header-nav-list-item {
   padding-top: 46px;

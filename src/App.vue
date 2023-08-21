@@ -39,6 +39,8 @@ export default defineComponent({
   --color-gradient-single-end:    #f98543;
   --color-gradient-battery-start: #11be80;
   --color-gradient-battery-end:   #27f561;
+  --color-gradient-ev-start: #923cd0;
+  --color-gradient-ev-end:   #ab5de2;
   --color-list-highlight:         rgba(255, 255, 255, .2);
 
   // Typography

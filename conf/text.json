@@ -17,6 +17,10 @@
             "title": "Opens the Battery System Control page",
             "label": "Battery System"
           },
+          "ev": {
+            "title": "Opens the EV Charger/Discharger Control page",
+            "label": "EV Charger/Discharger"
+          },
           "settings": {
             "title": "Opens the Settings page",
             "label": "Settings"
@@ -45,6 +49,10 @@
           "battery": {
             "title": "Opens the Battery System Control page",
             "label": "Battery System"
+          },
+          "ev": {
+            "title": "Opens the EV Charger/Discharger Control page",
+            "label": "EV Charger/Discharger"
           }
         }
       },
