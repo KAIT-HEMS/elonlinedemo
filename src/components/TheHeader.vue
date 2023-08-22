@@ -61,7 +61,7 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .header {
-  grid-template-columns: 1fr 504px 116px;
+  grid-template-columns: 1fr 625px 116px;
 }
 .header-main-title {
   font-size:   var(--size-text-xxl);
@@ -96,6 +96,14 @@ export default defineComponent({
   background-repeat:   no-repeat;
   background-position: center 12px;
 }
+.header-nav-ev {
+  background-image:    url('/assets/img/icon-nav-ev.svg');
+  background-repeat:   no-repeat;
+  background-position: center 10px;
+  background-size: 26px;
+  padding-top: 40px;
+  line-height: 18px;
+}
 .header-nav-settings {
   background-image:    url('/assets/img/icon-nav-settings.svg');
   background-repeat:   no-repeat;
@@ -123,7 +131,7 @@ export default defineComponent({
 }
 .header-nav-highlight {
   --bs-bg-opacity: .2;
-  width:           126px;
+  width:           125px;
   display:         none;
   transition:      left .25s ease-out;
 }

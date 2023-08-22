@@ -53,7 +53,7 @@ export default defineComponent({
 .home-body {
   gap:                   100px;
   grid-template-rows:    456px;
-  grid-template-columns: repeat(3, 340px);
+  grid-template-columns: repeat(3, 370px);
 }
 .home-nav-item {
   grid-template-rows: 90px;

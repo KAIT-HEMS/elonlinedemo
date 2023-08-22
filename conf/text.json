@@ -19,7 +19,7 @@
           },
           "ev": {
             "title": "Opens the EV Charger/Discharger Control page",
-            "label": "EV Charger/Discharger"
+            "label": "EV Charger/ Discharger"
           },
           "settings": {
             "title": "Opens the Settings page",
