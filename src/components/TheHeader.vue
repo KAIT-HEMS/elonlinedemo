@@ -100,7 +100,7 @@ export default defineComponent({
   background-image:    url('/assets/img/icon-nav-ev.svg');
   background-repeat:   no-repeat;
   background-position: center 10px;
-  background-size: 26px;
+  background-size: 32px;
   padding-top: 40px;
   line-height: 18px;
 }
