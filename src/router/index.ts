@@ -61,6 +61,18 @@ const routes: RouteRecordRaw[] = [
     }
   },
   {
+    name: 'evChargerDischarger',
+    path: '/ev-charger-discharger',
+    components: {
+      main: Battery,
+      footer: Logger,
+      drawer: BatteryControls
+    },
+    meta: {
+      feature: 'battery'
+    }
+  },
+  {
     name: 'settings.single',
     path: '/settings/single',
     components: {
@@ -82,6 +94,18 @@ const routes: RouteRecordRaw[] = [
     meta: {
       feature: 'settings',
       section: 'battery'
+    }
+  },
+  {
+    name: 'settings.evChargerDischarger',
+    path: '/settings/ev-charger-discharger',
+    components: {
+      menu: SettingsMenu,
+      main: Settings
+    },
+    meta: {
+      feature: 'settings',
+      section: 'evChargerDischarger '
     }
   },
   {
