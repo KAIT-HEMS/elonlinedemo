@@ -19,6 +19,7 @@
       <div class="header-nav-highlight position-absolute bg-white pe-none h-100"></div>
       <router-link class="header-nav-list-item header-nav-single link-light text-decoration-none border-end border-white" :to="{ name: 'single' }" :title="text?.nav?.single?.title">{{ text?.nav?.single?.label }}</router-link>
       <router-link class="header-nav-list-item header-nav-battery link-light text-decoration-none border-end border-white" :to="{ name: 'battery' }" :title="text?.nav?.battery?.title">{{ text?.nav?.battery?.label }}</router-link>
+      <router-link class="header-nav-list-item header-nav-ev-charger-discharger link-light text-decoration-none border-end border-white" :to="{ name: 'evChargerDischarger' }" :title="text?.nav?.evChargerDischarger?.title">{{ text?.nav?.evChargerDischarger?.label }}</router-link>
       <router-link class="header-nav-list-item header-nav-settings link-light text-decoration-none border-end border-white" :to="{ name: 'settings.single' }" :title="text?.nav?.settings?.title">{{ text?.nav?.settings?.label }}</router-link>
       <router-link class="header-nav-list-item header-nav-help link-light text-decoration-none" :to="{ name: 'help' }" :title="text?.nav?.help?.title">{{ text?.nav?.help?.label }}</router-link>
     </div>
@@ -60,7 +61,7 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .header {
-  grid-template-columns: 1fr 504px 116px;
+  grid-template-columns: 1fr 625px 116px;
 }
 .header-main-title {
   font-size:   var(--size-text-xxl);
@@ -75,7 +76,7 @@ export default defineComponent({
   font-weight: var(--weight-light);
 }
 .header-nav-list {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(5, minmax(0, 1fr));
 }
 .header-nav-list-item {
   padding-top: 46px;
@@ -94,6 +95,14 @@ export default defineComponent({
   background-image:    url('/assets/img/icon-nav-battery.svg');
   background-repeat:   no-repeat;
   background-position: center 12px;
+}
+.header-nav-ev-charger-discharger {
+  background-image:    url('/assets/img/icon-nav-ev.svg');
+  background-repeat:   no-repeat;
+  background-position: center 10px;
+  background-size: 26px;
+  padding-top: 40px;
+  line-height: 18px;
 }
 .header-nav-settings {
   background-image:    url('/assets/img/icon-nav-settings.svg');
@@ -122,7 +131,7 @@ export default defineComponent({
 }
 .header-nav-highlight {
   --bs-bg-opacity: .2;
-  width:           126px;
+  width:           125px;
   display:         none;
   transition:      left .25s ease-out;
 }
