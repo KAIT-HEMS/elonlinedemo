@@ -490,7 +490,7 @@
           "nav": {
             "single": "単体機器",
             "battery": "蓄電池システム",
-            "evChargerDischarger": "EV charger/discharger system",
+            "evChargerDischarger": "EV充放電器システム",
             "network": "ネットワーク",
             "cameras": "ライブ映像",
             "ui": "UI"
