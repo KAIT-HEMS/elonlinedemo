@@ -188,6 +188,7 @@
           "nav": {
             "single": "Single device",
             "battery": "Storage battery system",
+            "evChargerDischarger": "EV charger/discharger system",
             "network": "Network",
             "cameras": "Streaming video",
             "ui": "UI"
@@ -489,6 +490,7 @@
           "nav": {
             "single": "単体機器",
             "battery": "蓄電池システム",
+            "evChargerDischarger": "EV charger/discharger system",
             "network": "ネットワーク",
             "cameras": "ライブ映像",
             "ui": "UI"
