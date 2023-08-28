@@ -217,6 +217,210 @@
           </div>
         </div>
       </div>
+      <div class="section-battery d-grid gap-5" v-if="section === 'evChargerDischarger'">
+        <div class="d-grid gap-3">
+          <h2 class="fs-5 me-3 text-primary">{{ text?.battery?.modeField?.heading }}</h2>
+          <div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" id="optionBatterySystemModeReal" v-model="batterySystemModeRef" value="real">
+              <label class="form-check-label" for="optionBatterySystemModeReal">{{ text?.battery?.modeField?.modes?.real }}</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" id="optionBatterySystemModeRHE" v-model="batterySystemModeRef" value="rhe">
+              <label class="form-check-label" for="optionBatterySystemModeRHE">{{ text?.battery?.modeField?.modes?.rhe }}</label>
+            </div>
+          </div>
+        </div>
+        <div class="d-grid gap-3">
+          <div class="d-grid grid-template-max-2 justify-content-between">
+            <h2 class="fs-5 me-3 text-primary">{{ text?.battery?.heading }}</h2>
+            <div class="d-flex gap-2">
+              <button type="button" class="btn btn-primary rounded-pill px-3" :title="text?.battery?.searchButton?.title" @click="searchDevices">{{ text?.battery?.searchButton?.label }}</button>
+              <button type="button" class="btn btn-outline-primary rounded-pill px-3" :title="text?.battery?.clearButton?.title" @click="clearDevices">{{ text?.battery?.clearButton?.label }}</button>
+            </div>
+          </div>
+          <div class="overflow-auto">
+            <div class="d-grid gap-3">
+              <div class="card shadow p-3 d-grid gap-3">
+                <h3 class="fs-6 text-primary fw-normal">0x027E  {{ getClassName(0x027E) }}</h3>
+                <table class="table table-hover small align-middle">
+                  <thead class="position-sticky">
+                    <tr>
+                      <th scope="col"></th>
+                      <th scope="col">{{ text?.battery?.ipField }}</th>
+                      <th scope="col">{{ text?.battery?.eojField }}</th>
+                      <th scope="col">{{ text?.battery?.releaseField }}</th>
+                      <th scope="col">{{ text?.battery?.manufacturerField }}</th>
+                      <th scope="col">{{ text?.battery?.idField }}</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr v-for="(device, index) of deviceListing.filter(device => device.eoj.class === 0x027D)" :key="index" @click="selectBatterySystemDevice('storageBattery', device)" role="button">
+                      <td><input class="form-check-input" type="radio" name="device027D" :id="`device_${device.uid}`" v-model="batterySystem.storageBattery.uid" :value="device.uid"></td>
+                      <td>{{ device.ip }}</td>
+                      <td>{{ device.eoj.hex ? '0x' + device.eoj.hex : '' }}</td>
+                      <td>{{ device.release }}</td>
+                      <td>{{ device.manufacturer }}</td>
+                      <td>{{ device.id ? '0x' + device.id : '' }}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="card shadow p-3 d-grid gap-3">
+                <h3 class="fs-6 text-primary fw-normal">0x0279  {{ getClassName(0x0279) }}</h3>
+                <table class="table table-hover small align-middle">
+                  <thead class="position-sticky">
+                    <tr>
+                      <th scope="col"></th>
+                      <th scope="col">{{ text?.battery?.ipField }}</th>
+                      <th scope="col">{{ text?.battery?.eojField }}</th>
+                      <th scope="col">{{ text?.battery?.releaseField }}</th>
+                      <th scope="col">{{ text?.battery?.manufacturerField }}</th>
+                      <th scope="col">{{ text?.battery?.idField }}</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr v-for="(device, index) of deviceListing.filter(device => device.eoj.class === 0x0279)" :key="index" @click="selectBatterySystemDevice('solarPower', device)" role="button">
+                      <td><input class="form-check-input" type="radio" name="device0279" :id="`device_${device.uid}`" v-model="batterySystem.solarPower.uid" :value="device.uid"></td>
+                      <td>{{ device.ip }}</td>
+                      <td>{{ device.eoj.hex ? '0x' + device.eoj.hex : '' }}</td>
+                      <td>{{ device.release }}</td>
+                      <td>{{ device.manufacturer }}</td>
+                      <td>{{ device.id ? '0x' + device.id : '' }}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="card shadow p-3 d-grid gap-3">
+                <h3 class="fs-6 text-primary fw-normal">0x0287  {{ getClassName(0x0287) }}</h3>
+                <section class="grid grid-template-max-3">
+                  <div v-show="isRHE">
+                    <div class="input-group">
+                      <div class="input-group-text">C</div>
+                      <select class="form-select" v-model.number="batterySystemPointCRef">
+                        <option v-for="(epc, index) of [208, 209, 210, 211, 212, 213, 214, 215, 216, 217, 218, 219, 220, 221, 222, 223, 224, 225, 226, 227, 228, 229, 230, 231, 232, 233, 234, 235, 236, 237, 238, 239, 240]" :key="index" :value="epc">CH{{ index + 1 }} ({{ epc.toHex(2).toUpperCase().prefix('0x') }})</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="input-group">
+                      <div class="input-group-text">D</div>
+                      <select class="form-select" v-model.number="batterySystemPointDRef">
+                        <option v-for="(epc, index) of [208, 209, 210, 211, 212, 213, 214, 215, 216, 217, 218, 219, 220, 221, 222, 223, 224, 225, 226, 227, 228, 229, 230, 231, 232, 233, 234, 235, 236, 237, 238, 239, 240]" :key="index" :value="epc">CH{{ index + 1 }} ({{ epc.toHex(2).toUpperCase().prefix('0x') }})</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="input-group">
+                      <div class="input-group-text">E</div>
+                      <select class="form-select" v-model.number="batterySystemPointERef">
+                        <option v-for="(epc, index) of [208, 209, 210, 211, 212, 213, 214, 215, 216, 217, 218, 219, 220, 221, 222, 223, 224, 225, 226, 227, 228, 229, 230, 231, 232, 233, 234, 235, 236, 237, 238, 239, 240]" :key="index" :value="epc">CH{{ index + 1 }} ({{ epc.toHex(2).toUpperCase().prefix('0x') }})</option>
+                      </select>
+                    </div>
+                  </div>
+                </section>
+                <table class="table table-hover small align-middle">
+                  <thead class="position-sticky">
+                    <tr>
+                      <th scope="col"></th>
+                      <th scope="col">{{ text?.battery?.ipField }}</th>
+                      <th scope="col">{{ text?.battery?.eojField }}</th>
+                      <th scope="col">{{ text?.battery?.releaseField }}</th>
+                      <th scope="col">{{ text?.battery?.manufacturerField }}</th>
+                      <th scope="col">{{ text?.battery?.idField }}</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr v-for="(device, index) of deviceListing.filter(device => device.eoj.class === 0x0287)" :key="index" @click="selectBatterySystemDevice('distributionBoard', device)" role="button">
+                      <td><input class="form-check-input" type="radio" name="device0287" :id="`device_${device.uid}`" v-model="batterySystem.distributionBoard.uid" :value="device.uid"></td>
+                      <td>{{ device.ip }}</td>
+                      <td>{{ device.eoj.hex ? '0x' + device.eoj.hex : '' }}</td>
+                      <td>{{ device.release }}</td>
+                      <td>{{ device.manufacturer }}</td>
+                      <td>{{ device.id ? '0x' + device.id : '' }}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="card shadow p-3 d-grid gap-3">
+                <h3 class="fs-6 text-primary fw-normal">0x0288  {{ getClassName(0x0288) }}</h3>
+                <table class="table table-hover small align-middle">
+                  <thead class="position-sticky">
+                    <tr>
+                      <th scope="col"></th>
+                      <th scope="col">{{ text?.battery?.ipField }}</th>
+                      <th scope="col">{{ text?.battery?.eojField }}</th>
+                      <th scope="col">{{ text?.battery?.releaseField }}</th>
+                      <th scope="col">{{ text?.battery?.manufacturerField }}</th>
+                      <th scope="col">{{ text?.battery?.idField }}</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr v-for="(device, index) of deviceListing.filter(device => device.eoj.class === 0x0288)" :key="index" @click="selectBatterySystemDevice('smartMeter', device)" role="button">
+                      <td><input class="form-check-input" type="radio" name="device0288" :id="`device_${device.uid}`" v-model="batterySystem.smartMeter.uid" :value="device.uid"></td>
+                      <td>{{ device.ip }}</td>
+                      <td>{{ device.eoj.hex ? '0x' + device.eoj.hex : '' }}</td>
+                      <td>{{ device.release }}</td>
+                      <td>{{ device.manufacturer }}</td>
+                      <td>{{ device.id ? '0x' + device.id : '' }}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="card shadow p-3 gap-3" :class="{'d-none': isRHE, 'd-grid': isRealDevices}">
+                <h3 class="fs-6 text-primary fw-normal">0x028D  {{ getClassName(0x028D) }}</h3>
+                <table class="table table-hover small align-middle">
+                  <thead class="position-sticky">
+                    <tr>
+                      <th scope="col"></th>
+                      <th scope="col">{{ text?.battery?.ipField }}</th>
+                      <th scope="col">{{ text?.battery?.eojField }}</th>
+                      <th scope="col">{{ text?.battery?.releaseField }}</th>
+                      <th scope="col">{{ text?.battery?.manufacturerField }}</th>
+                      <th scope="col">{{ text?.battery?.idField }}</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr v-for="(device, index) of deviceListing.filter(device => device.eoj.class === 0x028D)" :key="index" @click="selectBatterySystemDevice('subMeter', device)" role="button">
+                      <td><input class="form-check-input" type="radio" name="device028D" :id="`device_${device.uid}`" v-model="batterySystem.subMeter.uid" :value="device.uid"></td>
+                      <td>{{ device.ip }}</td>
+                      <td>{{ device.eoj.hex ? '0x' + device.eoj.hex : '' }}</td>
+                      <td>{{ device.release }}</td>
+                      <td>{{ device.manufacturer }}</td>
+                      <td>{{ device.id ? '0x' + device.id : '' }}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="card shadow p-3 d-grid gap-3">
+                <h3 class="fs-6 text-primary fw-normal">0x0130  {{ getClassName(0x0130) }}</h3>
+                <table class="table table-hover small align-middle">
+                  <thead class="position-sticky">
+                    <tr>
+                      <th scope="col"></th>
+                      <th scope="col">{{ text?.battery?.ipField }}</th>
+                      <th scope="col">{{ text?.battery?.eojField }}</th>
+                      <th scope="col">{{ text?.battery?.releaseField }}</th>
+                      <th scope="col">{{ text?.battery?.manufacturerField }}</th>
+                      <th scope="col">{{ text?.battery?.idField }}</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr v-for="(device, index) of deviceListing.filter(device => device.eoj.class === 0x0130)" :key="index" @click="selectBatterySystemDevice('airConditioner', device)" role="button">
+                      <td><input class="form-check-input" type="radio" name="device0130" :id="`device_${device.uid}`" v-model="batterySystem.airConditioner.uid" :value="device.uid"></td>
+                      <td>{{ device.ip }}</td>
+                      <td>{{ device.eoj.hex ? '0x' + device.eoj.hex : '' }}</td>
+                      <td>{{ device.release }}</td>
+                      <td>{{ device.manufacturer }}</td>
+                      <td>{{ device.id ? '0x' + device.id : '' }}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="section-network d-grid gap-5" v-if="section === 'network'">
         <div class="d-grid gap-3">
           <h2 class="fs-5 me-3 text-primary">{{ text?.network?.typeField?.heading }}</h2>
