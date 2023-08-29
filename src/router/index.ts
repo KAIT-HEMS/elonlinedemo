@@ -61,6 +61,19 @@ const routes: RouteRecordRaw[] = [
     }
   },
   {
+    name: 'evChargerDischarger',
+    path: '/evchargerdischarger',
+    // TODO: add these components later
+    components: {
+      // main: '',
+      // footer: '',
+      // drawer: ''
+    },
+    meta: {
+      // feature: ''
+    }
+  },
+  {
     name: 'settings.single',
     path: '/settings/single',
     components: {
