@@ -70,7 +70,7 @@ const routes: RouteRecordRaw[] = [
       // drawer: ''
     },
     meta: {
-      // feature: ''
+      feature: 'evchargerdischarger'
     }
   },
   {

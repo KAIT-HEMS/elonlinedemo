@@ -15,7 +15,7 @@
         </div>
       </div>
     </div>
-    <div class="header-nav-list card-list d-grid position-relative" :class="{ 'nav-single': isSingle, 'nav-battery': isBattery, 'nav-settings': isSettings, 'nav-help': isHelp }">
+    <div class="header-nav-list card-list d-grid position-relative" :class="{ 'nav-single': isSingle, 'nav-battery': isBattery, 'nav-evchargerdischarger': isEVChargerDischarger, 'nav-settings': isSettings, 'nav-help': isHelp }">
       <div class="header-nav-highlight position-absolute bg-white pe-none h-100"></div>
       <router-link class="header-nav-list-item header-nav-single link-light text-decoration-none border-end border-white" :to="{ name: 'single' }" :title="text?.nav?.single?.title">{{ text?.nav?.single?.label }}</router-link>
       <router-link class="header-nav-list-item header-nav-battery link-light text-decoration-none border-end border-white" :to="{ name: 'battery' }" :title="text?.nav?.battery?.title">{{ text?.nav?.battery?.label }}</router-link>
@@ -49,6 +49,7 @@ export default defineComponent({
       settings: computed(() => store.state.settings),
       isSingle: computed(() => route.meta.feature === 'single'),
       isBattery: computed(() => route.meta.feature === 'battery'),
+      isEVChargerDischarger: computed(() => route.meta.feature === 'evchargerdischarger'),
       isSettings: computed(() => route.meta.feature === 'settings'),
       isHelp: computed(() => route.meta.feature === 'help'),
       isLAN: computed(() => store.state.network === 'lan'),
@@ -61,7 +62,7 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .header {
-  grid-template-columns: 1fr 625px 116px;
+  grid-template-columns: 1fr 675px 116px;
 }
 .header-main-title {
   font-size:   var(--size-text-xxl);
@@ -131,7 +132,7 @@ export default defineComponent({
 }
 .header-nav-highlight {
   --bs-bg-opacity: .2;
-  width:           125px;
+  width:           135px;
   display:         none;
   transition:      left .25s ease-out;
 }
@@ -145,19 +146,25 @@ export default defineComponent({
 .nav-battery {
   .header-nav-highlight {
     display: block;
-    left:    126px;
+    left:    135px;
+  }
+}
+.nav-evchargerdischarger {
+  .header-nav-highlight {
+    display: block;
+    left:    270px;
   }
 }
 .nav-settings {
   .header-nav-highlight {
     display: block;
-    left:    252px;
+    left:    405px;
   }
 }
 .nav-help {
   .header-nav-highlight {
     display:      block;
-    left:         378px;
+    left:         540px;
     border-right: none !important;
   }
 }
