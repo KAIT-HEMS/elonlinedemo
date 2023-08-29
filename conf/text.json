@@ -327,7 +327,7 @@
             "label": "蓄電池システム"
           },
           "evChargerDischarger": {
-            "title": "電気自動車充放電器システム制御画面を表示",
+            "title": "EV充放電器システム制御画面を表示",
             "label": "EV充放電器システム"
           },
           "settings": {
@@ -360,7 +360,7 @@
             "label": "蓄電池システム"
           },
           "evChargerDischarger": {
-            "title": "電気自動車充放電器システム制御画面を表示",
+            "title": "EV充放電器システム制御画面を表示",
             "label": "EV充放電器システム"
           }
         }
