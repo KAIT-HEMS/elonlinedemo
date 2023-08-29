@@ -71,7 +71,7 @@ const routes: RouteRecordRaw[] = [
       drawer: EVChargerDischargerControls
     },
     meta: {
-      feature: 'battery'
+      feature: 'evchargerdischarger'
     }
   },
   {
