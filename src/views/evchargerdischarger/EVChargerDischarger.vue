@@ -6188,7 +6188,7 @@
           xml:space="preserve"
           :class="isSimpleModeRef ? 'simple-mode' : ''"
         >
-          <tspan id="tspan1144" :x="isSimpleModeRef ? '115' : '66.1865'" y="775.665">Storage Battery</tspan>
+          <tspan id="tspan1144" :x="isSimpleModeRef ? '115' : '66.1865'" y="775.665">EV charger and discharger</tspan>
         </text>
         <g
           id="battery-diagram-icon-battery-remaining"

@@ -10,9 +10,9 @@
     <!-- Control -->
     <div class="overflow-auto" v-show="tab === 'control'">
       <div class="d-grid align-content-start gap-3">
-        <!-- Storage Battery Control -->
+        <!-- EV Charger Discharger Control -->
         <div class="card shadow p-3 d-grid gap-2">
-          <h3 class="fs-6 text-primary fw-normal">Storage Battery Control</h3>
+          <h3 class="fs-6 text-primary fw-normal">EV Charger Discharger Control</h3>
           <h4 class="small">Operation Mode: 0xDA</h4>
           <div class="d-grid gap-2" v-show="isSimpleModeRef">
             <button class="btn btn-primary" type="button" v-show="isSimpleModeRef" @click="setStorageBatteryPropertiesSimpleMode('charging')">Charging</button>
