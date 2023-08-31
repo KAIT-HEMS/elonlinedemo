@@ -43,7 +43,7 @@
       />
       <path
         class="animate"
-        :class="{ negative: batterySystemData.powerPoints['g'] < 0 }"
+        :class="{ negative: evChargerDischargerSystemData.powerPoints['g'] < 0 }"
         d="m 1023.9819,149.297 h 178.6947"
         id="battery-diagram-flow-g"
         stroke="url(#paint1_linear_2804:695)"
@@ -54,7 +54,7 @@
           stroke-opacity: 1;
           stroke-miterlimit: 4;
         "
-        v-show="batterySystemData.powerPoints['g'] !== 0"
+        v-show="evChargerDischargerSystemData.powerPoints['g'] !== 0"
       />
       <path
         d="m 876.03432,323.69531 v -88.4166"
@@ -2482,13 +2482,13 @@
       </g>
       <g
         class="arrow"
-        :class="{ negative: batterySystemData.powerPoints['a'] < 0 }"
+        :class="{ negative: evChargerDischargerSystemData.powerPoints['a'] < 0 }"
         transform="translate(0,6)"
         id="battery-diagram-arrow-a"
         opacity="0.5"
-        v-show="batterySystemData.powerPoints['a'] !== 0"
+        v-show="evChargerDischargerSystemData.powerPoints['a'] !== 0"
       >
-        <g :class="{ inverse: batterySystemData.powerPoints['a'] < 0 }">
+        <g :class="{ inverse: evChargerDischargerSystemData.powerPoints['a'] < 0 }">
           <path
             id="path1502"
             fill="#3775f0"
@@ -2520,7 +2520,7 @@
           :x="isSimpleModeRef ? 260 : 193.373"
           :style="isSimpleModeRef ? 'font-size: 24px;' : ''"
         >
-          {{ Math.abs(batterySystemData.powerPoints["a"]) }} W
+          {{ Math.abs(evChargerDischargerSystemData.powerPoints["a"]) }} W
         </tspan>
       </text>
       <g id="battery-diagram-point-g">
@@ -2565,13 +2565,13 @@
       </g>
       <g
         class="arrow"
-        :class="{ negative: batterySystemData.powerPoints['g'] < 0 }"
+        :class="{ negative: evChargerDischargerSystemData.powerPoints['g'] < 0 }"
         transform="translate(-6.3982198,-3.015834)"
         id="battery-diagram-arrow-g"
         opacity="0.5"
-        v-show="batterySystemData.powerPoints['g'] !== 0"
+        v-show="evChargerDischargerSystemData.powerPoints['g'] !== 0"
       >
-        <g :class="{ inverse: batterySystemData.powerPoints['g'] < 0 }">
+        <g :class="{ inverse: evChargerDischargerSystemData.powerPoints['g'] < 0 }">
           <path
             id="path2024"
             fill="#3775f0"
@@ -2603,7 +2603,7 @@
           x="1113.3903"
           :style="isSimpleModeRef ? 'font-size: 24px;' : ''"
         >
-          {{ Math.abs(batterySystemData.powerPoints["g"]) }} W
+          {{ Math.abs(evChargerDischargerSystemData.powerPoints["g"]) }} W
         </tspan>
       </text>
       <g id="battery-diagram-point-f">
@@ -2648,13 +2648,13 @@
       </g>
       <g
         class="arrow"
-        :class="{ negative: batterySystemData.powerPoints['f'] < 0 }"
+        :class="{ negative: evChargerDischargerSystemData.powerPoints['f'] < 0 }"
         transform="translate(-87.837977,-32.551626)"
         id="battery-diagram-arrow-f"
         opacity="0.5"
-        v-show="batterySystemData.powerPoints['f'] !== 0"
+        v-show="evChargerDischargerSystemData.powerPoints['f'] !== 0"
       >
-        <g :class="{ inverse: batterySystemData.powerPoints['f'] < 0 }">
+        <g :class="{ inverse: evChargerDischargerSystemData.powerPoints['f'] < 0 }">
           <path
             id="path2040"
             fill="#3775f0"
@@ -2686,7 +2686,7 @@
           :x="isSimpleModeRef ? 1040 : 972.41437"
           :style="isSimpleModeRef ? 'font-size: 24px;' : ''"
         >
-          {{ Math.abs(batterySystemData.powerPoints["f"]) }} W
+          {{ Math.abs(evChargerDischargerSystemData.powerPoints["f"]) }} W
         </tspan>
       </text>
       <g transform="translate(-10,-18)" id="battery-diagram-point-d">
@@ -2732,13 +2732,13 @@
       </g>
       <g
         class="arrow"
-        :class="{ negative: batterySystemData.powerPoints['d'] < 0 }"
+        :class="{ negative: evChargerDischargerSystemData.powerPoints['d'] < 0 }"
         transform="translate(-28,-9.0296041)"
         id="battery-diagram-arrow-d"
         opacity="0.5"
-        v-show="batterySystemData.powerPoints['d'] !== 0"
+        v-show="evChargerDischargerSystemData.powerPoints['d'] !== 0"
       >
-        <g :class="{ inverse: batterySystemData.powerPoints['d'] < 0 }">
+        <g :class="{ inverse: evChargerDischargerSystemData.powerPoints['d'] < 0 }">
           <path
             id="path2056"
             fill="#3775f0"
@@ -2770,7 +2770,7 @@
           :x="isSimpleModeRef ? 1100 : 1032.2523"
           :style="isSimpleModeRef ? 'font-size: 24px;' : ''"
         >
-          {{ Math.abs(batterySystemData.powerPoints["d"]) }} W
+          {{ Math.abs(evChargerDischargerSystemData.powerPoints["d"]) }} W
         </tspan>
       </text>
       <g transform="translate(-2,-44)" id="battery-diagram-point-e">
@@ -2815,13 +2815,13 @@
       </g>
       <g
         class="arrow"
-        :class="{ negative: batterySystemData.powerPoints['e'] < 0 }"
+        :class="{ negative: evChargerDischargerSystemData.powerPoints['e'] < 0 }"
         transform="translate(-14,-53.029604)"
         id="battery-diagram-arrow-e"
         opacity="0.5"
-        v-show="batterySystemData.powerPoints['e'] !== 0"
+        v-show="evChargerDischargerSystemData.powerPoints['e'] !== 0"
       >
-        <g :class="{ inverse: batterySystemData.powerPoints['e'] < 0 }">
+        <g :class="{ inverse: evChargerDischargerSystemData.powerPoints['e'] < 0 }">
           <path
             id="path2072"
             fill="#3775f0"
@@ -2853,7 +2853,7 @@
           x="902.76129"
           :style="isSimpleModeRef ? 'font-size: 24px;' : ''"
         >
-          {{ Math.abs(batterySystemData.powerPoints["e"]) }} W
+          {{ Math.abs(evChargerDischargerSystemData.powerPoints["e"]) }} W
         </tspan>
       </text>
       <g transform="translate(-4)" id="battery-diagram-point-b">
@@ -2897,13 +2897,13 @@
       </g>
       <g
         class="arrow"
-        :class="{ negative: batterySystemData.powerPoints['b'] < 0 }"
+        :class="{ negative: evChargerDischargerSystemData.powerPoints['b'] < 0 }"
         transform="translate(-8)"
         id="battery-diagram-arrow-b"
         opacity="0.5"
-        v-show="batterySystemData.powerPoints['b'] !== 0"
+        v-show="evChargerDischargerSystemData.powerPoints['b'] !== 0"
       >
-        <g :class="{ inverse: batterySystemData.powerPoints['b'] < 0 }">
+        <g :class="{ inverse: evChargerDischargerSystemData.powerPoints['b'] < 0 }">
           <path
             id="path2088"
             fill="#3775f0"
@@ -2935,7 +2935,7 @@
           x="277.2063"
           :style="isSimpleModeRef ? 'font-size: 24px;' : ''"
         >
-          {{ Math.abs(batterySystemData.powerPoints["b"]) }} W
+          {{ Math.abs(evChargerDischargerSystemData.powerPoints["b"]) }} W
         </tspan>
       </text>
       <text
@@ -2957,7 +2957,7 @@
           x="578.61334"
           :style="isSimpleModeRef ? 'font-size: 24px;' : ''"
         >
-          {{ Math.abs(batterySystemData.powerPoints["c"]) }} W
+          {{ Math.abs(evChargerDischargerSystemData.powerPoints["c"]) }} W
         </tspan>
       </text>
       <g id="battery-diagram-point-c">
@@ -3001,13 +3001,13 @@
       </g>
       <g
         class="arrow"
-        :class="{ negative: batterySystemData.powerPoints['c'] < 0 }"
+        :class="{ negative: evChargerDischargerSystemData.powerPoints['c'] < 0 }"
         transform="translate(1.8356516,-57.869645)"
         id="battery-diagram-arrow-c"
         opacity="0.5"
-        v-show="batterySystemData.powerPoints['c'] !== 0"
+        v-show="evChargerDischargerSystemData.powerPoints['c'] !== 0"
       >
-        <g :class="{ inverse: batterySystemData.powerPoints['c'] < 0 }">
+        <g :class="{ inverse: evChargerDischargerSystemData.powerPoints['c'] < 0 }">
           <path
             id="path2108"
             fill="#3775f0"
@@ -3022,7 +3022,7 @@
       </g>
       <path
         class="animate"
-        :class="{ negative: batterySystemData.powerPoints['f'] < 0 }"
+        :class="{ negative: evChargerDischargerSystemData.powerPoints['f'] < 0 }"
         d="m 876.03432,323.69531 v -88.4166"
         id="battery-diagram-flow-f"
         stroke="url(#paint1_linear_2804:695)"
@@ -3032,7 +3032,7 @@
           stroke-opacity: 1;
           stroke-miterlimit: 4;
         "
-        v-show="batterySystemData.powerPoints['f'] !== 0"
+        v-show="evChargerDischargerSystemData.powerPoints['f'] !== 0"
       />
       <g id="battery-diagram-smartmeter" v-show="!isPhotoModeRef">
         <g
@@ -3280,10 +3280,10 @@
           <tspan id="tspan2200" x="887.18" y="229.98">
             EOJ:
             {{
-              batterySystem.smartMeter.ip
+              evChargerDischargerSystem.smartMeter.ip
                 ? "0x" +
-                  batterySystem.smartMeter.eoj.class.toHex(4).toUpperCase() +
-                  batterySystem.smartMeter.eoj.id.toHex(2).toUpperCase()
+                  evChargerDischargerSystem.smartMeter.eoj.class.toHex(4).toUpperCase() +
+                  evChargerDischargerSystem.smartMeter.eoj.id.toHex(2).toUpperCase()
                 : ""
             }}
           </tspan>
@@ -4397,7 +4397,7 @@
       </defs>
       <path
         class="opposite animate"
-        :class="{ negative: batterySystemData.powerPoints['d'] < 0 }"
+        :class="{ negative: evChargerDischargerSystemData.powerPoints['d'] < 0 }"
         d="m 963.422,516.43787 c 0,0 -0.174,-15.64587 -0.302,86.33213 -0.016,12.71 10.281,22.999 22.992,23.003 l 187.0582,0.094"
         id="battery-diagram-flow-d"
         stroke="url(#paint4_linear_2804:695)"
@@ -4407,7 +4407,7 @@
           stroke-opacity: 1;
           stroke-miterlimit: 4;
         "
-        v-show="batterySystemData.powerPoints['d'] !== 0"
+        v-show="evChargerDischargerSystemData.powerPoints['d'] !== 0"
       />
       <g id="battery-diagram-ac" v-show="!isPhotoModeRef">
         <g filter="url(#filter3_d_2804:695)" id="battery-diagram-box-ac">
@@ -4482,18 +4482,18 @@
           <path
             :class="{
               heating:
-                batterySystemData.homeAirConditioner.operationModeSetting ===
+                evChargerDischargerSystemData.homeAirConditioner.operationModeSetting ===
                 67,
             }"
             d="M1171.06 661C1187.08 644.973 1182.31 633.148 1181.74 625.74H1278.97C1272.78 643.477 1285.17 656.512 1292.65 661H1171.06Z"
             fill="url(#paint7_linear_2804:695)"
             fill-opacity="0.5"
             id="battery-diagram-icon-ac-wind"
-            v-show="batterySystemData.homeAirConditioner.operationStatus === 48"
+            v-show="evChargerDischargerSystemData.homeAirConditioner.operationStatus === 48"
           />
           <g
             id="battery-diagram-icon-ac-swing"
-            v-show="batterySystemData.homeAirConditioner.operationStatus === 48"
+            v-show="evChargerDischargerSystemData.homeAirConditioner.operationStatus === 48"
           >
             <path
               d="M1182.81 661C1198.84 644.973 1194.06 633.148 1193.49 625.74H1202.04C1196.7 643.049 1209.02 654.803 1215.72 661H1182.81Z"
@@ -4562,12 +4562,12 @@
           <tspan id="tspan1196" x="1312.12" y="750.98">
             EOJ:
             {{
-              batterySystem.airConditioner.ip
+              evChargerDischargerSystem.airConditioner.ip
                 ? "0x" +
-                  batterySystem.airConditioner.eoj.class
+                  evChargerDischargerSystem.airConditioner.eoj.class
                     .toHex(4)
                     .toUpperCase() +
-                  batterySystem.airConditioner.eoj.id.toHex(2).toUpperCase()
+                  evChargerDischargerSystem.airConditioner.eoj.id.toHex(2).toUpperCase()
                 : ""
             }}
           </tspan>
@@ -4666,9 +4666,9 @@
         >
           <tspan id="tspan1220" x="1391.62" y="703.98">
             {{
-              0 <= batterySystemData.homeAirConditioner.setTemperatureValue &&
-              batterySystemData.homeAirConditioner.setTemperatureValue <= 50
-                ? batterySystemData.homeAirConditioner.setTemperatureValue
+              0 <= evChargerDischargerSystemData.homeAirConditioner.setTemperatureValue &&
+              evChargerDischargerSystemData.homeAirConditioner.setTemperatureValue <= 50
+                ? evChargerDischargerSystemData.homeAirConditioner.setTemperatureValue
                 : "‐"
             }}℃
           </tspan>
@@ -4712,7 +4712,7 @@
         <rect
           class="indicator"
           :class="{
-            on: batterySystemData.homeAirConditioner.operationStatus === 48,
+            on: evChargerDischargerSystemData.homeAirConditioner.operationStatus === 48,
           }"
           fill="#3779F5"
           :height="isSimpleModeRef ? '45' : '32'"
@@ -4739,7 +4739,7 @@
         <rect
           class="indicator"
           :class="{
-            on: batterySystemData.homeAirConditioner.operationStatus === 49,
+            on: evChargerDischargerSystemData.homeAirConditioner.operationStatus === 49,
           }"
           :height="isSimpleModeRef ? '45' : '31'"
           id="battery-diagram-rect-ac-status-off"
@@ -4767,7 +4767,7 @@
           class="indicator"
           :class="{
             on:
-              batterySystemData.homeAirConditioner.operationModeSetting === 67,
+              evChargerDischargerSystemData.homeAirConditioner.operationModeSetting === 67,
           }"
           height="31"
           id="battery-diagram-rect-ac-mode-heating"
@@ -4796,7 +4796,7 @@
           class="indicator"
           :class="{
             on:
-              batterySystemData.homeAirConditioner.operationModeSetting === 66,
+              evChargerDischargerSystemData.homeAirConditioner.operationModeSetting === 66,
           }"
           fill="#3779F5"
           height="32"
@@ -4835,7 +4835,7 @@
       </g>
       <path
         class="opposite animate"
-        :class="{ negative: batterySystemData.powerPoints['e'] < 0 }"
+        :class="{ negative: evChargerDischargerSystemData.powerPoints['e'] < 0 }"
         d="m 837.5421,520.76702 1.52631,192.17844"
         id="battery-diagram-flow-e"
         stroke="url(#paint3_linear_2804:695)"
@@ -4845,7 +4845,7 @@
           stroke-miterlimit: 4;
           stroke-opacity: 1;
         "
-        v-show="batterySystemData.powerPoints['e'] !== 0"
+        v-show="evChargerDischargerSystemData.powerPoints['e'] !== 0"
       />
       <g id="battery-diagram-load" transform="translate(-12.929457,-18.675882)"  v-show="!isPhotoModeRef">
         <g filter="url(#filter0_d_2804:695)" id="battery-diagram-box-load" :class="isSimpleModeRef ? 'simple-mode' : ''">
@@ -5009,7 +5009,7 @@
       </g>
       <path
         class="animate"
-        :class="{ negative: batterySystemData.powerPoints['c'] < 0 }"
+        :class="{ negative: evChargerDischargerSystemData.powerPoints['c'] < 0 }"
         :d="isRealDevices ? 'M 209.239,416 H 498.146 C 510.848,416 521,426.297 521,439 v 190.47951 l 115,0.23927 V 399 c 0,-12.703 10.297,-23 23,-23 h 45' : 'M 209.239,416 H 690'"
         id="battery-diagram-flow-c"
         stroke="url(#paint0_linear_2804:695)"
@@ -5019,7 +5019,7 @@
           stroke-opacity: 1;
           stroke-miterlimit: 4;
         "
-        v-show="batterySystemData.powerPoints['c'] !== 0"
+        v-show="evChargerDischargerSystemData.powerPoints['c'] !== 0"
       />
       <g id="battery-diagram-submeter"
         v-show="isRealDevices && !isPhotoModeRef"
@@ -5062,10 +5062,10 @@
           <tspan id="tspan1426" x="596.18" y="799.98">
             EOJ:
             {{
-              batterySystem.subMeter.ip
+              evChargerDischargerSystem.subMeter.ip
                 ? "0x" +
-                  batterySystem.subMeter.eoj.class.toHex(4).toUpperCase() +
-                  batterySystem.subMeter.eoj.id.toHex(2).toUpperCase()
+                  evChargerDischargerSystem.subMeter.eoj.class.toHex(4).toUpperCase() +
+                  evChargerDischargerSystem.subMeter.eoj.id.toHex(2).toUpperCase()
                 : ""
             }}
           </tspan>
@@ -5738,12 +5738,12 @@
           <tspan id="tspan1404" x="855.18" y="514.98">
             EOJ:
             {{
-              batterySystem.distributionBoard.ip
+              evChargerDischargerSystem.distributionBoard.ip
                 ? "0x" +
-                  batterySystem.distributionBoard.eoj.class
+                  evChargerDischargerSystem.distributionBoard.eoj.class
                     .toHex(4)
                     .toUpperCase() +
-                  batterySystem.distributionBoard.eoj.id.toHex(2).toUpperCase()
+                  evChargerDischargerSystem.distributionBoard.eoj.id.toHex(2).toUpperCase()
                 : ""
             }}
           </tspan>
@@ -5779,7 +5779,7 @@
       </g>
       <path
         class="opposite animate"
-        :class="{ negative: batterySystemData.powerPoints['b'] < 0 }"
+        :class="{ negative: evChargerDischargerSystemData.powerPoints['b'] < 0 }"
         d="M 208.62479,417.33559 208.535,566.797"
         id="battery-diagram-flow-b"
         stroke="url(#paint14_linear_2804:695)"
@@ -5789,7 +5789,7 @@
           stroke-miterlimit: 4;
           stroke-opacity: 1;
         "
-        v-show="batterySystemData.powerPoints['b'] !== 0"
+        v-show="evChargerDischargerSystemData.powerPoints['b'] !== 0"
       />
       <g id="battery-diagram-battery" v-show="!isPhotoModeRef">
         <g filter="url(#filter2_d_2804:695)" id="battery-diagram-box-battery">
@@ -5887,14 +5887,14 @@
             :class="{
               standby:
                 [65, 66, 67].indexOf(
-                  batterySystemData.storageBattery.workingOperationStatus
+                  evChargerDischargerSystemData.storageBattery.workingOperationStatus
                 ) === -1,
               charging:
                 [65, 66].indexOf(
-                  batterySystemData.storageBattery.workingOperationStatus
+                  evChargerDischargerSystemData.storageBattery.workingOperationStatus
                 ) !== -1,
               discharging:
-                batterySystemData.storageBattery.workingOperationStatus === 67,
+                evChargerDischargerSystemData.storageBattery.workingOperationStatus === 67,
             }"
             id="battery-diagram-icon-battery-status"
           >
@@ -5931,7 +5931,7 @@
           :text-anchor="isSimpleModeRef ? 'middle' : 'inherit'"
         >
           <tspan id="tspan1086" x="315" y="743.295">
-            {{ batterySystemData.storageBattery.remainingStoredElectricity }}%
+            {{ evChargerDischargerSystemData.storageBattery.remainingStoredElectricity }}%
           </tspan>
         </text>
         <text
@@ -5999,12 +5999,12 @@
           <tspan id="tspan1106" x="211.18" y="809.98">
             EOJ:
             {{
-              batterySystem.storageBattery.ip
+              evChargerDischargerSystem.storageBattery.ip
                 ? "0x" +
-                  batterySystem.storageBattery.eoj.class
+                  evChargerDischargerSystem.storageBattery.eoj.class
                     .toHex(4)
                     .toUpperCase() +
-                  batterySystem.storageBattery.eoj.id.toHex(2).toUpperCase()
+                  evChargerDischargerSystem.storageBattery.eoj.id.toHex(2).toUpperCase()
                 : ""
             }}
           </tspan>
@@ -6093,7 +6093,7 @@
           :class="{
             on:
               [65, 66, 67].indexOf(
-                batterySystemData.storageBattery.workingOperationStatus
+                evChargerDischargerSystemData.storageBattery.workingOperationStatus
               ) === -1,
           }"
           fill="#3779F5"
@@ -6124,7 +6124,7 @@
           :class="{
             on:
               [65, 66].indexOf(
-                batterySystemData.storageBattery.workingOperationStatus
+                evChargerDischargerSystemData.storageBattery.workingOperationStatus
               ) !== -1,
           }"
           :height="isSimpleModeRef ? '45' : '31'"
@@ -6153,7 +6153,7 @@
         <rect
           class="indicator"
           :class="{
-            on: batterySystemData.storageBattery.workingOperationStatus === 67,
+            on: evChargerDischargerSystemData.storageBattery.workingOperationStatus === 67,
           }"
           :height="isSimpleModeRef ? '45' : '31'"
           id="battery-diagram-rect-battery-status-discharging"
@@ -6237,7 +6237,7 @@
               "
               :style="{
                 height:
-                  (batterySystemData.storageBattery.remainingStoredElectricity *
+                  (evChargerDischargerSystemData.storageBattery.remainingStoredElectricity *
                     85.8) /
                     100 +
                   'px',
@@ -6252,7 +6252,7 @@
       </g>
       <path
         class="opposite animate_a animate"
-        :class="{ negative: batterySystemData.powerPoints['a'] < 0 }"
+        :class="{ negative: evChargerDischargerSystemData.powerPoints['a'] < 0 }"
         d="M 137.5,278.292 V 393 c 0,12.703 10.297,23 23,23 h 48.739"
         id="battery-diagram-flow-a"
         stroke="url(#paint14_linear_2804:695)"
@@ -6262,7 +6262,7 @@
           stroke-opacity: 1;
           stroke-miterlimit: 4;
         "
-        v-show="batterySystemData.powerPoints['a'] !== 0"
+        v-show="evChargerDischargerSystemData.powerPoints['a'] !== 0"
       />
       <g id="battery-diagram-solar"  v-show="!isPhotoModeRef">
         <g filter="url(#filter6_d_2804:695)" id="battery-diagram-box-solar">
@@ -6274,7 +6274,7 @@
             width="326"
             x="30"
             y="43"
-            v-show="batterySystemData.powerPoints['a']"
+            v-show="evChargerDischargerSystemData.powerPoints['a']"
           />
           <rect
             fill="#c3c3c3"
@@ -6284,12 +6284,12 @@
             width="326"
             x="30"
             y="43"
-            v-show="!batterySystemData.powerPoints['a']"
+            v-show="!evChargerDischargerSystemData.powerPoints['a']"
           />
         </g>
         <g
           id="battery-diagram-icon-sun"
-          v-show="batterySystemData.powerPoints['a']"
+          v-show="evChargerDischargerSystemData.powerPoints['a']"
         >
           <path
             d="M271.574 94.75C278.892 94.75 284.824 88.8178 284.824 81.5C284.824 74.1822 278.892 68.25 271.574 68.25C264.256 68.25 258.324 74.1822 258.324 81.5C258.324 88.8178 264.256 94.75 271.574 94.75Z"
@@ -6429,7 +6429,7 @@
         </g>
         <g
           id="battery-diagram-icon-moon"
-          v-show="!batterySystemData.powerPoints['a']"
+          v-show="!evChargerDischargerSystemData.powerPoints['a']"
         >
           <path
             id="path3464"
@@ -6483,10 +6483,10 @@
           <tspan id="tspan1564" x="204.18" y="264.98">
             EOJ:
             {{
-              batterySystem.solarPower.ip
+              evChargerDischargerSystem.solarPower.ip
                 ? "0x" +
-                  batterySystem.solarPower.eoj.class.toHex(4).toUpperCase() +
-                  batterySystem.solarPower.eoj.id.toHex(2).toUpperCase()
+                  evChargerDischargerSystem.solarPower.eoj.class.toHex(4).toUpperCase() +
+                  evChargerDischargerSystem.solarPower.eoj.id.toHex(2).toUpperCase()
                 : ""
             }}
           </tspan>
@@ -7893,7 +7893,7 @@
       style="z-index: 1900"
     >
       <img class="h-100" src="/assets/img/logo-rhe.svg" alt="">
-      <span class="align-self-center">{{ batterySystemData.smartMeter.currentTimeSetting }}</span>
+      <span class="align-self-center">{{ evChargerDischargerSystemData.smartMeter.currentTimeSetting }}</span>
     </div>
 
     <!-- UI Mode Indicator -->
@@ -8043,23 +8043,23 @@ export default defineComponent({
     const store                 = useStore(),
           route                 = useRoute(),
           routeName             = computed(() => route.name),
-          batterySystem         = computed(() => store.state.batterySystem),
-          batterySystemPointC   = computed(() => store.state.batterySystemPointC),
-          batterySystemPointD   = computed(() => store.state.batterySystemPointD),
-          batterySystemPointE   = computed(() => store.state.batterySystemPointE),
+          evChargerDischargerSystem         = computed(() => store.state.evChargerDischargerSystem),
+          evChargerDischargerSystemPointC   = computed(() => store.state.evChargerDischargerSystemPointC),
+          evChargerDischargerSystemPointD   = computed(() => store.state.evChargerDischargerSystemPointD),
+          evChargerDischargerSystemPointE   = computed(() => store.state.evChargerDischargerSystemPointE),
           ACData                = computed(airConditionerSetup),
           StorageData           = computed(storageBatterySetup),
           solarPowerData        = computed(powerGenerationSetup),
           subMeterData          = computed(subMeterSetup),
           smartMeterData        = computed(smartMeterSetup),
           distributionBoardData = computed(powerDistributionBoardSetup),
-          batterySystemData     = computed(() => store.state.batterySystemData),
-          isSimpleMode          = computed(() => store.state.batterySystemUIModeSimple),
-          isPhotoMode           = computed(() => store.state.batterySystemUIModePhoto),
+          evChargerDischargerSystemData     = computed(() => store.state.evChargerDischargerSystemData),
+          isSimpleMode          = computed(() => store.state.evChargerDischargerSystemUIModeSimple),
+          isPhotoMode           = computed(() => store.state.evChargerDischargerSystemUIModePhoto),
           isSimpleModeRef       = ref<string>(''),
           isPhotoModeRef        = ref<string>(''),
-          isRealDevices         = computed(() => store.state.batterySystemMode === 'real' ? true : false),
-          isRHE                 = computed(() => store.state.batterySystemMode === 'rhe' ? true : false),
+          isRealDevices         = computed(() => store.state.evChargerDischargerSystemMode === 'real' ? true : false),
+          isRHE                 = computed(() => store.state.evChargerDischargerSystemMode === 'rhe' ? true : false),
           cameraModal           = ref<HTMLElement|null>(null),
           cameraHeader          = ref<HTMLElement|null>(null),
           cameraError           = ref<boolean>(true),
@@ -8117,54 +8117,54 @@ export default defineComponent({
 
     function powerGenerationSetup() {
       // generated electricity: 0xE0
-      const edt = store.getters.data(batterySystem.value.solarPower.ip, batterySystem.value.solarPower.eoj, 0xE0);
-      batterySystemData.value.powerPoints.edt.a = (() => { let hex = ''; edt.forEach((v: number) => { hex += v.toHex(2).toUpperCase(); }); return hex === '' ? '' : hex.prefix('0x'); })();
-      batterySystemData.value.powerPoints.a = parseInt(batterySystemData.value.powerPoints.edt.a, 16) || 0;
+      const edt = store.getters.data(evChargerDischargerSystem.value.solarPower.ip, evChargerDischargerSystem.value.solarPower.eoj, 0xE0);
+      evChargerDischargerSystemData.value.powerPoints.edt.a = (() => { let hex = ''; edt.forEach((v: number) => { hex += v.toHex(2).toUpperCase(); }); return hex === '' ? '' : hex.prefix('0x'); })();
+      evChargerDischargerSystemData.value.powerPoints.a = parseInt(evChargerDischargerSystemData.value.powerPoints.edt.a, 16) || 0;
 
-      return batterySystem.value.solarPower.ip;
+      return evChargerDischargerSystem.value.solarPower.ip;
     }
 
     function storageBatterySetup() {
       // chargable electricity: 0xA4
-      let edt = store.getters.data(batterySystem.value.storageBattery.ip, batterySystem.value.storageBattery.eoj, 0xA4);
-      batterySystemData.value.storageBattery.edt.chargeableElectricity = (() => { let hex = ''; edt.forEach((v: number) => { hex += v.toHex(2).toUpperCase(); }); return hex === '' ? '' : hex.prefix('0x'); })();
-      batterySystemData.value.storageBattery.chargeableElectricity = parseInt(batterySystemData.value.storageBattery.edt.chargeableElectricity, 16) || 0;
+      let edt = store.getters.data(evChargerDischargerSystem.value.storageBattery.ip, evChargerDischargerSystem.value.storageBattery.eoj, 0xA4);
+      evChargerDischargerSystemData.value.storageBattery.edt.chargeableElectricity = (() => { let hex = ''; edt.forEach((v: number) => { hex += v.toHex(2).toUpperCase(); }); return hex === '' ? '' : hex.prefix('0x'); })();
+      evChargerDischargerSystemData.value.storageBattery.chargeableElectricity = parseInt(evChargerDischargerSystemData.value.storageBattery.edt.chargeableElectricity, 16) || 0;
 
       // dischargable electricity: 0xA5
-      edt = store.getters.data(batterySystem.value.storageBattery.ip, batterySystem.value.storageBattery.eoj, 0xA5);
-      batterySystemData.value.storageBattery.edt.dischargeableElectricity = (() => { let hex = ''; edt.forEach((v: number) => { hex += v.toHex(2).toUpperCase(); }); return hex === '' ? '' : hex.prefix('0x'); })();
-      batterySystemData.value.storageBattery.dischargeableElectricity = parseInt(batterySystemData.value.storageBattery.edt.dischargeableElectricity, 16) || 0;
+      edt = store.getters.data(evChargerDischargerSystem.value.storageBattery.ip, evChargerDischargerSystem.value.storageBattery.eoj, 0xA5);
+      evChargerDischargerSystemData.value.storageBattery.edt.dischargeableElectricity = (() => { let hex = ''; edt.forEach((v: number) => { hex += v.toHex(2).toUpperCase(); }); return hex === '' ? '' : hex.prefix('0x'); })();
+      evChargerDischargerSystemData.value.storageBattery.dischargeableElectricity = parseInt(evChargerDischargerSystemData.value.storageBattery.edt.dischargeableElectricity, 16) || 0;
 
       // remaining stored electricity: 0xE4
-      edt = store.getters.data(batterySystem.value.storageBattery.ip, batterySystem.value.storageBattery.eoj, 0xE4);
-      batterySystemData.value.storageBattery.edt.remainingStoredElectricity = edt[0]?.toHex(2).toUpperCase().prefix('0x');
-      batterySystemData.value.storageBattery.remainingStoredElectricity = edt[0] || 0;
+      edt = store.getters.data(evChargerDischargerSystem.value.storageBattery.ip, evChargerDischargerSystem.value.storageBattery.eoj, 0xE4);
+      evChargerDischargerSystemData.value.storageBattery.edt.remainingStoredElectricity = edt[0]?.toHex(2).toUpperCase().prefix('0x');
+      evChargerDischargerSystemData.value.storageBattery.remainingStoredElectricity = edt[0] || 0;
 
       // operation mode: 0xCF
-      edt = store.getters.data(batterySystem.value.storageBattery.ip, batterySystem.value.storageBattery.eoj, 0xCF);
-      batterySystemData.value.storageBattery.edt.workingOperationStatus = edt[0]?.toHex(2).toUpperCase().prefix('0x');
-      batterySystemData.value.storageBattery.workingOperationStatus = edt[0];
+      edt = store.getters.data(evChargerDischargerSystem.value.storageBattery.ip, evChargerDischargerSystem.value.storageBattery.eoj, 0xCF);
+      evChargerDischargerSystemData.value.storageBattery.edt.workingOperationStatus = edt[0]?.toHex(2).toUpperCase().prefix('0x');
+      evChargerDischargerSystemData.value.storageBattery.workingOperationStatus = edt[0];
 
       // generated electricity: 0xD3
-      edt = store.getters.data(batterySystem.value.storageBattery.ip, batterySystem.value.storageBattery.eoj, 0xD3);
-      batterySystemData.value.powerPoints.edt.b = (() => { let hex = ''; edt.forEach((v: number) => { hex += v.toHex(2).toUpperCase(); }); return hex === '' ? '' : hex.prefix('0x'); })();
-      batterySystemData.value.powerPoints.b = parseInt(batterySystemData.value.powerPoints.edt.b, 16).toSignedInt('int32') || 0;
+      edt = store.getters.data(evChargerDischargerSystem.value.storageBattery.ip, evChargerDischargerSystem.value.storageBattery.eoj, 0xD3);
+      evChargerDischargerSystemData.value.powerPoints.edt.b = (() => { let hex = ''; edt.forEach((v: number) => { hex += v.toHex(2).toUpperCase(); }); return hex === '' ? '' : hex.prefix('0x'); })();
+      evChargerDischargerSystemData.value.powerPoints.b = parseInt(evChargerDischargerSystemData.value.powerPoints.edt.b, 16).toSignedInt('int32') || 0;
 
-      return batterySystem.value.storageBattery.ip;
+      return evChargerDischargerSystem.value.storageBattery.ip;
     }
 
     function subMeterSetup() {
       // electricity: 0xE7
       if (isRealDevices.value) {
-        const edt = store.getters.data(batterySystem.value.subMeter.ip, batterySystem.value.subMeter.eoj, 0xE7);
-        batterySystemData.value.powerPoints.edt.c = (() => { let hex = ''; edt.forEach((v: number) => { hex += v.toHex(2).toUpperCase(); }); return hex === '' ? '' : hex.prefix('0x'); })();
-        batterySystemData.value.powerPoints.c = (() => {
-          const value = parseInt(batterySystemData.value.powerPoints.edt.c, 16).toSignedInt('int32') || 0;
+        const edt = store.getters.data(evChargerDischargerSystem.value.subMeter.ip, evChargerDischargerSystem.value.subMeter.eoj, 0xE7);
+        evChargerDischargerSystemData.value.powerPoints.edt.c = (() => { let hex = ''; edt.forEach((v: number) => { hex += v.toHex(2).toUpperCase(); }); return hex === '' ? '' : hex.prefix('0x'); })();
+        evChargerDischargerSystemData.value.powerPoints.c = (() => {
+          const value = parseInt(evChargerDischargerSystemData.value.powerPoints.edt.c, 16).toSignedInt('int32') || 0;
           return value === 0x7FFFFFFE ? 'No data' : value;
         })();
       }
 
-      return batterySystem.value.subMeter.ip;
+      return evChargerDischargerSystem.value.subMeter.ip;
     }
 
     function powerDistributionBoardSetup() {
@@ -8175,8 +8175,8 @@ export default defineComponent({
       Measurement channel
       */
       if (isRHE.value) {
-        edt = store.getters.data(batterySystem.value.distributionBoard.ip, batterySystem.value.distributionBoard.eoj, batterySystemPointC.value);
-        batterySystemData.value.powerPoints.edt.c = (() => { let hex = ''; edt.forEach((v: number) => { hex += v.toHex(2).toUpperCase(); }); return hex === '' ? '' : hex.prefix('0x'); })();
+        edt = store.getters.data(evChargerDischargerSystem.value.distributionBoard.ip, evChargerDischargerSystem.value.distributionBoard.eoj, evChargerDischargerSystemPointC.value);
+        evChargerDischargerSystemData.value.powerPoints.edt.c = (() => { let hex = ''; edt.forEach((v: number) => { hex += v.toHex(2).toUpperCase(); }); return hex === '' ? '' : hex.prefix('0x'); })();
         if (edt.length > 0) {
           currentR = edt[4] * 16**2 + edt[5];
           currentT = edt[6] * 16**2 + edt[7];
@@ -8186,15 +8186,15 @@ export default defineComponent({
           if (currentT === 0x7FFE) {
             currentT = 0;
           }
-          batterySystemData.value.powerPoints.c = Math.round((currentR.toSignedInt('int16') + currentT.toSignedInt('int16')) * 0.1 * 100);
+          evChargerDischargerSystemData.value.powerPoints.c = Math.round((currentR.toSignedInt('int16') + currentT.toSignedInt('int16')) * 0.1 * 100);
         }
       }
       /*
       Property D
       Measurement channel
       */
-      edt = store.getters.data(batterySystem.value.distributionBoard.ip, batterySystem.value.distributionBoard.eoj, batterySystemPointD.value);
-      batterySystemData.value.powerPoints.edt.d = (() => { let hex = ''; edt.forEach((v: number) => { hex += v.toHex(2).toUpperCase(); }); return hex === '' ? '' : hex.prefix('0x'); })();
+      edt = store.getters.data(evChargerDischargerSystem.value.distributionBoard.ip, evChargerDischargerSystem.value.distributionBoard.eoj, evChargerDischargerSystemPointD.value);
+      evChargerDischargerSystemData.value.powerPoints.edt.d = (() => { let hex = ''; edt.forEach((v: number) => { hex += v.toHex(2).toUpperCase(); }); return hex === '' ? '' : hex.prefix('0x'); })();
       if (edt.length > 0) {
         currentR = edt[4] * 16**2 + edt[5];
         currentT = edt[6] * 16**2 + edt[7];
@@ -8204,14 +8204,14 @@ export default defineComponent({
         if (currentT === 0x7FFE) {
           currentT = 0;
         }
-        batterySystemData.value.powerPoints.d = Math.round((currentR.toSignedInt('int16') + currentT.toSignedInt('int16')) * 0.1 * 100);
+        evChargerDischargerSystemData.value.powerPoints.d = Math.round((currentR.toSignedInt('int16') + currentT.toSignedInt('int16')) * 0.1 * 100);
       }
       /*
       property E
       Measurement channel
       */
-      edt = store.getters.data(batterySystem.value.distributionBoard.ip, batterySystem.value.distributionBoard.eoj, batterySystemPointE.value);
-      batterySystemData.value.powerPoints.edt.e = (() => { let hex = ''; edt.forEach((v: number) => { hex += v.toHex(2).toUpperCase(); }); return hex === '' ? '' : hex.prefix('0x'); })();
+      edt = store.getters.data(evChargerDischargerSystem.value.distributionBoard.ip, evChargerDischargerSystem.value.distributionBoard.eoj, evChargerDischargerSystemPointE.value);
+      evChargerDischargerSystemData.value.powerPoints.edt.e = (() => { let hex = ''; edt.forEach((v: number) => { hex += v.toHex(2).toUpperCase(); }); return hex === '' ? '' : hex.prefix('0x'); })();
       if (edt.length > 0) {
         currentR = edt[4] * 16**2 + edt[5];
         currentT = edt[6] * 16**2 + edt[7];
@@ -8221,26 +8221,26 @@ export default defineComponent({
         if (currentT === 0x7FFE) {
           currentT = 0;
         }
-        batterySystemData.value.powerPoints.e =  Math.round((currentR.toSignedInt('int16') + currentT.toSignedInt('int16')) * 0.1 * 100);
+        evChargerDischargerSystemData.value.powerPoints.e =  Math.round((currentR.toSignedInt('int16') + currentT.toSignedInt('int16')) * 0.1 * 100);
       }
 
       // property F
       // electric energy: 0xC6
-      edt = store.getters.data(batterySystem.value.distributionBoard.ip, batterySystem.value.distributionBoard.eoj, 0xC6);
-      batterySystemData.value.powerPoints.edt.f = (() => { let hex = ''; edt.forEach((v: number) => { hex += v.toHex(2).toUpperCase(); }); return hex === '' ? '' : hex.prefix('0x'); })();
-      batterySystemData.value.powerPoints.f = (() => {
-        const value = parseInt(batterySystemData.value.powerPoints.edt.f, 16).toSignedInt('int32') || 0;
+      edt = store.getters.data(evChargerDischargerSystem.value.distributionBoard.ip, evChargerDischargerSystem.value.distributionBoard.eoj, 0xC6);
+      evChargerDischargerSystemData.value.powerPoints.edt.f = (() => { let hex = ''; edt.forEach((v: number) => { hex += v.toHex(2).toUpperCase(); }); return hex === '' ? '' : hex.prefix('0x'); })();
+      evChargerDischargerSystemData.value.powerPoints.f = (() => {
+        const value = parseInt(evChargerDischargerSystemData.value.powerPoints.edt.f, 16).toSignedInt('int32') || 0;
         return value === 0x7FFFFFFE ? 'No data' : value;
       })();
 
-      return batterySystem.value.distributionBoard.ip;
+      return evChargerDischargerSystem.value.distributionBoard.ip;
     }
 
     function smartMeterSetup() {
       // Current time setting: 0x97
-      let edt = store.getters.data(batterySystem.value.smartMeter.ip, batterySystem.value.smartMeter.eoj, 0x97);
-      batterySystemData.value.smartMeter.edt.currentTimeSetting = (() => { let hex = ''; edt.forEach((v: number) => { hex += v.toHex(2).toUpperCase(); }); return hex === '' ? '' : hex.prefix('0x'); })();
-      batterySystemData.value.smartMeter.currentTimeSetting = (() => {
+      let edt = store.getters.data(evChargerDischargerSystem.value.smartMeter.ip, evChargerDischargerSystem.value.smartMeter.eoj, 0x97);
+      evChargerDischargerSystemData.value.smartMeter.edt.currentTimeSetting = (() => { let hex = ''; edt.forEach((v: number) => { hex += v.toHex(2).toUpperCase(); }); return hex === '' ? '' : hex.prefix('0x'); })();
+      evChargerDischargerSystemData.value.smartMeter.currentTimeSetting = (() => {
         if (edt.length === 0) { return '--:--'; }
         const hour = (edt[0] + '').padStart(2, '0');
         const minute = (edt[1] + '').padStart(2, '0');
@@ -8248,33 +8248,33 @@ export default defineComponent({
       })();
 
       // electricity: 0xE7
-      edt = store.getters.data(batterySystem.value.smartMeter.ip, batterySystem.value.smartMeter.eoj, 0xE7);
-      batterySystemData.value.powerPoints.edt.g = (() => { let hex = ''; edt.forEach((v: number) => { hex += v.toHex(2).toUpperCase(); }); return hex === '' ? '' : hex.prefix('0x'); })();
-      batterySystemData.value.powerPoints.g = (() => {
-        const value = parseInt(batterySystemData.value.powerPoints.edt.g, 16).toSignedInt('int32') || 0;
+      edt = store.getters.data(evChargerDischargerSystem.value.smartMeter.ip, evChargerDischargerSystem.value.smartMeter.eoj, 0xE7);
+      evChargerDischargerSystemData.value.powerPoints.edt.g = (() => { let hex = ''; edt.forEach((v: number) => { hex += v.toHex(2).toUpperCase(); }); return hex === '' ? '' : hex.prefix('0x'); })();
+      evChargerDischargerSystemData.value.powerPoints.g = (() => {
+        const value = parseInt(evChargerDischargerSystemData.value.powerPoints.edt.g, 16).toSignedInt('int32') || 0;
         return value === 0x7FFFFFFE ? 'No data' : value;
       })();
 
-      return batterySystem.value.smartMeter.ip;
+      return evChargerDischargerSystem.value.smartMeter.ip;
     }
 
     function airConditionerSetup() {
       // operation status: 0x80
-      let edt = store.getters.data(batterySystem.value.airConditioner.ip, batterySystem.value.airConditioner.eoj, 0x80);
-      batterySystemData.value.homeAirConditioner.edt.operationStatus = edt[0]?.toHex(2).toUpperCase().prefix('0x');
-      batterySystemData.value.homeAirConditioner.operationStatus = edt[0];
+      let edt = store.getters.data(evChargerDischargerSystem.value.airConditioner.ip, evChargerDischargerSystem.value.airConditioner.eoj, 0x80);
+      evChargerDischargerSystemData.value.homeAirConditioner.edt.operationStatus = edt[0]?.toHex(2).toUpperCase().prefix('0x');
+      evChargerDischargerSystemData.value.homeAirConditioner.operationStatus = edt[0];
 
       // operation mode: 0xB0
-      edt = store.getters.data(batterySystem.value.airConditioner.ip, batterySystem.value.airConditioner.eoj, 0xB0);
-      batterySystemData.value.homeAirConditioner.edt.operationModeSetting = edt[0]?.toHex(2).toUpperCase().prefix('0x');
-      batterySystemData.value.homeAirConditioner.operationModeSetting = edt[0];
+      edt = store.getters.data(evChargerDischargerSystem.value.airConditioner.ip, evChargerDischargerSystem.value.airConditioner.eoj, 0xB0);
+      evChargerDischargerSystemData.value.homeAirConditioner.edt.operationModeSetting = edt[0]?.toHex(2).toUpperCase().prefix('0x');
+      evChargerDischargerSystemData.value.homeAirConditioner.operationModeSetting = edt[0];
 
       // target temperature: 0xB3
-      edt = store.getters.data(batterySystem.value.airConditioner.ip, batterySystem.value.airConditioner.eoj, 0xB3);
-      batterySystemData.value.homeAirConditioner.edt.setTemperatureValue = edt[0]?.toHex(2).toUpperCase().prefix('0x');
-      batterySystemData.value.homeAirConditioner.setTemperatureValue = edt[0] === 0xFD ? 'Undefined' : edt[0];
+      edt = store.getters.data(evChargerDischargerSystem.value.airConditioner.ip, evChargerDischargerSystem.value.airConditioner.eoj, 0xB3);
+      evChargerDischargerSystemData.value.homeAirConditioner.edt.setTemperatureValue = edt[0]?.toHex(2).toUpperCase().prefix('0x');
+      evChargerDischargerSystemData.value.homeAirConditioner.setTemperatureValue = edt[0] === 0xFD ? 'Undefined' : edt[0];
 
-      return batterySystem.value.airConditioner.ip;
+      return evChargerDischargerSystem.value.airConditioner.ip;
     }
 
     function switchCamera(id: number, isReload?: boolean) {
@@ -8405,12 +8405,12 @@ export default defineComponent({
       setInterval(() => {
         if (routeName.value && ['single', 'single.search'].indexOf(routeName.value.toString()) !== -1) { return; }
 
-        Object.keys(batterySystem.value).forEach(x => {
-          if (batterySystem.value[x].ip === '') { return; }
+        Object.keys(evChargerDischargerSystem.value).forEach(x => {
+          if (evChargerDischargerSystem.value[x].ip === '') { return; }
 
           const questions = (() => {
-            switch (batterySystem.value[x].eoj.class) {
-              // Storage battery
+            switch (evChargerDischargerSystem.value[x].eoj.class) {
+              // EV charger discharger
               case 0x027D:
                 return [0xA4, 0xA5, 0xCF, 0xD3, 0xE4];
               // Household solar power generation
@@ -8419,9 +8419,9 @@ export default defineComponent({
               // Power distribution board
               case 0x0287:
                 if (isRealDevices.value) {
-                  return [batterySystemPointD.value, batterySystemPointE.value, 0xC6];
+                  return [evChargerDischargerSystemPointD.value, evChargerDischargerSystemPointE.value, 0xC6];
                 } else if (isRHE.value) {
-                  return [batterySystemPointC.value, batterySystemPointD.value, batterySystemPointE.value, 0xC6];
+                  return [evChargerDischargerSystemPointC.value, evChargerDischargerSystemPointD.value, evChargerDischargerSystemPointE.value, 0xC6];
                 }
               // Low-voltage smart electric energy meter
               case 0x0288:
@@ -8451,9 +8451,9 @@ export default defineComponent({
             for (let i = 0; i < questions.length; i += 4) {
               batch = questions.slice(i, i + 4);
               store.dispatch('sendEL', {
-                ip: batterySystem.value[x].ip,
+                ip: evChargerDischargerSystem.value[x].ip,
                 el: {
-                  deoj: batterySystem.value[x].eoj,
+                  deoj: evChargerDischargerSystem.value[x].eoj,
                   esv: 0x62,
                   opc: {
                     ops: batch.map((epc: number) => { return { epc: epc, edt: [] }; })
@@ -8469,11 +8469,11 @@ export default defineComponent({
       setInterval(() => {
         if (routeName.value && ['single', 'single.search'].indexOf(routeName.value.toString()) !== -1) { return; }
 
-        Object.keys(batterySystem.value).forEach(x => {
-          if (batterySystem.value[x].ip === '') { return; }
+        Object.keys(evChargerDischargerSystem.value).forEach(x => {
+          if (evChargerDischargerSystem.value[x].ip === '') { return; }
 
           const questions = (() => {
-            switch (batterySystem.value[x].eoj.class) {
+            switch (evChargerDischargerSystem.value[x].eoj.class) {
               // Low-voltage smart electric energy meter
               case 0x0288:
                 if (isRealDevices.value) {
@@ -8492,9 +8492,9 @@ export default defineComponent({
             for (let i = 0; i < questions.length; i += 4) {
               batch = questions.slice(i, i + 4);
               store.dispatch('sendEL', {
-                ip: batterySystem.value[x].ip,
+                ip: evChargerDischargerSystem.value[x].ip,
                 el: {
-                  deoj: batterySystem.value[x].eoj,
+                  deoj: evChargerDischargerSystem.value[x].eoj,
                   esv: 0x62,
                   opc: {
                     ops: batch.map((epc: number) => { return { epc: epc, edt: [] }; })
@@ -8508,15 +8508,15 @@ export default defineComponent({
     });
 
     return {
-      text: computed(() => store.getters.text?.battery?.main),
-      batterySystem,
+      text: computed(() => store.getters.text?.evChargerDischarger?.main),
+      evChargerDischargerSystem,
       ACData,
       StorageData,
       solarPowerData,
       subMeterData,
       distributionBoardData,
       smartMeterData,
-      batterySystemData,
+      evChargerDischargerSystemData,
       isSimpleModeRef,
       isPhotoModeRef,
       isRealDevices,

@@ -15,9 +15,9 @@
           <h3 class="fs-6 text-primary fw-normal">EV Charger Discharger Control</h3>
           <h4 class="small">Operation Mode: 0xDA</h4>
           <div class="d-grid gap-2" v-show="isSimpleModeRef">
-            <button class="btn btn-primary" type="button" v-show="isSimpleModeRef" @click="setStorageBatteryPropertiesSimpleMode('charging')">Charging</button>
-            <button class="btn btn-primary" type="button" v-show="isSimpleModeRef" @click="setStorageBatteryPropertiesSimpleMode('discharging')">Discharging</button>
-            <button class="btn btn-primary" type="button" v-show="isSimpleModeRef" @click="setStorageBatteryPropertiesSimpleMode('standby')">Standby</button>
+            <button class="btn btn-primary" type="button" v-show="isSimpleModeRef" @click="setEVChargerDischargerPropertiesSimpleMode('charging')">Charging</button>
+            <button class="btn btn-primary" type="button" v-show="isSimpleModeRef" @click="setEVChargerDischargerPropertiesSimpleMode('discharging')">Discharging</button>
+            <button class="btn btn-primary" type="button" v-show="isSimpleModeRef" @click="setEVChargerDischargerPropertiesSimpleMode('standby')">Standby</button>
           </div>
           <div v-show="!isSimpleModeRef">
             <div class="form-check">
@@ -42,15 +42,15 @@
           <h4 class="small" v-show="!isSimpleModeRef">Charge Amount: 0xAA</h4>
           <div class="grid gap-1 align-items-center" style="--bs-columns: 4;" v-show="!isSimpleModeRef">
             <input class="form-control h-100" id="f-storage-battery-charge-amount">
-            <label class="g-col-3" for="f-storage-battery-charge-amount">Wh (max {{ batterySystemData.storageBattery.chargeableElectricity }} Wh)</label>
+            <label class="g-col-3" for="f-storage-battery-charge-amount">Wh (max {{ evChargerDischargerSystemData.storageBattery.chargeableElectricity }} Wh)</label>
           </div>
           <h4 class="small" v-show="!isSimpleModeRef">Discharge Amount: 0xAB</h4>
           <div class="grid gap-1 align-items-center" style="--bs-columns: 4;" v-show="!isSimpleModeRef">
             <input class="form-control h-100" id="f-storage-battery-discharge-amount">
-            <label class="g-col-3" for="f-storage-battery-discharge-amount">Wh (max {{ batterySystemData.storageBattery.dischargeableElectricity }} Wh)</label>
+            <label class="g-col-3" for="f-storage-battery-discharge-amount">Wh (max {{ evChargerDischargerSystemData.storageBattery.dischargeableElectricity }} Wh)</label>
           </div>
           <div class="d-grid justify-content-evenly" v-show="!isSimpleModeRef">
-            <button class="btn btn-secondary rounded-pill px-4" type="button" @click="setStorageBatteryProperties" v-show="!isSimpleModeRef">Set</button>
+            <button class="btn btn-secondary rounded-pill px-4" type="button" @click="setEVChargerDischargerProperties" v-show="!isSimpleModeRef">Set</button>
           </div>
         </div>
         <!-- Air Conditioner Control -->
@@ -110,33 +110,33 @@
           <div class="d-flex flex-row justify-content-sm-between">
             <div class="d-flex flex-column">
               <div class="small">0xE0: Generated electric power</div>
-              <div class="small">{{ batterySystemData.powerPoints.a }} W (EDT: {{ batterySystemData.powerPoints.edt.a }})</div>
+              <div class="small">{{ evChargerDischargerSystemData.powerPoints.a }} W (EDT: {{ evChargerDischargerSystemData.powerPoints.edt.a }})</div>
             </div>
             <div class="flex-shrink-0 power-circle">A</div>
           </div>
         </div>
         <div class="card shadow p-3 d-grid gap-2">
-          <h3 class="fs-6 text-primary fw-normal">{{ renderStorageBatteryProperties() }}</h3>
+          <h3 class="fs-6 text-primary fw-normal">{{ renderEVChargerDischargerProperties() }}</h3>
           <div class="d-flex flex-column">
             <div class="small">0xA4: Chargeable electric energy</div>
-            <div class="small">{{ batterySystemData.storageBattery.chargeableElectricity }} Wh (EDT: {{ batterySystemData.storageBattery.edt.chargeableElectricity }})</div>
+            <div class="small">{{ evChargerDischargerSystemData.storageBattery.chargeableElectricity }} Wh (EDT: {{ evChargerDischargerSystemData.storageBattery.edt.chargeableElectricity }})</div>
           </div>
           <div class="d-flex flex-column">
             <div class="small">0xA5: Dischargeable electric energy</div>
-            <div class="small">{{ batterySystemData.storageBattery.dischargeableElectricity }} Wh (EDT: {{ batterySystemData.storageBattery.edt.dischargeableElectricity }})</div>
+            <div class="small">{{ evChargerDischargerSystemData.storageBattery.dischargeableElectricity }} Wh (EDT: {{ evChargerDischargerSystemData.storageBattery.edt.dischargeableElectricity }})</div>
           </div>
           <div class="d-flex flex-column">
             <div class="small">0xE4: Remaining Stored electricity</div>
-            <div class="small">{{ batterySystemData.storageBattery.remainingStoredElectricity }} % (EDT: {{ batterySystemData.storageBattery.edt.remainingStoredElectricity }})</div>
+            <div class="small">{{ evChargerDischargerSystemData.storageBattery.remainingStoredElectricity }} % (EDT: {{ evChargerDischargerSystemData.storageBattery.edt.remainingStoredElectricity }})</div>
           </div>
           <div class="d-flex flex-column">
             <div class="small">0xCF: Operation Status</div>
-            <div class="small">{{ monitorDevicesData.storageBattery.workingOperationStatus }} (EDT: {{ batterySystemData.storageBattery.edt.workingOperationStatus }})</div>
+            <div class="small">{{ monitorDevicesData.storageBattery.workingOperationStatus }} (EDT: {{ evChargerDischargerSystemData.storageBattery.edt.workingOperationStatus }})</div>
           </div>
           <div class="d-flex flex-row justify-content-sm-between">
             <div class="d-flex flex-column">
               <div class="small">0xD3: Charge(+)/Discharge(-) electric power</div>
-              <div class="small">{{ batterySystemData.powerPoints.b }} W (EDT: {{ batterySystemData.powerPoints.edt.b }})</div>
+              <div class="small">{{ evChargerDischargerSystemData.powerPoints.b }} W (EDT: {{ evChargerDischargerSystemData.powerPoints.edt.b }})</div>
             </div>
             <div class="flex-shrink-0 power-circle">B</div>
           </div>
@@ -146,7 +146,7 @@
           <div class="d-flex flex-row justify-content-sm-between">
             <div class="d-flex flex-column">
               <div class="small">0xE7: Electric power</div>
-              <div class="small">{{ batterySystemData.powerPoints.c === 'No data' ? 'No Data' : batterySystemData.powerPoints.c + ' W' }} (EDT: {{ batterySystemData.powerPoints.edt.c }})</div>
+              <div class="small">{{ evChargerDischargerSystemData.powerPoints.c === 'No data' ? 'No Data' : evChargerDischargerSystemData.powerPoints.c + ' W' }} (EDT: {{ evChargerDischargerSystemData.powerPoints.edt.c }})</div>
             </div>
             <div class="flex-shrink-0 power-circle">C</div>
           </div>
@@ -155,29 +155,29 @@
           <h3 class="fs-6 text-primary fw-normal">Power Distribution Board</h3>
           <div class="flex-row justify-content-sm-between" :class="{'d-none': isRealDevices, 'd-flex': isRHE}">
             <div class="d-flex flex-column">
-              <div class="small">{{ batterySystemPointC.toHex(2).toUpperCase().prefix('0x') }}: Electric power</div>
-              <div class="small">{{ batterySystemData.powerPoints.c }} W (EDT: {{ batterySystemData.powerPoints.edt.c }})</div>
+              <div class="small">{{ evChargerDischargerSystemPointC.toHex(2).toUpperCase().prefix('0x') }}: Electric power</div>
+              <div class="small">{{ evChargerDischargerSystemData.powerPoints.c }} W (EDT: {{ evChargerDischargerSystemData.powerPoints.edt.c }})</div>
             </div>
             <div class="flex-shrink-0 power-circle">C</div>
           </div>
           <div class="d-flex flex-row justify-content-sm-between">
             <div class="d-flex flex-column">
-              <div class="small">{{ batterySystemPointD.toHex(2).toUpperCase().prefix('0x') }}: Electric power</div>
-              <div class="small">{{ batterySystemData.powerPoints.d }} W (EDT: {{ batterySystemData.powerPoints.edt.d }})</div>
+              <div class="small">{{ evChargerDischargerSystemPointD.toHex(2).toUpperCase().prefix('0x') }}: Electric power</div>
+              <div class="small">{{ evChargerDischargerSystemData.powerPoints.d }} W (EDT: {{ evChargerDischargerSystemData.powerPoints.edt.d }})</div>
             </div>
             <div class="flex-shrink-0 power-circle">D</div>
           </div>
           <div class="d-flex flex-row justify-content-sm-between">
             <div class="d-flex flex-column">
-              <div class="small">{{ batterySystemPointE.toHex(2).toUpperCase().prefix('0x') }}: Electric power</div>
-              <div class="small">{{ batterySystemData.powerPoints.e }} W (EDT: {{ batterySystemData.powerPoints.edt.e }})</div>
+              <div class="small">{{ evChargerDischargerSystemPointE.toHex(2).toUpperCase().prefix('0x') }}: Electric power</div>
+              <div class="small">{{ evChargerDischargerSystemData.powerPoints.e }} W (EDT: {{ evChargerDischargerSystemData.powerPoints.edt.e }})</div>
             </div>
             <div class="flex-shrink-0 power-circle">E</div>
           </div>
           <div class="d-flex flex-row justify-content-sm-between">
             <div class="d-flex flex-column">
               <div class="small">0xC6: Electric power</div>
-              <div class="small">{{ batterySystemData.powerPoints.f === 'No data' ? 'No Data' : batterySystemData.powerPoints.f + ' W' }} (EDT: {{ batterySystemData.powerPoints.edt.f }})</div>
+              <div class="small">{{ evChargerDischargerSystemData.powerPoints.f === 'No data' ? 'No Data' : evChargerDischargerSystemData.powerPoints.f + ' W' }} (EDT: {{ evChargerDischargerSystemData.powerPoints.edt.f }})</div>
             </div>
             <div class="flex-shrink-0 power-circle">F</div>
           </div>
@@ -187,7 +187,7 @@
           <div class="d-flex flex-row justify-content-sm-between">
             <div class="d-flex flex-column">
               <div class="small">0xE7: Electric power</div>
-              <div class="small">{{ batterySystemData.powerPoints.g === 'No data' ? 'No Data' : batterySystemData.powerPoints.g + ' W' }} (EDT: {{ batterySystemData.powerPoints.edt.g }})</div>
+              <div class="small">{{ evChargerDischargerSystemData.powerPoints.g === 'No data' ? 'No Data' : evChargerDischargerSystemData.powerPoints.g + ' W' }} (EDT: {{ evChargerDischargerSystemData.powerPoints.edt.g }})</div>
             </div>
             <div class="flex-shrink-0 power-circle">G</div>
           </div>
@@ -196,15 +196,15 @@
           <h3 class="fs-6 text-primary fw-normal">{{ renderAirConditionerProperties() }}</h3>
           <div class="d-flex flex-column">
             <div class="small">0x80: Operation Status</div>
-            <div class="small">{{ monitorDevicesData.homeAirConditioner.operationStatus }} (EDT: {{ batterySystemData.homeAirConditioner.edt.operationStatus }})</div>
+            <div class="small">{{ monitorDevicesData.homeAirConditioner.operationStatus }} (EDT: {{ evChargerDischargerSystemData.homeAirConditioner.edt.operationStatus }})</div>
           </div>
           <div class="d-flex flex-column">
             <div class="small">0xB0: Operation Mode</div>
-            <div class="small">{{ monitorDevicesData.homeAirConditioner.operationModeSetting }} (EDT: {{ batterySystemData.homeAirConditioner.edt.operationModeSetting }})</div>
+            <div class="small">{{ monitorDevicesData.homeAirConditioner.operationModeSetting }} (EDT: {{ evChargerDischargerSystemData.homeAirConditioner.edt.operationModeSetting }})</div>
           </div>
           <div class="d-flex flex-column">
             <div class="small">0xB3: Target Temperature</div>
-            <div class="small">{{ monitorDevicesData.homeAirConditioner.setTemperatureValue }} (EDT: {{ batterySystemData.homeAirConditioner.edt.setTemperatureValue }})</div>
+            <div class="small">{{ monitorDevicesData.homeAirConditioner.setTemperatureValue }} (EDT: {{ evChargerDischargerSystemData.homeAirConditioner.edt.setTemperatureValue }})</div>
           </div>
         </div>
       </div>
@@ -220,17 +220,17 @@ export default defineComponent({
   setup() {
     const store                 = useStore(),
           tab                   = ref<string>('control'),
-          batterySystem         = computed(() => store.state.batterySystem),
-          batterySystemData     = computed(() => store.state.batterySystemData),
-          batterySystemPointC   = computed(() => store.state.batterySystemPointC),
-          batterySystemPointD   = computed(() => store.state.batterySystemPointD),
-          batterySystemPointE   = computed(() => store.state.batterySystemPointE),
-          isRealDevices         = computed(() => store.state.batterySystemMode === 'real' ? true : false),
-          isRHE                 = computed(() => store.state.batterySystemMode === 'rhe' ? true : false),
-          isSimpleMode          = computed(() => store.state.batterySystemUIModeSimple),
+          evChargerDischargerSystem         = computed(() => store.state.evChargerDischargerSystem),
+          evChargerDischargerSystemData     = computed(() => store.state.evChargerDischargerSystemData),
+          evChargerDischargerSystemPointC   = computed(() => store.state.evChargerDischargerSystemPointC),
+          evChargerDischargerSystemPointD   = computed(() => store.state.evChargerDischargerSystemPointD),
+          evChargerDischargerSystemPointE   = computed(() => store.state.evChargerDischargerSystemPointE),
+          isRealDevices         = computed(() => store.state.evChargerDischargerSystemMode === 'real' ? true : false),
+          isRHE                 = computed(() => store.state.evChargerDischargerSystemMode === 'rhe' ? true : false),
+          isSimpleMode          = computed(() => store.state.evChargerDischargerSystemUIModeSimple),
           isSimpleModeRef       = ref<string>(''),
           monitorDevicesData    = reactive<any>({
-            storageBattery: {
+            evChargerDischarger: {
               workingOperationStatus: "",
             },
             homeAirConditioner: {
@@ -245,7 +245,7 @@ export default defineComponent({
     Set air conditioner properties
     */
     function setAirConditionerProperties() {
-      if (batterySystem.value.airConditioner.ip === '') { return; }
+      if (evChargerDischargerSystem.value.airConditioner.ip === '') { return; }
 
       // operation status: 0x80
       const status = (document.querySelector('input[name="f-air-conditioner-operation-status"]:checked') as HTMLInputElement)?.value;
@@ -257,9 +257,9 @@ export default defineComponent({
 
       // Set property
       store.dispatch('sendEL', {
-        ip: batterySystem.value.airConditioner.ip,
+        ip: evChargerDischargerSystem.value.airConditioner.ip,
         el: {
-          deoj: batterySystem.value.airConditioner.eoj,
+          deoj: evChargerDischargerSystem.value.airConditioner.eoj,
           esv: 0x61,
           opc: {
             ops: [
@@ -283,9 +283,9 @@ export default defineComponent({
       // Get property
       setTimeout(() => {
         store.dispatch('sendEL', {
-          ip: batterySystem.value.airConditioner.ip,
+          ip: evChargerDischargerSystem.value.airConditioner.ip,
           el: {
-            deoj: batterySystem.value.airConditioner.eoj,
+            deoj: evChargerDischargerSystem.value.airConditioner.eoj,
             esv: 0x62,
             opc: {
               ops: [
@@ -325,10 +325,10 @@ export default defineComponent({
     }
 
     /*
-    Set storage battery properties
+    Set ev charger discharger properties
     */
-    function setStorageBatteryProperties() {
-      if (batterySystem.value.storageBattery.ip === '') { return; }
+    function setEVChargerDischargerProperties() {
+      if (evChargerDischargerSystem.value.storageBattery.ip === '') { return; }
 
       const epcList: number[] = [],
             edtList = [];
@@ -347,7 +347,7 @@ export default defineComponent({
             return;
           }
           const chargeAmount = parseInt(chargeAmountField.value);
-          if (chargeAmount < 0 || batterySystemData.value.storageBattery.chargeableElectricity < chargeAmount) {
+          if (chargeAmount < 0 || evChargerDischargerSystemData.value.storageBattery.chargeableElectricity < chargeAmount) {
             chargeAmountField.classList.add('is-invalid');
             return;
           }
@@ -366,7 +366,7 @@ export default defineComponent({
             return;
           }
           const dischargeAmount = parseInt(dischargeAmountField.value);
-          if (dischargeAmount < 0 || batterySystemData.value.storageBattery.chargeableElectricity < dischargeAmount) {
+          if (dischargeAmount < 0 || evChargerDischargerSystemData.value.storageBattery.chargeableElectricity < dischargeAmount) {
             dischargeAmountField.classList.add('is-invalid');
             return;
           }
@@ -386,9 +386,9 @@ export default defineComponent({
       for (let i = 0; i < epcList.length; i++) {
         // Set property
         store.dispatch('sendEL', {
-          ip: batterySystem.value.storageBattery.ip,
+          ip: evChargerDischargerSystem.value.storageBattery.ip,
           el: {
-            deoj: batterySystem.value.storageBattery.eoj,
+            deoj: evChargerDischargerSystem.value.storageBattery.eoj,
             esv: 0x61,
             opc: {
               ops: [
@@ -404,9 +404,9 @@ export default defineComponent({
         // Get property
         setTimeout(() => {
           store.dispatch('sendEL', {
-          ip: batterySystem.value.storageBattery.ip,
+          ip: evChargerDischargerSystem.value.storageBattery.ip,
           el: {
-            deoj: batterySystem.value.storageBattery.eoj,
+            deoj: evChargerDischargerSystem.value.storageBattery.eoj,
             esv: 0x62,
             opc: {
               ops: [
@@ -423,9 +423,9 @@ export default defineComponent({
     }
 
     /*
-    Set storage battery properties during the SimpleMode
+    Set ev charger discharger properties during the SimpleMode
     */
-    function setStorageBatteryPropertiesSimpleMode(mode: string) {
+    function setEVChargerDischargerPropertiesSimpleMode(mode: string) {
       switch (mode) {
         case 'charging':
           document.getElementById('f-storage-battery-operation-mode-42')!.click();
@@ -440,7 +440,7 @@ export default defineComponent({
           break;
       }
 
-      setStorageBatteryProperties();
+      setEVChargerDischargerProperties();
     }
 
     /*
@@ -448,16 +448,16 @@ export default defineComponent({
     */
     function renderAirConditionerProperties() {
       // operation status: 0x80
-      if (batterySystemData.value.homeAirConditioner.operationStatus === 0x30) {
+      if (evChargerDischargerSystemData.value.homeAirConditioner.operationStatus === 0x30) {
         monitorDevicesData.homeAirConditioner.operationStatus = 'ON';
-      } else if (batterySystemData.value.homeAirConditioner.operationStatus === 0x31) {
+      } else if (evChargerDischargerSystemData.value.homeAirConditioner.operationStatus === 0x31) {
         monitorDevicesData.homeAirConditioner.operationStatus = 'OFF';
       } else {
         monitorDevicesData.homeAirConditioner.operationStatus = "No Data";
       }
 
       // operation mode: 0xB0
-      switch(batterySystemData.value.homeAirConditioner.operationModeSetting) {
+      switch(evChargerDischargerSystemData.value.homeAirConditioner.operationModeSetting) {
         case 0x41:
           monitorDevicesData.homeAirConditioner.operationModeSetting = "Automatic";
           break;
@@ -481,8 +481,8 @@ export default defineComponent({
       }
 
       // target temperature: 0xB3
-      if (batterySystemData.value.homeAirConditioner.setTemperatureValue) {
-        monitorDevicesData.homeAirConditioner.setTemperatureValue = (batterySystemData.value.homeAirConditioner.setTemperatureValue === 253) ? "Undefined" : batterySystemData.value.homeAirConditioner.setTemperatureValue + "℃";
+      if (evChargerDischargerSystemData.value.homeAirConditioner.setTemperatureValue) {
+        monitorDevicesData.homeAirConditioner.setTemperatureValue = (evChargerDischargerSystemData.value.homeAirConditioner.setTemperatureValue === 253) ? "Undefined" : evChargerDischargerSystemData.value.homeAirConditioner.setTemperatureValue + "℃";
       } else {
         monitorDevicesData.homeAirConditioner.setTemperatureValue = "No Data";
       }
@@ -491,11 +491,11 @@ export default defineComponent({
     }
 
     /*
-    Render Storage battery properties
+    Render ev charger discharger properties
     */
-    function renderStorageBatteryProperties() {
+    function renderEVChargerDischargerProperties() {
       // working operation status: 0xCF
-      switch(batterySystemData.value.storageBattery.workingOperationStatus) {
+      switch(evChargerDischargerSystemData.value.storageBattery.workingOperationStatus) {
         case 0x41:
           monitorDevicesData.storageBattery.workingOperationStatus = "rapidCharging";
           break;
@@ -527,21 +527,21 @@ export default defineComponent({
     });
 
     return {
-      text: computed(() => store.getters.text?.battery?.controls),
+      text: computed(() => store.getters.text?.evChargerDischarger?.controls),
       tab,
       airConditionerTargetTemperature,
-      setStorageBatteryProperties,
-      setStorageBatteryPropertiesSimpleMode,
+      setEVChargerDischargerProperties,
+      setEVChargerDischargerPropertiesSimpleMode,
       setAirConditionerProperties,
       setAirConditionerPropertiesSimpleMode,
       renderAirConditionerProperties,
-      renderStorageBatteryProperties,
+      renderEVChargerDischargerProperties,
       monitorDevicesData,
-      batterySystem,
-      batterySystemData,
-      batterySystemPointC,
-      batterySystemPointD,
-      batterySystemPointE,
+      evChargerDischargerSystem,
+      evChargerDischargerSystemData,
+      evChargerDischargerSystemPointC,
+      evChargerDischargerSystemPointD,
+      evChargerDischargerSystemPointE,
       isSimpleModeRef,
       isRealDevices,
       isRHE
