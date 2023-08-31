@@ -94,10 +94,10 @@ export default defineComponent({
   background-position: center 92px;
 
   &:hover {
-    box-shadow: 0 0 0 .25rem #923cd0 !important;
+    box-shadow: 0 0 0 .25rem #915EFD !important;
   }
   > .home-nav-item-label {
-    background-image: linear-gradient(90deg, var(--color-gradient-ev-start) 0%, var(--color-gradient-ev-end) 100%);
+    background-image: linear-gradient(90deg, var(--color-gradient-evchargerdischarger-start) 0%, var(--color-gradient-evchargerdischarger-end) 100%);
   }
 }
 </style>

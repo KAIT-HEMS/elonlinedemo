@@ -100,8 +100,8 @@ export default defineComponent({
 .header-nav-evchargerdischarger {
   background-image:    url('/assets/img/icon-nav-evchargerdischarger.svg');
   background-repeat:   no-repeat;
-  background-position: center 10px;
-  background-size:     32px;
+  background-position: center 12px;
+  background-size:     30px;
   padding-top:         40px;
   line-height:         18px;
 }
