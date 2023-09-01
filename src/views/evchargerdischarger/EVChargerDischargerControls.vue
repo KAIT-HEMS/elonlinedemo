@@ -21,33 +21,33 @@
           </div>
           <div v-show="!isSimpleModeRef">
             <div class="form-check">
-              <input class="form-check-input" id="f-storage-battery-operation-mode-42" type="radio" name="f-storage-battery-operation-mode" value="0x42">
-              <label class="form-check-label" for="f-storage-battery-operation-mode-42">
+              <input class="form-check-input" id="f-ev-charger-discharger-operation-mode-42" type="radio" name="f-ev-charger-discharger-operation-mode" value="0x42">
+              <label class="form-check-label" for="f-ev-charger-discharger-operation-mode-42">
                 Charging: 0x42
               </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" id="f-storage-battery-operation-mode-43" type="radio" name="f-storage-battery-operation-mode" value="0x43">
-              <label class="form-check-label" for="f-storage-battery-operation-mode-43">
+              <input class="form-check-input" id="f-ev-charger-discharger-operation-mode-43" type="radio" name="f-ev-charger-discharger-operation-mode" value="0x43">
+              <label class="form-check-label" for="f-ev-charger-discharger-operation-mode-43">
                 Discharging: 0x43
               </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" id="f-storage-battery-operation-mode-44" type="radio" name="f-storage-battery-operation-mode" value="0x44">
-              <label class="form-check-label" for="f-storage-battery-operation-mode-44">
+              <input class="form-check-input" id="f-ev-charger-discharger-operation-mode-44" type="radio" name="f-ev-charger-discharger-operation-mode" value="0x44">
+              <label class="form-check-label" for="f-ev-charger-discharger-operation-mode-44">
                 Standby: 0x44
               </label>
             </div>
           </div>
           <h4 class="small" v-show="!isSimpleModeRef">Charge Amount: 0xAA</h4>
           <div class="grid gap-1 align-items-center" style="--bs-columns: 4;" v-show="!isSimpleModeRef">
-            <input class="form-control h-100" id="f-storage-battery-charge-amount">
-            <label class="g-col-3" for="f-storage-battery-charge-amount">Wh (max {{ evChargerDischargerSystemData.storageBattery.chargeableElectricity }} Wh)</label>
+            <input class="form-control h-100" id="f-ev-charger-discharger-charge-amount">
+            <label class="g-col-3" for="f-ev-charger-discharger-charge-amount">Wh (max {{ evChargerDischargerSystemData.evChargerDischarger.chargeableElectricity }} Wh)</label>
           </div>
           <h4 class="small" v-show="!isSimpleModeRef">Discharge Amount: 0xAB</h4>
           <div class="grid gap-1 align-items-center" style="--bs-columns: 4;" v-show="!isSimpleModeRef">
-            <input class="form-control h-100" id="f-storage-battery-discharge-amount">
-            <label class="g-col-3" for="f-storage-battery-discharge-amount">Wh (max {{ evChargerDischargerSystemData.storageBattery.dischargeableElectricity }} Wh)</label>
+            <input class="form-control h-100" id="f-ev-charger-discharger-discharge-amount">
+            <label class="g-col-3" for="f-ev-charger-discharger-discharge-amount">Wh (max {{ evChargerDischargerSystemData.evChargerDischarger.dischargeableElectricity }} Wh)</label>
           </div>
           <div class="d-grid justify-content-evenly" v-show="!isSimpleModeRef">
             <button class="btn btn-secondary rounded-pill px-4" type="button" @click="setEVChargerDischargerProperties" v-show="!isSimpleModeRef">Set</button>
@@ -119,19 +119,19 @@
           <h3 class="fs-6 text-primary fw-normal">{{ renderEVChargerDischargerProperties() }}</h3>
           <div class="d-flex flex-column">
             <div class="small">0xA4: Chargeable electric energy</div>
-            <div class="small">{{ evChargerDischargerSystemData.storageBattery.chargeableElectricity }} Wh (EDT: {{ evChargerDischargerSystemData.storageBattery.edt.chargeableElectricity }})</div>
+            <div class="small">{{ evChargerDischargerSystemData.evChargerDischarger.chargeableElectricity }} Wh (EDT: {{ evChargerDischargerSystemData.evChargerDischarger.edt.chargeableElectricity }})</div>
           </div>
           <div class="d-flex flex-column">
             <div class="small">0xA5: Dischargeable electric energy</div>
-            <div class="small">{{ evChargerDischargerSystemData.storageBattery.dischargeableElectricity }} Wh (EDT: {{ evChargerDischargerSystemData.storageBattery.edt.dischargeableElectricity }})</div>
+            <div class="small">{{ evChargerDischargerSystemData.evChargerDischarger.dischargeableElectricity }} Wh (EDT: {{ evChargerDischargerSystemData.evChargerDischarger.edt.dischargeableElectricity }})</div>
           </div>
           <div class="d-flex flex-column">
             <div class="small">0xE4: Remaining Stored electricity</div>
-            <div class="small">{{ evChargerDischargerSystemData.storageBattery.remainingStoredElectricity }} % (EDT: {{ evChargerDischargerSystemData.storageBattery.edt.remainingStoredElectricity }})</div>
+            <div class="small">{{ evChargerDischargerSystemData.evChargerDischarger.remainingStoredElectricity }} % (EDT: {{ evChargerDischargerSystemData.evChargerDischarger.edt.remainingStoredElectricity }})</div>
           </div>
           <div class="d-flex flex-column">
             <div class="small">0xCF: Operation Status</div>
-            <div class="small">{{ monitorDevicesData.storageBattery.workingOperationStatus }} (EDT: {{ evChargerDischargerSystemData.storageBattery.edt.workingOperationStatus }})</div>
+            <div class="small">{{ monitorDevicesData.evChargerDischarger.workingOperationStatus }} (EDT: {{ evChargerDischargerSystemData.evChargerDischarger.edt.workingOperationStatus }})</div>
           </div>
           <div class="d-flex flex-row justify-content-sm-between">
             <div class="d-flex flex-column">
@@ -328,26 +328,26 @@ export default defineComponent({
     Set ev charger discharger properties
     */
     function setEVChargerDischargerProperties() {
-      if (evChargerDischargerSystem.value.storageBattery.ip === '') { return; }
+      if (evChargerDischargerSystem.value.evChargerDischarger.ip === '') { return; }
 
       const epcList: number[] = [],
             edtList = [];
 
       // Operation Mode: 0xDA
-      const mode = (document.querySelector('input[name="f-storage-battery-operation-mode"]:checked') as HTMLInputElement)?.value;
+      const mode = (document.querySelector('input[name="f-ev-charger-discharger-operation-mode"]:checked') as HTMLInputElement)?.value;
       if (!mode) { return; }
 
       switch (mode) {
         // Charging
         case '0x42':
-          const chargeAmountField = document.getElementById('f-storage-battery-charge-amount') as HTMLInputElement;
+          const chargeAmountField = document.getElementById('f-ev-charger-discharger-charge-amount') as HTMLInputElement;
           chargeAmountField.classList.remove('is-invalid');
           if (chargeAmountField.value === '' || Number.isNaN(chargeAmountField.value)) {
             chargeAmountField.classList.add('is-invalid');
             return;
           }
           const chargeAmount = parseInt(chargeAmountField.value);
-          if (chargeAmount < 0 || evChargerDischargerSystemData.value.storageBattery.chargeableElectricity < chargeAmount) {
+          if (chargeAmount < 0 || evChargerDischargerSystemData.value.evChargerDischarger.chargeableElectricity < chargeAmount) {
             chargeAmountField.classList.add('is-invalid');
             return;
           }
@@ -359,14 +359,14 @@ export default defineComponent({
           break;
         // Discharging
         case '0x43':
-          const dischargeAmountField = document.getElementById('f-storage-battery-discharge-amount') as HTMLInputElement;
+          const dischargeAmountField = document.getElementById('f-ev-charger-discharger-discharge-amount') as HTMLInputElement;
           dischargeAmountField.classList.remove('is-invalid');
           if (dischargeAmountField.value === '' || Number.isNaN(dischargeAmountField.value)) {
             dischargeAmountField.classList.add('is-invalid');
             return;
           }
           const dischargeAmount = parseInt(dischargeAmountField.value);
-          if (dischargeAmount < 0 || evChargerDischargerSystemData.value.storageBattery.chargeableElectricity < dischargeAmount) {
+          if (dischargeAmount < 0 || evChargerDischargerSystemData.value.evChargerDischarger.chargeableElectricity < dischargeAmount) {
             dischargeAmountField.classList.add('is-invalid');
             return;
           }
@@ -386,9 +386,9 @@ export default defineComponent({
       for (let i = 0; i < epcList.length; i++) {
         // Set property
         store.dispatch('sendEL', {
-          ip: evChargerDischargerSystem.value.storageBattery.ip,
+          ip: evChargerDischargerSystem.value.evChargerDischarger.ip,
           el: {
-            deoj: evChargerDischargerSystem.value.storageBattery.eoj,
+            deoj: evChargerDischargerSystem.value.evChargerDischarger.eoj,
             esv: 0x61,
             opc: {
               ops: [
@@ -404,9 +404,9 @@ export default defineComponent({
         // Get property
         setTimeout(() => {
           store.dispatch('sendEL', {
-          ip: evChargerDischargerSystem.value.storageBattery.ip,
+          ip: evChargerDischargerSystem.value.evChargerDischarger.ip,
           el: {
-            deoj: evChargerDischargerSystem.value.storageBattery.eoj,
+            deoj: evChargerDischargerSystem.value.evChargerDischarger.eoj,
             esv: 0x62,
             opc: {
               ops: [
@@ -428,15 +428,15 @@ export default defineComponent({
     function setEVChargerDischargerPropertiesSimpleMode(mode: string) {
       switch (mode) {
         case 'charging':
-          document.getElementById('f-storage-battery-operation-mode-42')!.click();
-          (document.getElementById('f-storage-battery-charge-amount') as HTMLInputElement).value = '100';
+          document.getElementById('f-ev-charger-discharger-operation-mode-42')!.click();
+          (document.getElementById('f-ev-charger-discharger-charge-amount') as HTMLInputElement).value = '100';
           break;
         case 'discharging':
-          document.getElementById('f-storage-battery-operation-mode-43')!.click();
-          (document.getElementById('f-storage-battery-discharge-amount') as HTMLInputElement).value = '100';
+          document.getElementById('f-ev-charger-discharger-operation-mode-43')!.click();
+          (document.getElementById('f-ev-charger-discharger-discharge-amount') as HTMLInputElement).value = '100';
           break;
         case 'standby':
-          document.getElementById('f-storage-battery-operation-mode-44')!.click();
+          document.getElementById('f-ev-charger-discharger-operation-mode-44')!.click();
           break;
       }
 
@@ -495,30 +495,30 @@ export default defineComponent({
     */
     function renderEVChargerDischargerProperties() {
       // working operation status: 0xCF
-      switch(evChargerDischargerSystemData.value.storageBattery.workingOperationStatus) {
+      switch(evChargerDischargerSystemData.value.evChargerDischarger.workingOperationStatus) {
         case 0x41:
-          monitorDevicesData.storageBattery.workingOperationStatus = "rapidCharging";
+          monitorDevicesData.evChargerDischarger.workingOperationStatus = "rapidCharging";
           break;
         case 0x42:
-          monitorDevicesData.storageBattery.workingOperationStatus = "charging";
+          monitorDevicesData.evChargerDischarger.workingOperationStatus = "charging";
           break;
         case 0x43:
-          monitorDevicesData.storageBattery.workingOperationStatus = "discharging";
+          monitorDevicesData.evChargerDischarger.workingOperationStatus = "discharging";
           break;
         case 0x44:
-          monitorDevicesData.storageBattery.workingOperationStatus = "standby";
+          monitorDevicesData.evChargerDischarger.workingOperationStatus = "standby";
           break;
         case 0x45:
-          monitorDevicesData.storageBattery.workingOperationStatus = "test";
+          monitorDevicesData.evChargerDischarger.workingOperationStatus = "test";
           break;
         case 0x40:
-          monitorDevicesData.storageBattery.workingOperationStatus = "Other";
+          monitorDevicesData.evChargerDischarger.workingOperationStatus = "Other";
           break;
         default:
-          monitorDevicesData.storageBattery.workingOperationStatus = "No Data"
+          monitorDevicesData.evChargerDischarger.workingOperationStatus = "No Data"
       }
 
-      return "Storage Battery";
+      return "EV Charger Discharger";
     }
 
     watch(isSimpleMode, () => {

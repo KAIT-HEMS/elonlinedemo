@@ -8048,7 +8048,7 @@ export default defineComponent({
           evChargerDischargerSystemPointD   = computed(() => store.state.evChargerDischargerSystemPointD),
           evChargerDischargerSystemPointE   = computed(() => store.state.evChargerDischargerSystemPointE),
           ACData                = computed(airConditionerSetup),
-          StorageData           = computed(storageBatterySetup),
+          StorageData           = computed(evChargerDischargerSetup),
           solarPowerData        = computed(powerGenerationSetup),
           subMeterData          = computed(subMeterSetup),
           smartMeterData        = computed(smartMeterSetup),
@@ -8124,33 +8124,33 @@ export default defineComponent({
       return evChargerDischargerSystem.value.solarPower.ip;
     }
 
-    function storageBatterySetup() {
+    function evChargerDischargerSetup() {
       // chargable electricity: 0xA4
-      let edt = store.getters.data(evChargerDischargerSystem.value.storageBattery.ip, evChargerDischargerSystem.value.storageBattery.eoj, 0xA4);
-      evChargerDischargerSystemData.value.storageBattery.edt.chargeableElectricity = (() => { let hex = ''; edt.forEach((v: number) => { hex += v.toHex(2).toUpperCase(); }); return hex === '' ? '' : hex.prefix('0x'); })();
-      evChargerDischargerSystemData.value.storageBattery.chargeableElectricity = parseInt(evChargerDischargerSystemData.value.storageBattery.edt.chargeableElectricity, 16) || 0;
+      let edt = store.getters.data(evChargerDischargerSystem.value.evChargerDischarger.ip, evChargerDischargerSystem.value.evChargerDischarger.eoj, 0xA4);
+      evChargerDischargerSystemData.value.evChargerDischarger.edt.chargeableElectricity = (() => { let hex = ''; edt.forEach((v: number) => { hex += v.toHex(2).toUpperCase(); }); return hex === '' ? '' : hex.prefix('0x'); })();
+      evChargerDischargerSystemData.value.evChargerDischarger.chargeableElectricity = parseInt(evChargerDischargerSystemData.value.evChargerDischarger.edt.chargeableElectricity, 16) || 0;
 
       // dischargable electricity: 0xA5
-      edt = store.getters.data(evChargerDischargerSystem.value.storageBattery.ip, evChargerDischargerSystem.value.storageBattery.eoj, 0xA5);
-      evChargerDischargerSystemData.value.storageBattery.edt.dischargeableElectricity = (() => { let hex = ''; edt.forEach((v: number) => { hex += v.toHex(2).toUpperCase(); }); return hex === '' ? '' : hex.prefix('0x'); })();
-      evChargerDischargerSystemData.value.storageBattery.dischargeableElectricity = parseInt(evChargerDischargerSystemData.value.storageBattery.edt.dischargeableElectricity, 16) || 0;
+      edt = store.getters.data(evChargerDischargerSystem.value.evChargerDischarger.ip, evChargerDischargerSystem.value.evChargerDischarger.eoj, 0xA5);
+      evChargerDischargerSystemData.value.evChargerDischarger.edt.dischargeableElectricity = (() => { let hex = ''; edt.forEach((v: number) => { hex += v.toHex(2).toUpperCase(); }); return hex === '' ? '' : hex.prefix('0x'); })();
+      evChargerDischargerSystemData.value.evChargerDischarger.dischargeableElectricity = parseInt(evChargerDischargerSystemData.value.evChargerDischarger.edt.dischargeableElectricity, 16) || 0;
 
       // remaining stored electricity: 0xE4
-      edt = store.getters.data(evChargerDischargerSystem.value.storageBattery.ip, evChargerDischargerSystem.value.storageBattery.eoj, 0xE4);
-      evChargerDischargerSystemData.value.storageBattery.edt.remainingStoredElectricity = edt[0]?.toHex(2).toUpperCase().prefix('0x');
-      evChargerDischargerSystemData.value.storageBattery.remainingStoredElectricity = edt[0] || 0;
+      edt = store.getters.data(evChargerDischargerSystem.value.evChargerDischarger.ip, evChargerDischargerSystem.value.evChargerDischarger.eoj, 0xE4);
+      evChargerDischargerSystemData.value.evChargerDischarger.edt.remainingStoredElectricity = edt[0]?.toHex(2).toUpperCase().prefix('0x');
+      evChargerDischargerSystemData.value.evChargerDischarger.remainingStoredElectricity = edt[0] || 0;
 
       // operation mode: 0xCF
-      edt = store.getters.data(evChargerDischargerSystem.value.storageBattery.ip, evChargerDischargerSystem.value.storageBattery.eoj, 0xCF);
-      evChargerDischargerSystemData.value.storageBattery.edt.workingOperationStatus = edt[0]?.toHex(2).toUpperCase().prefix('0x');
-      evChargerDischargerSystemData.value.storageBattery.workingOperationStatus = edt[0];
+      edt = store.getters.data(evChargerDischargerSystem.value.evChargerDischarger.ip, evChargerDischargerSystem.value.evChargerDischarger.eoj, 0xCF);
+      evChargerDischargerSystemData.value.evChargerDischarger.edt.workingOperationStatus = edt[0]?.toHex(2).toUpperCase().prefix('0x');
+      evChargerDischargerSystemData.value.evChargerDischarger.workingOperationStatus = edt[0];
 
       // generated electricity: 0xD3
-      edt = store.getters.data(evChargerDischargerSystem.value.storageBattery.ip, evChargerDischargerSystem.value.storageBattery.eoj, 0xD3);
+      edt = store.getters.data(evChargerDischargerSystem.value.evChargerDischarger.ip, evChargerDischargerSystem.value.evChargerDischarger.eoj, 0xD3);
       evChargerDischargerSystemData.value.powerPoints.edt.b = (() => { let hex = ''; edt.forEach((v: number) => { hex += v.toHex(2).toUpperCase(); }); return hex === '' ? '' : hex.prefix('0x'); })();
       evChargerDischargerSystemData.value.powerPoints.b = parseInt(evChargerDischargerSystemData.value.powerPoints.edt.b, 16).toSignedInt('int32') || 0;
 
-      return evChargerDischargerSystem.value.storageBattery.ip;
+      return evChargerDischargerSystem.value.evChargerDischarger.ip;
     }
 
     function subMeterSetup() {
@@ -8278,7 +8278,7 @@ export default defineComponent({
     }
 
     function switchCamera(id: number, isReload?: boolean) {
-      const source = store.state.cameras[store.state.cameraHolders['battery' + id]],
+      const source = store.state.cameras[store.state.cameraHolders['evChargerDischarger' + id]],
             origin = `${source.protocol}://${source.host}:${source.port}`;
 
       cameraView.value!.style.backgroundImage = '';
@@ -8313,7 +8313,7 @@ export default defineComponent({
     function panCamera() {
       if (cameraError.value) { return; }
 
-      const source = store.state.cameras[store.state.cameraHolders['battery' + cameraOption.value]],
+      const source = store.state.cameras[store.state.cameraHolders['evChargerDischarger' + cameraOption.value]],
             origin = `${source.protocol}://${source.host}:${source.port}`;
 
       axios.get(`${origin}/?action=command&group=1&id=10094856&value=${cameras[cameraOption.value].pan}`).catch(err => !err);
@@ -8322,7 +8322,7 @@ export default defineComponent({
     function tiltCamera() {
       if (cameraError.value) { return; }
 
-      const source = store.state.cameras[store.state.cameraHolders['battery' + cameraOption.value]],
+      const source = store.state.cameras[store.state.cameraHolders['evChargerDischarger' + cameraOption.value]],
             origin = `${source.protocol}://${source.host}:${source.port}`;
 
       axios.get(`${origin}/?action=command&group=1&id=10094857&value=${cameras[cameraOption.value].tilt}`).catch(err => !err);
@@ -8331,7 +8331,7 @@ export default defineComponent({
     function zoomCamera() {
       if (cameraError.value) { return; }
 
-      const source = store.state.cameras[store.state.cameraHolders['battery' + cameraOption.value]],
+      const source = store.state.cameras[store.state.cameraHolders['evChargerDischarger' + cameraOption.value]],
             origin = `${source.protocol}://${source.host}:${source.port}`;
 
       axios.get(`${origin}/?action=command&group=1&id=10094861&value=${cameras[cameraOption.value].zoom}`).catch(err => !err);
@@ -8376,7 +8376,7 @@ export default defineComponent({
     }
 
     watch(routeName, value => {
-      if (value !== 'battery' || store.state.cameras.length === 0) { return; }
+      if (value !== 'evchargerdischarger' || store.state.cameras.length === 0) { return; }
       reloadCamera();
     });
 
@@ -8392,12 +8392,12 @@ export default defineComponent({
 
     watch(isSimpleModeRef, () => {
       if (isSimpleModeRef.value === isSimpleMode.value) { return; }
-      store.commit('setBatterySystemUIModeSimple', isSimpleModeRef.value);
+      store.commit('setEVChargerDischargerSystemUIModeSimple', isSimpleModeRef.value);
     });
 
     watch(isPhotoModeRef, () => {
       if (isPhotoModeRef.value === isPhotoMode.value) { return; }
-      store.commit('setBatterySystemUIModePhoto', isPhotoModeRef.value);
+      store.commit('setEVChargerDischargerSystemUIModePhoto', isPhotoModeRef.value);
     });
 
     onMounted(() => {
