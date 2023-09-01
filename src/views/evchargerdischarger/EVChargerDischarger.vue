@@ -5887,14 +5887,14 @@
             :class="{
               standby:
                 [65, 66, 67].indexOf(
-                  evChargerDischargerSystemData.storageBattery.workingOperationStatus
+                  evChargerDischargerSystemData.evChargerDischarger.workingOperationStatus
                 ) === -1,
               charging:
                 [65, 66].indexOf(
-                  evChargerDischargerSystemData.storageBattery.workingOperationStatus
+                  evChargerDischargerSystemData.evChargerDischarger.workingOperationStatus
                 ) !== -1,
               discharging:
-                evChargerDischargerSystemData.storageBattery.workingOperationStatus === 67,
+                evChargerDischargerSystemData.evChargerDischarger.workingOperationStatus === 67,
             }"
             id="battery-diagram-icon-battery-status"
           >
@@ -5931,7 +5931,7 @@
           :text-anchor="isSimpleModeRef ? 'middle' : 'inherit'"
         >
           <tspan id="tspan1086" x="315" y="743.295">
-            {{ evChargerDischargerSystemData.storageBattery.remainingStoredElectricity }}%
+            {{ evChargerDischargerSystemData.evChargerDischarger.remainingStoredElectricity }}%
           </tspan>
         </text>
         <text
@@ -5999,12 +5999,12 @@
           <tspan id="tspan1106" x="211.18" y="809.98">
             EOJ:
             {{
-              evChargerDischargerSystem.storageBattery.ip
+              evChargerDischargerSystem.evChargerDischarger.ip
                 ? "0x" +
-                  evChargerDischargerSystem.storageBattery.eoj.class
+                  evChargerDischargerSystem.evChargerDischarger.eoj.class
                     .toHex(4)
                     .toUpperCase() +
-                  evChargerDischargerSystem.storageBattery.eoj.id.toHex(2).toUpperCase()
+                  evChargerDischargerSystem.evChargerDischarger.eoj.id.toHex(2).toUpperCase()
                 : ""
             }}
           </tspan>
@@ -6093,7 +6093,7 @@
           :class="{
             on:
               [65, 66, 67].indexOf(
-                evChargerDischargerSystemData.storageBattery.workingOperationStatus
+                evChargerDischargerSystemData.evChargerDischarger.workingOperationStatus
               ) === -1,
           }"
           fill="#3779F5"
@@ -6124,7 +6124,7 @@
           :class="{
             on:
               [65, 66].indexOf(
-                evChargerDischargerSystemData.storageBattery.workingOperationStatus
+                evChargerDischargerSystemData.evChargerDischarger.workingOperationStatus
               ) !== -1,
           }"
           :height="isSimpleModeRef ? '45' : '31'"
@@ -6153,7 +6153,7 @@
         <rect
           class="indicator"
           :class="{
-            on: evChargerDischargerSystemData.storageBattery.workingOperationStatus === 67,
+            on: evChargerDischargerSystemData.evChargerDischarger.workingOperationStatus === 67,
           }"
           :height="isSimpleModeRef ? '45' : '31'"
           id="battery-diagram-rect-battery-status-discharging"
@@ -6237,7 +6237,7 @@
               "
               :style="{
                 height:
-                  (evChargerDischargerSystemData.storageBattery.remainingStoredElectricity *
+                  (evChargerDischargerSystemData.evChargerDischarger.remainingStoredElectricity *
                     85.8) /
                     100 +
                   'px',
