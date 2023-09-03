@@ -241,6 +241,9 @@ export default defineComponent({
         case 0x027D:
           deviceName = 'battery';
           break;
+        case 0x027E:
+          deviceName = 'evchargerdischarger';
+          break;
         case 0x0287:
           deviceName = 'distribution';
           break;
