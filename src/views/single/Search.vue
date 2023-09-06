@@ -13,7 +13,7 @@
           <div class="card-body">
             <h3 class="fs-6" contenteditable @input="updateDeviceName" :ip="device.ip" :classCode="device.eoj.class">{{ device.name }}</h3>
             <div class="single-search-device-info"><small class="me-3">IP: {{ device.ip }}</small><small>EOJ: {{ device.eoj.hex ? '0x' + device.eoj.hex : '' }}</small></div>
-            <div class="text-center pe-none"><embed :src="deviceImagePath(device.eoj.class)"></div>
+            <div class="single-search-device-icon d-grid align-content-center justify-items-center pe-none"><embed :src="deviceImagePath(device.eoj.class)"></div>
             <div class="single-search-device-info"><small>{{ device.label }}</small></div>
             <div class="single-search-device-info"><small class="me-3">Rel. {{ device.release }}</small><small>{{ device.manufacturer }}</small></div>
             <div class="single-search-device-info"><small>{{ device.id ? '0x' + device.id : '' }}</small></div>
@@ -241,6 +241,9 @@ export default defineComponent({
         case 0x027D:
           deviceName = 'battery';
           break;
+        case 0x027E:
+          deviceName = 'evchargerdischarger';
+          break;
         case 0x0287:
           deviceName = 'distribution';
           break;
@@ -308,5 +311,12 @@ export default defineComponent({
 }
 .single-search-device-info {
   font-size: .85em;
+}
+.single-search-device-icon {
+  height: 100px;
+
+  > embed {
+    max-height: 92px;
+  }
 }
 </style>
