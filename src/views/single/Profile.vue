@@ -14,7 +14,7 @@
             </div>
           </div>
           <div class="card shadow">
-            <div class="card-body text-center"><embed :src="deviceImagePath(classCode)"></div>
+            <div class="card-body text-center"><embed class="profile-content-icon" :src="deviceImagePath(classCode)"></div>
           </div>
           <div class="card shadow d-grid grid-template-100">
             <div class="card-body d-grid align-content-start">
@@ -239,5 +239,8 @@ export default defineComponent({
 }
 .profile-content {
   grid-template-rows: repeat(2, min-content) minmax(0, 1fr);
+}
+.profile-content-icon {
+  max-height: 100px;
 }
 </style>
