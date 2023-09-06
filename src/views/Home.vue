@@ -91,7 +91,8 @@ export default defineComponent({
 .home-nav-item-evchargerdischarger {
   background-image:    url('/assets/img/avatar-evchargerdischarger.svg');
   background-repeat:   no-repeat;
-  background-position: center 92px;
+  background-position: center 34%;
+  background-size: 80%;
 
   &:hover {
     box-shadow: 0 0 0 .25rem #915EFD80 !important;
