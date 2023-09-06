@@ -80,8 +80,10 @@ export default defineComponent({
   grid-template-columns: repeat(5, minmax(0, 1fr));
 }
 .header-nav-list-item {
-  padding-top: 46px;
+  padding-top: 52px;
+  line-height: 14px;
   text-align:  center;
+  word-break:  keep-all;
   cursor:      pointer;
 }
 .header-nav-list-item:hover{
@@ -100,10 +102,9 @@ export default defineComponent({
 .header-nav-evchargerdischarger {
   background-image:    url('/assets/img/icon-nav-evchargerdischarger.svg');
   background-repeat:   no-repeat;
-  background-position: center 12px;
-  background-size:     30px;
-  padding-top:         40px;
-  line-height:         18px;
+  background-position: center 14px;
+  background-size:     28px;
+  padding-top:         48px;
 }
 .header-nav-settings {
   background-image:    url('/assets/img/icon-nav-settings.svg');
