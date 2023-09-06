@@ -89,7 +89,7 @@ export default defineComponent({
   }
 }
 .home-nav-item-evchargerdischarger {
-  background-image:    url('/assets/img/avatar-evchargerdischarger.svg');
+  background-image:    url('/assets/img/home-evchargerdischarger.svg');
   background-repeat:   no-repeat;
   background-position: center 34%;
   background-size: 80%;
