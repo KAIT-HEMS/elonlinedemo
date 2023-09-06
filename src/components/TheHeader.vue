@@ -62,7 +62,7 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .header {
-  grid-template-columns: 1fr 675px 116px;
+  grid-template-columns: 1fr 630px 116px;
 }
 .header-main-title {
   font-size:   var(--size-text-xxl);
@@ -133,7 +133,7 @@ export default defineComponent({
 }
 .header-nav-highlight {
   --bs-bg-opacity: .2;
-  width:           135px;
+  width:           126px;
   display:         none;
   transition:      left .25s ease-out;
 }
@@ -147,25 +147,25 @@ export default defineComponent({
 .nav-battery {
   .header-nav-highlight {
     display: block;
-    left:    135px;
+    left:    126px;
   }
 }
 .nav-evchargerdischarger {
   .header-nav-highlight {
     display: block;
-    left:    270px;
+    left:    252px;
   }
 }
 .nav-settings {
   .header-nav-highlight {
     display: block;
-    left:    405px;
+    left:    378px;
   }
 }
 .nav-help {
   .header-nav-highlight {
     display:      block;
-    left:         540px;
+    left:         504px;
     border-right: none !important;
   }
 }
