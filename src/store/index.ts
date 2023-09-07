@@ -106,7 +106,7 @@ const Settings = {
     }
   },
   evChargerDischarger: {
-    0x027D: {
+    0x027E: {
       address: "",
       id: ""
     },

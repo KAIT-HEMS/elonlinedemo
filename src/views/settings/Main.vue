@@ -769,7 +769,7 @@ export default defineComponent({
 
     watch(evChargerDischargerSystemModeRef, () => {
       if (evChargerDischargerSystemMode.value === evChargerDischargerSystemModeRef.value) { return; }
-      store.commit('setevChargerDischargerSystemMode', evChargerDischargerSystemModeRef.value);
+      store.commit('setEVChargerDischargerSystemMode', evChargerDischargerSystemModeRef.value);
       switch (evChargerDischargerSystemModeRef.value) {
         case 'real':
           evChargerDischargerSystemPointCRef.value = 0xE7;
@@ -785,15 +785,15 @@ export default defineComponent({
     });
 
     watch(evChargerDischargerSystemPointCRef, () => {
-      store.commit('setevChargerDischargerSystemPointC', evChargerDischargerSystemPointCRef.value);
+      store.commit('setEVChargerDischargerSystemPointC', evChargerDischargerSystemPointCRef.value);
     });
 
     watch(evChargerDischargerSystemPointDRef, () => {
-      store.commit('setevChargerDischargerSystemPointD', evChargerDischargerSystemPointDRef.value);
+      store.commit('setEVChargerDischargerSystemPointD', evChargerDischargerSystemPointDRef.value);
     });
 
     watch(evChargerDischargerSystemPointERef, () => {
-      store.commit('setevChargerDischargerSystemPointE', evChargerDischargerSystemPointERef.value);
+      store.commit('setEVChargerDischargerSystemPointE', evChargerDischargerSystemPointERef.value);
     });
 
     // Network settings
