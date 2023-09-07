@@ -90,7 +90,7 @@
               <div class="card shadow p-3 d-grid gap-3">
                 <h3 class="fs-6 text-primary fw-normal">0x0287  {{ getClassName(0x0287) }}</h3>
                 <section class="grid grid-template-max-3">
-                  <div v-show="isRHE">
+                  <div v-show="isRHEForBatterySystem">
                     <div class="input-group">
                       <div class="input-group-text">C</div>
                       <select class="form-select" v-model.number="batterySystemPointCRef">
@@ -163,7 +163,7 @@
                   </tbody>
                 </table>
               </div>
-              <div class="card shadow p-3 gap-3" :class="{'d-none': isRHE, 'd-grid': isRealDevices}">
+              <div class="card shadow p-3 gap-3" :class="{'d-none': isRHEForBatterySystem, 'd-grid': isRealDevicesForBatterySystem}">
                 <h3 class="fs-6 text-primary fw-normal">0x028D  {{ getClassName(0x028D) }}</h3>
                 <table class="table table-hover small align-middle">
                   <thead class="position-sticky">
@@ -217,26 +217,26 @@
           </div>
         </div>
       </div>
-      <div class="section-battery d-grid gap-5" v-if="section === 'evChargerDischarger'">
+      <div class="section-evchargerdischarger d-grid gap-5" v-if="section === 'evChargerDischarger'">
         <div class="d-grid gap-3">
-          <h2 class="fs-5 me-3 text-primary">{{ text?.battery?.modeField?.heading }}</h2>
+          <h2 class="fs-5 me-3 text-primary">{{ text?.evChargerDischarger?.modeField?.heading }}</h2>
           <div>
             <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" id="optionBatterySystemModeReal" v-model="batterySystemModeRef" value="real">
-              <label class="form-check-label" for="optionBatterySystemModeReal">{{ text?.battery?.modeField?.modes?.real }}</label>
+              <input class="form-check-input" type="radio" id="optionEVChargerDischargerSystemModeReal" v-model="evChargerDischargerSystemModeRef" value="real">
+              <label class="form-check-label" for="optionEVChargerDischargerSystemModeReal">{{ text?.evChargerDischarger?.modeField?.modes?.real }}</label>
             </div>
             <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" id="optionBatterySystemModeRHE" v-model="batterySystemModeRef" value="rhe">
-              <label class="form-check-label" for="optionBatterySystemModeRHE">{{ text?.battery?.modeField?.modes?.rhe }}</label>
+              <input class="form-check-input" type="radio" id="optionEVChargerDischargerSystemModeRHE" v-model="evChargerDischargerSystemModeRef" value="rhe">
+              <label class="form-check-label" for="optionEVChargerDischargerSystemModeRHE">{{ text?.evChargerDischarger?.modeField?.modes?.rhe }}</label>
             </div>
           </div>
         </div>
         <div class="d-grid gap-3">
           <div class="d-grid grid-template-max-2 justify-content-between">
-            <h2 class="fs-5 me-3 text-primary">{{ text?.battery?.heading }}</h2>
+            <h2 class="fs-5 me-3 text-primary">{{ text?.evChargerDischarger?.heading }}</h2>
             <div class="d-flex gap-2">
-              <button type="button" class="btn btn-primary rounded-pill px-3" :title="text?.battery?.searchButton?.title" @click="searchDevices">{{ text?.battery?.searchButton?.label }}</button>
-              <button type="button" class="btn btn-outline-primary rounded-pill px-3" :title="text?.battery?.clearButton?.title" @click="clearDevices">{{ text?.battery?.clearButton?.label }}</button>
+              <button type="button" class="btn btn-primary rounded-pill px-3" :title="text?.evChargerDischarger?.searchButton?.title" @click="searchDevices">{{ text?.evChargerDischarger?.searchButton?.label }}</button>
+              <button type="button" class="btn btn-outline-primary rounded-pill px-3" :title="text?.evChargerDischarger?.clearButton?.title" @click="clearDevices">{{ text?.evChargerDischarger?.clearButton?.label }}</button>
             </div>
           </div>
           <div class="overflow-auto">
@@ -247,16 +247,16 @@
                   <thead class="position-sticky">
                     <tr>
                       <th scope="col"></th>
-                      <th scope="col">{{ text?.battery?.ipField }}</th>
-                      <th scope="col">{{ text?.battery?.eojField }}</th>
-                      <th scope="col">{{ text?.battery?.releaseField }}</th>
-                      <th scope="col">{{ text?.battery?.manufacturerField }}</th>
-                      <th scope="col">{{ text?.battery?.idField }}</th>
+                      <th scope="col">{{ text?.evChargerDischarger?.ipField }}</th>
+                      <th scope="col">{{ text?.evChargerDischarger?.eojField }}</th>
+                      <th scope="col">{{ text?.evChargerDischarger?.releaseField }}</th>
+                      <th scope="col">{{ text?.evChargerDischarger?.manufacturerField }}</th>
+                      <th scope="col">{{ text?.evChargerDischarger?.idField }}</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr v-for="(device, index) of deviceListing.filter(device => device.eoj.class === 0x027D)" :key="index" @click="selectBatterySystemDevice('storageBattery', device)" role="button">
-                      <td><input class="form-check-input" type="radio" name="device027D" :id="`device_${device.uid}`" v-model="batterySystem.storageBattery.uid" :value="device.uid"></td>
+                    <tr v-for="(device, index) of deviceListing.filter(device => device.eoj.class === 0x027E)" :key="index" @click="selectEVChargerDischargerSystemDevice('evChargerDischarger', device)" role="button">
+                      <td><input class="form-check-input" type="radio" name="device027D" :id="`device_${device.uid}`" v-model="evChargerDischargerSystem.evChargerDischarger.uid" :value="device.uid"></td>
                       <td>{{ device.ip }}</td>
                       <td>{{ device.eoj.hex ? '0x' + device.eoj.hex : '' }}</td>
                       <td>{{ device.release }}</td>
@@ -272,16 +272,16 @@
                   <thead class="position-sticky">
                     <tr>
                       <th scope="col"></th>
-                      <th scope="col">{{ text?.battery?.ipField }}</th>
-                      <th scope="col">{{ text?.battery?.eojField }}</th>
-                      <th scope="col">{{ text?.battery?.releaseField }}</th>
-                      <th scope="col">{{ text?.battery?.manufacturerField }}</th>
-                      <th scope="col">{{ text?.battery?.idField }}</th>
+                      <th scope="col">{{ text?.evChargerDischarger?.ipField }}</th>
+                      <th scope="col">{{ text?.evChargerDischarger?.eojField }}</th>
+                      <th scope="col">{{ text?.evChargerDischarger?.releaseField }}</th>
+                      <th scope="col">{{ text?.evChargerDischarger?.manufacturerField }}</th>
+                      <th scope="col">{{ text?.evChargerDischarger?.idField }}</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr v-for="(device, index) of deviceListing.filter(device => device.eoj.class === 0x0279)" :key="index" @click="selectBatterySystemDevice('solarPower', device)" role="button">
-                      <td><input class="form-check-input" type="radio" name="device0279" :id="`device_${device.uid}`" v-model="batterySystem.solarPower.uid" :value="device.uid"></td>
+                    <tr v-for="(device, index) of deviceListing.filter(device => device.eoj.class === 0x0279)" :key="index" @click="selectEVChargerDischargerSystemDevice('solarPower', device)" role="button">
+                      <td><input class="form-check-input" type="radio" name="device0279" :id="`device_${device.uid}`" v-model="evChargerDischargerSystem.solarPower.uid" :value="device.uid"></td>
                       <td>{{ device.ip }}</td>
                       <td>{{ device.eoj.hex ? '0x' + device.eoj.hex : '' }}</td>
                       <td>{{ device.release }}</td>
@@ -294,10 +294,10 @@
               <div class="card shadow p-3 d-grid gap-3">
                 <h3 class="fs-6 text-primary fw-normal">0x0287  {{ getClassName(0x0287) }}</h3>
                 <section class="grid grid-template-max-3">
-                  <div v-show="isRHE">
+                  <div v-show="isRHEForEVChargerDischargerSystem">
                     <div class="input-group">
                       <div class="input-group-text">C</div>
-                      <select class="form-select" v-model.number="batterySystemPointCRef">
+                      <select class="form-select" v-model.number="evChargerDischargerSystemPointCRef">
                         <option v-for="(epc, index) of [208, 209, 210, 211, 212, 213, 214, 215, 216, 217, 218, 219, 220, 221, 222, 223, 224, 225, 226, 227, 228, 229, 230, 231, 232, 233, 234, 235, 236, 237, 238, 239, 240]" :key="index" :value="epc">CH{{ index + 1 }} ({{ epc.toHex(2).toUpperCase().prefix('0x') }})</option>
                       </select>
                     </div>
@@ -305,7 +305,7 @@
                   <div>
                     <div class="input-group">
                       <div class="input-group-text">D</div>
-                      <select class="form-select" v-model.number="batterySystemPointDRef">
+                      <select class="form-select" v-model.number="evChargerDischargerSystemPointDRef">
                         <option v-for="(epc, index) of [208, 209, 210, 211, 212, 213, 214, 215, 216, 217, 218, 219, 220, 221, 222, 223, 224, 225, 226, 227, 228, 229, 230, 231, 232, 233, 234, 235, 236, 237, 238, 239, 240]" :key="index" :value="epc">CH{{ index + 1 }} ({{ epc.toHex(2).toUpperCase().prefix('0x') }})</option>
                       </select>
                     </div>
@@ -313,7 +313,7 @@
                   <div>
                     <div class="input-group">
                       <div class="input-group-text">E</div>
-                      <select class="form-select" v-model.number="batterySystemPointERef">
+                      <select class="form-select" v-model.number="evChargerDischargerSystemPointERef">
                         <option v-for="(epc, index) of [208, 209, 210, 211, 212, 213, 214, 215, 216, 217, 218, 219, 220, 221, 222, 223, 224, 225, 226, 227, 228, 229, 230, 231, 232, 233, 234, 235, 236, 237, 238, 239, 240]" :key="index" :value="epc">CH{{ index + 1 }} ({{ epc.toHex(2).toUpperCase().prefix('0x') }})</option>
                       </select>
                     </div>
@@ -323,16 +323,16 @@
                   <thead class="position-sticky">
                     <tr>
                       <th scope="col"></th>
-                      <th scope="col">{{ text?.battery?.ipField }}</th>
-                      <th scope="col">{{ text?.battery?.eojField }}</th>
-                      <th scope="col">{{ text?.battery?.releaseField }}</th>
-                      <th scope="col">{{ text?.battery?.manufacturerField }}</th>
-                      <th scope="col">{{ text?.battery?.idField }}</th>
+                      <th scope="col">{{ text?.evChargerDischarger?.ipField }}</th>
+                      <th scope="col">{{ text?.evChargerDischarger?.eojField }}</th>
+                      <th scope="col">{{ text?.evChargerDischarger?.releaseField }}</th>
+                      <th scope="col">{{ text?.evChargerDischarger?.manufacturerField }}</th>
+                      <th scope="col">{{ text?.evChargerDischarger?.idField }}</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr v-for="(device, index) of deviceListing.filter(device => device.eoj.class === 0x0287)" :key="index" @click="selectBatterySystemDevice('distributionBoard', device)" role="button">
-                      <td><input class="form-check-input" type="radio" name="device0287" :id="`device_${device.uid}`" v-model="batterySystem.distributionBoard.uid" :value="device.uid"></td>
+                    <tr v-for="(device, index) of deviceListing.filter(device => device.eoj.class === 0x0287)" :key="index" @click="selectEVChargerDischargerSystemDevice('distributionBoard', device)" role="button">
+                      <td><input class="form-check-input" type="radio" name="device0287" :id="`device_${device.uid}`" v-model="evChargerDischargerSystem.distributionBoard.uid" :value="device.uid"></td>
                       <td>{{ device.ip }}</td>
                       <td>{{ device.eoj.hex ? '0x' + device.eoj.hex : '' }}</td>
                       <td>{{ device.release }}</td>
@@ -348,16 +348,16 @@
                   <thead class="position-sticky">
                     <tr>
                       <th scope="col"></th>
-                      <th scope="col">{{ text?.battery?.ipField }}</th>
-                      <th scope="col">{{ text?.battery?.eojField }}</th>
-                      <th scope="col">{{ text?.battery?.releaseField }}</th>
-                      <th scope="col">{{ text?.battery?.manufacturerField }}</th>
-                      <th scope="col">{{ text?.battery?.idField }}</th>
+                      <th scope="col">{{ text?.evChargerDischarger?.ipField }}</th>
+                      <th scope="col">{{ text?.evChargerDischarger?.eojField }}</th>
+                      <th scope="col">{{ text?.evChargerDischarger?.releaseField }}</th>
+                      <th scope="col">{{ text?.evChargerDischarger?.manufacturerField }}</th>
+                      <th scope="col">{{ text?.evChargerDischarger?.idField }}</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr v-for="(device, index) of deviceListing.filter(device => device.eoj.class === 0x0288)" :key="index" @click="selectBatterySystemDevice('smartMeter', device)" role="button">
-                      <td><input class="form-check-input" type="radio" name="device0288" :id="`device_${device.uid}`" v-model="batterySystem.smartMeter.uid" :value="device.uid"></td>
+                    <tr v-for="(device, index) of deviceListing.filter(device => device.eoj.class === 0x0288)" :key="index" @click="selectEVChargerDischargerSystemDevice('smartMeter', device)" role="button">
+                      <td><input class="form-check-input" type="radio" name="device0288" :id="`device_${device.uid}`" v-model="evChargerDischargerSystem.smartMeter.uid" :value="device.uid"></td>
                       <td>{{ device.ip }}</td>
                       <td>{{ device.eoj.hex ? '0x' + device.eoj.hex : '' }}</td>
                       <td>{{ device.release }}</td>
@@ -367,22 +367,22 @@
                   </tbody>
                 </table>
               </div>
-              <div class="card shadow p-3 gap-3" :class="{'d-none': isRHE, 'd-grid': isRealDevices}">
+              <div class="card shadow p-3 gap-3" :class="{'d-none': isRHEForEVChargerDischargerSystem, 'd-grid': isRealDevicesForEVChargerDischargerSystem}">
                 <h3 class="fs-6 text-primary fw-normal">0x028D  {{ getClassName(0x028D) }}</h3>
                 <table class="table table-hover small align-middle">
                   <thead class="position-sticky">
                     <tr>
                       <th scope="col"></th>
-                      <th scope="col">{{ text?.battery?.ipField }}</th>
-                      <th scope="col">{{ text?.battery?.eojField }}</th>
-                      <th scope="col">{{ text?.battery?.releaseField }}</th>
-                      <th scope="col">{{ text?.battery?.manufacturerField }}</th>
-                      <th scope="col">{{ text?.battery?.idField }}</th>
+                      <th scope="col">{{ text?.evChargerDischarger?.ipField }}</th>
+                      <th scope="col">{{ text?.evChargerDischarger?.eojField }}</th>
+                      <th scope="col">{{ text?.evChargerDischarger?.releaseField }}</th>
+                      <th scope="col">{{ text?.evChargerDischarger?.manufacturerField }}</th>
+                      <th scope="col">{{ text?.evChargerDischarger?.idField }}</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr v-for="(device, index) of deviceListing.filter(device => device.eoj.class === 0x028D)" :key="index" @click="selectBatterySystemDevice('subMeter', device)" role="button">
-                      <td><input class="form-check-input" type="radio" name="device028D" :id="`device_${device.uid}`" v-model="batterySystem.subMeter.uid" :value="device.uid"></td>
+                    <tr v-for="(device, index) of deviceListing.filter(device => device.eoj.class === 0x028D)" :key="index" @click="selectEVChargerDischargerSystemDevice('subMeter', device)" role="button">
+                      <td><input class="form-check-input" type="radio" name="device028D" :id="`device_${device.uid}`" v-model="evChargerDischargerSystem.subMeter.uid" :value="device.uid"></td>
                       <td>{{ device.ip }}</td>
                       <td>{{ device.eoj.hex ? '0x' + device.eoj.hex : '' }}</td>
                       <td>{{ device.release }}</td>
@@ -398,16 +398,16 @@
                   <thead class="position-sticky">
                     <tr>
                       <th scope="col"></th>
-                      <th scope="col">{{ text?.battery?.ipField }}</th>
-                      <th scope="col">{{ text?.battery?.eojField }}</th>
-                      <th scope="col">{{ text?.battery?.releaseField }}</th>
-                      <th scope="col">{{ text?.battery?.manufacturerField }}</th>
-                      <th scope="col">{{ text?.battery?.idField }}</th>
+                      <th scope="col">{{ text?.evChargerDischarger?.ipField }}</th>
+                      <th scope="col">{{ text?.evChargerDischarger?.eojField }}</th>
+                      <th scope="col">{{ text?.evChargerDischarger?.releaseField }}</th>
+                      <th scope="col">{{ text?.evChargerDischarger?.manufacturerField }}</th>
+                      <th scope="col">{{ text?.evChargerDischarger?.idField }}</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr v-for="(device, index) of deviceListing.filter(device => device.eoj.class === 0x0130)" :key="index" @click="selectBatterySystemDevice('airConditioner', device)" role="button">
-                      <td><input class="form-check-input" type="radio" name="device0130" :id="`device_${device.uid}`" v-model="batterySystem.airConditioner.uid" :value="device.uid"></td>
+                    <tr v-for="(device, index) of deviceListing.filter(device => device.eoj.class === 0x0130)" :key="index" @click="selectEVChargerDischargerSystemDevice('airConditioner', device)" role="button">
+                      <td><input class="form-check-input" type="radio" name="device0130" :id="`device_${device.uid}`" v-model="evChargerDischargerSystem.airConditioner.uid" :value="device.uid"></td>
                       <td>{{ device.ip }}</td>
                       <td>{{ device.eoj.hex ? '0x' + device.eoj.hex : '' }}</td>
                       <td>{{ device.release }}</td>
@@ -546,15 +546,24 @@ export default defineComponent({
           })(),
           nodes                  = computed(() => store.state.nodes),
           deviceListing          = ref<any[]>([]),
-          batterySystem          = computed(() => store.state.batterySystem),
+          batterySystem = computed(() => store.state.batterySystem),
           batterySystemMode      = computed(() => store.state.batterySystemMode),
-          isRealDevices          = computed(() => store.state.batterySystemMode === 'real' ? true : false),
-          isRHE                  = computed(() => store.state.batterySystemMode === 'rhe' ? true : false),
+          isRealDevicesForBatterySystem          = computed(() => store.state.batterySystemMode === 'real' ? true : false),
+          isRHEForBatterySystem                  = computed(() => store.state.batterySystemMode === 'rhe' ? true : false),
           batterySystemModeRef   = ref<string>(store.state.batterySystemMode),
           batterySystemPointCRef = ref<number>(store.state.batterySystemPointC),
           batterySystemPointDRef = ref<number>(store.state.batterySystemPointD),
           batterySystemPointERef = ref<number>(store.state.batterySystemPointE),
-          network                = computed(() => store.state.network),
+          evChargerDischargerSystem = computed(() => store.state.evChargerDischargerSystem),
+          evChargerDischargerSystemMode      = computed(() => store.state.evChargerDischargerSystemMode),
+          isRealDevicesForEVChargerDischargerSystem          = computed(() => store.state.evChargerDischargerSystemMode === 'real' ? true : false),
+          isRHEForEVChargerDischargerSystem                  = computed(() => store.state.evChargerDischargerSystemMode === 'rhe' ? true : false),
+          evChargerDischargerSystemModeRef   = ref<string>(store.state.evChargerDischargerSystemMode),
+          evChargerDischargerSystemPointCRef = ref<number>(store.state.evChargerDischargerSystemPointC),
+          evChargerDischargerSystemPointDRef = ref<number>(store.state.evChargerDischargerSystemPointD),
+          evChargerDischargerSystemPointERef = ref<number>(store.state.evChargerDischargerSystemPointE),
+
+          network = computed(() => store.state.network),
           networkRef             = ref<string>(store.state.network),
           nicID                  = computed(() => store.state.nicID),
           nicIDRef               = ref<number>(store.state.nicID),
@@ -582,6 +591,28 @@ export default defineComponent({
 
     function selectBatterySystemDevice(type: string, device: any) {
       store.commit('assignBatterySystemDevice', { type: type, device: device });
+
+      const questions = store.getters.getPropertyMap(device.ip, device.eoj).filter((epc: number) => [0x82, 0x83, 0x8A].indexOf(epc) === -1);
+      if (0 < questions.length) {
+        let batch = [];
+        for (let i = 0; i < questions.length; i += 4) {
+          batch = questions.slice(i, i + 4);
+          store.dispatch('sendEL', {
+            ip: device.ip,
+            el: {
+              deoj: device.eoj,
+              esv: 0x62,
+              opc: {
+                ops: batch.map((epc: number) => { return { epc: epc, edt: [] }; })
+              }
+            }
+          });
+        }
+      }
+    }
+
+    function selectEVChargerDischargerSystemDevice(type: string, device: any) {
+      store.commit('assignEVChargerDischargerSystemDevice', { type: type, device: device });
 
       const questions = store.getters.getPropertyMap(device.ip, device.eoj).filter((epc: number) => [0x82, 0x83, 0x8A].indexOf(epc) === -1);
       if (0 < questions.length) {
@@ -647,7 +678,7 @@ export default defineComponent({
       for (const ip in nodes.value) {
         for (const classCode in nodes.value[ip]) {
           // Checks if classCode is search target
-          if ([0x027D, 0x0279, 0x0287, 0x0288, 0x028D, 0x0130].indexOf(Number(classCode)) === -1) { continue; }
+          if ([0x027D, 0x027E, 0x0279, 0x0287, 0x0288, 0x028D, 0x0130].indexOf(Number(classCode)) === -1) { continue; }
 
           // Pushes into newList
           for (const id in nodes.value[ip][classCode]) {
@@ -729,6 +760,40 @@ export default defineComponent({
 
     watch(batterySystemPointERef, () => {
       store.commit('setBatterySystemPointE', batterySystemPointERef.value);
+    });
+
+    watch(evChargerDischargerSystemMode, () => {
+      if (evChargerDischargerSystemMode.value === evChargerDischargerSystemModeRef.value) { return; }
+      evChargerDischargerSystemModeRef.value = evChargerDischargerSystemMode.value;
+    });
+
+    watch(evChargerDischargerSystemModeRef, () => {
+      if (evChargerDischargerSystemMode.value === evChargerDischargerSystemModeRef.value) { return; }
+      store.commit('setevChargerDischargerSystemMode', evChargerDischargerSystemModeRef.value);
+      switch (evChargerDischargerSystemModeRef.value) {
+        case 'real':
+          evChargerDischargerSystemPointCRef.value = 0xE7;
+          evChargerDischargerSystemPointDRef.value = 0xD8;
+          evChargerDischargerSystemPointERef.value = 0xD9;
+          break;
+        case 'rhe':
+          evChargerDischargerSystemPointCRef.value = 0xEF;
+          evChargerDischargerSystemPointDRef.value = 0xD6;
+          evChargerDischargerSystemPointERef.value = 0xD7;
+          break;
+      }
+    });
+
+    watch(evChargerDischargerSystemPointCRef, () => {
+      store.commit('setevChargerDischargerSystemPointC', evChargerDischargerSystemPointCRef.value);
+    });
+
+    watch(evChargerDischargerSystemPointDRef, () => {
+      store.commit('setevChargerDischargerSystemPointD', evChargerDischargerSystemPointDRef.value);
+    });
+
+    watch(evChargerDischargerSystemPointERef, () => {
+      store.commit('setevChargerDischargerSystemPointE', evChargerDischargerSystemPointERef.value);
     });
 
     // Network settings
@@ -821,16 +886,24 @@ export default defineComponent({
       singleDeviceTargetsRef,
       getClassName: (classCode: number) => store.getters.className(classCode, 'Ā'),
       selectBatterySystemDevice,
+      selectEVChargerDischargerSystemDevice,
       searchDevices,
       clearDevices,
       deviceListing,
       batterySystem,
-      isRealDevices,
-      isRHE,
+      isRealDevicesForBatterySystem,
+      isRHEForBatterySystem,
       batterySystemModeRef,
       batterySystemPointCRef,
       batterySystemPointDRef,
       batterySystemPointERef,
+      evChargerDischargerSystem,
+      isRealDevicesForEVChargerDischargerSystem,
+      isRHEForEVChargerDischargerSystem,
+      evChargerDischargerSystemModeRef,
+      evChargerDischargerSystemPointCRef,
+      evChargerDischargerSystemPointDRef,
+      evChargerDischargerSystemPointERef,
       networkRef,
       nicIDRef,
       nicList: computed(() => store.getters.nicList),
