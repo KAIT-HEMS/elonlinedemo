@@ -858,6 +858,9 @@ export default defineComponent({
 .section-battery {
   grid-template-rows: max-content minmax(0, 1fr);
 }
+.section-evchargerdischarger {
+  grid-template-rows: max-content minmax(0, 1fr);
+}
 .section-network {
   grid-template-rows: max-content minmax(0, max-content) max-content;
 }
