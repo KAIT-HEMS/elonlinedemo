@@ -1,10 +1,10 @@
 <template>
-  <div class="battery-controls card p-3 d-grid gap-3">
+  <div class="ev-charger-discharger-controls card p-3 d-grid gap-3">
     <!-- Tabs -->
-    <div class="battery-controls-nav-list card-list d-grid grid-template-max-2 justify-content-evenly position-relative">
-      <div class="battery-controls-nav-highlight position-absolute align-self-center rounded-pill" :class="{ 'battery-controls-nav-control': tab === 'control', 'battery-controls-nav-monitor': tab === 'monitor' }"></div>
-      <div class="battery-controls-nav-list-item d-grid grid-template-max-2 align-content-center gap-2 text-light" role="button" :title="text?.nav?.control?.title" @click.stop="tab = 'control'"><i class="bi bi-hand-index-thumb-fill"></i> <span>{{ text?.nav?.control?.label }}</span></div>
-      <div class="battery-controls-nav-list-item d-grid grid-template-max-2 align-content-center gap-2 text-light" role="button" :title="text?.nav?.monitor?.title" @click.stop="tab = 'monitor'"><i class="bi bi-speedometer"></i> <span>{{ text?.nav?.monitor?.label }}</span></div>
+    <div class="ev-charger-discharger-controls-nav-list card-list d-grid grid-template-max-2 justify-content-evenly position-relative">
+      <div class="ev-charger-discharger-controls-nav-highlight position-absolute align-self-center rounded-pill" :class="{ 'ev-charger-discharger-controls-nav-control': tab === 'control', 'ev-charger-discharger-controls-nav-monitor': tab === 'monitor' }"></div>
+      <div class="ev-charger-discharger-controls-nav-list-item d-grid grid-template-max-2 align-content-center gap-2 text-light" role="button" :title="text?.nav?.control?.title" @click.stop="tab = 'control'"><i class="bi bi-hand-index-thumb-fill"></i> <span>{{ text?.nav?.control?.label }}</span></div>
+      <div class="ev-charger-discharger-controls-nav-list-item d-grid grid-template-max-2 align-content-center gap-2 text-light" role="button" :title="text?.nav?.monitor?.title" @click.stop="tab = 'monitor'"><i class="bi bi-speedometer"></i> <span>{{ text?.nav?.monitor?.label }}</span></div>
     </div>
 
     <!-- Control -->
@@ -551,22 +551,22 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-.battery-controls {
+.ev-charger-discharger-controls {
   width:              308px;
   flex:               0 0 auto;
   grid-template-rows: 55px minmax(0, 1fr);
 }
-.battery-controls-nav-highlight {
+.ev-charger-discharger-controls-nav-highlight {
   background-color: rgba(255, 255, 255, 0.2);
   width:            130px;
   height:           35px;
   pointer-events:   none;
   transition:       left .25s ease-out;
 
-  &.battery-controls-nav-control {
+  &.ev-charger-discharger-controls-nav-control {
     left: 14px;
   }
-  &.battery-controls-nav-monitor {
+  &.ev-charger-discharger-controls-nav-monitor {
     left: 132px;
   }
 }

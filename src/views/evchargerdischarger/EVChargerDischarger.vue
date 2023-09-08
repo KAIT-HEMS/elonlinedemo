@@ -1,5 +1,5 @@
 <template>
-  <div class="battery-main card flex-grow-1">
+  <div class="ev-charger-discharger-main card flex-grow-1">
     <svg
       class="w-100 h-100"
       fill="none"
@@ -16,27 +16,27 @@
     >
       <path
         d="M 137.5,278.292 V 393 c 0,12.703 10.297,23 23,23 h 48.739"
-        id="battery-diagram-wire-a"
+        id="ev-charger-discharger-diagram-wire-a"
         stroke="url(#paint14_linear_2804:695)"
         :stroke-width="isSimpleModeRef ? 16 : 8"
         style="stroke: url(#paint14_linear_2804:695-2)"
       />
       <path
         :d="isRealDevices ? 'M 209.239,416 H 498.146 C 510.848,416 521,426.297 521,439 v 190.47951 l 115,0.23927 V 399 c 0,-12.703 10.297,-23 23,-23 h 45' : 'M 209.239,416 H 690'"
-        id="battery-diagram-wire-c"
+        id="ev-charger-discharger-diagram-wire-c"
         stroke="url(#paint0_linear_2804:695)"
         :stroke-width="isSimpleModeRef ? 16 : 8"
       />
       <path
         d="M 208.62479,419.87518 208.535,566.797"
-        id="battery-diagram-wire-b"
+        id="ev-charger-discharger-diagram-wire-b"
         stroke="url(#paint14_linear_2804:695)"
         :stroke-width="isSimpleModeRef ? 16 : 8"
         style="stroke: url(#paint14_linear_2804:695)"
       />
       <path
         d="m 1023.9819,149.297 h 178.6947"
-        id="battery-diagram-wire-g"
+        id="ev-charger-discharger-diagram-wire-g"
         stroke="url(#paint1_linear_2804:695)"
         :stroke-width="isSimpleModeRef ? 16 : 8"
         style="stroke: url(#paint1_linear_2804:695)"
@@ -45,7 +45,7 @@
         class="animate"
         :class="{ negative: evChargerDischargerSystemData.powerPoints['g'] < 0 }"
         d="m 1023.9819,149.297 h 178.6947"
-        id="battery-diagram-flow-g"
+        id="ev-charger-discharger-diagram-flow-g"
         stroke="url(#paint1_linear_2804:695)"
         :stroke-width="isSimpleModeRef ? 8 : 4"
         style="
@@ -58,14 +58,14 @@
       />
       <path
         d="m 876.03432,323.69531 v -88.4166"
-        id="battery-diagram-wire-f"
+        id="ev-charger-discharger-diagram-wire-f"
         stroke="url(#paint1_linear_2804:695)"
         :stroke-width="isSimpleModeRef ? 16 : 8"
         style="stroke: url(#paint1_linear_2804:695-6)"
       />
       <path
         d="m 837.5421,520.76702 1.52631,192.17844"
-        id="battery-diagram-wire-e"
+        id="ev-charger-discharger-diagram-wire-e"
         stroke="url(#paint3_linear_2804:695)"
         :stroke-width="isSimpleModeRef ? 16 : 8"
         style="
@@ -75,12 +75,12 @@
       />
       <path
         d="m 963.422,516.43787 c 0,0 -0.174,-15.64587 -0.302,86.33213 -0.016,12.71 10.281,22.999 22.992,23.003 l 187.0582,0.094"
-        id="battery-diagram-wire-d"
+        id="ev-charger-discharger-diagram-wire-d"
         stroke="url(#paint4_linear_2804:695)"
         :stroke-width="isSimpleModeRef ? 16 : 8"
       />
-      <g id="battery-diagram-grid" v-show="!isPhotoModeRef">
-        <g filter="url(#filter1_d_2804:695)" id="battery-diagram-box-grid" :class="isSimpleModeRef ? 'simple-mode' : ''">
+      <g id="ev-charger-discharger-diagram-grid" v-show="!isPhotoModeRef">
+        <g filter="url(#filter1_d_2804:695)" id="ev-charger-discharger-diagram-box-grid" :class="isSimpleModeRef ? 'simple-mode' : ''">
           <rect
             fill="#ffffff"
             height="177"
@@ -91,7 +91,7 @@
             y="70"
           />
         </g>
-        <g id="battery-diagram-icon-grid" :class="isSimpleModeRef ? 'simple-mode' : ''">
+        <g id="ev-charger-discharger-diagram-icon-grid" :class="isSimpleModeRef ? 'simple-mode' : ''">
           <g clip-path="url(#clip0_2804:695)" id="g546">
             <path
               d="M1311.45 122.902L1304.02 116.335L1304.68 115.599L1311.48 121.618L1318.7 115.885L1319.31 116.654L1311.45 122.902Z"
@@ -2431,7 +2431,7 @@
           fill="black"
           font-family="Rubik"
           font-size="18"
-          id="battery-diagram-title-grid"
+          id="ev-charger-discharger-diagram-title-grid"
           letter-spacing="0em"
           style="white-space: pre"
           xml:space="preserve"
@@ -2440,7 +2440,7 @@
           <tspan id="tspan1036" x="1235.28" y="218.665">Power Grid</tspan>
         </text>
       </g>
-      <g id="battery-diagram-point-a">
+      <g id="ev-charger-discharger-diagram-point-a">
         <circle
           cx="194"
           cy="360.3082"
@@ -2484,7 +2484,7 @@
         class="arrow"
         :class="{ negative: evChargerDischargerSystemData.powerPoints['a'] < 0 }"
         transform="translate(0,6)"
-        id="battery-diagram-arrow-a"
+        id="ev-charger-discharger-diagram-arrow-a"
         opacity="0.5"
         v-show="evChargerDischargerSystemData.powerPoints['a'] !== 0"
       >
@@ -2505,7 +2505,7 @@
         y="36"
         x="14"
         text-anchor="middle"
-        id="battery-diagram-text-a"
+        id="ev-charger-discharger-diagram-text-a"
         letter-spacing="0em"
         font-weight="500"
         font-size="16px"
@@ -2523,7 +2523,7 @@
           {{ Math.abs(evChargerDischargerSystemData.powerPoints["a"]) }} W
         </tspan>
       </text>
-      <g id="battery-diagram-point-g">
+      <g id="ev-charger-discharger-diagram-point-g">
         <path
           style="
             fill: none;
@@ -2567,7 +2567,7 @@
         class="arrow"
         :class="{ negative: evChargerDischargerSystemData.powerPoints['g'] < 0 }"
         transform="translate(-6.3982198,-3.015834)"
-        id="battery-diagram-arrow-g"
+        id="ev-charger-discharger-diagram-arrow-g"
         opacity="0.5"
         v-show="evChargerDischargerSystemData.powerPoints['g'] !== 0"
       >
@@ -2588,7 +2588,7 @@
         text-anchor="middle"
         y="-4"
         x="33.312077"
-        id="battery-diagram-text-g"
+        id="ev-charger-discharger-diagram-text-g"
         letter-spacing="0em"
         font-weight="500"
         font-size="16px"
@@ -2606,7 +2606,7 @@
           {{ Math.abs(evChargerDischargerSystemData.powerPoints["g"]) }} W
         </tspan>
       </text>
-      <g id="battery-diagram-point-f">
+      <g id="ev-charger-discharger-diagram-point-f">
         <path
           style="
             fill: none;
@@ -2650,7 +2650,7 @@
         class="arrow"
         :class="{ negative: evChargerDischargerSystemData.powerPoints['f'] < 0 }"
         transform="translate(-87.837977,-32.551626)"
-        id="battery-diagram-arrow-f"
+        id="ev-charger-discharger-diagram-arrow-f"
         opacity="0.5"
         v-show="evChargerDischargerSystemData.powerPoints['f'] !== 0"
       >
@@ -2671,7 +2671,7 @@
         text-anchor="middle"
         y="-28.443352"
         x="-54.103706"
-        id="battery-diagram-text-f"
+        id="ev-charger-discharger-diagram-text-f"
         letter-spacing="0em"
         font-weight="500"
         font-size="16px"
@@ -2689,7 +2689,7 @@
           {{ Math.abs(evChargerDischargerSystemData.powerPoints["f"]) }} W
         </tspan>
       </text>
-      <g transform="translate(-10,-18)" id="battery-diagram-point-d">
+      <g transform="translate(-10,-18)" id="ev-charger-discharger-diagram-point-d">
         <path
           sodipodi:nodetypes="cccc"
           id="path3478-8-0-6"
@@ -2734,7 +2734,7 @@
         class="arrow"
         :class="{ negative: evChargerDischargerSystemData.powerPoints['d'] < 0 }"
         transform="translate(-28,-9.0296041)"
-        id="battery-diagram-arrow-d"
+        id="ev-charger-discharger-diagram-arrow-d"
         opacity="0.5"
         v-show="evChargerDischargerSystemData.powerPoints['d'] !== 0"
       >
@@ -2755,7 +2755,7 @@
         text-anchor="middle"
         x="6.1342373"
         y="50.442123"
-        id="battery-diagram-text-d"
+        id="ev-charger-discharger-diagram-text-d"
         letter-spacing="0em"
         font-weight="500"
         font-size="16px"
@@ -2773,7 +2773,7 @@
           {{ Math.abs(evChargerDischargerSystemData.powerPoints["d"]) }} W
         </tspan>
       </text>
-      <g transform="translate(-2,-44)" id="battery-diagram-point-e">
+      <g transform="translate(-2,-44)" id="ev-charger-discharger-diagram-point-e">
         <path
           style="
             fill: none;
@@ -2817,7 +2817,7 @@
         class="arrow"
         :class="{ negative: evChargerDischargerSystemData.powerPoints['e'] < 0 }"
         transform="translate(-14,-53.029604)"
-        id="battery-diagram-arrow-e"
+        id="ev-charger-discharger-diagram-arrow-e"
         opacity="0.5"
         v-show="evChargerDischargerSystemData.powerPoints['e'] !== 0"
       >
@@ -2838,7 +2838,7 @@
         text-anchor="middle"
         y="7.3946228"
         x="19.742188"
-        id="battery-diagram-text-e"
+        id="ev-charger-discharger-diagram-text-e"
         letter-spacing="0em"
         font-weight="500"
         font-size="16px"
@@ -2856,7 +2856,7 @@
           {{ Math.abs(evChargerDischargerSystemData.powerPoints["e"]) }} W
         </tspan>
       </text>
-      <g transform="translate(-4)" id="battery-diagram-point-b">
+      <g transform="translate(-4)" id="ev-charger-discharger-diagram-point-b">
         <path
           style="
             fill: none;
@@ -2899,7 +2899,7 @@
         class="arrow"
         :class="{ negative: evChargerDischargerSystemData.powerPoints['b'] < 0 }"
         transform="translate(-8)"
-        id="battery-diagram-arrow-b"
+        id="ev-charger-discharger-diagram-arrow-b"
         opacity="0.5"
         v-show="evChargerDischargerSystemData.powerPoints['b'] !== 0"
       >
@@ -2920,7 +2920,7 @@
         text-anchor="middle"
         y="0"
         x="22.742188"
-        id="battery-diagram-text-b"
+        id="ev-charger-discharger-diagram-text-b"
         letter-spacing="0em"
         font-weight="500"
         font-size="16px"
@@ -2942,7 +2942,7 @@
         text-anchor="middle"
         y="32.03167"
         x="35.355259"
-        id="battery-diagram-text-c"
+        id="ev-charger-discharger-diagram-text-c"
         letter-spacing="0em"
         font-weight="500"
         font-size="16px"
@@ -2960,7 +2960,7 @@
           {{ Math.abs(evChargerDischargerSystemData.powerPoints["c"]) }} W
         </tspan>
       </text>
-      <g id="battery-diagram-point-c">
+      <g id="ev-charger-discharger-diagram-point-c">
         <path
           style="
             fill: none;
@@ -3003,7 +3003,7 @@
         class="arrow"
         :class="{ negative: evChargerDischargerSystemData.powerPoints['c'] < 0 }"
         transform="translate(1.8356516,-57.869645)"
-        id="battery-diagram-arrow-c"
+        id="ev-charger-discharger-diagram-arrow-c"
         opacity="0.5"
         v-show="evChargerDischargerSystemData.powerPoints['c'] !== 0"
       >
@@ -3024,7 +3024,7 @@
         class="animate"
         :class="{ negative: evChargerDischargerSystemData.powerPoints['f'] < 0 }"
         d="m 876.03432,323.69531 v -88.4166"
-        id="battery-diagram-flow-f"
+        id="ev-charger-discharger-diagram-flow-f"
         stroke="url(#paint1_linear_2804:695)"
         :stroke-width="isSimpleModeRef ? 8 : 4"
         style="
@@ -3034,10 +3034,10 @@
         "
         v-show="evChargerDischargerSystemData.powerPoints['f'] !== 0"
       />
-      <g id="battery-diagram-smartmeter" v-show="!isPhotoModeRef">
+      <g id="ev-charger-discharger-diagram-smartmeter" v-show="!isPhotoModeRef">
         <g
           filter="url(#filter7_d_2804:695)"
-          id="battery-diagram-box-smartmeter"
+          id="ev-charger-discharger-diagram-box-smartmeter"
         >
           <rect
             fill="#ffffff"
@@ -3050,7 +3050,7 @@
           />
         </g>
         <g
-          id="battery-diagram-icon-smartmeter"
+          id="ev-charger-discharger-diagram-icon-smartmeter"
           transform="matrix(1.2373772,0,0,1.2373772,-200.09498,-33.606575)"
           :class="isSimpleModeRef ? 'simple-mode' : ''"
         >
@@ -3257,7 +3257,7 @@
           fill="#515050"
           font-family="Rubik"
           font-size="16"
-          id="battery-diagram-ip-smartmeter"
+          id="ev-charger-discharger-diagram-ip-smartmeter"
           letter-spacing="0em"
           style="white-space: pre"
           xml:space="preserve"
@@ -3271,7 +3271,7 @@
           fill="#515050"
           font-family="Rubik"
           font-size="16"
-          id="battery-diagram-eoj-smartmeter"
+          id="ev-charger-discharger-diagram-eoj-smartmeter"
           letter-spacing="0em"
           style="white-space: pre"
           xml:space="preserve"
@@ -3288,7 +3288,7 @@
             }}
           </tspan>
         </text>
-        <g id="battery-diagram-live-3" role="button" @click="switchCamera(2, true)"
+        <g id="ev-charger-discharger-diagram-live-3" role="button" @click="switchCamera(2, true)"
           v-show="isRealDevices"
         >
           <path
@@ -3358,7 +3358,7 @@
           fill="#000000"
           font-family="Rubik"
           font-size="18px"
-          id="battery-diagram-title-smartmeter"
+          id="ev-charger-discharger-diagram-title-smartmeter"
           letter-spacing="0em"
           style="white-space: pre"
           x="-4.5717773"
@@ -4399,7 +4399,7 @@
         class="opposite animate"
         :class="{ negative: evChargerDischargerSystemData.powerPoints['d'] < 0 }"
         d="m 963.422,516.43787 c 0,0 -0.174,-15.64587 -0.302,86.33213 -0.016,12.71 10.281,22.999 22.992,23.003 l 187.0582,0.094"
-        id="battery-diagram-flow-d"
+        id="ev-charger-discharger-diagram-flow-d"
         stroke="url(#paint4_linear_2804:695)"
         :stroke-width="isSimpleModeRef ? 8 : 4"
         style="
@@ -4409,8 +4409,8 @@
         "
         v-show="evChargerDischargerSystemData.powerPoints['d'] !== 0"
       />
-      <g id="battery-diagram-ac" v-show="!isPhotoModeRef">
-        <g filter="url(#filter3_d_2804:695)" id="battery-diagram-box-ac">
+      <g id="ev-charger-discharger-diagram-ac" v-show="!isPhotoModeRef">
+        <g filter="url(#filter3_d_2804:695)" id="ev-charger-discharger-diagram-box-ac">
           <rect
             fill="#ffffff"
             height="260"
@@ -4421,7 +4421,7 @@
             y="511"
           />
         </g>
-        <g id="battery-diagram-icon-ac" :class="isSimpleModeRef ? 'simple-mode' : ''">
+        <g id="ev-charger-discharger-diagram-icon-ac" :class="isSimpleModeRef ? 'simple-mode' : ''">
           <path
             d="M1282.97 627.696C1284.36 626.343 1285.44 624.741 1286.36 622.947C1287.29 621.152 1287.75 619.452 1287.75 618.114L1287.61 585.279C1287.6 584.043 1286.45 583.788 1285.44 584.797L1282.82 587.413L1282.97 627.696Z"
             fill="#C9CEE2"
@@ -4488,11 +4488,11 @@
             d="M1171.06 661C1187.08 644.973 1182.31 633.148 1181.74 625.74H1278.97C1272.78 643.477 1285.17 656.512 1292.65 661H1171.06Z"
             fill="url(#paint7_linear_2804:695)"
             fill-opacity="0.5"
-            id="battery-diagram-icon-ac-wind"
+            id="ev-charger-discharger-diagram-icon-ac-wind"
             v-show="evChargerDischargerSystemData.homeAirConditioner.operationStatus === 48"
           />
           <g
-            id="battery-diagram-icon-ac-swing"
+            id="ev-charger-discharger-diagram-icon-ac-swing"
             v-show="evChargerDischargerSystemData.homeAirConditioner.operationStatus === 48"
           >
             <path
@@ -4541,7 +4541,7 @@
           fill="#515050"
           font-family="Rubik"
           font-size="16"
-          id="battery-diagram-ip-ac"
+          id="ev-charger-discharger-diagram-ip-ac"
           letter-spacing="0em"
           style="white-space: pre"
           xml:space="preserve"
@@ -4553,7 +4553,7 @@
           fill="#515050"
           font-family="Rubik"
           font-size="16"
-          id="battery-diagram-eoj-ac"
+          id="ev-charger-discharger-diagram-eoj-ac"
           letter-spacing="0em"
           style="white-space: pre"
           xml:space="preserve"
@@ -4572,7 +4572,7 @@
             }}
           </tspan>
         </text>
-        <g id="battery-diagram-live-4" role="button" @click="switchCamera(3, true)"
+        <g id="ev-charger-discharger-diagram-live-4" role="button" @click="switchCamera(3, true)"
           v-show="isRealDevices"
         >
           <path
@@ -4650,7 +4650,7 @@
           d="m 1374.781,710.39634 c 3.4329,0 6.219,-2.78365 6.219,-6.21905 0,-2.30105 -1.2562,-4.31105 -3.1095,-5.38694 v -6.01383 c 0,-1.7177 -1.3931,-3.10952 -3.1095,-3.10952 -1.7165,0 -3.1096,1.39182 -3.1096,3.10952 v 6.01383 c -1.8533,1.07589 -3.1095,3.08589 -3.1095,5.38694 0,3.4354 2.7861,6.21905 6.2191,6.21905 z m 1.0323,-10.40945 1.0448,0.59827 c 1.2687,0.73758 2.0647,2.09458 2.0647,3.59213 0,2.28985 -1.8532,4.14686 -4.1418,4.14686 -2.2887,0 -4.1419,-1.85701 -4.1419,-4.14686 0,-1.49755 0.796,-2.85455 2.0647,-3.59213 l 1.0448,-0.59827 v -7.21037 c 0,-0.29602 0.4975,-1.04604 1.0324,-1.03733 0.4975,0.01 1.0323,0.75997 1.0323,1.03733 z"
           fill="#505050"
           fill-rule="evenodd"
-          id="battery-diagram-icon-ac-temp"
+          id="ev-charger-discharger-diagram-icon-ac-temp"
           style="stroke-width: 1.24381"
           v-show="!isSimpleModeRef"
         />
@@ -4658,7 +4658,7 @@
           fill="#505050"
           font-family="Rubik"
           font-size="16"
-          id="battery-diagram-value-ac-temp"
+          id="ev-charger-discharger-diagram-value-ac-temp"
           letter-spacing="0em"
           style="white-space: pre"
           xml:space="preserve"
@@ -4677,7 +4677,7 @@
           fill="#505050"
           font-family="Rubik"
           font-size="16px"
-          id="battery-diagram-label-ac-temp"
+          id="ev-charger-discharger-diagram-label-ac-temp"
           letter-spacing="0em"
           style="white-space: pre"
           x="-6.602921"
@@ -4690,7 +4690,7 @@
           fill="#505050"
           font-family="Rubik"
           :font-size="isSimpleModeRef? '22' : '16'"
-          id="battery-diagram-label-ac-status"
+          id="ev-charger-discharger-diagram-label-ac-status"
           letter-spacing="0em"
           style="white-space: pre"
           xml:space="preserve"
@@ -4701,7 +4701,7 @@
           fill="#505050"
           font-family="Rubik"
           font-size="16"
-          id="battery-diagram-label-ac-mode"
+          id="ev-charger-discharger-diagram-label-ac-mode"
           letter-spacing="0em"
           style="white-space: pre"
           xml:space="preserve"
@@ -4716,7 +4716,7 @@
           }"
           fill="#3779F5"
           :height="isSimpleModeRef ? '45' : '32'"
-          id="battery-diagram-rect-ac-status-on"
+          id="ev-charger-discharger-diagram-rect-ac-status-on"
           rx="8"
           :width="isSimpleModeRef ? '60' : '41'"
           :x="isSimpleModeRef ? '1390' : '1327'"
@@ -4727,7 +4727,7 @@
           font-family="Rubik"
           :font-size="isSimpleModeRef ? '22px' : '16px'"
           :font-weight="isSimpleModeRef ? 'bold' : 'inherit'"
-          id="battery-diagram-value-ac-status-on"
+          id="ev-charger-discharger-diagram-value-ac-status-on"
           letter-spacing="0em"
           style="white-space: pre"
           x="-0.6171875"
@@ -4742,7 +4742,7 @@
             on: evChargerDischargerSystemData.homeAirConditioner.operationStatus === 49,
           }"
           :height="isSimpleModeRef ? '45' : '31'"
-          id="battery-diagram-rect-ac-status-off"
+          id="ev-charger-discharger-diagram-rect-ac-status-off"
           rx="7.5"
           stroke="#909090"
           :width="isSimpleModeRef ? '60' : '40'"
@@ -4754,7 +4754,7 @@
           font-family="Rubik"
           :font-size="isSimpleModeRef ? '22px' : '16px'"
           :font-weight="isSimpleModeRef ? 'bold' : 'inherit'"
-          id="battery-diagram-value-ac-status-off"
+          id="ev-charger-discharger-diagram-value-ac-status-off"
           letter-spacing="0em"
           style="white-space: pre"
           x="-1.1289062"
@@ -4770,7 +4770,7 @@
               evChargerDischargerSystemData.homeAirConditioner.operationModeSetting === 67,
           }"
           height="31"
-          id="battery-diagram-rect-ac-mode-heating"
+          id="ev-charger-discharger-diagram-rect-ac-mode-heating"
           rx="7.5"
           stroke="#909090"
           width="79"
@@ -4782,7 +4782,7 @@
           fill="#7e7e7e"
           font-family="Rubik"
           font-size="16px"
-          id="battery-diagram-value-ac-mode-heating"
+          id="ev-charger-discharger-diagram-value-ac-mode-heating"
           letter-spacing="0em"
           style="white-space: pre"
           x="-1.0585938"
@@ -4800,7 +4800,7 @@
           }"
           fill="#3779F5"
           height="32"
-          id="battery-diagram-rect-ac-mode-cooling"
+          id="ev-charger-discharger-diagram-rect-ac-mode-cooling"
           rx="8"
           width="80"
           x="1376"
@@ -4811,7 +4811,7 @@
           fill="#ffffff"
           font-family="Rubik"
           font-size="16px"
-          id="battery-diagram-value-ac-mode-cooling"
+          id="ev-charger-discharger-diagram-value-ac-mode-cooling"
           letter-spacing="0em"
           style="white-space: pre"
           x="-1.4921875"
@@ -4824,7 +4824,7 @@
           fill="black"
           font-family="Rubik"
           font-size="18"
-          id="battery-diagram-title-ac"
+          id="ev-charger-discharger-diagram-title-ac"
           letter-spacing="0em"
           style="white-space: pre"
           xml:space="preserve"
@@ -4837,7 +4837,7 @@
         class="opposite animate"
         :class="{ negative: evChargerDischargerSystemData.powerPoints['e'] < 0 }"
         d="m 837.5421,520.76702 1.52631,192.17844"
-        id="battery-diagram-flow-e"
+        id="ev-charger-discharger-diagram-flow-e"
         stroke="url(#paint3_linear_2804:695)"
         :stroke-width="isSimpleModeRef ? 8 : 4"
         style="
@@ -4847,8 +4847,8 @@
         "
         v-show="evChargerDischargerSystemData.powerPoints['e'] !== 0"
       />
-      <g id="battery-diagram-load" transform="translate(-12.929457,-18.675882)"  v-show="!isPhotoModeRef">
-        <g filter="url(#filter0_d_2804:695)" id="battery-diagram-box-load" :class="isSimpleModeRef ? 'simple-mode' : ''">
+      <g id="ev-charger-discharger-diagram-load" transform="translate(-12.929457,-18.675882)"  v-show="!isPhotoModeRef">
+        <g filter="url(#filter0_d_2804:695)" id="ev-charger-discharger-diagram-box-load" :class="isSimpleModeRef ? 'simple-mode' : ''">
           <rect
             fill="#ffffff"
             height="153.01431"
@@ -4860,7 +4860,7 @@
             y="726.54907"
           />
         </g>
-        <g id="battery-diagram-icon-load" :class="isSimpleModeRef ? 'simple-mode' : ''">
+        <g id="ev-charger-discharger-diagram-icon-load" :class="isSimpleModeRef ? 'simple-mode' : ''">
           <path
             d="m 891.067,750.703 h 14.802 c 1.511,0 2.735,1.225 2.735,2.736 v 40.33 c 0,1.511 -1.224,2.736 -2.735,2.736 h -14.802 c -1.511,0 -2.736,-1.225 -2.736,-2.736 v -40.33 c 0,-1.511 1.225,-2.736 2.736,-2.736 z"
             fill="url(#paint5_linear_2804:695)"
@@ -4997,7 +4997,7 @@
           fill="#000000"
           font-family="Rubik"
           font-size="18px"
-          id="battery-diagram-title-load"
+          id="ev-charger-discharger-diagram-title-load"
           letter-spacing="0em"
           style="white-space: pre"
           xml:space="preserve"
@@ -5011,7 +5011,7 @@
         class="animate"
         :class="{ negative: evChargerDischargerSystemData.powerPoints['c'] < 0 }"
         :d="isRealDevices ? 'M 209.239,416 H 498.146 C 510.848,416 521,426.297 521,439 v 190.47951 l 115,0.23927 V 399 c 0,-12.703 10.297,-23 23,-23 h 45' : 'M 209.239,416 H 690'"
-        id="battery-diagram-flow-c"
+        id="ev-charger-discharger-diagram-flow-c"
         stroke="url(#paint0_linear_2804:695)"
         :stroke-width="isSimpleModeRef ? 8 : 4"
         style="
@@ -5021,10 +5021,10 @@
         "
         v-show="evChargerDischargerSystemData.powerPoints['c'] !== 0"
       />
-      <g id="battery-diagram-submeter"
+      <g id="ev-charger-discharger-diagram-submeter"
         v-show="isRealDevices && !isPhotoModeRef"
       >
-        <g filter="url(#filter5_d_2804:695)" id="battery-diagram-box-submeter">
+        <g filter="url(#filter5_d_2804:695)" id="ev-charger-discharger-diagram-box-submeter">
           <rect
             fill="#ffffff"
             height="212"
@@ -5039,7 +5039,7 @@
           fill="#515050"
           font-family="Rubik"
           font-size="16"
-          id="battery-diagram-ip-submeter"
+          id="ev-charger-discharger-diagram-ip-submeter"
           letter-spacing="0em"
           style="white-space: pre"
           xml:space="preserve"
@@ -5053,7 +5053,7 @@
           fill="#515050"
           font-family="Rubik"
           font-size="16"
-          id="battery-diagram-eoj-submeter"
+          id="ev-charger-discharger-diagram-eoj-submeter"
           letter-spacing="0em"
           style="white-space: pre"
           xml:space="preserve"
@@ -5070,7 +5070,7 @@
             }}
           </tspan>
         </text>
-        <g id="battery-diagram-icon-submeter" transform="translate(0.2325)" :class="isSimpleModeRef ? 'simple-mode' : ''">
+        <g id="ev-charger-discharger-diagram-icon-submeter" transform="translate(0.2325)" :class="isSimpleModeRef ? 'simple-mode' : ''">
           <path
             d="m 625.2,707.743 c 2.129,-2.078 3.785,-4.54 5.205,-7.296 1.42,-2.755 2.13,-5.367 2.13,-7.422 l -0.213,-55.481 c -0.011,-2.894 -2.698,-3.492 -5.067,-1.129 l -2.292,2.287 z"
             fill="#c9cee2"
@@ -5217,7 +5217,7 @@
           fill="#000000"
           font-family="Rubik"
           font-size="18px"
-          id="battery-diagram-title-submeter"
+          id="ev-charger-discharger-diagram-title-submeter"
           letter-spacing="0em"
           style="white-space: pre"
           x="-2.3771973"
@@ -5227,7 +5227,7 @@
           <tspan id="tspan1482" x="538.04883" y="755.66498">Sub Meter</tspan>
         </text>
       </g>
-      <g id="battery-diagram-icon-inverter">
+      <g id="ev-charger-discharger-diagram-icon-inverter">
         <rect
           fill="#3779f5"
           height="37.382198"
@@ -5271,8 +5271,8 @@
           <tspan id="tspan2112" x="409.21075" y="419.50742">AC</tspan>
         </text>
       </g>
-      <g id="battery-diagram-board" v-show="!isPhotoModeRef">
-        <g filter="url(#filter4_d_2804:695)" id="battery-diagram-box-board">
+      <g id="ev-charger-discharger-diagram-board" v-show="!isPhotoModeRef">
+        <g filter="url(#filter4_d_2804:695)" id="ev-charger-discharger-diagram-box-board">
           <rect
             fill="#ffffff"
             height="223"
@@ -5283,7 +5283,7 @@
             y="312"
           />
         </g>
-        <g id="battery-diagram-icon-board" :class="isSimpleModeRef ? 'simple-mode' : ''">
+        <g id="ev-charger-discharger-diagram-icon-board" :class="isSimpleModeRef ? 'simple-mode' : ''">
           <path
             d="M896.761 347.483C898.283 347.562 899.55 348.017 900.459 348.811C901.368 349.606 901.893 350.718 901.992 352.057L901.908 418.349C901.908 420.887 899.526 422.963 896.636 422.981L847.231 410.959C845.71 410.879 844.444 410.423 843.535 409.629C842.626 408.834 842.1 407.723 842 406.386L798.083 352.093C798.083 349.555 800.466 347.48 803.356 347.462L896.761 347.483Z"
             fill="#8D8C91"
@@ -5715,7 +5715,7 @@
           fill="#515050"
           font-family="Rubik"
           font-size="16"
-          id="battery-diagram-ip-board"
+          id="ev-charger-discharger-diagram-ip-board"
           letter-spacing="0em"
           style="white-space: pre"
           xml:space="preserve"
@@ -5729,7 +5729,7 @@
           fill="#515050"
           font-family="Rubik"
           font-size="16"
-          id="battery-diagram-eoj-board"
+          id="ev-charger-discharger-diagram-eoj-board"
           letter-spacing="0em"
           style="white-space: pre"
           xml:space="preserve"
@@ -5748,7 +5748,7 @@
             }}
           </tspan>
         </text>
-        <g id="battery-diagram-info-board">
+        <g id="ev-charger-discharger-diagram-info-board">
           <path
             d="M981.5 340C981.5 346.351 976.351 351.5 970 351.5C963.649 351.5 958.5 346.351 958.5 340C958.5 333.649 963.649 328.5 970 328.5C976.351 328.5 981.5 333.649 981.5 340Z"
             fill="#D7D7D7"
@@ -5765,7 +5765,7 @@
           fill="#000000"
           font-family="Rubik"
           font-size="18px"
-          id="battery-diagram-title-board"
+          id="ev-charger-discharger-diagram-title-board"
           letter-spacing="0em"
           style="white-space: pre"
           x="-17.514832"
@@ -5781,7 +5781,7 @@
         class="opposite animate"
         :class="{ negative: evChargerDischargerSystemData.powerPoints['b'] < 0 }"
         d="M 208.62479,417.33559 208.535,566.797"
-        id="battery-diagram-flow-b"
+        id="ev-charger-discharger-diagram-flow-b"
         stroke="url(#paint14_linear_2804:695)"
         :stroke-width="isSimpleModeRef ? 8 : 4"
         style="
@@ -5791,8 +5791,8 @@
         "
         v-show="evChargerDischargerSystemData.powerPoints['b'] !== 0"
       />
-      <g id="battery-diagram-battery" v-show="!isPhotoModeRef">
-        <g filter="url(#filter2_d_2804:695)" id="battery-diagram-box-battery">
+      <g id="ev-charger-discharger-diagram-battery" v-show="!isPhotoModeRef">
+        <g filter="url(#filter2_d_2804:695)" id="ev-charger-discharger-diagram-box-battery">
           <rect
             fill="#ffffff"
             height="265"
@@ -5803,7 +5803,7 @@
             y="565"
           />
         </g>
-        <g id="battery-diagram-icon-battery" :class="isSimpleModeRef ? 'simple-mode' : ''">
+        <g id="ev-charger-discharger-diagram-icon-battery" :class="isSimpleModeRef ? 'simple-mode' : ''">
           <path
             d="M84.0647 726.356L81.5215 725.253C81.0977 724.923 80.6738 724.156 80.6738 723.281L83.217 724.385C83.217 725.697 83.6408 726.464 84.0647 726.356Z"
             fill="#C9CEE2"
@@ -5896,25 +5896,25 @@
               discharging:
                 evChargerDischargerSystemData.evChargerDischarger.workingOperationStatus === 67,
             }"
-            id="battery-diagram-icon-battery-status"
+            id="ev-charger-discharger-diagram-icon-battery-status"
           >
             <path
               class="charge_3"
               d="M135.083 650.637C135.083 650.062 135.549 649.595 136.125 649.595C136.701 649.595 137.168 650.062 137.168 650.637V662.106C137.168 662.682 136.701 663.148 136.125 663.148C135.549 663.148 135.083 662.682 135.083 662.106V650.637Z"
               fill="#47E298"
-              id="battery-diagram-icon-battery-status-3"
+              id="ev-charger-discharger-diagram-icon-battery-status-3"
             />
             <path
               class="charge_2"
               d="M135.083 669.925C135.083 669.35 135.549 668.883 136.125 668.883C136.701 668.883 137.168 669.35 137.168 669.925V681.394C137.168 681.97 136.701 682.436 136.125 682.436C135.549 682.436 135.083 681.97 135.083 681.394V669.925Z"
               fill="#47E298"
-              id="battery-diagram-icon-battery-status-2"
+              id="ev-charger-discharger-diagram-icon-battery-status-2"
             />
             <path
               class="charge_1"
               d="M135.083 689.213C135.083 688.637 135.549 688.171 136.125 688.171C136.701 688.171 137.168 688.637 137.168 689.213V700.682C137.168 701.257 136.701 701.724 136.125 701.724C135.549 701.724 135.083 701.257 135.083 700.682V689.213Z"
               fill="#47E298"
-              id="battery-diagram-icon-battery-status-1"
+              id="ev-charger-discharger-diagram-icon-battery-status-1"
             />
           </g>
         </g>
@@ -5923,7 +5923,7 @@
           font-family="Rubik"
           :font-size="isSimpleModeRef ? '18' : '14'"
           font-weight="500"
-          id="battery-diagram-value-battery-remaining"
+          id="ev-charger-discharger-diagram-value-battery-remaining"
           letter-spacing="0em"
           style="white-space: pre"
           xml:space="preserve"
@@ -5938,7 +5938,7 @@
           fill="#2D9E68"
           font-family="Rubik"
           :font-size="isSimpleModeRef ? '18' : '14'"
-          id="battery-diagram-label-battery-remaining"
+          id="ev-charger-discharger-diagram-label-battery-remaining"
           letter-spacing="0em"
           style="white-space: pre"
           xml:space="preserve"
@@ -5976,7 +5976,7 @@
           fill="#515050"
           font-family="Rubik"
           font-size="16"
-          id="battery-diagram-ip-battery"
+          id="ev-charger-discharger-diagram-ip-battery"
           letter-spacing="0em"
           style="white-space: pre"
           xml:space="preserve"
@@ -5990,7 +5990,7 @@
           fill="#515050"
           font-family="Rubik"
           font-size="16"
-          id="battery-diagram-eoj-battery"
+          id="ev-charger-discharger-diagram-eoj-battery"
           letter-spacing="0em"
           style="white-space: pre"
           xml:space="preserve"
@@ -6009,7 +6009,7 @@
             }}
           </tspan>
         </text>
-        <g id="battery-diagram-live-2" role="button" @click="switchCamera(1, true)"
+        <g id="ev-charger-discharger-diagram-live-2" role="button" @click="switchCamera(1, true)"
           v-show="isRealDevices"
         >
           <path
@@ -6079,7 +6079,7 @@
           fill="#505050"
           font-family="Rubik"
           :font-size="isSimpleModeRef? '22' : '16'"
-          id="battery-diagram-label-battery-mode"
+          id="ev-charger-discharger-diagram-label-battery-mode"
           letter-spacing="0em"
           xml:space="preserve"
           data-v-6de17741=""
@@ -6098,7 +6098,7 @@
           }"
           fill="#3779F5"
           :height="isSimpleModeRef ? '45' : '32'"
-          id="battery-diagram-rect-battery-status-standby"
+          id="ev-charger-discharger-diagram-rect-battery-status-standby"
           rx="8"
           :width="isSimpleModeRef ? '120' : '92'"
           x="199"
@@ -6109,7 +6109,7 @@
           font-family="Rubik"
           :font-size="isSimpleModeRef ? '22px' : '16px'"
           :font-weight="isSimpleModeRef ? 'bold' : 'inherit'"
-          id="battery-diagram-value-battery-status-standby"
+          id="ev-charger-discharger-diagram-value-battery-status-standby"
           letter-spacing="0em"
           style="white-space: pre"
           x="-1.4726562"
@@ -6128,7 +6128,7 @@
               ) !== -1,
           }"
           :height="isSimpleModeRef ? '45' : '31'"
-          id="battery-diagram-rect-battery-status-charging"
+          id="ev-charger-discharger-diagram-rect-battery-status-charging"
           rx="7.5"
           stroke="#909090"
           :width="isSimpleModeRef ? '120' : '91'"
@@ -6140,7 +6140,7 @@
           font-family="Rubik"
           :font-size="isSimpleModeRef ? '22px' : '16px'"
           :font-weight="isSimpleModeRef ? 'bold' : 'inherit'"
-          id="battery-diagram-value-battery-status-charging"
+          id="ev-charger-discharger-diagram-value-battery-status-charging"
           letter-spacing="0em"
           style="white-space: pre"
           x="-1.039566"
@@ -6156,7 +6156,7 @@
             on: evChargerDischargerSystemData.evChargerDischarger.workingOperationStatus === 67,
           }"
           :height="isSimpleModeRef ? '45' : '31'"
-          id="battery-diagram-rect-battery-status-discharging"
+          id="ev-charger-discharger-diagram-rect-battery-status-discharging"
           rx="7.5"
           stroke="#909090"
           :width="isSimpleModeRef ? '120' : '92'"
@@ -6168,7 +6168,7 @@
           font-family="Rubik"
           :font-size="isSimpleModeRef ? '22px' : '16px'"
           :font-weight="isSimpleModeRef ? 'bold' : 'inherit'"
-          id="battery-diagram-value-battery-status-discharging"
+          id="ev-charger-discharger-diagram-value-battery-status-discharging"
           letter-spacing="0em"
           style="white-space: pre"
           x="-2.15625"
@@ -6182,7 +6182,7 @@
           fill="black"
           font-family="Rubik"
           font-size="18"
-          id="battery-diagram-title-battery"
+          id="ev-charger-discharger-diagram-title-battery"
           letter-spacing="0em"
           style="white-space: pre"
           xml:space="preserve"
@@ -6191,7 +6191,7 @@
           <tspan id="tspan1144" :x="isSimpleModeRef ? '115' : '66.1865'" y="775.665">EV charger and discharger</tspan>
         </text>
         <g
-          id="battery-diagram-icon-battery-remaining"
+          id="ev-charger-discharger-diagram-icon-battery-remaining"
           :transform="isSimpleModeRef ? 'translate(20,0)' : 'inherit'"
         >
           <rect
@@ -6223,11 +6223,11 @@
           />
           <g
             class="inverse"
-            id="battery-diagram-icon-battery-remaining-overlay"
+            id="ev-charger-discharger-diagram-icon-battery-remaining-overlay"
           >
             <rect
               height="90.239799"
-              id="battery-diagram-indicator-battery-remaining"
+              id="ev-charger-discharger-diagram-indicator-battery-remaining"
               rx="1.5853161"
               style="
                 fill: #47e298;
@@ -6254,7 +6254,7 @@
         class="opposite animate_a animate"
         :class="{ negative: evChargerDischargerSystemData.powerPoints['a'] < 0 }"
         d="M 137.5,278.292 V 393 c 0,12.703 10.297,23 23,23 h 48.739"
-        id="battery-diagram-flow-a"
+        id="ev-charger-discharger-diagram-flow-a"
         stroke="url(#paint14_linear_2804:695)"
         :stroke-width="isSimpleModeRef ? 8 : 4"
         style="
@@ -6264,8 +6264,8 @@
         "
         v-show="evChargerDischargerSystemData.powerPoints['a'] !== 0"
       />
-      <g id="battery-diagram-solar"  v-show="!isPhotoModeRef">
-        <g filter="url(#filter6_d_2804:695)" id="battery-diagram-box-solar">
+      <g id="ev-charger-discharger-diagram-solar"  v-show="!isPhotoModeRef">
+        <g filter="url(#filter6_d_2804:695)" id="ev-charger-discharger-diagram-box-solar">
           <rect
             fill="#ffffff"
             height="242"
@@ -6288,7 +6288,7 @@
           />
         </g>
         <g
-          id="battery-diagram-icon-sun"
+          id="ev-charger-discharger-diagram-icon-sun"
           v-show="evChargerDischargerSystemData.powerPoints['a']"
         >
           <path
@@ -6428,7 +6428,7 @@
           />
         </g>
         <g
-          id="battery-diagram-icon-moon"
+          id="ev-charger-discharger-diagram-icon-moon"
           v-show="!evChargerDischargerSystemData.powerPoints['a']"
         >
           <path
@@ -6460,7 +6460,7 @@
           fill="#515050"
           font-family="Rubik"
           font-size="16"
-          id="battery-diagram-ip-solar"
+          id="ev-charger-discharger-diagram-ip-solar"
           letter-spacing="0em"
           style="white-space: pre"
           xml:space="preserve"
@@ -6474,7 +6474,7 @@
           fill="#515050"
           font-family="Rubik"
           font-size="16"
-          id="battery-diagram-eoj-solar"
+          id="ev-charger-discharger-diagram-eoj-solar"
           letter-spacing="0em"
           style="white-space: pre"
           xml:space="preserve"
@@ -6491,7 +6491,7 @@
             }}
           </tspan>
         </text>
-        <g id="battery-diagram-icon-solar" :class="isSimpleModeRef ? 'simple-mode' : ''">
+        <g id="ev-charger-discharger-diagram-icon-solar" :class="isSimpleModeRef ? 'simple-mode' : ''">
           <path
             d="M150.222 139.429L150.221 174.58L148.854 175.374L148.855 140.224L150.222 139.429Z"
             fill="#B8B4A9"
@@ -7729,7 +7729,7 @@
             />
           </g>
         </g>
-        <g id="battery-diagram-live-1" role="button" @click="switchCamera(0, true)"
+        <g id="ev-charger-discharger-diagram-live-1" role="button" @click="switchCamera(0, true)"
           v-show="isRealDevices"
         >
           <path
@@ -7799,7 +7799,7 @@
           fill="#000000"
           font-family="Rubik"
           font-size="18px"
-          id="battery-diagram-title-solar"
+          id="ev-charger-discharger-diagram-title-solar"
           letter-spacing="0em"
           style="white-space: pre"
           x="1.7533875"
@@ -7813,7 +7813,7 @@
       </g>
       <!-- Photo Mode Images -->
       <image
-        id="battery-diagram-solar-img"
+        id="ev-charger-discharger-diagram-solar-img"
         href="/assets/img/photo_mode/pvpowergeneration.jpg"
         height="300"
         width="402"
@@ -7822,7 +7822,7 @@
         v-show="isPhotoModeRef"
       ></image>
       <image
-        id="battery-diagram-battery-img"
+        id="ev-charger-discharger-diagram-battery-img"
         href="/assets/img/photo_mode/storagebattery.jpg"
         height="300"
         width="350"
@@ -7831,7 +7831,7 @@
         v-show="isPhotoModeRef"
       ></image>
       <image
-        id="battery-diagram-submeter-img"
+        id="ev-charger-discharger-diagram-submeter-img"
         href="/assets/img/photo_mode/submeter.jpg"
         height="275"
         width="280"
@@ -7840,7 +7840,7 @@
         v-show="isPhotoModeRef && isRealDevices"
       ></image>
       <image
-        id="battery-diagram-box-smartmeter-img"
+        id="ev-charger-discharger-diagram-box-smartmeter-img"
         href="/assets/img/photo_mode/smartmeter.jpg"
         height="230"
         width="356"
@@ -7849,7 +7849,7 @@
         v-show="isPhotoModeRef"
       ></image>
       <image
-        id="battery-diagram-board-img"
+        id="ev-charger-discharger-diagram-board-img"
         href="/assets/img/photo_mode/powerdistributionboard.jpg"
         height="230"
         width="368"
@@ -7858,7 +7858,7 @@
         v-show="isPhotoModeRef"
       ></image>
       <image
-        id="battery-diagram-load-img"
+        id="ev-charger-discharger-diagram-load-img"
         href="/assets/img/photo_mode/load.jpg"
         height="220"
         width="187"
@@ -7867,7 +7867,7 @@
         v-show="isPhotoModeRef"
       ></image>
       <image
-        id="battery-diagram-grid-img"
+        id="ev-charger-discharger-diagram-grid-img"
         href="/assets/img/photo_mode/powergrid.jpg"
         height="270"
         width="189"
@@ -7876,7 +7876,7 @@
         v-show="isPhotoModeRef"
       ></image>
       <image
-        id="battery-diagram-ac-img"
+        id="ev-charger-discharger-diagram-ac-img"
         href="/assets/img/photo_mode/airconditioner.jpg"
         height="270"
         width="378"
@@ -8545,7 +8545,7 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-.battery-main {
+.ev-charger-discharger-main {
   background-color: #e5faff;
 }
 .inverse {
@@ -8793,71 +8793,71 @@ export default defineComponent({
   cursor:    nw-resize;
 }
 
-#battery-diagram-icon-solar.simple-mode{
+#ev-charger-discharger-diagram-icon-solar.simple-mode{
   transform: translate(-100px, -50px) scale(1.5);
 }
-#battery-diagram-title-solar.simple-mode{
+#ev-charger-discharger-diagram-title-solar.simple-mode{
   transform: translate(-25px, 40px);
   font-size: 24px;
 }
-#battery-diagram-icon-battery.simple-mode{
+#ev-charger-discharger-diagram-icon-battery.simple-mode{
   transform: translate(-50px, -320px) scale(1.5);
 }
-#battery-diagram-title-battery.simple-mode{
+#ev-charger-discharger-diagram-title-battery.simple-mode{
   transform: translate(0px, 36px);
   font-size: 24px;
 }
-#battery-diagram-icon-submeter.simple-mode{
+#ev-charger-discharger-diagram-icon-submeter.simple-mode{
   transform: translate(-295px, -310px) scale(1.5);
 }
-#battery-diagram-title-submeter.simple-mode{
+#ev-charger-discharger-diagram-title-submeter.simple-mode{
   transform: translate(-15px, 47px);
   font-size: 24px;
 }
-#battery-diagram-icon-smartmeter.simple-mode{
+#ev-charger-discharger-diagram-icon-smartmeter.simple-mode{
   transform: translate(-430px, -40px) scale(1.5);
 }
-#battery-diagram-title-smartmeter.simple-mode{
+#ev-charger-discharger-diagram-title-smartmeter.simple-mode{
   transform: translate(-15px, 35px);
   font-size: 24px;
 }
-#battery-diagram-icon-board.simple-mode{
+#ev-charger-discharger-diagram-icon-board.simple-mode{
   transform: translate(-430px, -170px) scale(1.5);
 }
-#battery-diagram-title-board.simple-mode{
+#ev-charger-discharger-diagram-title-board.simple-mode{
   transform: translate(-35px, 42px);
   font-size: 24px;
 }
-#battery-diagram-icon-ac.simple-mode{
+#ev-charger-discharger-diagram-icon-ac.simple-mode{
   transform: translate(-565px, -275px) scale(1.5);
 }
-#battery-diagram-title-ac.simple-mode{
+#ev-charger-discharger-diagram-title-ac.simple-mode{
   transform: translate(25px, 30px);
   font-size: 24px;
 }
 
-#battery-diagram-box-grid.simple-mode{
+#ev-charger-discharger-diagram-box-grid.simple-mode{
   transform: translate(-255px, -30px) scale(1.2);
 }
 
-#battery-diagram-icon-grid.simple-mode{
+#ev-charger-discharger-diagram-icon-grid.simple-mode{
   transform: translate(-255px, -30px) scale(1.2);
 }
 
-#battery-diagram-title-grid.simple-mode{
+#ev-charger-discharger-diagram-title-grid.simple-mode{
   transform: translate(-10px, 20px);
   font-size: 24px;
 }
 
-#battery-diagram-box-load.simple-mode{
+#ev-charger-discharger-diagram-box-load.simple-mode{
   transform: translate(-180px, -160px) scale(1.2);
 }
 
-#battery-diagram-icon-load.simple-mode{
+#ev-charger-discharger-diagram-icon-load.simple-mode{
   transform: translate(-180px, -150px) scale(1.2);
 }
 
-#battery-diagram-title-load.simple-mode{
+#ev-charger-discharger-diagram-title-load.simple-mode{
   transform: translate(-10px, 20px);
   font-size: 24px;
 }
