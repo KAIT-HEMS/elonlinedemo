@@ -190,6 +190,36 @@
           }
         }
       },
+      "evChargerDischarger": {
+        "main": {
+          "cameraSwitcher": {
+            "pan": {
+              "title": "Move the view horizontally",
+              "label": "Pan"
+            },
+            "tilt": {
+              "title": "Move the view vertically",
+              "label": "Tilt"
+            },
+            "zoom": {
+              "title": "Zoom the view",
+              "label": "Zoom"
+            }
+          }
+        },
+        "controls": {
+          "nav": {
+            "control": {
+              "title": "Change state of system",
+              "label": "Control"
+            },
+            "monitor": {
+              "title": "See details of system",
+              "label": "Monitor"
+            }
+          }
+        }
+      },
       "settings": {
         "menu": {
           "heading": "Settings",
@@ -470,6 +500,36 @@
         }
       },
       "battery": {
+        "main": {
+          "cameraSwitcher": {
+            "pan": {
+              "title": "水平方向にカメラを動かす",
+              "label": "左右"
+            },
+            "tilt": {
+              "title": "垂直方向にカメラを動かす",
+              "label": "上下"
+            },
+            "zoom": {
+              "title": "カメラをズーム",
+              "label": "ズーム"
+            }
+          }
+        },
+        "controls": {
+          "nav": {
+            "control": {
+              "title": "システム状態を変更",
+              "label": "制御"
+            },
+            "monitor": {
+              "title": "システムの詳細を確認",
+              "label": "監視"
+            }
+          }
+        }
+      },
+      "evChargerDischarger": {
         "main": {
           "cameraSwitcher": {
             "pan": {
