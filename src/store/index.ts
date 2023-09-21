@@ -214,7 +214,7 @@ export default createStore({
     batterySystemPointD: 0xD8,
     batterySystemPointE: 0xD9,
     batterySystemUIModeSimple: false,
-    batterySystemUIModePhoto: false,    
+    batterySystemUIModePhoto: false,
     cameraSearchCriteria: CameraSearchCriteria as CameraSearchCriteria,
     cameras: JSON.parse(localStorage.getItem('el-demoapp-cameras') || 'null') || [] as Camera[],
     cameraHolders: JSON.parse(localStorage.getItem('el-demoapp-camera-holders') || 'null') || CameraHolders as CameraHolders,
@@ -285,6 +285,10 @@ export default createStore({
           }
         });
       }
+
+      // Hide user-defined EPCs, from 0xF0 (240) to 0xFF (255)
+      res = res.filter(value => value < 240 || value > 255);
+
       return res.sort();
     },
     getPropertyMap: (_, getters) => (ip: string, eoj: { class: number, id: number }) => {
