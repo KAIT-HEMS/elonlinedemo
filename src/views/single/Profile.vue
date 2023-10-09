@@ -54,6 +54,8 @@ export default defineComponent({
   setup() {
     const store        = useStore(),
           nodes        = computed(() => store.state.nodes),
+          epcList      = computed(() => device.value.ip ? store.getters.setPropertyMap(device.value.ip, device.value.eoj) : []),
+          epcList2     = computed(() => device.value.ip ? store.getters.getPropertyMap(device.value.ip, device.value.eoj) : []),
           device       = computed(() => store.state.device),
           locale       = computed(() => store.state.locale),
           release      = computed(() => device.value.ip ? nodes.value[device.value.ip][device.value.eoj.class][device.value.eoj.id].release : ''),
@@ -108,7 +110,53 @@ export default defineComponent({
                   propertyValue = matched.descriptions[locale.value];
                 }
                 break;
-            }
+              case 'raw':
+                switch (epc.toHex(2).toUpperCase().prefix('0x')) {
+                  case '0x81':
+                    propertyValue = ''
+                    break;
+                  case '0x82':
+                    propertyValue = String.fromCharCode(edt[2])
+                    break;
+                  case '0x9E':
+                    let epcs1: string[] = []
+                    epcList.value.forEach((epc: number) => {
+                      epcs1.push(epc.toHex(2).toUpperCase().prefix('0x'))
+                    });
+                    propertyValue = epcs1.join(', ');
+                    break;
+                  case '0x9F':
+                    let epcs2: string[] = []
+                    epcList2.value.forEach((epc: number) => {
+                      epcs2.push(epc.toHex(2).toUpperCase().prefix('0x'))
+                    });
+                    propertyValue = epcs2.join(', ');
+                    break;
+                }
+                break;
+              case 'date':
+                let hex = '';
+                edt.forEach((v: number) => { hex += v.toHex(2); });
+                propertyValue = parseInt(hex.substring(0, 4), 16) + '-' + edt[2] + '-' + edt[3];
+                break;
+              case 'time':
+                propertyValue = edt[0] + ':' + edt[1];
+                break;
+              case 'object':
+                switch (epc.toHex(2).toUpperCase().prefix('0x')) {
+                  case '0x9A':
+                    let enums = propertyDescription.data.oneOf[i].properties[0].element.enum
+                    let duration = (() => { let hex = ''; edt.forEach((v: number, i: number) => { i != 0 ? hex += v.toHex(2).toUpperCase() : ''; }); return hex; })()
+                    if(edt[0]) {
+                      matched = enums.find((v: any) => Number(v.edt) === parseInt(edt[0].toHex(), 16));
+                      if (matched) {
+                        propertyValue = parseInt(duration, 16) + ' ' + matched.name;
+                      }
+                    }
+                    break;
+                }
+                break;
+              }
           }
         } else {
           switch(propertyDescription.data.type) {
@@ -130,15 +178,70 @@ export default defineComponent({
                   propertyValue = matched.descriptions[locale.value];
                 }
                 break;
+              case 'raw':
+                switch (epc.toHex(2).toUpperCase().prefix('0x')) {
+                  case '0x81':
+                    propertyValue = ''
+                    break;
+                  case '0x82':
+                    propertyValue = String.fromCharCode(edt[2])
+                    break;
+                  case '0x9E':
+                    let epcs1: string[] = []
+                    epcList.value.forEach((epc: number) => {
+                      epcs1.push(epc.toHex(2).toUpperCase().prefix('0x'))
+                    });
+                    propertyValue = epcs1.join(', ');
+                    break;
+                  case '0x9F':
+                    let epcs2: string[] = []
+                    epcList2.value.forEach((epc: number) => {
+                      epcs2.push(epc.toHex(2).toUpperCase().prefix('0x'))
+                    });
+                    propertyValue = epcs2.join(', ');
+                    break;
+                }
+                break;
+              case 'date':
+                let hex = '';
+                edt.forEach((v: number) => { hex += v.toHex(2); });
+                propertyValue = parseInt(hex.substring(0, 4), 16) + '-' + edt[2] + '-' + edt[3];
+                break;
+              case 'time':
+                propertyValue = edt[0] + ':' + edt[1];
+                break;
+              case 'object':
+                switch (epc.toHex(2).toUpperCase().prefix('0x')) {
+                  case '0x9A':
+                    let enums = propertyDescription.data.properties[0].element.enum
+                    let duration = (() => { let hex = ''; edt.forEach((v: number, i: number) => { i != 0 ? hex += v.toHex(2).toUpperCase() : ''; }); return hex; })()
+                    if(edt[0]) {
+                      matched = enums.find((v: any) => Number(v.edt) === parseInt(edt[0].toHex(), 16));
+                      if (matched) {
+                        propertyValue = parseInt(duration, 16) + ' ' + matched.name;
+                      }
+                    }
+                    break;
+                }
+                break;
             }
         }
 
         if (edt.length === 0) { return; }
+
+        let multiple = propertyDescription.data.multiple
+
+        if (propertyValue === null) {
+          propertyValue = ''
+        } else if (multiple) {
+          propertyValue = multiple * propertyValue
+        }
+
         newList.push({
           epc: epc.toHex(2).toUpperCase().prefix('0x'),
           name: propertyDescription.propertyName[locale.value],
           edt: (() => { let hex = ''; edt.forEach((v: number) => { hex += v.toHex(2).toUpperCase(); }); return hex.prefix('0x'); })(),
-          value: (propertyValue === null) ? 'N/A' : propertyValue
+          value: propertyValue
         });
       });
 
