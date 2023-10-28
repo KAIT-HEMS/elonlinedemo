@@ -269,7 +269,7 @@ export default createStore({
       if (typeof state.nodes[ip][eoj.class][eoj.id][epc] === 'undefined') { return []; }
       return state.nodes[ip][eoj.class][eoj.id][epc];
     },
-    setPropertyMap: (_, getters) => (ip: string, eoj: { class: number, id: number }) => {
+    setPropertyMap: (_, getters) => (ip: string, eoj: { class: number, id: number }, includeUserDefinedEPCs: boolean) => {
       const setMap = [...getters.data(ip, eoj, 0x9E)];
       if (setMap === []) { return setMap; }
       let res = [];
@@ -286,8 +286,10 @@ export default createStore({
         });
       }
 
-      // Hide user-defined EPCs, from 0xF0 (240) to 0xFF (255)
-      res = res.filter(value => value < 240 || value > 255);
+      // Exclude user-defined EPCs from 0xF0 (240) to 0xFF (255)
+      if (!includeUserDefinedEPCs) {
+        res = res.filter(v => v < 240);
+      }
 
       return res.sort();
     },
