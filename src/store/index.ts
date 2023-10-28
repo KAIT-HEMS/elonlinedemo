@@ -214,7 +214,7 @@ export default createStore({
     batterySystemPointD: 0xD8,
     batterySystemPointE: 0xD9,
     batterySystemUIModeSimple: false,
-    batterySystemUIModePhoto: false,    
+    batterySystemUIModePhoto: false,
     cameraSearchCriteria: CameraSearchCriteria as CameraSearchCriteria,
     cameras: JSON.parse(localStorage.getItem('el-demoapp-cameras') || 'null') || [] as Camera[],
     cameraHolders: JSON.parse(localStorage.getItem('el-demoapp-camera-holders') || 'null') || CameraHolders as CameraHolders,
@@ -269,7 +269,7 @@ export default createStore({
       if (typeof state.nodes[ip][eoj.class][eoj.id][epc] === 'undefined') { return []; }
       return state.nodes[ip][eoj.class][eoj.id][epc];
     },
-    setPropertyMap: (_, getters) => (ip: string, eoj: { class: number, id: number }) => {
+    setPropertyMap: (_, getters) => (ip: string, eoj: { class: number, id: number }, includeUserDefinedEPCs: boolean) => {
       const setMap = [...getters.data(ip, eoj, 0x9E)];
       if (setMap === []) { return setMap; }
       let res = [];
@@ -285,6 +285,12 @@ export default createStore({
           }
         });
       }
+
+      // Exclude user-defined EPCs from 0xF0 (240) to 0xFF (255)
+      if (!includeUserDefinedEPCs) {
+        res = res.filter(v => v < 240);
+      }
+
       return res.sort();
     },
     getPropertyMap: (_, getters) => (ip: string, eoj: { class: number, id: number }) => {
