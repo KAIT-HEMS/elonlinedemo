@@ -144,55 +144,12 @@ export default defineComponent({
         propertyDescription = store.getters.propertyDescription(device.value.eoj.class, parseInt(epc.value, 16), release.value) || propertyDescription;
         if (propertyDescription === null) { return ''; }
 
+        if (edt.value === '') { return ''; }
 
-        let propertyValue = null;
-        let matched = undefined;
-        if (propertyDescription.data.hasOwnProperty('oneOf')) {
-          for (let i in propertyDescription.data.oneOf) {
-            switch(propertyDescription.data.oneOf[i].type) {
-              case 'number':
-                // int8
-                if (propertyDescription.data.oneOf[i].format === 'int8') {
-                  propertyValue = parseInt(edt.value, 16) | 0;
-                } else {
-                  // uint8
-                  propertyValue = parseInt(edt.value, 16);
-                }
-                if (propertyDescription.data.oneOf[i].hasOwnProperty('unit')) {
-                  propertyValue = propertyValue.toString() + ' ' + propertyDescription.data.oneOf[i].unit;
-                }
-                break;
-              case 'state':
-                matched = propertyDescription.data.oneOf[i].enum.find((v: any) => Number(v.edt) === parseInt(edt.value, 16));
-                if (matched) {
-                  propertyValue = matched.descriptions[locale.value];
-                }
-                break;
-            }
-          }
-        } else {
-          switch(propertyDescription.data.type) {
-              case 'number':
-                // int8
-                if (propertyDescription.data.format === 'int8') {
-                  propertyValue = parseInt(edt.value, 16) | 0;
-                } else {
-                  // uint8
-                  propertyValue = parseInt(edt.value, 16);
-                }
-                if (propertyDescription.data.hasOwnProperty('unit')) {
-                  propertyValue = propertyValue.toString() + ' ' + propertyDescription.data.unit;
-                }
-                break;
-              case 'state':
-                matched = propertyDescription.data.enum.find((v: any) => Number(v.edt) === parseInt(edt.value, 16));
-                if (matched) {
-                  propertyValue = matched.descriptions[locale.value];
-                }
-                break;
-            }
-        }
-        return propertyValue || '';
+        // Decode EDT
+        const propertyValue = store.getters.decodedData(parseInt(epc.value, 16), edt.value.toUint8Array(), propertyDescription);
+
+        return propertyValue === null ? '' : propertyValue;
       })();
     });
 
