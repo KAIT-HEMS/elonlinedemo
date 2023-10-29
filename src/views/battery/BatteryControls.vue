@@ -337,20 +337,29 @@ export default defineComponent({
       const mode = (document.querySelector('input[name="f-storage-battery-operation-mode"]:checked') as HTMLInputElement)?.value;
       if (!mode) { return; }
 
+      const chargeAmountField = document.getElementById('f-storage-battery-charge-amount') as HTMLInputElement,
+            dischargeAmountField = document.getElementById('f-storage-battery-discharge-amount') as HTMLInputElement;
+      let chargeAmount = 0,
+          dischargeAmount = 0;
+
+      // Reset errors
+      chargeAmountField.classList.remove('is-invalid');
+      dischargeAmountField.classList.remove('is-invalid');
+
       switch (mode) {
         // Charging
         case '0x42':
-          const chargeAmountField = document.getElementById('f-storage-battery-charge-amount') as HTMLInputElement;
-          chargeAmountField.classList.remove('is-invalid');
           if (chargeAmountField.value === '' || Number.isNaN(chargeAmountField.value)) {
             chargeAmountField.classList.add('is-invalid');
             return;
           }
-          const chargeAmount = parseInt(chargeAmountField.value);
+
+          chargeAmount = parseInt(chargeAmountField.value);
           if (chargeAmount < 0 || batterySystemData.value.storageBattery.chargeableElectricity < chargeAmount) {
             chargeAmountField.classList.add('is-invalid');
             return;
           }
+
           epcList.push(0xAA);
           edtList.push(chargeAmount.toHex(8).toUint8Array());
 
@@ -359,17 +368,17 @@ export default defineComponent({
           break;
         // Discharging
         case '0x43':
-          const dischargeAmountField = document.getElementById('f-storage-battery-discharge-amount') as HTMLInputElement;
-          dischargeAmountField.classList.remove('is-invalid');
           if (dischargeAmountField.value === '' || Number.isNaN(dischargeAmountField.value)) {
             dischargeAmountField.classList.add('is-invalid');
             return;
           }
-          const dischargeAmount = parseInt(dischargeAmountField.value);
-          if (dischargeAmount < 0 || batterySystemData.value.storageBattery.chargeableElectricity < dischargeAmount) {
+
+          dischargeAmount = parseInt(dischargeAmountField.value);
+          if (dischargeAmount < 0 || batterySystemData.value.storageBattery.dischargeableElectricity < dischargeAmount) {
             dischargeAmountField.classList.add('is-invalid');
             return;
           }
+
           epcList.push(0xAB);
           edtList.push(dischargeAmount.toHex(8).toUint8Array());
 

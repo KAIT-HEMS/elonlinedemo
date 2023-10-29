@@ -376,7 +376,7 @@ export default createStore({
 
       return result;
     },
-    setPropertyMap: (_, getters) => (ip: string, eoj: { class: number, id: number }) => {
+    setPropertyMap: (_, getters) => (ip: string, eoj: { class: number, id: number }, includeUserDefinedEPCs: boolean) => {
       const setMap = [...getters.data(ip, eoj, 0x9E)];
       if (setMap === []) { return setMap; }
       let res = [];
@@ -392,6 +392,12 @@ export default createStore({
           }
         });
       }
+
+      // Exclude user-defined EPCs from 0xF0 (240) to 0xFF (255)
+      if (!includeUserDefinedEPCs) {
+        res = res.filter(v => v < 240);
+      }
+
       return res.sort();
     },
     getPropertyMap: (_, getters) => (ip: string, eoj: { class: number, id: number }) => {
