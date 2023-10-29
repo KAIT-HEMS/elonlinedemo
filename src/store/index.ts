@@ -71,6 +71,7 @@ function getValidOne(descriptions: DeviceDescription[] | PropertyDescription[], 
 function decodeEDT(epc: number, edt: number[], definition: any, locale: string): number | string | null {
   let result = null,
       matched = undefined,
+      edtMap = [...edt],
       epcMap = [] as number[];
 
   if (Object.prototype.hasOwnProperty.call(definition, 'size') && definition.size !== edt.length) { return result; }
@@ -115,10 +116,10 @@ function decodeEDT(epc: number, edt: number[], definition: any, locale: string):
         case 0x9D:
         case 0x9E:
         case 0x9F:
-          if (edt.shift()! < 16) {
-            epcMap = edt;
+          if (edtMap.shift()! < 16) {
+            epcMap = edtMap;
           } else {
-            edt.forEach((v: number, i: number) => {
+            edtMap.forEach((v: number, i: number) => {
               for (let j = 8; j < 16; j++) {
                 if (v & 1) {
                   epcMap.push(j * 16 + i);
