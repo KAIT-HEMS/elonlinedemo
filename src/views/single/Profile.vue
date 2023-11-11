@@ -54,6 +54,8 @@ export default defineComponent({
   setup() {
     const store        = useStore(),
           nodes        = computed(() => store.state.nodes),
+          epcList      = computed(() => device.value.ip ? store.getters.setPropertyMap(device.value.ip, device.value.eoj) : []),
+          epcList2     = computed(() => device.value.ip ? store.getters.getPropertyMap(device.value.ip, device.value.eoj) : []),
           device       = computed(() => store.state.device),
           locale       = computed(() => store.state.locale),
           release      = computed(() => device.value.ip ? nodes.value[device.value.ip][device.value.eoj.class][device.value.eoj.id].release : ''),
@@ -83,62 +85,16 @@ export default defineComponent({
         if (propertyDescription === null) { return; }
 
         const edt = store.getters.data(device.value.ip, device.value.eoj, epc);
-
-        // Find the property value
-        let propertyValue = null;
-        let matched = undefined;
-        if (propertyDescription.data.hasOwnProperty('oneOf')) {
-          for (let i in propertyDescription.data.oneOf) {
-            switch(propertyDescription.data.oneOf[i].type) {
-              case 'number':
-                // int8
-                if (propertyDescription.data.oneOf[i].format === 'int8') {
-                  propertyValue = parseInt(edt.toHex(), 16);
-                } else {
-                  // uint8
-                  propertyValue = hexToInt(edt.toHex());
-                }
-                if (propertyDescription.data.oneOf[i].hasOwnProperty('unit')) {
-                  propertyValue = propertyValue.toString() + ' ' + propertyDescription.data.oneOf[i].unit;
-                }
-                break;
-              case 'state':
-                matched = propertyDescription.data.oneOf[i].enum.find((v: any) => Number(v.edt) === parseInt(edt.toHex(), 16));
-                if (matched) {
-                  propertyValue = matched.descriptions[locale.value];
-                }
-                break;
-            }
-          }
-        } else {
-          switch(propertyDescription.data.type) {
-              case 'number':
-                // int8
-                if (propertyDescription.data.format === 'int8') {
-                  propertyValue = parseInt(edt.toHex(), 16);
-                } else {
-                  // uint8
-                  propertyValue = hexToInt(edt.toHex());
-                }
-                if (propertyDescription.data.hasOwnProperty('unit')) {
-                  propertyValue = propertyValue.toString() + ' ' + propertyDescription.data.unit;
-                }
-                break;
-              case 'state':
-                matched = propertyDescription.data.enum.find((v: any) => Number(v.edt) === parseInt(edt.toHex(), 16));
-                if (matched) {
-                  propertyValue = matched.descriptions[locale.value];
-                }
-                break;
-            }
-        }
-
         if (edt.length === 0) { return; }
+
+        // Decode EDT
+        const propertyValue = store.getters.decodedData(epc, edt, propertyDescription);
+
         newList.push({
           epc: epc.toHex(2).toUpperCase().prefix('0x'),
           name: propertyDescription.propertyName[locale.value],
           edt: (() => { let hex = ''; edt.forEach((v: number) => { hex += v.toHex(2).toUpperCase(); }); return hex.prefix('0x'); })(),
-          value: (propertyValue === null) ? 'N/A' : propertyValue
+          value: propertyValue === null ? '' : propertyValue
         });
       });
 

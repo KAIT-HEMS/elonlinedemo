@@ -17,6 +17,10 @@
             "title": "Opens the Battery System Control page",
             "label": "Battery System"
           },
+          "evChargerDischarger": {
+            "title": "Opens the EV Charger/Discharger System Control page",
+            "label": "EV Charger/ Discharger"
+          },
           "settings": {
             "title": "Opens the Settings page",
             "label": "Settings"
@@ -45,6 +49,10 @@
           "battery": {
             "title": "Opens the Battery System Control page",
             "label": "Battery System"
+          },
+          "evChargerDischarger": {
+            "title": "Opens the EV Charger/Discharger System Control page",
+            "label": "EV Charger/Discharger"
           }
         }
       },
@@ -342,6 +350,10 @@
             "title": "蓄電池システム制御画面を表示",
             "label": "蓄電池システム"
           },
+          "evChargerDischarger": {
+            "title": "EV充放電器システム制御画面を表示",
+            "label": "EV充放電器 システム"
+          },
           "settings": {
             "title": "設定画面を表示",
             "label": "設定"
@@ -370,6 +382,10 @@
           "battery": {
             "title": "蓄電池システム制御画面を表示",
             "label": "蓄電池システム"
+          },
+          "evChargerDischarger": {
+            "title": "EV充放電器システム制御画面を表示",
+            "label": "EV充放電器システム"
           }
         }
       },
