@@ -8408,11 +8408,32 @@ export default defineComponent({
         Object.keys(evChargerDischargerSystem.value).forEach(x => {
           if (evChargerDischargerSystem.value[x].ip === '') { return; }
 
+          // Confirms the connection status of EV charger discharger
+          switch(evChargerDischargerSystem.value[x].eoj.class) {
+            // EV charger discharger
+            case 0x027E:
+              store.dispatch('sendEL', {
+                ip: evChargerDischargerSystem.value[x].ip,
+                el: {
+                  deoj: evChargerDischargerSystem.value[x].eoj,
+                  esv: 0x61,
+                  opc: {
+                    ops: [
+                      {
+                        epc: 0xCD,
+                        edt: [0x10]
+                      }
+                    ]
+                  }
+                }
+              });
+          }
+
           const questions = (() => {
             switch (evChargerDischargerSystem.value[x].eoj.class) {
               // EV charger discharger
-              case 0x027D:
-                return [0xA4, 0xA5, 0xCF, 0xD3, 0xE4];
+              case 0x027E:
+                return [0xC2, 0xC4, 0xC7, 0xCF, 0xD3, 0xDA];
               // Household solar power generation
               case 0x0279:
                 return [0xE0];
