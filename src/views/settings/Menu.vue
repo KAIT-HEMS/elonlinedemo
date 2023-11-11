@@ -5,6 +5,7 @@
       <div class="d-grid gap-3">
         <router-link :to="{ name: 'settings.single' }" class="text-muted text-decoration-none" :class="{ active: section === 'single' }">{{ text?.nav?.single }}</router-link>
         <router-link :to="{ name: 'settings.battery' }" class="text-muted text-decoration-none" :class="{ active: section === 'battery' }">{{ text?.nav?.battery }}</router-link>
+        <router-link :to="{ name: 'settings.evChargerDischarger' }" class="text-muted text-decoration-none" :class="{ active: section === 'evChargerDischarger' }">{{ text?.nav?.evChargerDischarger }}</router-link>
         <router-link :to="{ name: 'settings.network' }" class="text-muted text-decoration-none" :class="{ active: section === 'network' }">{{ text?.nav?.network }}</router-link>
         <router-link :to="{ name: 'settings.cameras' }" class="text-muted text-decoration-none" :class="{ active: section === 'cameras' }">{{ text?.nav?.cameras }}</router-link>
         <router-link :to="{ name: 'settings.ui' }" class="text-muted text-decoration-none" :class="{ active: section === 'ui' }">{{ text?.nav?.ui }}</router-link>
