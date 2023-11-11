@@ -62,7 +62,7 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .header {
-  grid-template-columns: 1fr 675px 116px;
+  grid-template-columns: 1fr 630px 116px;
 }
 .header-main-title {
   font-size:   var(--size-text-xxl);
@@ -80,8 +80,10 @@ export default defineComponent({
   grid-template-columns: repeat(5, minmax(0, 1fr));
 }
 .header-nav-list-item {
-  padding-top: 46px;
+  padding-top: 52px;
+  line-height: 14px;
   text-align:  center;
+  word-break:  keep-all;
   cursor:      pointer;
 }
 .header-nav-list-item:hover{
@@ -100,10 +102,9 @@ export default defineComponent({
 .header-nav-evchargerdischarger {
   background-image:    url('/assets/img/icon-nav-evchargerdischarger.svg');
   background-repeat:   no-repeat;
-  background-position: center 10px;
-  background-size:     32px;
-  padding-top:         40px;
-  line-height:         18px;
+  background-position: center 14px;
+  background-size:     28px;
+  padding-top:         48px;
 }
 .header-nav-settings {
   background-image:    url('/assets/img/icon-nav-settings.svg');
@@ -132,7 +133,7 @@ export default defineComponent({
 }
 .header-nav-highlight {
   --bs-bg-opacity: .2;
-  width:           135px;
+  width:           126px;
   display:         none;
   transition:      left .25s ease-out;
 }
@@ -146,25 +147,25 @@ export default defineComponent({
 .nav-battery {
   .header-nav-highlight {
     display: block;
-    left:    135px;
+    left:    126px;
   }
 }
 .nav-evchargerdischarger {
   .header-nav-highlight {
     display: block;
-    left:    270px;
+    left:    252px;
   }
 }
 .nav-settings {
   .header-nav-highlight {
     display: block;
-    left:    405px;
+    left:    378px;
   }
 }
 .nav-help {
   .header-nav-highlight {
     display:      block;
-    left:         540px;
+    left:         504px;
     border-right: none !important;
   }
 }

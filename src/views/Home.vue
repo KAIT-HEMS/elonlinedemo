@@ -89,15 +89,16 @@ export default defineComponent({
   }
 }
 .home-nav-item-evchargerdischarger {
-  background-image:    url('/assets/img/avatar-evchargerdischarger.svg');
+  background-image:    url('/assets/img/home-evchargerdischarger.svg');
   background-repeat:   no-repeat;
-  background-position: center 92px;
+  background-position: center 34%;
+  background-size: 80%;
 
   &:hover {
-    box-shadow: 0 0 0 .25rem #923cd0 !important;
+    box-shadow: 0 0 0 .25rem #915EFD80 !important;
   }
   > .home-nav-item-label {
-    background-image: linear-gradient(90deg, var(--color-gradient-ev-start) 0%, var(--color-gradient-ev-end) 100%);
+    background-image: linear-gradient(90deg, var(--color-gradient-evchargerdischarger-start) 0%, var(--color-gradient-evchargerdischarger-end) 100%);
   }
 }
 </style>

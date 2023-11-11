@@ -226,6 +226,7 @@
           "nav": {
             "single": "Single device",
             "battery": "Storage battery system",
+            "evChargerDischarger": "EV charger/discharger system",
             "network": "Network",
             "cameras": "Streaming video",
             "ui": "UI"
@@ -266,6 +267,29 @@
           }
         },
         "battery": {
+          "modeField": {
+            "heading": "Select a mode",
+            "modes": {
+              "real": "Real Devices",
+              "rhe": "RHE"
+            }
+          },
+          "heading": "Select devices to monitor and control",
+          "searchButton": {
+            "label": "Search",
+            "title": "Search for available devices"
+          },
+          "clearButton": {
+            "label": "Clear",
+            "title": "Clear the search results"
+          },
+          "ipField": "IP",
+          "eojField": "EOJ",
+          "releaseField": "Rel.",
+          "manufacturerField": "Manufacturer",
+          "idField": "ID"
+        },
+        "evChargerDischarger": {
           "modeField": {
             "heading": "Select a mode",
             "modes": {
@@ -358,7 +382,7 @@
           },
           "evChargerDischarger": {
             "title": "EV充放電器システム制御画面を表示",
-            "label": "EV充放電器システム"
+            "label": "EV充放電器 システム"
           },
           "settings": {
             "title": "設定画面を表示",
@@ -565,6 +589,7 @@
           "nav": {
             "single": "単体機器",
             "battery": "蓄電池システム",
+            "evChargerDischarger": "EV充放電器システム",
             "network": "ネットワーク",
             "cameras": "ライブ映像",
             "ui": "UI"
@@ -605,6 +630,29 @@
           }
         },
         "battery": {
+          "modeField": {
+            "heading": "モードを選択",
+            "modes": {
+              "real": "実機",
+              "rhe": "RHE"
+            }
+          },
+          "heading": "監視・制御する機器を選択",
+          "searchButton": {
+            "label": "検索",
+            "title": "利用可能な機器を検索"
+          },
+          "clearButton": {
+            "label": "クリア",
+            "title": "検索結果をクリア"
+          },
+          "ipField": "IP",
+          "eojField": "EOJ",
+          "releaseField": "Rel.",
+          "manufacturerField": "メーカー",
+          "idField": "ID"
+        },
+        "evChargerDischarger": {
           "modeField": {
             "heading": "モードを選択",
             "modes": {

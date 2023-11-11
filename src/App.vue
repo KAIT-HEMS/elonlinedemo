@@ -33,15 +33,15 @@ export default defineComponent({
 <style lang="scss">
 :root {
   // Colors
-  --color-gradient-start:         #2A74CD;
-  --color-gradient-end:           #226BFF;
-  --color-gradient-single-start:  #eb483e;
-  --color-gradient-single-end:    #f98543;
-  --color-gradient-battery-start: #11be80;
-  --color-gradient-battery-end:   #27f561;
-  --color-gradient-ev-start:      #923cd0;
-  --color-gradient-ev-end:        #ab5de2;
-  --color-list-highlight:         rgba(255, 255, 255, .2);
+  --color-gradient-start:                     #2A74CD;
+  --color-gradient-end:                       #226BFF;
+  --color-gradient-single-start:              #eb483e;
+  --color-gradient-single-end:                #f98543;
+  --color-gradient-battery-start:             #11be80;
+  --color-gradient-battery-end:               #27f561;
+  --color-gradient-evchargerdischarger-start: #4911BE;
+  --color-gradient-evchargerdischarger-end:   #915EFD;
+  --color-list-highlight:                     rgba(255, 255, 255, .2);
 
   // Typography
   --size-text-xxs: 10px;

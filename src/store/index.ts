@@ -67,6 +67,99 @@ function getValidOne(descriptions: DeviceDescription[] | PropertyDescription[], 
   return [...descriptions].find(v => v.validRelease.from <= release && (v.validRelease.to === 'latest' || release <= v.validRelease.to)) || null;
 }
 
+// Decode EDT as per the property description
+function decodeEDT(epc: number, edt: number[], definition: any, locale: string): number | string | null {
+  let result = null,
+      matched = undefined,
+      edtMap = [...edt],
+      epcMap = [] as number[];
+
+  if (Object.prototype.hasOwnProperty.call(definition, 'size') && definition.size !== edt.length) { return result; }
+
+  switch(definition.type) {
+    case 'number':
+      switch (definition.format) {
+        case 'int8':
+        case 'int16':
+        case 'int32':
+          result = parseInt(edt.toHex(), 16).toSignedInt(definition.format);
+          break;
+        case 'uint8':
+        case 'uint16':
+        case 'uint32':
+          result = parseInt(edt.toHex(), 16);
+          break;
+      }
+      if (typeof result === 'number' && Object.prototype.hasOwnProperty.call(definition, 'multiple')) {
+        result = result * definition.multiple;
+      }
+      if (typeof result === 'number' && Object.prototype.hasOwnProperty.call(definition, 'unit')) {
+        result = result.toString() + ' ' + definition.unit;
+      }
+      break;
+    case 'state':
+      matched = definition.enum.find((v: any) => Number(v.edt) === parseInt(edt.toHex(), 16));
+      if (matched) {
+        result = matched.descriptions[locale];
+      }
+      break;
+    case 'raw':
+      switch (epc) {
+        case 0x82:
+          // Convert the third byte to an ASCII character
+          result = String.fromCharCode(edt[2]).toUpperCase();
+          // Append the fourth byte as the revision number
+          if (edt[3] > 0x00) {
+            result = result + ' rev. ' + edt[3];
+          }
+          break;
+        case 0x9D:
+        case 0x9E:
+        case 0x9F:
+          if (edtMap.shift()! < 16) {
+            epcMap = edtMap;
+          } else {
+            edtMap.forEach((v: number, i: number) => {
+              for (let j = 8; j < 16; j++) {
+                if (v & 1) {
+                  epcMap.push(j * 16 + i);
+                }
+                v = v >> 1;
+              }
+            });
+          }
+          result = epcMap.sort().map(epc => epc.toHex(2).toUpperCase().prefix('0x')).join(', ');
+          break;
+      }
+      break;
+    case 'date':
+      // Skip unless 4 bytes
+      if (edt.length !== 4) { break; }
+      // Format as YYYY-MM-DD
+      result = edt[0] * 16**2 + edt[1] + '-' + edt[2].toString().padStart(2, '0') + '-' + edt[3].toString().padStart(2, '0');
+      break;
+    case 'time':
+      // Format as hh:mm
+      result = edt[0].toString().padStart(2, '0') + ':' + edt[1].toString().padStart(2, '0');
+      break;
+    case 'object':
+      switch (epc) {
+        case 0x9A:
+          // Unit (1 byte) + Time (4 bytes)
+          result = parseInt([edt[1], edt[2], edt [3], edt[4]].toHex(), 16) + ' ' + decodeEDT(epc, [edt[0]], definition.properties[0].element, locale);
+          break;
+        case 0xCA:
+        case 0xCB:
+          // Min (uint16) + Max (uint16)
+          result = decodeEDT(epc, [edt[0], edt[1]], definition.properties[0].element, locale) + ' ' + decodeEDT(epc, [edt[2], edt[3]], definition.properties[1].element, locale);
+          break;
+      }
+      break;
+  }
+
+  return result;
+};
+
 // Data shapes
 const Languages = [
   {
@@ -106,7 +199,7 @@ const Settings = {
     }
   },
   evChargerDischarger: {
-    0x027D: {
+    0x027E: {
       address: "",
       id: ""
     },
@@ -363,7 +456,21 @@ export default createStore({
       if (typeof state.nodes[ip][eoj.class][eoj.id][epc] === 'undefined') { return []; }
       return state.nodes[ip][eoj.class][eoj.id][epc];
     },
-    setPropertyMap: (_, getters) => (ip: string, eoj: { class: number, id: number }) => {
+    decodedData: state => (epc: number, edt: number[], propertyDescription: any) => {
+      let result = null;
+
+      if (propertyDescription.data.hasOwnProperty('oneOf')) {
+        for (const i in propertyDescription.data.oneOf) {
+          result = decodeEDT(epc, edt, propertyDescription.data.oneOf[i], state.locale);
+          if (result !== null) { break; }
+        }
+      } else {
+        result = decodeEDT(epc, edt, propertyDescription.data, state.locale);
+      }
+
+      return result;
+    },
+    setPropertyMap: (_, getters) => (ip: string, eoj: { class: number, id: number }, includeUserDefinedEPCs: boolean) => {
       const setMap = [...getters.data(ip, eoj, 0x9E)];
       if (setMap === []) { return setMap; }
       let res = [];
@@ -379,6 +486,12 @@ export default createStore({
           }
         });
       }
+
+      // Exclude user-defined EPCs from 0xF0 (240) to 0xFF (255)
+      if (!includeUserDefinedEPCs) {
+        res = res.filter(v => v < 240);
+      }
+
       return res.sort();
     },
     getPropertyMap: (_, getters) => (ip: string, eoj: { class: number, id: number }) => {
