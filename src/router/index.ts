@@ -7,6 +7,8 @@ import SingleProfile from '@/views/single/Profile.vue';
 import SingleSearch from '@/views/single/Search.vue';
 import Battery from '@/views/battery/Battery.vue';
 import BatteryControls from '@/views/battery/BatteryControls.vue';
+import EVChargerDischarger from '@/views/evchargerdischarger/EVChargerDischarger.vue';
+import EVChargerDischargerControls from '@/views/evchargerdischarger/EVChargerDischargerControls.vue';
 import Settings from '@/views/settings/Main.vue';
 import SettingsMenu from '@/views/settings/Menu.vue';
 import SettingsDetails from '@/views/settings/Details.vue';
@@ -63,11 +65,10 @@ const routes: RouteRecordRaw[] = [
   {
     name: 'evChargerDischarger',
     path: '/evchargerdischarger',
-    // TODO: add these components later
     components: {
-      // main: '',
-      // footer: '',
-      // drawer: ''
+      main: EVChargerDischarger,
+      footer: Logger,
+      drawer: EVChargerDischargerControls
     },
     meta: {
       feature: 'evchargerdischarger'
