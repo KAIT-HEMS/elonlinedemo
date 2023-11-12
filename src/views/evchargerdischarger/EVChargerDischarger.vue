@@ -6045,7 +6045,7 @@
           class="indicator"
           :class="{
             on:
-              [0x42, 0x43, 0x44].indexOf(
+              [0x42, 0x43].indexOf(
                 evChargerDischargerSystemData.evChargerDischarger.workingOperationStatus
               ) === -1,
           }"
@@ -6075,10 +6075,7 @@
         <rect
           class="indicator"
           :class="{
-            on:
-              [0x43, 0x44].indexOf(
-                evChargerDischargerSystemData.evChargerDischarger.workingOperationStatus
-              ) !== -1,
+            on: evChargerDischargerSystemData.evChargerDischarger.workingOperationStatus === 0x42,
           }"
           :height="isSimpleModeRef ? '45' : '31'"
           id="ev-charger-discharger-diagram-rect-battery-status-charging"
@@ -6106,7 +6103,7 @@
         <rect
           class="indicator"
           :class="{
-            on: evChargerDischargerSystemData.evChargerDischarger.workingOperationStatus === 0x44,
+            on: evChargerDischargerSystemData.evChargerDischarger.workingOperationStatus === 0x43,
           }"
           :height="isSimpleModeRef ? '45' : '31'"
           id="ev-charger-discharger-diagram-rect-battery-status-discharging"
