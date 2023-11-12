@@ -332,11 +332,13 @@ const EVChargerDischargerSystemData = {
     dischargeableElectricity: 0,
     workingOperationStatus: 67,
     remainingStoredElectricity: 0,
+    chargeDischargeStatus: 0xFF,
     edt: {
       chargeableElectricity: '',
       dischargeableElectricity: '',
       workingOperationStatus: '',
-      remainingStoredElectricity: ''
+      remainingStoredElectricity: '',
+      chargeDischargeStatus: '',
     }
   },
   homeAirConditioner: {

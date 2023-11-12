@@ -5866,6 +5866,7 @@
             letter-spacing="0em"
             style="white-space: pre"
             xml:space="preserve"
+            v-show="evChargerDischargerSystemData.evChargerDischarger.chargeDischargeStatus === 0x43"
           >
             <tspan>Ready</tspan>
           </text>
@@ -6044,7 +6045,7 @@
           class="indicator"
           :class="{
             on:
-              [65, 66, 67].indexOf(
+              [0x42, 0x43].indexOf(
                 evChargerDischargerSystemData.evChargerDischarger.workingOperationStatus
               ) === -1,
           }"
@@ -6074,10 +6075,7 @@
         <rect
           class="indicator"
           :class="{
-            on:
-              [65, 66].indexOf(
-                evChargerDischargerSystemData.evChargerDischarger.workingOperationStatus
-              ) !== -1,
+            on: evChargerDischargerSystemData.evChargerDischarger.workingOperationStatus === 0x42,
           }"
           :height="isSimpleModeRef ? '45' : '31'"
           id="ev-charger-discharger-diagram-rect-battery-status-charging"
@@ -6105,7 +6103,7 @@
         <rect
           class="indicator"
           :class="{
-            on: evChargerDischargerSystemData.evChargerDischarger.workingOperationStatus === 67,
+            on: evChargerDischargerSystemData.evChargerDischarger.workingOperationStatus === 0x43,
           }"
           :height="isSimpleModeRef ? '45' : '31'"
           id="ev-charger-discharger-diagram-rect-battery-status-discharging"
@@ -8087,15 +8085,20 @@ export default defineComponent({
       evChargerDischargerSystemData.value.evChargerDischarger.edt.dischargeableElectricity = (() => { let hex = ''; edt.forEach((v: number) => { hex += v.toHex(2).toUpperCase(); }); return hex === '' ? '' : hex.prefix('0x'); })();
       evChargerDischargerSystemData.value.evChargerDischarger.dischargeableElectricity = parseInt(evChargerDischargerSystemData.value.evChargerDischarger.edt.dischargeableElectricity, 16) || 0;
 
-      // remaining stored electricity: 0xE4
-      edt = store.getters.data(evChargerDischargerSystem.value.evChargerDischarger.ip, evChargerDischargerSystem.value.evChargerDischarger.eoj, 0xE4);
+      // remaining stored electricity: 0xC4
+      edt = store.getters.data(evChargerDischargerSystem.value.evChargerDischarger.ip, evChargerDischargerSystem.value.evChargerDischarger.eoj, 0xC4);
       evChargerDischargerSystemData.value.evChargerDischarger.edt.remainingStoredElectricity = edt[0]?.toHex(2).toUpperCase().prefix('0x');
       evChargerDischargerSystemData.value.evChargerDischarger.remainingStoredElectricity = edt[0] || 0;
 
-      // operation mode: 0xCF
-      edt = store.getters.data(evChargerDischargerSystem.value.evChargerDischarger.ip, evChargerDischargerSystem.value.evChargerDischarger.eoj, 0xCF);
+      // operation mode: 0xDA
+      edt = store.getters.data(evChargerDischargerSystem.value.evChargerDischarger.ip, evChargerDischargerSystem.value.evChargerDischarger.eoj, 0xDA);
       evChargerDischargerSystemData.value.evChargerDischarger.edt.workingOperationStatus = edt[0]?.toHex(2).toUpperCase().prefix('0x');
       evChargerDischargerSystemData.value.evChargerDischarger.workingOperationStatus = edt[0];
+
+      // Vehicle connection and chargeable/dischargeable status: 0xC7
+      edt = store.getters.data(evChargerDischargerSystem.value.evChargerDischarger.ip, evChargerDischargerSystem.value.evChargerDischarger.eoj, 0xC7);
+      evChargerDischargerSystemData.value.evChargerDischarger.edt.chargeDischargeStatus = edt[0]?.toHex(2).toUpperCase().prefix('0x');
+      evChargerDischargerSystemData.value.evChargerDischarger.chargeDischargeStatus = edt[0] || 0xFF;
 
       // generated electricity: 0xD3
       edt = store.getters.data(evChargerDischargerSystem.value.evChargerDischarger.ip, evChargerDischargerSystem.value.evChargerDischarger.eoj, 0xD3);
