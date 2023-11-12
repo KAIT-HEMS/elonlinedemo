@@ -118,19 +118,15 @@
         <div class="card shadow p-3 d-grid gap-2">
           <h3 class="fs-6 text-primary fw-normal">{{ renderEVChargerDischargerProperties() }}</h3>
           <div class="d-flex flex-column">
-            <div class="small">0xA4: Chargeable electric energy</div>
-            <div class="small">{{ evChargerDischargerSystemData.evChargerDischarger.chargeableElectricity }} Wh (EDT: {{ evChargerDischargerSystemData.evChargerDischarger.edt.chargeableElectricity }})</div>
+            <div class="small">0xC7: Vehicle status</div>
+            <div class="small">{{ evChargerDischargerSystemData.evChargerDischarger.chargeDischargeStatus }} Wh (EDT: {{ evChargerDischargerSystemData.evChargerDischarger.edt.chargeDischargeStatus }})</div>
           </div>
           <div class="d-flex flex-column">
-            <div class="small">0xA5: Dischargeable electric energy</div>
-            <div class="small">{{ evChargerDischargerSystemData.evChargerDischarger.dischargeableElectricity }} Wh (EDT: {{ evChargerDischargerSystemData.evChargerDischarger.edt.dischargeableElectricity }})</div>
-          </div>
-          <div class="d-flex flex-column">
-            <div class="small">0xE4: Remaining Stored electricity</div>
+            <div class="small">0xC4: Remaining stored electricity</div>
             <div class="small">{{ evChargerDischargerSystemData.evChargerDischarger.remainingStoredElectricity }} % (EDT: {{ evChargerDischargerSystemData.evChargerDischarger.edt.remainingStoredElectricity }})</div>
           </div>
           <div class="d-flex flex-column">
-            <div class="small">0xCF: Operation Status</div>
+            <div class="small">0xDA: Operation mode</div>
             <div class="small">{{ monitorDevicesData.evChargerDischarger.workingOperationStatus }} (EDT: {{ evChargerDischargerSystemData.evChargerDischarger.edt.workingOperationStatus }})</div>
           </div>
           <div class="d-flex flex-row justify-content-sm-between">
@@ -518,7 +514,7 @@ export default defineComponent({
           monitorDevicesData.evChargerDischarger.workingOperationStatus = "No Data"
       }
 
-      return "EV Charger Discharger";
+      return "EV Charger/Discharger";
     }
 
     watch(isSimpleMode, () => {
