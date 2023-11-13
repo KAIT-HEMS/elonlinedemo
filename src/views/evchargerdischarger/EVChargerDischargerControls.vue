@@ -492,43 +492,32 @@ export default defineComponent({
     */
     function renderEVChargerDischargerProperties() {
       // working operation status: 0xCF
-      switch(evChargerDischargerSystemData.value.evChargerDischarger.workingOperationStatus) {
-        case 0x42:
-          monitorDevicesData.evChargerDischarger.workingOperationStatus = "charging";
-          break;
-        case 0x43:
-          monitorDevicesData.evChargerDischarger.workingOperationStatus = "discharging";
-          break;
-        default:
-          monitorDevicesData.evChargerDischarger.workingOperationStatus = "standby"
-      }
+      monitorDevicesData.evChargerDischarger.workingOperationStatus = (() => {
+        let propertyDescription = store.getters.propertyDescription(0x0000, 0xCF, evChargerDischargerSystem.value.evChargerDischarger.release);
+        propertyDescription = store.getters.propertyDescription(evChargerDischargerSystem.value.evChargerDischarger.eoj.class, 0xCF, evChargerDischargerSystem.value.evChargerDischarger.release) || propertyDescription;
+        if (propertyDescription === null) { return ''; }
+
+        if (evChargerDischargerSystemData.value.evChargerDischarger.edt.workingOperationStatus === '') { return ''; }
+
+        // Decode EDT
+        const propertyValue = store.getters.decodedData(0xCF, evChargerDischargerSystemData.value.evChargerDischarger.edt.workingOperationStatus.toUint8Array(), propertyDescription);
+
+        return propertyValue === null ? '' : propertyValue;
+      })();
 
       // charge/discharge status: 0xC7
-      switch(evChargerDischargerSystemData.value.evChargerDischarger.chargeDischargeStatus) {
-        case 0xFF:
-          monitorDevicesData.evChargerDischarger.chargeDischargeStatus = "Undefined";
-          break;
-        case 0x30:
-          monitorDevicesData.evChargerDischarger.chargeDischargeStatus = "notConnected";
-          break;
-        case 0x40:
-          monitorDevicesData.evChargerDischarger.chargeDischargeStatus = "connected";
-          break;
-        case 0x41:
-          monitorDevicesData.evChargerDischarger.chargeDischargeStatus = "chargeable";
-          break;
-        case 0x42:
-          monitorDevicesData.evChargerDischarger.chargeDischargeStatus = "dischargeable";
-          break;
-        case 0x43:
-          monitorDevicesData.evChargerDischarger.chargeDischargeStatus = "chargeableDischargeable";
-          break;
-        case 0x44:
-          monitorDevicesData.evChargerDischarger.chargeDischargeStatus = "unknown";
-          break;
-        default:
-          monitorDevicesData.evChargerDischarger.chargeDischargeStatus = "No Data"
-      }
+      monitorDevicesData.evChargerDischarger.chargeDischargeStatus = (() => {
+        let propertyDescription = store.getters.propertyDescription(0x0000, 0xC7, evChargerDischargerSystem.value.evChargerDischarger.release);
+        propertyDescription = store.getters.propertyDescription(evChargerDischargerSystem.value.evChargerDischarger.eoj.class, 0xC7, evChargerDischargerSystem.value.evChargerDischarger.release) || propertyDescription;
+        if (propertyDescription === null) { return ''; }
+
+        if (evChargerDischargerSystemData.value.evChargerDischarger.edt.chargeDischargeStatus === '') { return ''; }
+
+        // Decode EDT
+        const propertyValue = store.getters.decodedData(0xC7, evChargerDischargerSystemData.value.evChargerDischarger.edt.chargeDischargeStatus.toUint8Array(), propertyDescription);
+
+        return propertyValue === null ? '' : propertyValue;
+      })();
 
       return "EV Charger/Discharger";
     }
