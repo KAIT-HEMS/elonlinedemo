@@ -119,7 +119,7 @@
           <h3 class="fs-6 text-primary fw-normal">{{ renderEVChargerDischargerProperties() }}</h3>
           <div class="d-flex flex-column">
             <div class="small">0xC7: Vehicle status</div>
-            <div class="small">{{ evChargerDischargerSystemData.evChargerDischarger.chargeDischargeStatus }} Wh (EDT: {{ evChargerDischargerSystemData.evChargerDischarger.edt.chargeDischargeStatus }})</div>
+            <div class="small">{{ monitorDevicesData.evChargerDischarger.chargeDischargeStatus }} (EDT: {{ evChargerDischargerSystemData.evChargerDischarger.edt.chargeDischargeStatus }})</div>
           </div>
           <div class="d-flex flex-column">
             <div class="small">0xC4: Remaining stored electricity</div>
@@ -228,6 +228,7 @@ export default defineComponent({
           monitorDevicesData    = reactive<any>({
             evChargerDischarger: {
               workingOperationStatus: "",
+              chargeDischargeStatus: "",
             },
             homeAirConditioner: {
               operationStatus: "",
@@ -492,26 +493,41 @@ export default defineComponent({
     function renderEVChargerDischargerProperties() {
       // working operation status: 0xCF
       switch(evChargerDischargerSystemData.value.evChargerDischarger.workingOperationStatus) {
-        case 0x41:
-          monitorDevicesData.evChargerDischarger.workingOperationStatus = "rapidCharging";
-          break;
         case 0x42:
           monitorDevicesData.evChargerDischarger.workingOperationStatus = "charging";
           break;
         case 0x43:
           monitorDevicesData.evChargerDischarger.workingOperationStatus = "discharging";
           break;
-        case 0x44:
-          monitorDevicesData.evChargerDischarger.workingOperationStatus = "standby";
+        default:
+          monitorDevicesData.evChargerDischarger.workingOperationStatus = "standby"
+      }
+
+      // charge/discharge status: 0xC7
+      switch(evChargerDischargerSystemData.value.evChargerDischarger.chargeDischargeStatus) {
+        case 0xFF:
+          monitorDevicesData.evChargerDischarger.chargeDischargeStatus = "Undefined";
           break;
-        case 0x45:
-          monitorDevicesData.evChargerDischarger.workingOperationStatus = "test";
+        case 0x30:
+          monitorDevicesData.evChargerDischarger.chargeDischargeStatus = "notConnected";
           break;
         case 0x40:
-          monitorDevicesData.evChargerDischarger.workingOperationStatus = "Other";
+          monitorDevicesData.evChargerDischarger.chargeDischargeStatus = "connected";
+          break;
+        case 0x41:
+          monitorDevicesData.evChargerDischarger.chargeDischargeStatus = "chargeable";
+          break;
+        case 0x42:
+          monitorDevicesData.evChargerDischarger.chargeDischargeStatus = "dischargeable";
+          break;
+        case 0x43:
+          monitorDevicesData.evChargerDischarger.chargeDischargeStatus = "chargeableDischargeable";
+          break;
+        case 0x44:
+          monitorDevicesData.evChargerDischarger.chargeDischargeStatus = "unknown";
           break;
         default:
-          monitorDevicesData.evChargerDischarger.workingOperationStatus = "No Data"
+          monitorDevicesData.evChargerDischarger.chargeDischargeStatus = "No Data"
       }
 
       return "EV Charger/Discharger";
