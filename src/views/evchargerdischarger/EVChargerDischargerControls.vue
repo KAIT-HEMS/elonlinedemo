@@ -357,14 +357,11 @@ export default defineComponent({
             return;
           }
 
-          epcList.push(0xAA);
-          edtList.push(chargeAmount.toHex(8).toUint8Array());
-
           epcList.push(0xE7);
           edtList.push(chargeAmount.toHex(8).toUint8Array());
 
           epcList.push(0xEB);
-          edtList.push([0x00,0x00,0x07,0xD0]);
+          edtList.push([0x00, 0x00, 0x07, 0xD0]);
 
           epcList.push(0xDA);
           edtList.push([0x42]);
@@ -382,14 +379,11 @@ export default defineComponent({
             return;
           }
 
-          epcList.push(0xAB);
-          edtList.push(dischargeAmount.toHex(8).toUint8Array());
-
           epcList.push(0xEA);
           edtList.push(dischargeAmount.toHex(8).toUint8Array());
 
           epcList.push(0xEC);
-          edtList.push([0x00,0x00,0x07,0xD0]);
+          edtList.push([0x00, 0x00, 0x07, 0xD0]);
 
           epcList.push(0xDA);
           edtList.push([0x43]);
