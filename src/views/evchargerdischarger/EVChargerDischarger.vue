@@ -8087,21 +8087,21 @@ export default defineComponent({
 
       // remaining stored electricity: 0xC4
       edt = store.getters.data(evChargerDischargerSystem.value.evChargerDischarger.ip, evChargerDischargerSystem.value.evChargerDischarger.eoj, 0xC4);
-      if(edt.length > 0) {
+      if (edt.length > 0) {
         evChargerDischargerSystemData.value.evChargerDischarger.edt.remainingStoredElectricity = edt[0]?.toHex(2).toUpperCase().prefix('0x');
         evChargerDischargerSystemData.value.evChargerDischarger.remainingStoredElectricity = edt[0];
       }
 
       // operation mode: 0xDA
       edt = store.getters.data(evChargerDischargerSystem.value.evChargerDischarger.ip, evChargerDischargerSystem.value.evChargerDischarger.eoj, 0xDA);
-      if(edt.length > 0) {
+      if (edt.length > 0) {
         evChargerDischargerSystemData.value.evChargerDischarger.edt.workingOperationStatus = edt[0]?.toHex(2).toUpperCase().prefix('0x');
         evChargerDischargerSystemData.value.evChargerDischarger.workingOperationStatus = edt[0];
       }
 
       // Vehicle connection and chargeable/dischargeable status: 0xC7
       edt = store.getters.data(evChargerDischargerSystem.value.evChargerDischarger.ip, evChargerDischargerSystem.value.evChargerDischarger.eoj, 0xC7);
-      if(edt.length > 0) {
+      if (edt.length > 0) {
         evChargerDischargerSystemData.value.evChargerDischarger.edt.chargeDischargeStatus = edt[0]?.toHex(2).toUpperCase().prefix('0x');
         evChargerDischargerSystemData.value.evChargerDischarger.chargeDischargeStatus = edt[0];
       }
@@ -8222,21 +8222,21 @@ export default defineComponent({
     function airConditionerSetup() {
       // operation status: 0x80
       let edt = store.getters.data(evChargerDischargerSystem.value.airConditioner.ip, evChargerDischargerSystem.value.airConditioner.eoj, 0x80);
-      if(edt.length > 0) {
+      if (edt.length > 0) {
         evChargerDischargerSystemData.value.homeAirConditioner.edt.operationStatus = edt[0]?.toHex(2).toUpperCase().prefix('0x');
         evChargerDischargerSystemData.value.homeAirConditioner.operationStatus = edt[0];
       }
 
       // operation mode: 0xB0
       edt = store.getters.data(evChargerDischargerSystem.value.airConditioner.ip, evChargerDischargerSystem.value.airConditioner.eoj, 0xB0);
-      if(edt.length > 0) {
+      if (edt.length > 0) {
         evChargerDischargerSystemData.value.homeAirConditioner.edt.operationModeSetting = edt[0]?.toHex(2).toUpperCase().prefix('0x');
         evChargerDischargerSystemData.value.homeAirConditioner.operationModeSetting = edt[0];
       }
 
       // target temperature: 0xB3
       edt = store.getters.data(evChargerDischargerSystem.value.airConditioner.ip, evChargerDischargerSystem.value.airConditioner.eoj, 0xB3);
-      if(edt.length > 0) {
+      if (edt.length > 0) {
         evChargerDischargerSystemData.value.homeAirConditioner.edt.setTemperatureValue = edt[0]?.toHex(2).toUpperCase().prefix('0x');
         evChargerDischargerSystemData.value.homeAirConditioner.setTemperatureValue = edt[0] === 0xFD ? 'Undefined' : edt[0];
       }
