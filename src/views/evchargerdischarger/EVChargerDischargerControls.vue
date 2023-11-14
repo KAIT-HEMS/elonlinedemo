@@ -327,7 +327,7 @@ export default defineComponent({
     function setEVChargerDischargerProperties() {
       if (evChargerDischargerSystem.value.evChargerDischarger.ip === '') { return; }
 
-      const epcList: any[] = [],
+      const epcList: number[] = [],
             edtList = [];
 
       // Operation Mode: 0xDA
@@ -360,11 +360,14 @@ export default defineComponent({
           epcList.push(0xAA);
           edtList.push(chargeAmount.toHex(8).toUint8Array());
 
+          epcList.push(0xE7);
+          edtList.push(chargeAmount.toHex(8).toUint8Array());
+
+          epcList.push(0xEB);
+          edtList.push([0x00,0x00,0x07,0xD0]);
+
           epcList.push(0xDA);
           edtList.push([0x42]);
-          edtList.push(0xE7);
-          edtList.push(0xEB);
-          edtList.push([0x00,0x00,0x07,0xD0]);
           break;
         // Discharging
         case '0x43':
@@ -382,11 +385,14 @@ export default defineComponent({
           epcList.push(0xAB);
           edtList.push(dischargeAmount.toHex(8).toUint8Array());
 
+          epcList.push(0xEA);
+          edtList.push(dischargeAmount.toHex(8).toUint8Array());
+
+          epcList.push(0xEC);
+          edtList.push([0x00,0x00,0x07,0xD0]);
+
           epcList.push(0xDA);
           edtList.push([0x43]);
-          epcList.push(0xEA);
-          epcList.push(0xEC);
-          epcList.push([0x00,0x00,0x07,0xD0]);
           break;
         // Standby
         case '0x44':
