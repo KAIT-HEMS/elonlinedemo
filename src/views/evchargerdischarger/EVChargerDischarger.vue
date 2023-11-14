@@ -8075,13 +8075,13 @@ export default defineComponent({
     }
 
     function evChargerDischargerSetup() {
-      // chargable electricity: 0xA4
-      let edt = store.getters.data(evChargerDischargerSystem.value.evChargerDischarger.ip, evChargerDischargerSystem.value.evChargerDischarger.eoj, 0xA4);
+      // chargable electricity: 0xCF
+      let edt = store.getters.data(evChargerDischargerSystem.value.evChargerDischarger.ip, evChargerDischargerSystem.value.evChargerDischarger.eoj, 0xCF);
       evChargerDischargerSystemData.value.evChargerDischarger.edt.chargeableElectricity = (() => { let hex = ''; edt.forEach((v: number) => { hex += v.toHex(2).toUpperCase(); }); return hex === '' ? '' : hex.prefix('0x'); })();
       evChargerDischargerSystemData.value.evChargerDischarger.chargeableElectricity = parseInt(evChargerDischargerSystemData.value.evChargerDischarger.edt.chargeableElectricity, 16) || 0;
 
-      // dischargable electricity: 0xA5
-      edt = store.getters.data(evChargerDischargerSystem.value.evChargerDischarger.ip, evChargerDischargerSystem.value.evChargerDischarger.eoj, 0xA5);
+      // dischargable electricity: 0xC2
+      edt = store.getters.data(evChargerDischargerSystem.value.evChargerDischarger.ip, evChargerDischargerSystem.value.evChargerDischarger.eoj, 0xC2);
       evChargerDischargerSystemData.value.evChargerDischarger.edt.dischargeableElectricity = (() => { let hex = ''; edt.forEach((v: number) => { hex += v.toHex(2).toUpperCase(); }); return hex === '' ? '' : hex.prefix('0x'); })();
       evChargerDischargerSystemData.value.evChargerDischarger.dischargeableElectricity = parseInt(evChargerDischargerSystemData.value.evChargerDischarger.edt.dischargeableElectricity, 16) || 0;
 
