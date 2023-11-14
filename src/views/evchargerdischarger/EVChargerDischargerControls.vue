@@ -12,7 +12,7 @@
       <div class="d-grid align-content-start gap-3">
         <!-- EV Charger Discharger Control -->
         <div class="card shadow p-3 d-grid gap-2">
-          <h3 class="fs-6 text-primary fw-normal">EV Charger Discharger Control</h3>
+          <h3 class="fs-6 text-primary fw-normal">EV Charger/Discharger Control</h3>
           <h4 class="small">Operation Mode: 0xDA</h4>
           <div class="d-grid gap-2" v-show="isSimpleModeRef">
             <button class="btn btn-primary" type="button" v-show="isSimpleModeRef" @click="setEVChargerDischargerPropertiesSimpleMode('charging')">Charging</button>
@@ -39,12 +39,12 @@
               </label>
             </div>
           </div>
-          <h4 class="small" v-show="!isSimpleModeRef">Charge Amount: 0xAA</h4>
+          <h4 class="small" v-show="!isSimpleModeRef">Charge Amount: 0xE7</h4>
           <div class="grid gap-1 align-items-center" style="--bs-columns: 4;" v-show="!isSimpleModeRef">
             <input class="form-control h-100" id="f-ev-charger-discharger-charge-amount">
             <label class="g-col-3" for="f-ev-charger-discharger-charge-amount">Wh (max {{ evChargerDischargerSystemData.evChargerDischarger.chargeableElectricity }} Wh)</label>
           </div>
-          <h4 class="small" v-show="!isSimpleModeRef">Discharge Amount: 0xAB</h4>
+          <h4 class="small" v-show="!isSimpleModeRef">Discharge Amount: 0xEA</h4>
           <div class="grid gap-1 align-items-center" style="--bs-columns: 4;" v-show="!isSimpleModeRef">
             <input class="form-control h-100" id="f-ev-charger-discharger-discharge-amount">
             <label class="g-col-3" for="f-ev-charger-discharger-discharge-amount">Wh (max {{ evChargerDischargerSystemData.evChargerDischarger.dischargeableElectricity }} Wh)</label>
@@ -327,51 +327,66 @@ export default defineComponent({
     function setEVChargerDischargerProperties() {
       if (evChargerDischargerSystem.value.evChargerDischarger.ip === '') { return; }
 
-      const epcList: number[] = [],
+      const epcList: any[] = [],
             edtList = [];
 
       // Operation Mode: 0xDA
       const mode = (document.querySelector('input[name="f-ev-charger-discharger-operation-mode"]:checked') as HTMLInputElement)?.value;
       if (!mode) { return; }
 
+      const chargeAmountField = document.getElementById('f-ev-charger-discharger-charge-amount') as HTMLInputElement,
+            dischargeAmountField = document.getElementById('f-ev-charger-discharger-discharge-amount') as HTMLInputElement;
+      let chargeAmount = 0,
+          dischargeAmount = 0;
+
+      // Reset errors
+      chargeAmountField.classList.remove('is-invalid');
+      dischargeAmountField.classList.remove('is-invalid');
+
       switch (mode) {
         // Charging
         case '0x42':
-          const chargeAmountField = document.getElementById('f-ev-charger-discharger-charge-amount') as HTMLInputElement;
-          chargeAmountField.classList.remove('is-invalid');
           if (chargeAmountField.value === '' || Number.isNaN(chargeAmountField.value)) {
             chargeAmountField.classList.add('is-invalid');
             return;
           }
-          const chargeAmount = parseInt(chargeAmountField.value);
+
+          chargeAmount = parseInt(chargeAmountField.value);
           if (chargeAmount < 0 || evChargerDischargerSystemData.value.evChargerDischarger.chargeableElectricity < chargeAmount) {
             chargeAmountField.classList.add('is-invalid');
             return;
           }
+
           epcList.push(0xAA);
           edtList.push(chargeAmount.toHex(8).toUint8Array());
 
           epcList.push(0xDA);
           edtList.push([0x42]);
+          edtList.push(0xE7);
+          edtList.push(0xEB);
+          edtList.push([0x00,0x00,0x07,0xD0]);
           break;
         // Discharging
         case '0x43':
-          const dischargeAmountField = document.getElementById('f-ev-charger-discharger-discharge-amount') as HTMLInputElement;
-          dischargeAmountField.classList.remove('is-invalid');
           if (dischargeAmountField.value === '' || Number.isNaN(dischargeAmountField.value)) {
             dischargeAmountField.classList.add('is-invalid');
             return;
           }
-          const dischargeAmount = parseInt(dischargeAmountField.value);
-          if (dischargeAmount < 0 || evChargerDischargerSystemData.value.evChargerDischarger.chargeableElectricity < dischargeAmount) {
+
+          dischargeAmount = parseInt(dischargeAmountField.value);
+          if (dischargeAmount < 0 || evChargerDischargerSystemData.value.evChargerDischarger.dischargeableElectricity < dischargeAmount) {
             dischargeAmountField.classList.add('is-invalid');
             return;
           }
+
           epcList.push(0xAB);
           edtList.push(dischargeAmount.toHex(8).toUint8Array());
 
           epcList.push(0xDA);
           edtList.push([0x43]);
+          epcList.push(0xEA);
+          epcList.push(0xEC);
+          epcList.push([0x00,0x00,0x07,0xD0]);
           break;
         // Standby
         case '0x44':
