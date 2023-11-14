@@ -491,16 +491,16 @@ export default defineComponent({
     Render ev charger discharger properties
     */
     function renderEVChargerDischargerProperties() {
-      // working operation status: 0xCF
+      // working operation status: 0xDA
       monitorDevicesData.evChargerDischarger.workingOperationStatus = (() => {
-        let propertyDescription = store.getters.propertyDescription(0x0000, 0xCF, evChargerDischargerSystem.value.evChargerDischarger.release);
-        propertyDescription = store.getters.propertyDescription(evChargerDischargerSystem.value.evChargerDischarger.eoj.class, 0xCF, evChargerDischargerSystem.value.evChargerDischarger.release) || propertyDescription;
+        let propertyDescription = store.getters.propertyDescription(0x0000, 0xDA, evChargerDischargerSystem.value.evChargerDischarger.release);
+        propertyDescription = store.getters.propertyDescription(evChargerDischargerSystem.value.evChargerDischarger.eoj.class, 0xDA, evChargerDischargerSystem.value.evChargerDischarger.release) || propertyDescription;
         if (propertyDescription === null) { return ''; }
 
         if (evChargerDischargerSystemData.value.evChargerDischarger.edt.workingOperationStatus === '') { return ''; }
 
         // Decode EDT
-        const propertyValue = store.getters.decodedData(0xCF, evChargerDischargerSystemData.value.evChargerDischarger.edt.workingOperationStatus.toUint8Array(), propertyDescription);
+        const propertyValue = store.getters.decodedData(0xDA, evChargerDischargerSystemData.value.evChargerDischarger.edt.workingOperationStatus.toUint8Array(), propertyDescription);
 
         return propertyValue === null ? '' : propertyValue;
       })();
