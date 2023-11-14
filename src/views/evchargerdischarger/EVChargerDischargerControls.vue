@@ -118,19 +118,15 @@
         <div class="card shadow p-3 d-grid gap-2">
           <h3 class="fs-6 text-primary fw-normal">{{ renderEVChargerDischargerProperties() }}</h3>
           <div class="d-flex flex-column">
-            <div class="small">0xA4: Chargeable electric energy</div>
-            <div class="small">{{ evChargerDischargerSystemData.evChargerDischarger.chargeableElectricity }} Wh (EDT: {{ evChargerDischargerSystemData.evChargerDischarger.edt.chargeableElectricity }})</div>
+            <div class="small">0xC7: Vehicle status</div>
+            <div class="small">{{ monitorDevicesData.evChargerDischarger.chargeDischargeStatus }} (EDT: {{ evChargerDischargerSystemData.evChargerDischarger.edt.chargeDischargeStatus }})</div>
           </div>
           <div class="d-flex flex-column">
-            <div class="small">0xA5: Dischargeable electric energy</div>
-            <div class="small">{{ evChargerDischargerSystemData.evChargerDischarger.dischargeableElectricity }} Wh (EDT: {{ evChargerDischargerSystemData.evChargerDischarger.edt.dischargeableElectricity }})</div>
-          </div>
-          <div class="d-flex flex-column">
-            <div class="small">0xE4: Remaining Stored electricity</div>
+            <div class="small">0xC4: Remaining stored electricity</div>
             <div class="small">{{ evChargerDischargerSystemData.evChargerDischarger.remainingStoredElectricity }} % (EDT: {{ evChargerDischargerSystemData.evChargerDischarger.edt.remainingStoredElectricity }})</div>
           </div>
           <div class="d-flex flex-column">
-            <div class="small">0xCF: Operation Status</div>
+            <div class="small">0xDA: Operation mode</div>
             <div class="small">{{ monitorDevicesData.evChargerDischarger.workingOperationStatus }} (EDT: {{ evChargerDischargerSystemData.evChargerDischarger.edt.workingOperationStatus }})</div>
           </div>
           <div class="d-flex flex-row justify-content-sm-between">
@@ -232,6 +228,7 @@ export default defineComponent({
           monitorDevicesData    = reactive<any>({
             evChargerDischarger: {
               workingOperationStatus: "",
+              chargeDischargeStatus: "",
             },
             homeAirConditioner: {
               operationStatus: "",
@@ -494,31 +491,35 @@ export default defineComponent({
     Render ev charger discharger properties
     */
     function renderEVChargerDischargerProperties() {
-      // working operation status: 0xCF
-      switch(evChargerDischargerSystemData.value.evChargerDischarger.workingOperationStatus) {
-        case 0x41:
-          monitorDevicesData.evChargerDischarger.workingOperationStatus = "rapidCharging";
-          break;
-        case 0x42:
-          monitorDevicesData.evChargerDischarger.workingOperationStatus = "charging";
-          break;
-        case 0x43:
-          monitorDevicesData.evChargerDischarger.workingOperationStatus = "discharging";
-          break;
-        case 0x44:
-          monitorDevicesData.evChargerDischarger.workingOperationStatus = "standby";
-          break;
-        case 0x45:
-          monitorDevicesData.evChargerDischarger.workingOperationStatus = "test";
-          break;
-        case 0x40:
-          monitorDevicesData.evChargerDischarger.workingOperationStatus = "Other";
-          break;
-        default:
-          monitorDevicesData.evChargerDischarger.workingOperationStatus = "No Data"
-      }
+      // working operation status: 0xDA
+      monitorDevicesData.evChargerDischarger.workingOperationStatus = (() => {
+        let propertyDescription = store.getters.propertyDescription(0x0000, 0xDA, evChargerDischargerSystem.value.evChargerDischarger.release);
+        propertyDescription = store.getters.propertyDescription(evChargerDischargerSystem.value.evChargerDischarger.eoj.class, 0xDA, evChargerDischargerSystem.value.evChargerDischarger.release) || propertyDescription;
+        if (propertyDescription === null) { return ''; }
 
-      return "EV Charger Discharger";
+        if (evChargerDischargerSystemData.value.evChargerDischarger.edt.workingOperationStatus === '') { return ''; }
+
+        // Decode EDT
+        const propertyValue = store.getters.decodedData(0xDA, evChargerDischargerSystemData.value.evChargerDischarger.edt.workingOperationStatus.toUint8Array(), propertyDescription);
+
+        return propertyValue === null ? '' : propertyValue;
+      })();
+
+      // charge/discharge status: 0xC7
+      monitorDevicesData.evChargerDischarger.chargeDischargeStatus = (() => {
+        let propertyDescription = store.getters.propertyDescription(0x0000, 0xC7, evChargerDischargerSystem.value.evChargerDischarger.release);
+        propertyDescription = store.getters.propertyDescription(evChargerDischargerSystem.value.evChargerDischarger.eoj.class, 0xC7, evChargerDischargerSystem.value.evChargerDischarger.release) || propertyDescription;
+        if (propertyDescription === null) { return ''; }
+
+        if (evChargerDischargerSystemData.value.evChargerDischarger.edt.chargeDischargeStatus === '') { return ''; }
+
+        // Decode EDT
+        const propertyValue = store.getters.decodedData(0xC7, evChargerDischargerSystemData.value.evChargerDischarger.edt.chargeDischargeStatus.toUint8Array(), propertyDescription);
+
+        return propertyValue === null ? '' : propertyValue;
+      })();
+
+      return "EV Charger/Discharger";
     }
 
     watch(isSimpleMode, () => {
