@@ -7773,7 +7773,7 @@
       ></image>
       <image
         id="ev-charger-discharger-diagram-battery-img"
-        href="/assets/img/photo_mode/storagebattery.jpg"
+        href="/assets/img/photo_mode/evchargerdischarger.jpg"
         height="300"
         width="350"
         x="35"
