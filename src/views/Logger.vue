@@ -82,7 +82,7 @@ export default defineComponent({
           }
           return false;
         });
-      } else if (props.filterLog === 'evChargerDischarger') {
+      } else if (props.filterLog === 'evchargerdischarger') {
         filteredLog = rawLog.filter((msg: { ip: any; }) => {
           for (let key in evChargerDischargerSystem.value) {
             if (evChargerDischargerSystem.value[key].ip === '') { continue; }
