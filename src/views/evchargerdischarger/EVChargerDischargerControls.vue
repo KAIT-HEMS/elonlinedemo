@@ -510,28 +510,28 @@ export default defineComponent({
       monitorDevicesData.evChargerDischarger.workingOperationStatus = (() => {
         let propertyDescription = store.getters.propertyDescription(0x0000, 0xDA, evChargerDischargerSystem.value.evChargerDischarger.release);
         propertyDescription = store.getters.propertyDescription(evChargerDischargerSystem.value.evChargerDischarger.eoj.class, 0xDA, evChargerDischargerSystem.value.evChargerDischarger.release) || propertyDescription;
-        if (propertyDescription === null) { return ''; }
+        if (propertyDescription === null) { return 'No Data'; }
 
-        if (evChargerDischargerSystemData.value.evChargerDischarger.edt.workingOperationStatus === '') { return ''; }
+        if (evChargerDischargerSystemData.value.evChargerDischarger.edt.workingOperationStatus === '') { return 'No Data'; }
 
         // Decode EDT
         const propertyValue = store.getters.decodedData(0xDA, evChargerDischargerSystemData.value.evChargerDischarger.edt.workingOperationStatus.toUint8Array(), propertyDescription);
 
-        return propertyValue === null ? '' : propertyValue;
+        return propertyValue === null ? 'No Data' : propertyValue;
       })();
 
       // charge/discharge status: 0xC7
       monitorDevicesData.evChargerDischarger.chargeDischargeStatus = (() => {
         let propertyDescription = store.getters.propertyDescription(0x0000, 0xC7, evChargerDischargerSystem.value.evChargerDischarger.release);
         propertyDescription = store.getters.propertyDescription(evChargerDischargerSystem.value.evChargerDischarger.eoj.class, 0xC7, evChargerDischargerSystem.value.evChargerDischarger.release) || propertyDescription;
-        if (propertyDescription === null) { return ''; }
+        if (propertyDescription === null) { return 'No Data'; }
 
-        if (evChargerDischargerSystemData.value.evChargerDischarger.edt.chargeDischargeStatus === '') { return ''; }
+        if (evChargerDischargerSystemData.value.evChargerDischarger.edt.chargeDischargeStatus === '') { return 'No Data'; }
 
         // Decode EDT
         const propertyValue = store.getters.decodedData(0xC7, evChargerDischargerSystemData.value.evChargerDischarger.edt.chargeDischargeStatus.toUint8Array(), propertyDescription);
 
-        return propertyValue === null ? '' : propertyValue;
+        return propertyValue === null ? 'No Data' : propertyValue;
       })();
 
       return "EV Charger/Discharger";

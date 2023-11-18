@@ -274,7 +274,7 @@ const BatterySystemData = {
   storageBattery: {
     chargeableElectricity: 0,
     dischargeableElectricity: 0,
-    workingOperationStatus: 67,
+    workingOperationStatus: 0,
     remainingStoredElectricity: 0,
     edt: {
       chargeableElectricity: '',
@@ -284,8 +284,8 @@ const BatterySystemData = {
     }
   },
   homeAirConditioner: {
-    operationStatus: 49,
-    operationModeSetting: 66,
+    operationStatus: 0,
+    operationModeSetting: 0,
     setTemperatureValue: 0,
     edt: {
       operationStatus: '',
@@ -330,9 +330,9 @@ const EVChargerDischargerSystemData = {
   evChargerDischarger: {
     chargeableElectricity: 0,
     dischargeableElectricity: 0,
-    workingOperationStatus: 67,
+    workingOperationStatus: 0,
     remainingStoredElectricity: 0,
-    chargeDischargeStatus: 0xFF,
+    chargeDischargeStatus: 0,
     edt: {
       chargeableElectricity: '',
       dischargeableElectricity: '',
@@ -342,8 +342,8 @@ const EVChargerDischargerSystemData = {
     }
   },
   homeAirConditioner: {
-    operationStatus: 49,
-    operationModeSetting: 66,
+    operationStatus: 0,
+    operationModeSetting: 0,
     setTemperatureValue: 0,
     edt: {
       operationStatus: '',
