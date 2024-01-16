@@ -100,6 +100,10 @@ interface BatterySystem {
   [name: string]: any
 }
 
+interface EVChargerDischargerSystem {
+  [name: string]: any
+}
+
 interface CameraSearchCriteria {
   [name: string]: string | number
 }

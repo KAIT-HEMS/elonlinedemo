@@ -15,10 +15,11 @@
         </div>
       </div>
     </div>
-    <div class="header-nav-list card-list d-grid position-relative" :class="{ 'nav-single': isSingle, 'nav-battery': isBattery, 'nav-settings': isSettings, 'nav-help': isHelp }">
+    <div class="header-nav-list card-list d-grid position-relative" :class="{ 'nav-single': isSingle, 'nav-battery': isBattery, 'nav-evchargerdischarger': isEVChargerDischarger, 'nav-settings': isSettings, 'nav-help': isHelp }">
       <div class="header-nav-highlight position-absolute bg-white pe-none h-100"></div>
       <router-link class="header-nav-list-item header-nav-single link-light text-decoration-none border-end border-white" :to="{ name: 'single' }" :title="text?.nav?.single?.title">{{ text?.nav?.single?.label }}</router-link>
       <router-link class="header-nav-list-item header-nav-battery link-light text-decoration-none border-end border-white" :to="{ name: 'battery' }" :title="text?.nav?.battery?.title">{{ text?.nav?.battery?.label }}</router-link>
+      <router-link class="header-nav-list-item header-nav-evchargerdischarger link-light text-decoration-none border-end border-white" :to="{ name: 'evChargerDischarger' }" :title="text?.nav?.evChargerDischarger?.title">{{ text?.nav?.evChargerDischarger?.label }}</router-link>
       <router-link class="header-nav-list-item header-nav-settings link-light text-decoration-none border-end border-white" :to="{ name: 'settings.single' }" :title="text?.nav?.settings?.title">{{ text?.nav?.settings?.label }}</router-link>
       <router-link class="header-nav-list-item header-nav-help link-light text-decoration-none" :to="{ name: 'help' }" :title="text?.nav?.help?.title">{{ text?.nav?.help?.label }}</router-link>
     </div>
@@ -48,6 +49,7 @@ export default defineComponent({
       settings: computed(() => store.state.settings),
       isSingle: computed(() => route.meta.feature === 'single'),
       isBattery: computed(() => route.meta.feature === 'battery'),
+      isEVChargerDischarger: computed(() => route.meta.feature === 'evchargerdischarger'),
       isSettings: computed(() => route.meta.feature === 'settings'),
       isHelp: computed(() => route.meta.feature === 'help'),
       isLAN: computed(() => store.state.network === 'lan'),
@@ -60,7 +62,7 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .header {
-  grid-template-columns: 1fr 504px 116px;
+  grid-template-columns: 1fr 630px 116px;
 }
 .header-main-title {
   font-size:   var(--size-text-xxl);
@@ -75,11 +77,13 @@ export default defineComponent({
   font-weight: var(--weight-light);
 }
 .header-nav-list {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(5, minmax(0, 1fr));
 }
 .header-nav-list-item {
-  padding-top: 46px;
+  padding-top: 52px;
+  line-height: 14px;
   text-align:  center;
+  word-break:  keep-all;
   cursor:      pointer;
 }
 .header-nav-list-item:hover{
@@ -94,6 +98,13 @@ export default defineComponent({
   background-image:    url('/assets/img/icon-nav-battery.svg');
   background-repeat:   no-repeat;
   background-position: center 12px;
+}
+.header-nav-evchargerdischarger {
+  background-image:    url('/assets/img/icon-nav-evchargerdischarger.svg');
+  background-repeat:   no-repeat;
+  background-position: center 14px;
+  background-size:     28px;
+  padding-top:         48px;
 }
 .header-nav-settings {
   background-image:    url('/assets/img/icon-nav-settings.svg');
@@ -139,16 +150,22 @@ export default defineComponent({
     left:    126px;
   }
 }
-.nav-settings {
+.nav-evchargerdischarger {
   .header-nav-highlight {
     display: block;
     left:    252px;
   }
 }
+.nav-settings {
+  .header-nav-highlight {
+    display: block;
+    left:    378px;
+  }
+}
 .nav-help {
   .header-nav-highlight {
     display:      block;
-    left:         378px;
+    left:         504px;
     border-right: none !important;
   }
 }
