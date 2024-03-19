@@ -6,7 +6,7 @@ The ECHONET Lite (EL) Online Control Demonstration Program provides an easy-to-u
 
 v1.0.8
 
-© Kanagawa Institute of Technology 2022
+© Kanagawa Institute of Technology 2023
 
 
 # How To Close
