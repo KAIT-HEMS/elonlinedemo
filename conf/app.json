@@ -1,7 +1,7 @@
 {
   "app": {
     "title": "ECHONET Lite Online Control Demonstration Program (EL-Online_Demo)",
-    "copyright": "© Kanagawa Institute of Technology 2022",
+    "copyright": "© Kanagawa Institute of Technology 2023",
     "dict": {
       "text": "conf/text.json",
       "mra": "conf/mraData",
