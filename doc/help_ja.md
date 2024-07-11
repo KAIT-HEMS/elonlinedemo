@@ -4,7 +4,7 @@ ECHONET Lite オンライン制御デモプログラム (EL-Online_Demo)
 
 ECHONET Lite（EL）オンライン制御デモプログラムは、UDPで通信可能なEL対応機器（ノード）の検索、設定、プロパティ値の取得を、使いやすいUIで実現します。
 
-v1.0.8
+v1.1.0
 
 © Kanagawa Institute of Technology 2023
 
