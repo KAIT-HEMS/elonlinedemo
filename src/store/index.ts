@@ -388,6 +388,7 @@ export default createStore({
     nodes: {} as NodesCache,
     singleDeviceOptions: [] as SingleSettings[],
     device: SingleDevice,
+    cameraViewType:  'diagram' || 'CCTV',
     batterySystemData: BatterySystemData,
     batterySystemMode: localStorage.getItem('el-demoapp-battery-system-mode') || 'real',
     batterySystem: JSON.parse(localStorage.getItem('el-demoapp-battery-system') || 'null') || BatterySystem as BatterySystem,
@@ -537,6 +538,7 @@ export default createStore({
     helpMenu: state => {
       return state.helpMenu[state.locale];
     },
+    cameraViewType: state => state.cameraViewType,
   },
   mutations: {
     setLocale(state, data) {
@@ -652,6 +654,7 @@ export default createStore({
     },
     setSingleDevice(state, data) {
       state.device = data;
+      state.cameraViewType = data.eoj.class == 638 ? 'diagram' : 'CCTV';
     },
     resetSingleDevice(state) {
       state.device = SingleDevice;

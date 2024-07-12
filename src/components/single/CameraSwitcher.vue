@@ -1,19 +1,25 @@
 <template>
   <div class="camera-switcher card shadow d-grid">
-    <div class="bg-secondary bg-camera d-grid justify-content-center align-content-center" ref="cameraView">
-      <router-link class="link-dark" :to="{ name: 'settings.cameras' }" v-show="cameraError">
-        <i class="bi-camera-video-off-fill display-3 p-5"></i>
-      </router-link>
-      <i class="bi-arrow-repeat position-absolute bottom-0 start-0 display-6 p-3 text-white" role="button" @click="reloadCamera"></i>
-    </div>
-    <div class="card-body d-grid justify-items-center align-content-center gap-4 form-check">
-      <div :title="text?.cameraSwitcher?.cam1?.title"><input class="form-check-input" type="radio" name="cameraOption" id="cameraOption0" v-model.number="cameraOption" value="0"><label class="form-check-label" for="cameraOption0">{{ text?.cameraSwitcher?.cam1?.label }}</label></div>
-      <div :title="text?.cameraSwitcher?.cam2?.title"><input class="form-check-input" type="radio" name="cameraOption" id="cameraOption1" v-model.number="cameraOption" value="1"><label class="form-check-label" for="cameraOption1">{{ text?.cameraSwitcher?.cam2?.label }}</label></div>
-      <div :title="text?.cameraSwitcher?.cam3?.title"><input class="form-check-input" type="radio" name="cameraOption" id="cameraOption2" v-model.number="cameraOption" value="2"><label class="form-check-label" for="cameraOption2">{{ text?.cameraSwitcher?.cam3?.label }}</label></div>
-      <div :title="text?.cameraSwitcher?.pan?.title"><button class="btn border-0 p-0 me-1 fs-4 text-primary" type="button" @click="panDown"><i class="bi-caret-left-fill align-text-bottom"></i></button><span>{{ text?.cameraSwitcher?.pan?.label }}</span><button class="btn border-0 p-0 ms-1 fs-4 text-primary" type="button" @click="panUp"><i class="bi-caret-right-fill align-text-bottom"></i></button></div>
-      <div :title="text?.cameraSwitcher?.tilt?.title"><button class="btn border-0 p-0 me-1 fs-4 text-primary" type="button" @click="tiltUp"><i class="bi-caret-up-fill align-text-bottom"></i></button><span>{{ text?.cameraSwitcher?.tilt?.label }}</span><button class="btn border-0 p-0 ms-1 fs-4 text-primary" type="button" @click="tiltDown"><i class="bi-caret-down-fill align-text-bottom"></i></button></div>
-      <div :title="text?.cameraSwitcher?.zoom?.title"><button class="btn border-0 p-0 me-1 fs-4 text-primary" type="button" @click="zoomUp"><i class="bi-zoom-in align-text-bottom"></i></button><span>{{ text?.cameraSwitcher?.zoom?.label }}</span><button class="btn border-0 p-0 ms-1 fs-4 text-primary" type="button" @click="zoomDown"><i class="bi-zoom-out align-text-bottom"></i></button></div>
-    </div>
+    <template v-if="cameraViewType === 'diagram'">
+      <h2>Diagram View</h2>
+      <p>This is EV diagram place</p>
+    </template>
+    <template v-else>
+      <div class="bg-secondary bg-camera d-grid justify-content-center align-content-center" ref="cameraView">
+        <router-link class="link-dark" :to="{ name: 'settings.cameras' }" v-show="cameraError">
+          <i class="bi-camera-video-off-fill display-3 p-5"></i>
+        </router-link>
+        <i class="bi-arrow-repeat position-absolute bottom-0 start-0 display-6 p-3 text-white" role="button" @click="reloadCamera"></i>
+      </div>
+      <div class="card-body d-grid justify-items-center align-content-center gap-4 form-check">
+        <div :title="text?.cameraSwitcher?.cam1?.title"><input class="form-check-input" type="radio" name="cameraOption" id="cameraOption0" v-model.number="cameraOption" value="0"><label class="form-check-label" for="cameraOption0">{{ text?.cameraSwitcher?.cam1?.label }}</label></div>
+        <div :title="text?.cameraSwitcher?.cam2?.title"><input class="form-check-input" type="radio" name="cameraOption" id="cameraOption1" v-model.number="cameraOption" value="1"><label class="form-check-label" for="cameraOption1">{{ text?.cameraSwitcher?.cam2?.label }}</label></div>
+        <div :title="text?.cameraSwitcher?.cam3?.title"><input class="form-check-input" type="radio" name="cameraOption" id="cameraOption2" v-model.number="cameraOption" value="2"><label class="form-check-label" for="cameraOption2">{{ text?.cameraSwitcher?.cam3?.label }}</label></div>
+        <div :title="text?.cameraSwitcher?.pan?.title"><button class="btn border-0 p-0 me-1 fs-4 text-primary" type="button" @click="panDown"><i class="bi-caret-left-fill align-text-bottom"></i></button><span>{{ text?.cameraSwitcher?.pan?.label }}</span><button class="btn border-0 p-0 ms-1 fs-4 text-primary" type="button" @click="panUp"><i class="bi-caret-right-fill align-text-bottom"></i></button></div>
+        <div :title="text?.cameraSwitcher?.tilt?.title"><button class="btn border-0 p-0 me-1 fs-4 text-primary" type="button" @click="tiltUp"><i class="bi-caret-up-fill align-text-bottom"></i></button><span>{{ text?.cameraSwitcher?.tilt?.label }}</span><button class="btn border-0 p-0 ms-1 fs-4 text-primary" type="button" @click="tiltDown"><i class="bi-caret-down-fill align-text-bottom"></i></button></div>
+        <div :title="text?.cameraSwitcher?.zoom?.title"><button class="btn border-0 p-0 me-1 fs-4 text-primary" type="button" @click="zoomUp"><i class="bi-zoom-in align-text-bottom"></i></button><span>{{ text?.cameraSwitcher?.zoom?.label }}</span><button class="btn border-0 p-0 ms-1 fs-4 text-primary" type="button" @click="zoomDown"><i class="bi-zoom-out align-text-bottom"></i></button></div>
+      </div>
+    </template>
   </div>
 </template>
 
@@ -78,6 +84,8 @@ export default defineComponent({
               if (cameras[cameraOption.value].zoom < this.MIN) { cameras[cameraOption.value].zoom = this.MIN; }
             }
           };
+
+    const cameraViewType = computed(() => store.getters.cameraViewType);
 
     function switchCamera(id: number, isReload?: boolean) {
       const source = store.state.cameras[store.state.cameraHolders['single' + id]],
@@ -153,6 +161,7 @@ export default defineComponent({
     return {
       text: computed(() => store.getters.text?.single?.controller),
       cameraView,
+      cameraViewType,
       cameraError,
       cameraOption,
       reloadCamera,
