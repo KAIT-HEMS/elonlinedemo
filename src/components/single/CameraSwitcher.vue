@@ -1,7 +1,8 @@
 <template>
   <div class="camera-switcher card shadow d-grid">
     <template v-if="cameraViewType === 'diagram'">
-      <svg width="566" height="312" style="height: 80%; width: 100%; margin-top: 3.8%" viewBox="0 0 566 312" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <div class="bg-camera">
+      <svg width="566" height="312" style="height: 80%; width: 100%; margin-top: 6.8%" viewBox="0 0 566 312" fill="none" xmlns="http://www.w3.org/2000/svg">
         <g opacity="0.5">
         <path d="M82.179 196C82.179 196 82.1495 196 82.1385 196H70.821C65.9495 196 62 202.268 62 210C62 217.732 65.9495 224 70.821 224H82.1385C82.1385 224 82.168 224 82.179 224C87.0505 224 91 217.732 91 210C91 202.268 87.0505 196 82.179 196Z" fill="#B5C1D6"/>
         <path opacity="0.2" d="M82.179 196C82.179 196 82.1495 196 82.1385 196H70.821C65.9495 196 62 202.268 62 210C62 217.732 65.9495 224 70.821 224H82.1385C82.1385 224 82.168 224 82.179 224C87.0505 224 91 217.732 91 210C91 202.268 87.0505 196 82.179 196Z" fill="#4C5C75"/>
@@ -80,6 +81,10 @@
         <path d="M418.093 130.167H407.041C406.213 130.167 405.541 130.839 405.541 131.667V214.694C405.541 215.522 406.213 216.194 407.041 216.194H418.093C418.922 216.194 419.593 215.522 419.593 214.694V131.667C419.593 130.839 418.922 130.167 418.093 130.167Z" fill="white"/>
         <path d="M406.628 218.321H418.31C419.185 218.321 419.895 217.611 419.895 216.736V129.667C419.895 128.791 419.185 128.081 418.31 128.081H406.628C405.753 128.081 405.043 128.791 405.043 129.667V216.736C405.043 217.611 405.753 218.321 406.628 218.321Z" fill="#47E298"/>
         </svg>
+      </div>
+        <div class="card-body d-grid justify-items-center align-content-center gap-4 form-check">
+          Left side
+        </div>
     </template>
     <template v-else>
       <div class="bg-secondary bg-camera d-grid justify-content-center align-content-center" ref="cameraView">
