@@ -3,8 +3,7 @@
   {{propertyList}}
   <div class="camera-switcher card shadow d-grid">
     <template v-if="cameraViewType === 'diagram'">
-      <div class="bg-camera">
-        <svg width="566" height="312" style="height: 80%; width: 100%; margin-top: 6.8%" viewBox="0 0 566 312" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg width="566" height="312" style="height: 84%; width: 100%; margin-top: 4%" viewBox="0 0 566 312" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g opacity="0.5">
             <path d="M82.179 196C82.179 196 82.1495 196 82.1385 196H70.821C65.9495 196 62 202.268 62 210C62 217.732 65.9495 224 70.821 224H82.1385C82.1385 224 82.168 224 82.179 224C87.0505 224 91 217.732 91 210C91 202.268 87.0505 196 82.179 196Z" fill="#B5C1D6"/>
             <path opacity="0.2" d="M82.179 196C82.179 196 82.1495 196 82.1385 196H70.821C65.9495 196 62 202.268 62 210C62 217.732 65.9495 224 70.821 224H82.1385C82.1385 224 82.168 224 82.179 224C87.0505 224 91 217.732 91 210C91 202.268 87.0505 196 82.179 196Z" fill="#4C5C75"/>
@@ -56,17 +55,17 @@
           <path d="M134 188V196C131.792 196 130 194.207 130 192C130 189.793 131.792 188 134 188Z" :fill="(propertyList['0xC7'] === '0x40' || propertyList['0xC7'] === '0x41' || propertyList['0xC7'] === '0x42' || propertyList['0xC7'] === '0x43' || propertyList['0xC7'] === '0x44') ? 'orange' : 'grey'"/>
           <path d="M233.553 194.69C232.925 195.145 232.786 196.022 233.241 196.649C233.697 197.277 234.574 197.416 235.201 196.961L233.553 194.69ZM262.161 220.673H260.757V223.479H262.161V220.673ZM235.201 196.961C235.646 196.638 236.818 196.052 238.497 195.493C240.139 194.945 242.149 194.463 244.211 194.286C248.409 193.925 252.351 194.84 254.357 198.367L256.797 196.981C253.967 192.005 248.547 191.097 243.971 191.489C241.647 191.689 239.418 192.227 237.609 192.83C235.837 193.421 234.344 194.115 233.553 194.69L235.201 196.961ZM254.357 198.367C254.648 198.878 254.869 199.791 254.974 201.192C255.076 202.554 255.059 204.196 254.997 206.048C254.877 209.692 254.584 214.117 254.837 218.185C255.087 222.219 255.884 226.266 258.205 229.022C260.651 231.926 264.489 233.08 269.992 231.955L269.43 229.206C264.582 230.196 261.932 229.09 260.352 227.214C258.647 225.191 257.882 221.939 257.638 218.012C257.396 214.12 257.678 209.923 257.803 206.14C257.864 204.277 257.887 202.505 257.773 200.982C257.662 199.5 257.41 198.059 256.797 196.981L254.357 198.367ZM269.992 231.955C273.578 231.222 276.248 230.286 277.884 229.202C278.693 228.666 279.41 227.989 279.745 227.128C280.122 226.155 279.921 225.185 279.33 224.401C278.794 223.69 277.963 223.15 277.026 222.727C276.066 222.293 274.87 221.926 273.465 221.627C270.655 221.028 266.87 220.673 262.161 220.673V223.479C266.749 223.479 270.325 223.827 272.881 224.371C274.16 224.644 275.15 224.958 275.871 225.284C276.615 225.62 276.96 225.918 277.089 226.089C277.143 226.162 277.136 226.181 277.131 226.15C277.125 226.114 277.136 226.093 277.128 226.112C277.098 226.192 276.932 226.467 276.334 226.863C275.154 227.645 272.91 228.494 269.43 229.206L269.992 231.955Z" :fill="(propertyList['0xC7'] === '0x40' || propertyList['0xC7'] === '0x41' || propertyList['0xC7'] === '0x42' || propertyList['0xC7'] === '0x43' || propertyList['0xC7'] === '0x44') ? 'orange' : 'grey'"/>
           <path d="M233.553 194.69C232.925 195.145 232.786 196.022 233.241 196.649C233.697 197.277 234.574 197.416 235.201 196.961M233.553 194.69L235.201 196.961M233.553 194.69C234.344 194.115 235.837 193.421 237.609 192.83C239.418 192.227 241.647 191.689 243.971 191.489C248.547 191.097 253.967 192.005 256.797 196.981M235.201 196.961C235.646 196.638 236.818 196.052 238.497 195.493C240.139 194.945 242.149 194.463 244.211 194.286C248.409 193.925 252.351 194.84 254.357 198.367M255.577 197.674L254.357 198.367M254.357 198.367L256.797 196.981M254.357 198.367C254.648 198.878 254.869 199.791 254.974 201.192C255.076 202.554 255.059 204.196 254.997 206.048C254.877 209.692 254.584 214.117 254.837 218.185C255.087 222.219 255.884 226.266 258.205 229.022C260.651 231.926 264.489 233.08 269.992 231.955M269.71 230.58L269.992 231.955M269.992 231.955L269.43 229.206M269.992 231.955C273.578 231.222 276.248 230.286 277.884 229.202C278.693 228.666 279.41 227.989 279.745 227.128C280.122 226.155 279.921 225.185 279.33 224.401C278.794 223.69 277.963 223.15 277.026 222.727C276.066 222.293 274.87 221.926 273.465 221.627C270.655 221.028 266.87 220.673 262.161 220.673M262.161 220.673H260.757V223.479H262.161M262.161 220.673V223.479M262.161 223.479C266.749 223.479 270.325 223.827 272.881 224.371C274.16 224.644 275.15 224.958 275.871 225.284C276.615 225.62 276.96 225.918 277.089 226.089C277.143 226.162 277.136 226.181 277.131 226.15C277.125 226.114 277.136 226.093 277.128 226.112C277.098 226.192 276.932 226.467 276.334 226.863C275.154 227.645 272.91 228.494 269.43 229.206M256.797 196.981C257.41 198.059 257.662 199.5 257.773 200.982C257.887 202.505 257.864 204.277 257.803 206.14C257.678 209.923 257.396 214.12 257.638 218.012C257.882 221.939 258.647 225.191 260.352 227.214C261.932 229.09 264.582 230.196 269.43 229.206" :stroke="(propertyList['0xC7'] === '0x40' || propertyList['0xC7'] === '0x41' || propertyList['0xC7'] === '0x42' || propertyList['0xC7'] === '0x43' || propertyList['0xC7'] === '0x44') ? 'orange' : 'grey'"/>
-          <text fill="#2D9E68" xml:space="preserve" style="white-space: pre" font-family="Rubik" font-size="14" letter-spacing="0em"><tspan x="400" y="248.59">0% </tspan></text>
+          <text fill="#2D9E68" xml:space="preserve" style="white-space: pre" font-family="Rubik" font-size="14" letter-spacing="0em"><tspan x="400" y="248.59">{{propertyList['0xE4']}}</tspan></text>
           <text fill="#2D9E68" xml:space="preserve" style="white-space: pre" font-family="Rubik" font-size="14" letter-spacing="0em"><tspan x="379" y="265.723">Remaining</tspan></text>
           <text fill="#787676" xml:space="preserve" style="white-space: pre" font-family="Rubik" font-size="14" letter-spacing="0em"><tspan x="430.642" y="217.59">0%</tspan></text>
           <text fill="#787676" xml:space="preserve" style="white-space: pre" font-family="Rubik" font-size="14" letter-spacing="0em"><tspan x="430.642" y="140.392">100%</tspan></text>
           <text fill="#505050" xml:space="preserve" style="white-space: pre" font-family="Rubik" font-size="16" letter-spacing="0em"><tspan x="310" y="104.98">Mode</tspan></text>
           <path d="M368.66 120.86H292.66C288.518 120.86 285.16 124.218 285.16 128.36V144.36C285.16 148.502 288.518 151.86 292.66 151.86H368.66C372.802 151.86 376.16 148.502 376.16 144.36V128.36C376.16 124.218 372.802 120.86 368.66 120.86Z" :stroke="propertyList['0xDA'] === '0x42' ? 'white' : '#909090'" :fill="propertyList['0xDA'] === '0x42' ? '#3779F5' : 'white'"/>
-          <text fill="#7E7E7E" xml:space="preserve" style="white-space: pre" font-family="Rubik" font-size="16" letter-spacing="0em"><tspan x="301.96" y="139.766">Charge</tspan></text>
+          <text :fill="propertyList['0xDA'] === '0x42' ? 'white' : '#7E7E7E'" xml:space="preserve" style="white-space: pre" font-family="Rubik" font-size="16" letter-spacing="0em"><tspan x="301.96" y="139.766">Charge</tspan></text>
           <path d="M369 161.5H292C287.858 161.5 284.5 164.858 284.5 169V185C284.5 189.142 287.858 192.5 292 192.5H369C373.142 192.5 376.5 189.142 376.5 185V169C376.5 164.858 373.142 161.5 369 161.5Z" :stroke="propertyList['0xDA'] === '0x43' ? 'white' : '#909090'" :fill="propertyList['0xDA'] === '0x43' ? '#3779F5' : 'white'"/>
-          <text fill="#7E7E7E" xml:space="preserve" style="white-space: pre" font-family="Rubik" font-size="16" letter-spacing="0em"><tspan x="289.844" y="180.406">Discharge</tspan></text>
+          <text :fill="propertyList['0xDA'] === '0x43' ? 'white' : '#7E7E7E'" xml:space="preserve" style="white-space: pre" font-family="Rubik" font-size="16" letter-spacing="0em"><tspan x="289.844" y="180.406">Discharge</tspan></text>
           <path d="M368 200H292C287.582 200 284 203.582 284 208V224C284 228.418 287.582 232 292 232H368C372.418 232 376 228.418 376 224V208C376 203.582 372.418 200 368 200Z"  :stroke="propertyList['0xDA'] === '0x44' ? 'white' : '#909090'" :fill="propertyList['0xDA'] === '0x44' ? '#3779F5' : 'white'"/>
-          <text fill="#7E7E7E" xml:space="preserve" style="white-space: pre" font-family="Rubik" font-size="16" letter-spacing="0em"><tspan x="296.527" y="221">Standby</tspan></text>
+          <text :fill="propertyList['0xDA'] === '0x44' ? 'white' : '#7E7E7E'" xml:space="preserve" style="white-space: pre" font-family="Rubik" font-size="16" letter-spacing="0em"><tspan x="296.527" y="221">Standby</tspan></text>
           <text fill="black" xml:space="preserve" style="white-space: pre" font-family="Rubik" font-size="18" letter-spacing="0em"><tspan x="229" y="307.665">EV Charger/Discharger</tspan></text>
           <text fill="black" xml:space="preserve" style="white-space: pre" font-family="Rubik" font-size="12" letter-spacing="0em"><tspan x="37" y="130.11">Chargeable&#10;</tspan><tspan x="37" y="149.11">Dischargeable</tspan></text>
           <text fill="black" xml:space="preserve" style="white-space: pre" font-family="Rubik" font-size="12" letter-spacing="0em"><tspan x="38" y="85.11">Vehicle Status&#10;</tspan><tspan x="38" y="104.11">EPC: 0xC7</tspan></text>
@@ -81,12 +80,11 @@
           <path d="M401.715 128.878V217.339C401.715 218.72 402.834 219.839 404.215 219.839H420.919C422.3 219.839 423.419 218.72 423.419 217.339V128.878C423.419 127.498 422.3 126.378 420.919 126.378H404.215C402.834 126.378 401.715 127.498 401.715 128.878Z" fill="#47E298" stroke="#5AC491"/>
           <path d="M407.777 123.176C407.777 122.071 408.672 121.176 409.777 121.176H415.357C416.462 121.176 417.357 122.071 417.357 123.176V124.417H407.777V123.176Z" fill="#5AC391"/>
           <path d="M418.093 130.167H407.041C406.213 130.167 405.541 130.839 405.541 131.667V214.694C405.541 215.522 406.213 216.194 407.041 216.194H418.093C418.922 216.194 419.593 215.522 419.593 214.694V131.667C419.593 130.839 418.922 130.167 418.093 130.167Z" fill="white"/>
-          <path d="M406.628 218.321H418.31C419.185 218.321 419.895 217.611 419.895 216.736V129.667C419.895 128.791 419.185 128.081 418.31 128.081H406.628C405.753 128.081 405.043 128.791 405.043 129.667V216.736C405.043 217.611 405.753 218.321 406.628 218.321Z" fill="#47E298"/>
-        </svg>
+          <rect fill="red" :height="propertyList['0xE4']?.replace(/\s|%/g, '') * 0.87 || 0" stroke="#5AC491" x="-421.6" y="-217" width="18" style="fill: rgb(71 226 152);fill-opacity:1;stroke:none;stroke-width:8.42334;transform: rotate(180deg) scale(1);width: 18px;"></rect>
+      </svg>
+      <div class="card-body d-grid justify-items-center align-content-center gap-4 form-check">
+        Right side
       </div>
-        <div class="card-body d-grid justify-items-center align-content-center gap-4 form-check">
-          Left side
-        </div>
     </template>
     <template v-else>
       <div class="bg-secondary bg-camera d-grid justify-content-center align-content-center" ref="cameraView">
@@ -171,6 +169,7 @@ export default defineComponent({
           nodes        = computed(() => store.state.nodes),
           device       = computed(() => store.state.device),
           locale       = computed(() => store.state.locale),
+          release      = computed(() => device.value.ip ? nodes.value[device.value.ip][device.value.eoj.class][device.value.eoj.id].release : ''),
           propertyList = ref<EpcEdtList>({});
 
     const cameraViewType = computed(() => store.getters.cameraViewType);
@@ -237,8 +236,19 @@ export default defineComponent({
       const epc_edt_List: EpcEdtList = {};
 
       epcList.forEach(epc => {
+        let epcStr = epc.toHex(2).toUpperCase().prefix('0x')
+
+        let propertyDescription = store.getters.propertyDescription(0x0000, epc, release.value);
+        propertyDescription = store.getters.propertyDescription(device.value.eoj.class, epc, release.value) || propertyDescription;
+        if (propertyDescription === null) { return; }
+
         let edt = store.getters.data(device.value.ip, device.value.eoj, epc);
-        epc_edt_List[epc.toHex(2).toUpperCase().prefix('0x')] = (() => { let hex = ''; edt.forEach((v: number) => { hex += v.toHex(2).toUpperCase(); }); return hex.prefix('0x'); })()
+        if (edt.length === 0) { return; }
+
+        const propertyValue = store.getters.decodedData(epc, edt, propertyDescription);
+        const edtValue = (() => { let hex = ''; edt.forEach((v: number) => { hex += v.toHex(2).toUpperCase(); }); return hex.prefix('0x'); })()
+
+        epc_edt_List[epcStr] = epcStr === '0xE4' ? (propertyValue === null ? '' : propertyValue) : edtValue;
       });
 
       console.log("🚀 ~ propertyList>>>>", epc_edt_List)
