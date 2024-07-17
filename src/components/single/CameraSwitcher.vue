@@ -38,8 +38,9 @@
                 <path id="path3362" d="M56.9346 234.085H8.14515C6.97098 234.085 6.34705 232.726 7.12328 231.864L8.38588 230.466C8.64627 230.182 9.01472 230.017 9.40776 230.017H55.6769C56.0652 230.017 56.4385 230.182 56.6988 230.466L57.9615 231.864C58.7377 232.726 58.1137 234.085 56.9396 234.085H56.9346Z" fill="#B7BFCD"/>
               </g>
               <path id="ELline5" d="M794 154.5C772.5 179 749.4 227 627 227" stroke="#bbbbbb" stroke-width="4" stroke-linecap="round"/>
+              <path id="ELline5" class="animate" :class="propertyList['0xD3']?.replace(/\s|W/g, '') > 0 ? 'normal' : 'reverse'" v-show="propertyList['0xD3'] && propertyList['0xD3']?.replace(/\s|W/g, '') != 0" d="M794 154.5C772.5 179 749.4 227 627 227" stroke-linecap="round" stroke-linejoin="round"/>
               <path id="ELline1" d="M342.5 251.994H241.286C232.55 252.125 132 254.5 140.5 243.5C144 230 143 228.5 140.5 214.5C138.959 212.535 143.167 205.185 155.5 205.5" :stroke="(propertyList['0xC7'] === '0x40' || propertyList['0xC7'] === '0x41' || propertyList['0xC7'] === '0x42' || propertyList['0xC7'] === '0x43' || propertyList['0xC7'] === '0x44') ? 'orange' : '#bbbbbb'" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-              <!-- <path id="ELline1" class="animate" d="M342.5 251.994H241.286C232.55 252.125 132 254.5 140.5 243.5C144 230 143 228.5 140.5 214.5C138.959 212.535 143.167 205.185 155.5 205.5" stroke-linecap="round" stroke-linejoin="round"/> -->
+              <path id="ELline1" class="animate" :class="propertyList['0xDA'] === '0x43' ? 'reverse' : 'normal'" v-show="propertyList['0xDA'] === '0x42' || propertyList['0xDA'] === '0x43'" d="M342.5 251.994H241.286C232.55 252.125 132 254.5 140.5 243.5C144 230 143 228.5 140.5 214.5C138.959 212.535 143.167 205.185 155.5 205.5" stroke-linecap="round" stroke-linejoin="round"/>
               <path id="ELline2" d="M160.235 209.287L157 210V200L160.235 200.713C160.674 200.808 161 201.486 161 202.281V207.712C161 208.514 160.669 209.186 160.235 209.281V209.287Z" :fill="(propertyList['0xC7'] === '0x40' || propertyList['0xC7'] === '0x41' || propertyList['0xC7'] === '0x42' || propertyList['0xC7'] === '0x43' || propertyList['0xC7'] === '0x44') ? 'orange' : '#bbbbbb'"/>
               <path id="ELline3" d="M159 201V209C156.792 209 155 207.207 155 205C155 202.793 156.792 201 159 201Z" :fill="(propertyList['0xC7'] === '0x40' || propertyList['0xC7'] === '0x41' || propertyList['0xC7'] === '0x42' || propertyList['0xC7'] === '0x43' || propertyList['0xC7'] === '0x44') ? 'orange' : '#bbbbbb'"/>
               <path id="path3372" d="M341.541 152.043H384.545V255.105H341.541V152.043Z" fill="#EFF8FF"/>
@@ -58,7 +59,7 @@
               <path id="path3398" opacity="0.4" d="M365.175 199.468L363.882 205.754C363.791 206.199 363.4 206.516 362.947 206.516H359.792C359.424 206.516 359.153 206.183 359.227 205.824L360.521 199.538C360.611 199.093 361.003 198.776 361.456 198.776H364.611C364.978 198.776 365.25 199.109 365.175 199.468Z" fill="white"/>
               <path id="path3400" opacity="0.4" d="M353.405 186.071H370.524V189.725H358.055L353.405 186.071Z" fill="#C9CEE2"/>
               <path id="ELline4" d="M363 220.5C365.5 219.333 371.3 217 374.5 217C378.5 217 381.5 217.5 383.5 220.5C385.5 223.5 387 227 386 234C385 241 385 249 388.5 252.5C392 256 399 256.5 403 254.5C407 252.5 410 248 403.5 245C398.3 242.6 392.333 242.667 390 243" :stroke="(propertyList['0xC7'] === '0x40' || propertyList['0xC7'] === '0x41' || propertyList['0xC7'] === '0x42' || propertyList['0xC7'] === '0x43' || propertyList['0xC7'] === '0x44') ? 'orange' : '#bbbbbb'" stroke-width="4" stroke-linecap="round"/>
-              <!-- <path id="ELline4" class="animate" d="M363 220.5C365.5 219.333 371.3 217 374.5 217C378.5 217 381.5 217.5 383.5 220.5C385.5 223.5 387 227 386 234C385 241 385 249 388.5 252.5C392 256 399 256.5 403 254.5C407 252.5 410 248 403.5 245C398.3 242.6 392.333 242.667 390 243" :stroke="(propertyList['0xC7'] === '0x40' || propertyList['0xC7'] === '0x41' || propertyList['0xC7'] === '0x42' || propertyList['0xC7'] === '0x43' || propertyList['0xC7'] === '0x44') ? 'orange' : '#bbbbbb'" stroke-width="4" stroke-linecap="round"/> -->
+              <path id="ELline4" class="animate" :class="propertyList['0xDA'] === '0x43' ? 'reverse' : 'normal'" v-show="propertyList['0xDA'] === '0x42' || propertyList['0xDA'] === '0x43'" d="M363 220.5C365.5 219.333 371.3 217 374.5 217C378.5 217 381.5 217.5 383.5 220.5C385.5 223.5 387 227 386 234C385 241 385 249 388.5 252.5C392 256 399 256.5 403 254.5C407 252.5 410 248 403.5 245C398.3 242.6 392.333 242.667 390 243" :stroke="(propertyList['0xC7'] === '0x40' || propertyList['0xC7'] === '0x41' || propertyList['0xC7'] === '0x42' || propertyList['0xC7'] === '0x43' || propertyList['0xC7'] === '0x44') ? 'orange' : '#bbbbbb'" stroke-width="4" stroke-linecap="round"/>
             </g>
           </g>
           <text id="BatteryPercentage1" fill="#2D9E68" xml:space="preserve" style="white-space: pre" font-family="Rubik" font-size="16" letter-spacing="0em"><tspan x="69.5%" y="278" dominant-baseline="middle" text-anchor="middle">{{propertyList['0xE4'] || '0 %'}}</tspan></text>
@@ -95,7 +96,12 @@
         </g>
       </svg>
       <div class="card-body d-grid justify-items-center align-content-center gap-4 form-check">
-        EL Options
+        <h3 class="fs-6 text-primary fw-normal">SET</h3>
+        <div class="d-grid gap-2">
+          <button class="btn btn-primary" type="button" @click="setEVChargerDischargerPropertiesSimpleMode('charging')">0xDA(0x42)<br/>Charging</button>
+          <button class="btn btn-primary" type="button" @click="setEVChargerDischargerPropertiesSimpleMode('discharging')">0xDA(0x43)<br/>Discharging</button>
+          <button class="btn btn-primary" type="button" @click="setEVChargerDischargerPropertiesSimpleMode('standby')">0xDA(0x44)<br/>Standby</button>
+        </div>
       </div>
     </template>
     <template v-else>
@@ -182,7 +188,10 @@ export default defineComponent({
           device       = computed(() => store.state.device),
           locale       = computed(() => store.state.locale),
           release      = computed(() => device.value.ip ? nodes.value[device.value.ip][device.value.eoj.class][device.value.eoj.id].release : ''),
-          propertyList = ref<EpcEdtList>({});
+          propertyList = ref<EpcEdtList>({}),
+          evChargerDischargerSystem         = computed(() => store.state.evChargerDischargerSystem),
+          evChargerDischargerSystemData     = computed(() => store.state.evChargerDischargerSystemData);
+
 
     const cameraViewType = computed(() => store.getters.cameraViewType);
 
@@ -267,6 +276,140 @@ export default defineComponent({
       propertyList.value = epc_edt_List;
     }
 
+    /*
+    Set ev charger discharger properties
+    */
+    function setEVChargerDischargerProperties() {
+      if (evChargerDischargerSystem.value.evChargerDischarger.ip === '') { return; }
+
+      const epcList: number[] = [],
+            edtList = [];
+
+      // Operation Mode: 0xDA
+      const mode = (document.querySelector('input[name="f-ev-charger-discharger-operation-mode"]:checked') as HTMLInputElement)?.value;
+      if (!mode) { return; }
+
+      const chargeAmountField = document.getElementById('f-ev-charger-discharger-charge-amount') as HTMLInputElement,
+            dischargeAmountField = document.getElementById('f-ev-charger-discharger-discharge-amount') as HTMLInputElement;
+      let chargeAmount = 0,
+          dischargeAmount = 0;
+
+      // Reset errors
+      chargeAmountField.classList.remove('is-invalid');
+      dischargeAmountField.classList.remove('is-invalid');
+
+      switch (mode) {
+        // Charging
+        case '0x42':
+          if (chargeAmountField.value === '' || Number.isNaN(chargeAmountField.value)) {
+            chargeAmountField.classList.add('is-invalid');
+            return;
+          }
+
+          chargeAmount = parseInt(chargeAmountField.value);
+          if (chargeAmount < 0 || evChargerDischargerSystemData.value.evChargerDischarger.chargeableElectricity < chargeAmount) {
+            chargeAmountField.classList.add('is-invalid');
+            return;
+          }
+
+          epcList.push(0xE7);
+          edtList.push(chargeAmount.toHex(8).toUint8Array());
+
+          epcList.push(0xEB);
+          edtList.push([0x00, 0x00, 0x07, 0xD0]);
+
+          epcList.push(0xDA);
+          edtList.push([0x42]);
+          break;
+        // Discharging
+        case '0x43':
+          if (dischargeAmountField.value === '' || Number.isNaN(dischargeAmountField.value)) {
+            dischargeAmountField.classList.add('is-invalid');
+            return;
+          }
+
+          dischargeAmount = parseInt(dischargeAmountField.value);
+          if (dischargeAmount < 0 || evChargerDischargerSystemData.value.evChargerDischarger.dischargeableElectricity < dischargeAmount) {
+            dischargeAmountField.classList.add('is-invalid');
+            return;
+          }
+
+          epcList.push(0xEA);
+          edtList.push(dischargeAmount.toHex(8).toUint8Array());
+
+          epcList.push(0xEC);
+          edtList.push([0x00, 0x00, 0x07, 0xD0]);
+
+          epcList.push(0xDA);
+          edtList.push([0x43]);
+          break;
+        // Standby
+        case '0x44':
+          epcList.push(0xDA);
+          edtList.push([0x44]);
+          break;
+      }
+
+      for (let i = 0; i < epcList.length; i++) {
+        // Set property
+        store.dispatch('sendEL', {
+          ip: evChargerDischargerSystem.value.evChargerDischarger.ip,
+          el: {
+            deoj: evChargerDischargerSystem.value.evChargerDischarger.eoj,
+            esv: 0x61,
+            opc: {
+              ops: [
+                {
+                  epc: epcList[i],
+                  edt: edtList[i]
+                }
+              ]
+            }
+          }
+        });
+
+        // Get property
+        setTimeout(() => {
+          store.dispatch('sendEL', {
+          ip: evChargerDischargerSystem.value.evChargerDischarger.ip,
+          el: {
+            deoj: evChargerDischargerSystem.value.evChargerDischarger.eoj,
+            esv: 0x62,
+            opc: {
+              ops: [
+                {
+                  epc: epcList[i],
+                  edt: []
+                }
+              ]
+            }
+          }
+        });
+        }, 1000);
+      }
+    }
+
+    /*
+    Set ev charger discharger properties during the SimpleMode
+    */
+    function setEVChargerDischargerPropertiesSimpleMode(mode: string) {
+      switch (mode) {
+        case 'charging':
+          document.getElementById('f-ev-charger-discharger-operation-mode-42')!.click();
+          (document.getElementById('f-ev-charger-discharger-charge-amount') as HTMLInputElement).value = '100';
+          break;
+        case 'discharging':
+          document.getElementById('f-ev-charger-discharger-operation-mode-43')!.click();
+          (document.getElementById('f-ev-charger-discharger-discharge-amount') as HTMLInputElement).value = '100';
+          break;
+        case 'standby':
+          document.getElementById('f-ev-charger-discharger-operation-mode-44')!.click();
+          break;
+      }
+
+      setEVChargerDischargerProperties();
+    }
+
     watch(cameraOption, value => {
       if (store.state.cameras.length === 0) { return; }
       cameraView.value!.style.backgroundImage = '';
@@ -304,7 +447,8 @@ export default defineComponent({
       tiltDown: () => { tilt.down(); tiltCamera(); },
       zoomUp: () => { zoom.up(); zoomCamera(); },
       zoomDown: () => { zoom.down(); zoomCamera(); },
-      propertyList
+      propertyList,
+      setEVChargerDischargerPropertiesSimpleMode
     };
   }
 });
@@ -323,7 +467,12 @@ export default defineComponent({
   animation-duration:        10s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
-  animation-direction:       reverse;
+  &.normal {
+    animation-direction:       normal;
+  }
+  &.reverse {
+    animation-direction:       reverse;
+  }
 }
 @keyframes current {
   0% {
