@@ -1,9 +1,7 @@
 <template>
-  <!-- todo -->
-  {{propertyList}}
   <div class="camera-switcher card shadow d-grid">
     <template v-if="cameraViewType === 'diagram'">
-        <svg width="566" height="312" style="height: 84%; width: 100%; margin-top: 4%" viewBox="0 0 566 312" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg width="621" height="328" viewBox="0 0 621 328" style="height: 84%; width: 100%; margin-top: 4%" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g opacity="0.5">
             <path d="M82.179 196C82.179 196 82.1495 196 82.1385 196H70.821C65.9495 196 62 202.268 62 210C62 217.732 65.9495 224 70.821 224H82.1385C82.1385 224 82.168 224 82.179 224C87.0505 224 91 217.732 91 210C91 202.268 87.0505 196 82.179 196Z" fill="#B5C1D6"/>
             <path opacity="0.2" d="M82.179 196C82.179 196 82.1495 196 82.1385 196H70.821C65.9495 196 62 202.268 62 210C62 217.732 65.9495 224 70.821 224H82.1385C82.1385 224 82.168 224 82.179 224C87.0505 224 91 217.732 91 210C91 202.268 87.0505 196 82.179 196Z" fill="#4C5C75"/>
@@ -35,7 +33,6 @@
             <path d="M41.9893 213H6.00705C5.1411 213 4.68095 211.998 5.25342 211.362L6.18458 210.331C6.37662 210.121 6.64836 210 6.93822 210H41.0617C41.348 210 41.6234 210.121 41.8154 210.331L42.7466 211.362C43.3191 211.998 42.8589 213 41.993 213H41.9893Z" fill="#B5C1D6"/>
           </g>
           <path d="M225 226.994H143.286C134.549 227.125 117.999 225.029 121.7 215.597C125.401 206.166 123.241 199.616 121.7 197.52C120.159 195.555 120.159 191.704 132.492 192.018" :stroke="(propertyList['0xC7'] === '0x40' || propertyList['0xC7'] === '0x41' || propertyList['0xC7'] === '0x42' || propertyList['0xC7'] === '0x43' || propertyList['0xC7'] === '0x44') ? 'orange' : 'grey'" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M474 198.5H472V202.5H474V198.5ZM565.186 157.076C565.78 156.144 565.507 154.908 564.576 154.314C563.644 153.72 562.408 153.993 561.814 154.924L565.186 157.076ZM474 202.5C485.207 202.5 492.293 202.268 516.054 195.422L514.946 191.578C491.507 198.332 484.793 198.5 474 198.5V202.5ZM516.054 195.422C528.232 191.913 538.947 184.76 547.362 177.324C555.779 169.885 562.001 162.068 565.186 157.076L561.814 154.924C558.832 159.598 552.855 167.131 544.713 174.326C536.57 181.523 526.368 188.287 514.946 191.578L516.054 195.422Z" fill="#FACC91"/>
           <path d="M213.541 127.043H256.545V230.105H213.541V127.043Z" fill="#EFF8FF"/>
           <path d="M240.189 142.38H234.628L239.49 134.614H233.378L229.295 145.585H234.377L231.277 155.494L240.189 142.38Z" fill="#407BFF" fill-opacity="0.5"/>
           <path d="M240.189 142.38H234.628L230.657 141.877L229.295 145.586H234.377L231.277 155.494L240.189 142.38Z" fill="#407BFF"/>
@@ -59,7 +56,6 @@
           <text fill="#2D9E68" xml:space="preserve" style="white-space: pre" font-family="Rubik" font-size="14" letter-spacing="0em"><tspan x="379" y="265.723">Remaining</tspan></text>
           <text fill="#787676" xml:space="preserve" style="white-space: pre" font-family="Rubik" font-size="14" letter-spacing="0em"><tspan x="430.642" y="217.59">0%</tspan></text>
           <text fill="#787676" xml:space="preserve" style="white-space: pre" font-family="Rubik" font-size="14" letter-spacing="0em"><tspan x="430.642" y="140.392">100%</tspan></text>
-          <text fill="#505050" xml:space="preserve" style="white-space: pre" font-family="Rubik" font-size="16" letter-spacing="0em"><tspan x="310" y="104.98">Mode</tspan></text>
           <path d="M368.66 120.86H292.66C288.518 120.86 285.16 124.218 285.16 128.36V144.36C285.16 148.502 288.518 151.86 292.66 151.86H368.66C372.802 151.86 376.16 148.502 376.16 144.36V128.36C376.16 124.218 372.802 120.86 368.66 120.86Z" :stroke="propertyList['0xDA'] === '0x42' ? 'white' : '#909090'" :fill="propertyList['0xDA'] === '0x42' ? '#3779F5' : 'white'"/>
           <text :fill="propertyList['0xDA'] === '0x42' ? 'white' : '#7E7E7E'" xml:space="preserve" style="white-space: pre" font-family="Rubik" font-size="16" letter-spacing="0em"><tspan x="301.96" y="139.766">Charge</tspan></text>
           <path d="M369 161.5H292C287.858 161.5 284.5 164.858 284.5 169V185C284.5 189.142 287.858 192.5 292 192.5H369C373.142 192.5 376.5 189.142 376.5 185V169C376.5 164.858 373.142 161.5 369 161.5Z" :stroke="propertyList['0xDA'] === '0x43' ? 'white' : '#909090'" :fill="propertyList['0xDA'] === '0x43' ? '#3779F5' : 'white'"/>
@@ -81,6 +77,8 @@
           <path d="M407.777 123.176C407.777 122.071 408.672 121.176 409.777 121.176H415.357C416.462 121.176 417.357 122.071 417.357 123.176V124.417H407.777V123.176Z" fill="#5AC391"/>
           <path d="M418.093 130.167H407.041C406.213 130.167 405.541 130.839 405.541 131.667V214.694C405.541 215.522 406.213 216.194 407.041 216.194H418.093C418.922 216.194 419.593 215.522 419.593 214.694V131.667C419.593 130.839 418.922 130.167 418.093 130.167Z" fill="white"/>
           <rect fill="red" :height="propertyList['0xE4']?.replace(/\s|%/g, '') * 0.87 || 0" stroke="#5AC491" x="-421.6" y="-217" width="18" style="fill: rgb(71 226 152);fill-opacity:1;stroke:none;stroke-width:8.42334;transform: rotate(180deg) scale(1);width: 18px;"></rect>
+          <rect x="0.5" y="0.5" width="496" height="329" rx="6.5" stroke="#A3A3A3"/>
+          <path d="M522 217.5H520V221.5H522V217.5ZM620.186 175.076C620.78 174.144 620.507 172.908 619.576 172.314C618.644 171.72 617.408 171.993 616.814 172.924L620.186 175.076ZM522 221.5C533.203 221.5 547.29 220.269 571.054 213.422L569.946 209.578C546.51 216.331 532.797 217.5 522 217.5V221.5ZM571.054 213.422C583.232 209.913 593.947 202.76 602.362 195.324C610.779 187.885 617.001 180.068 620.186 175.076L616.814 172.924C613.832 177.598 607.855 185.131 599.713 192.326C591.57 199.523 581.368 206.287 569.946 209.578L571.054 213.422Z" fill="#FACC91"/>
       </svg>
       <div class="card-body d-grid justify-items-center align-content-center gap-4 form-check">
         Right side
