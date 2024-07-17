@@ -93,7 +93,7 @@
         </g>
       </svg>
       <div class="card-body d-grid justify-items-center align-content-center gap-4 form-check">
-        Right side
+        EL Options
       </div>
     </template>
     <template v-else>
