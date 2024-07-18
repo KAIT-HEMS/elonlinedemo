@@ -38,9 +38,9 @@
                 </g>
                   <path id="path3362" d="M56.9346 234.085H8.14515C6.97098 234.085 6.34705 232.726 7.12328 231.864L8.38588 230.466C8.64627 230.182 9.01472 230.017 9.40776 230.017H55.6769C56.0652 230.017 56.4385 230.182 56.6988 230.466L57.9615 231.864C58.7377 232.726 58.1137 234.085 56.9396 234.085H56.9346Z" fill="#B7BFCD"/>
                 </g>
-                <path id="ELline5" d="M794 154.5C772.5 179 749.4 227 627 227" stroke="#bbbbbb" stroke-width="4" stroke-linecap="round"/>
+                <path id="ELline5" d="M794 154.5C772.5 179 749.4 227 627 227" :stroke="propertyList['0xD3']?.replace(/\s|W/g, '') != 0 ? 'orange' : '#bbbbbb'" stroke-width="6" stroke-linecap="round"/>
                 <path id="ELline5" class="animate" :class="propertyList['0xD3']?.replace(/\s|W/g, '') > 0 ? 'normal' : 'reverse'" v-show="propertyList['0xD3'] && propertyList['0xD3']?.replace(/\s|W/g, '') != 0" d="M794 154.5C772.5 179 749.4 227 627 227" stroke-linejoin="round"/>
-                <path id="ELline1" d="M342.5 251.994H241.286C232.55 252.125 132 254.5 140.5 243.5C144 230 143 228.5 140.5 214.5C138.959 212.535 143.167 205.185 155.5 205.5" :stroke="(propertyList['0xC7'] === '0x40' || propertyList['0xC7'] === '0x41' || propertyList['0xC7'] === '0x42' || propertyList['0xC7'] === '0x43' || propertyList['0xC7'] === '0x44') ? 'orange' : '#bbbbbb'" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                <path id="ELline1" d="M342.5 251.994H241.286C232.55 252.125 132 254.5 140.5 243.5C144 230 143 228.5 140.5 214.5C138.959 212.535 143.167 205.185 155.5 205.5" :stroke="(propertyList['0xC7'] === '0x40' || propertyList['0xC7'] === '0x41' || propertyList['0xC7'] === '0x42' || propertyList['0xC7'] === '0x43' || propertyList['0xC7'] === '0x44') ? 'orange' : '#bbbbbb'" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
                 <path id="ELline1" class="animate" :class="propertyList['0xDA'] === '0x43' ? 'reverse' : 'normal'" v-show="propertyList['0xDA'] === '0x42' || propertyList['0xDA'] === '0x43'" d="M342.5 251.994H241.286C232.55 252.125 132 254.5 140.5 243.5C144 230 143 228.5 140.5 214.5C138.959 212.535 143.167 205.185 155.5 205.5" stroke-linejoin="round"/>
                 <path id="ELline2" d="M160.235 209.287L157 210V200L160.235 200.713C160.674 200.808 161 201.486 161 202.281V207.712C161 208.514 160.669 209.186 160.235 209.281V209.287Z" :fill="(propertyList['0xC7'] === '0x40' || propertyList['0xC7'] === '0x41' || propertyList['0xC7'] === '0x42' || propertyList['0xC7'] === '0x43' || propertyList['0xC7'] === '0x44') ? 'orange' : '#bbbbbb'"/>
                 <path id="ELline3" d="M159 201V209C156.792 209 155 207.207 155 205C155 202.793 156.792 201 159 201Z" :fill="(propertyList['0xC7'] === '0x40' || propertyList['0xC7'] === '0x41' || propertyList['0xC7'] === '0x42' || propertyList['0xC7'] === '0x43' || propertyList['0xC7'] === '0x44') ? 'orange' : '#bbbbbb'"/>
@@ -59,7 +59,7 @@
                 <path id="path3396" d="M365.505 195.138L365.769 193.853H362.222L361.958 195.138H360.586L358.073 207.336H364.397L366.91 195.138H365.505Z" fill="#407BFF"/>
                 <path id="path3398" opacity="0.4" d="M365.175 199.468L363.882 205.754C363.791 206.199 363.4 206.516 362.947 206.516H359.792C359.424 206.516 359.153 206.183 359.227 205.824L360.521 199.538C360.611 199.093 361.003 198.776 361.456 198.776H364.611C364.978 198.776 365.25 199.109 365.175 199.468Z" fill="white"/>
                 <path id="path3400" opacity="0.4" d="M353.405 186.071H370.524V189.725H358.055L353.405 186.071Z" fill="#C9CEE2"/>
-                <path id="ELline4" d="M363 220.5C365.5 219.333 371.3 217 374.5 217C378.5 217 381.5 217.5 383.5 220.5C385.5 223.5 387 227 386 234C385 241 385 249 388.5 252.5C392 256 399 256.5 403 254.5C407 252.5 410 248 403.5 245C398.3 242.6 392.333 242.667 390 243" :stroke="(propertyList['0xC7'] === '0x40' || propertyList['0xC7'] === '0x41' || propertyList['0xC7'] === '0x42' || propertyList['0xC7'] === '0x43' || propertyList['0xC7'] === '0x44') ? 'orange' : '#bbbbbb'" stroke-width="4" stroke-linecap="round"/>
+                <path id="ELline4" d="M363 220.5C365.5 219.333 371.3 217 374.5 217C378.5 217 381.5 217.5 383.5 220.5C385.5 223.5 387 227 386 234C385 241 385 249 388.5 252.5C392 256 399 256.5 403 254.5C407 252.5 410 248 403.5 245C398.3 242.6 392.333 242.667 390 243" :stroke="(propertyList['0xC7'] === '0x40' || propertyList['0xC7'] === '0x41' || propertyList['0xC7'] === '0x42' || propertyList['0xC7'] === '0x43' || propertyList['0xC7'] === '0x44') ? 'orange' : '#bbbbbb'" stroke-width="6" stroke-linecap="round"/>
                 <path id="ELline4" class="animate" :class="propertyList['0xDA'] === '0x43' ? 'reverse' : 'normal'" v-show="propertyList['0xDA'] === '0x42' || propertyList['0xDA'] === '0x43'" d="M363 220.5C365.5 219.333 371.3 217 374.5 217C378.5 217 381.5 217.5 383.5 220.5C385.5 223.5 387 227 386 234C385 241 385 249 388.5 252.5C392 256 399 256.5 403 254.5C407 252.5 410 248 403.5 245C398.3 242.6 392.333 242.667 390 243" :stroke="(propertyList['0xC7'] === '0x40' || propertyList['0xC7'] === '0x41' || propertyList['0xC7'] === '0x42' || propertyList['0xC7'] === '0x43' || propertyList['0xC7'] === '0x44') ? 'orange' : '#bbbbbb'" stroke-width="4"/>
               </g>
             </g>
@@ -488,7 +488,7 @@ export default defineComponent({
 }
 .animate {
   stroke:                  black;
-  stroke-width:              2px;
+  stroke-width:              4px;
   stroke-dasharray:          6px 6px;
   stroke-dashoffset:         5;
   animation-name:            current;

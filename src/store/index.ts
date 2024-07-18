@@ -388,7 +388,7 @@ export default createStore({
     nodes: {} as NodesCache,
     singleDeviceOptions: [] as SingleSettings[],
     device: SingleDevice,
-    cameraViewType:  'diagram' || 'CCTV',
+    cameraViewType:  'CCTV' || 'diagram',
     batterySystemData: BatterySystemData,
     batterySystemMode: localStorage.getItem('el-demoapp-battery-system-mode') || 'real',
     batterySystem: JSON.parse(localStorage.getItem('el-demoapp-battery-system') || 'null') || BatterySystem as BatterySystem,
