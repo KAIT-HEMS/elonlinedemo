@@ -1,7 +1,7 @@
 <template>
   <div class="camera-switcher card shadow d-grid">
     <template v-if="cameraViewType === 'diagram'">
-      <div style="padding: 70px;">
+      <div class="card flex-grow-1 flex-grow-1 card d-grid grid-template-100" style="padding: 50px;">
         <svg width="798" height="325" viewBox="0 0 798 325" style="height: 100%; width: 100%;" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g id="ev-charger-discharger-diagram-battery">
             <g id="ev-charger-discharger-diagram-icon-battery">
