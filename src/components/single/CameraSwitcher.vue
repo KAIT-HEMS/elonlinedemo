@@ -299,7 +299,6 @@ export default defineComponent({
         epc_edt_List[epcStr] = epcStr === '0xE4' || epcStr === '0xD3' || epcStr === '0xCC' ? (propertyValue === null ? '' : propertyValue) : edtValue;
       });
 
-      console.log("🚀 ~ propertyList>>>>", epc_edt_List)
       propertyList.value = epc_edt_List;
     }
 
