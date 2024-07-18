@@ -95,7 +95,7 @@
           <rect id="Rectangle 1" x="294.5" y="0.5" width="332" height="293" rx="6.5" stroke="#A3A3A3"/>
         </g>
       </svg>
-      <div class="card-body d-grid justify-items-center align-content-center gap-4 form-check">
+      <div class="card-body d-grid justify-items-center align-content-start gap-4 form-check" style="border-left: 1px solid rgba(0,0,0,.125);">
         <h3 class="fs-6 text-primary fw-normal">SET</h3>
         <div class="d-grid gap-2">
           <button class="btn btn-primary" type="button" @click="setEVChargerDischargerPropertiesSimpleMode('charging')">0xDA(0x42)<br/>Charging</button>
@@ -218,10 +218,7 @@ export default defineComponent({
           device       = computed(() => store.state.device),
           locale       = computed(() => store.state.locale),
           release      = computed(() => device.value.ip ? nodes.value[device.value.ip][device.value.eoj.class][device.value.eoj.id].release : ''),
-          propertyList = ref<EpcEdtList>({}),
-          evChargerDischargerSystem         = computed(() => store.state.evChargerDischargerSystem),
-          evChargerDischargerSystemData     = computed(() => store.state.evChargerDischargerSystemData);
-
+          propertyList = ref<EpcEdtList>({});
 
     const cameraViewType = computed(() => store.getters.cameraViewType);
 
@@ -310,7 +307,7 @@ export default defineComponent({
     Set ev charger discharger properties
     */
     function setEVChargerDischargerProperties() {
-      if (evChargerDischargerSystem.value.evChargerDischarger.ip === '') { return; }
+      if (device.value.ip === '') { return; }
 
       const epcList: number[] = [],
             edtList = [];
@@ -337,7 +334,7 @@ export default defineComponent({
           }
 
           chargeAmount = parseInt(chargeAmountField.value);
-          if (chargeAmount < 0 || evChargerDischargerSystemData.value.evChargerDischarger.chargeableElectricity < chargeAmount) {
+          if (chargeAmount < 0 || device.value.chargeableElectricity < chargeAmount) {
             chargeAmountField.classList.add('is-invalid');
             return;
           }
@@ -359,7 +356,7 @@ export default defineComponent({
           }
 
           dischargeAmount = parseInt(dischargeAmountField.value);
-          if (dischargeAmount < 0 || evChargerDischargerSystemData.value.evChargerDischarger.dischargeableElectricity < dischargeAmount) {
+          if (dischargeAmount < 0 || device.value.dischargeableElectricity < dischargeAmount) {
             dischargeAmountField.classList.add('is-invalid');
             return;
           }
@@ -383,9 +380,9 @@ export default defineComponent({
       for (let i = 0; i < epcList.length; i++) {
         // Set property
         store.dispatch('sendEL', {
-          ip: evChargerDischargerSystem.value.evChargerDischarger.ip,
+          ip: device.value.ip,
           el: {
-            deoj: evChargerDischargerSystem.value.evChargerDischarger.eoj,
+            deoj: device.value.eoj,
             esv: 0x61,
             opc: {
               ops: [
@@ -401,9 +398,9 @@ export default defineComponent({
         // Get property
         setTimeout(() => {
           store.dispatch('sendEL', {
-          ip: evChargerDischargerSystem.value.evChargerDischarger.ip,
+          ip: device.value.ip,
           el: {
-            deoj: evChargerDischargerSystem.value.evChargerDischarger.eoj,
+            deoj: device.value.eoj,
             esv: 0x62,
             opc: {
               ops: [
@@ -423,15 +420,14 @@ export default defineComponent({
     Set ev charger discharger properties during the SimpleMode
     */
     function setEVChargerDischargerPropertiesSimpleMode(mode: string) {
-      console.log("🚀 ~ mode>>>>", mode)
       switch (mode) {
         case 'charging':
           document.getElementById('f-ev-charger-discharger-operation-mode-42')!.click();
-          (document.getElementById('f-ev-charger-discharger-charge-amount') as HTMLInputElement).value = '100';
+          (document.getElementById('f-ev-charger-discharger-charge-amount') as HTMLInputElement).value = '0';
           break;
         case 'discharging':
           document.getElementById('f-ev-charger-discharger-operation-mode-43')!.click();
-          (document.getElementById('f-ev-charger-discharger-discharge-amount') as HTMLInputElement).value = '100';
+          (document.getElementById('f-ev-charger-discharger-discharge-amount') as HTMLInputElement).value = '0';
           break;
         case 'standby':
           document.getElementById('f-ev-charger-discharger-operation-mode-44')!.click();
