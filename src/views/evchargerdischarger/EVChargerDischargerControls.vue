@@ -122,7 +122,6 @@
             <div class="small">{{ monitorDevicesData.evChargerDischarger.chargeDischargeStatus }} (EDT: {{ evChargerDischargerSystemData.evChargerDischarger.edt.chargeDischargeStatus }})</div>
           </div>
           <div class="d-flex flex-column">
-            <!-- todo>>> -->
             <div class="small">0xE4: Remaining stored electricity</div>
             <div class="small">{{ evChargerDischargerSystemData.evChargerDischarger.remainingStoredElectricity }} % (EDT: {{ evChargerDischargerSystemData.evChargerDischarger.edt.remainingStoredElectricity }})</div>
           </div>
