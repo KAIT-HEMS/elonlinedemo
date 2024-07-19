@@ -82,6 +82,12 @@
         stroke="url(#paint4_linear_2804:695)"
         :stroke-width="isSimpleModeRef ? 16 : 8"
       />
+      <path id="battery-diagram-solar-wire"
+        d="M263 0V199C263 263 263 263 199 263H0"
+        stroke="url(#paint4_linear_2804:695)"
+        transform="matrix(1, 0, 0, 1, 470, 450)"
+        :stroke-width="isSimpleModeRef ? 16 : 8"
+      />
       <g id="ev-charger-discharger-diagram-grid" v-show="!isPhotoModeRef">
         <g filter="url(#filter1_d_2804:695)" id="ev-charger-discharger-diagram-box-grid" :class="isSimpleModeRef ? 'simple-mode' : ''">
           <rect
@@ -2776,7 +2782,7 @@
           {{ Math.abs(evChargerDischargerSystemData.powerPoints["e"]) }} W
         </tspan>
       </text>
-      <g transform="matrix(1, 0, 0, 1, 0, -160)" id="ev-charger-discharger-diagram-point-b">
+      <g transform="matrix(1, 0, 0, 1, 0, -240)" id="ev-charger-discharger-diagram-point-b">
         <path
           style="
             fill: none;
@@ -2848,7 +2854,7 @@
         style="white-space: pre"
         xml:space="preserve"
         fill="#505050"
-        transform="matrix(1, 0, 0, 1, 6, -160)"
+        transform="matrix(1, 0, 0, 1, 6, -240)"
       >
         <tspan
           id="tspan2094"
@@ -5761,7 +5767,8 @@
           </g>
         </g>
       </g>
-      <g id="battery-diagram-solar" transform="matrix(1, 0, 0, 1, 150, 600)">
+      <!-- todo>>> -->
+      <g id="battery-diagram-solar" transform="matrix(1, 0, 0, 1, 250, 600)">
         <g filter="url(#filter6_d_2804:695)" id="battery-diagram-box-solar">
           <rect fill="#ffffff" height="242" id="rect1502" rx="16" width="326" x="30" y="43" style="display: none;"></rect>
           <rect fill="#c3c3c3" height="242" id="rect1502" rx="16" width="326" x="30" y="43"></rect>
