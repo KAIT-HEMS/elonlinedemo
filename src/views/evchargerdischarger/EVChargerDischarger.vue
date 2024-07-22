@@ -5358,7 +5358,7 @@
           </tspan>
         </text>
       </g>
-      <g id="ev-charger-discharger-diagram-battery" transform="matrix(1, 0, 0, 1, 150, -250)" v-show="!isPhotoModeRef">
+      <g id="ev-charger-discharger-diagram-battery" transform="matrix(1, 0, 0, 1, 200, -250)" v-show="!isPhotoModeRef">
         <g filter="url(#filter2_d_2804:695)" id="ev-charger-discharger-diagram-box-battery">
           <rect
             fill="#ffffff"
@@ -5372,7 +5372,7 @@
         </g>
         <g xmlns="http://www.w3.org/2000/svg" id="ev-charger-discharger-diagram-icon-battery" :class="isSimpleModeRef ? 'simple-mode' : ''">
           <g style="fill:none" id="g3468" transform="matrix(0.5612884,0,0,0.5612884,39.925553,619.27591)">
-            <g opacity="0.5" id="g3364">
+            <g opacity="0.5" id="g3364" transform="matrix(2,0,0,2,-400,-100)">
               <path d="m 85.6735,123.781 c 0,0 -0.0307,0 -0.0422,0 H 73.867 c -5.0638,0 -9.1692,6.643 -9.1692,14.838 0,8.196 4.1054,14.839 9.1692,14.839 h 11.7643 c 0,0 0.0307,0 0.0422,0 5.0638,0 9.1692,-6.643 9.1692,-14.839 0,-8.195 -4.1054,-14.838 -9.1692,-14.838 z" fill="#b5c1d6" id="path3308"/>
               <path opacity="0.2" d="m 85.6735,123.781 c 0,0 -0.0307,0 -0.0422,0 H 73.867 c -5.0638,0 -9.1692,6.643 -9.1692,14.838 0,8.196 4.1054,14.839 9.1692,14.839 h 11.7643 c 0,0 0.0307,0 0.0422,0 5.0638,0 9.1692,-6.643 9.1692,-14.839 0,-8.195 -4.1054,-14.838 -9.1692,-14.838 z" fill="#4c5c75" id="path3310"/>
               <path d="m 32.3756,123.781 c 0,0 -0.0307,0 -0.0422,0 H 20.5691 c -5.0638,0 -9.1692,6.643 -9.1692,14.838 0,8.196 4.1054,14.839 9.1692,14.839 h 11.7643 c 0,0 0.0307,0 0.0422,0 5.0638,0 9.1692,-6.643 9.1692,-14.839 0,-8.195 -4.1054,-14.838 -9.1692,-14.838 z" fill="#b5c1d6" id="path3312"/>
