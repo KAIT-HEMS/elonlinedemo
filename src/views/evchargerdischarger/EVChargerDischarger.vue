@@ -82,7 +82,9 @@
         stroke="url(#paint4_linear_2804:695)"
         :stroke-width="isSimpleModeRef ? 16 : 8"
       />
-      <path id="battery-diagram-solar-wire"
+      <path v-show="!isPhotoModeRef" d="m 118,460 h 178.6947" id="ev-charger-discharger-diagram-wire-ev" :stroke="evChargerDischargerSystemData.evChargerDischarger.chargeDischargeStatus === 0xFF || evChargerDischargerSystemData.evChargerDischarger.chargeDischargeStatus === 0x30 ? 'grey' : '#FACC91'" :stroke-width="isSimpleModeRef ? 16 : 8"></path>
+      <path v-show="!isPhotoModeRef && (evChargerDischargerSystemData.evChargerDischarger.workingOperationStatus === 0x42 || evChargerDischargerSystemData.evChargerDischarger.workingOperationStatus === 0x43)" class="animate" :class="{ negative: evChargerDischargerSystemData.evChargerDischarger.workingOperationStatus === 0x43 }" :stroke-width="isSimpleModeRef ? 8 : 4" d="m 118,460 h 178.6947" id="ev-charger-discharger-diagram-wire-ev" stroke="url(#paint1_linear_2804:695)" style="stroke: #000000; fill: none; stroke-opacity: 1; stroke-miterlimit: 4;"></path>
+      <path id="ev-charger-discharger-diagram-solar-wire"
         d="M263 0V199C263 263 263 263 199 263H0"
         stroke="url(#paint4_linear_2804:695)"
         transform="matrix(1, 0, 0, 1, 470, 450)"
@@ -5372,7 +5374,7 @@
         </g>
         <g xmlns="http://www.w3.org/2000/svg" id="ev-charger-discharger-diagram-icon-battery" :class="isSimpleModeRef ? 'simple-mode' : ''">
           <g style="fill:none" id="g3468" transform="matrix(0.5612884,0,0,0.5612884,39.925553,619.27591)">
-            <g id="g3364" transform="matrix(2,0,0,2,-400,-100)">
+            <g id="g3364" :transform="isSimpleModeRef ? 'matrix(2,0,0,2,-400,-130)' : 'matrix(2,0,0,2,-400,-100)'">
               <path d="m 85.6735,123.781 c 0,0 -0.0307,0 -0.0422,0 H 73.867 c -5.0638,0 -9.1692,6.643 -9.1692,14.838 0,8.196 4.1054,14.839 9.1692,14.839 h 11.7643 c 0,0 0.0307,0 0.0422,0 5.0638,0 9.1692,-6.643 9.1692,-14.839 0,-8.195 -4.1054,-14.838 -9.1692,-14.838 z" fill="#b5c1d6" id="path3308"/>
               <path d="m 85.6735,123.781 c 0,0 -0.0307,0 -0.0422,0 H 73.867 c -5.0638,0 -9.1692,6.643 -9.1692,14.838 0,8.196 4.1054,14.839 9.1692,14.839 h 11.7643 c 0,0 0.0307,0 0.0422,0 5.0638,0 9.1692,-6.643 9.1692,-14.839 0,-8.195 -4.1054,-14.838 -9.1692,-14.838 z" fill="#B6C0D4" id="path3310"/>
               <path d="m 32.3756,123.781 c 0,0 -0.0307,0 -0.0422,0 H 20.5691 c -5.0638,0 -9.1692,6.643 -9.1692,14.838 0,8.196 4.1054,14.839 9.1692,14.839 h 11.7643 c 0,0 0.0307,0 0.0422,0 5.0638,0 9.1692,-6.643 9.1692,-14.839 0,-8.195 -4.1054,-14.838 -9.1692,-14.838 z" fill="#b5c1d6" id="path3312"/>
@@ -5404,7 +5406,7 @@
             </g>
             <path d="m 141.857,123.653 -3.792,0.733 v -10.275 l 3.792,0.733 c 0.515,0.097 0.897,0.794 0.897,1.611 v 5.58 c 0,0.824 -0.388,1.515 -0.897,1.612 z" fill="#407bff" id="path3366"/>
             <path d="m 177.917,180.954 h -36.738 c -3.928,0.231 -11.369,-3.466 -9.705,-20.103 1.664,-16.636 0.693,-28.189 0,-31.886 -0.693,-3.466 -0.693,-10.26 4.852,-9.705" stroke="#407bff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" id="path3368"/>
-            <path transform="matrix(1.7, 0, 0, 1.3, -170, 120)" d="M205.5 48.9944H104.286C95.5496 49.1253 -5 51.5 3.49996 40.5C7.00004 27 5.99992 25.5 3.49996 11.5C1.95857 9.53502 6.16667 2.18536 18.5 2.50001" stroke="#000" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" data-v-0f2baace=""></path>
+            <!-- <path transform="matrix(1.7, 0, 0, 1.3, -170, 120)" d="M205.5 48.9944H104.286C95.5496 49.1253 -5 51.5 3.49996 40.5C7.00004 27 5.99992 25.5 3.49996 11.5C1.95857 9.53502 6.16667 2.18536 18.5 2.50001" stroke="#000" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" data-v-0f2baace=""></path> -->
             <path d="m 139.965,115.404 v 8.059 c -2.224,0 -4.029,-1.806 -4.029,-4.03 0,-2.223 1.805,-4.029 4.029,-4.029 z" fill="#407bff" id="path3370"/>
             <path d="m 157.879,3.1488 h 76.617 V 186.765 h -76.617 z" fill="#eff8ff" id="path3372"/>
             <path d="m 205.356,30.4735 h -9.908 l 8.661,-13.8373 H 193.22 l -7.273,19.5475 H 195 l -5.522,17.6535 z" fill="#407bff" fill-opacity="0.5" id="path3374"/>
@@ -5768,13 +5770,12 @@
           </g>
         </g>
       </g>
-      <!-- todo>>> -->
-      <g id="battery-diagram-solar" transform="matrix(1, 0, 0, 1, 250, 600)">
-        <g filter="url(#filter6_d_2804:695)" id="battery-diagram-box-solar">
+      <g id="ev-charger-discharger-diagram-solar" transform="matrix(1, 0, 0, 1, 250, 600)" v-show="!isPhotoModeRef">
+        <g filter="url(#filter6_d_2804:695)" id="ev-charger-discharger-diagram-box-solar">
           <rect fill="#ffffff" height="242" id="rect1502" rx="16" width="326" x="30" y="43" style="display: none;"></rect>
           <rect fill="#c3c3c3" height="242" id="rect1502" rx="16" width="326" x="30" y="43"></rect>
         </g>
-        <g id="battery-diagram-icon-sun" style="display: none;">
+        <g id="ev-charger-discharger-diagram-icon-sun" style="display: none;">
           <path d="M271.574 94.75C278.892 94.75 284.824 88.8178 284.824 81.5C284.824 74.1822 278.892 68.25 271.574 68.25C264.256 68.25 258.324 74.1822 258.324 81.5C258.324 88.8178 264.256 94.75 271.574 94.75Z" fill="url(#paint16_linear_2804:695)" id="path1506"></path>
           <path d="M280.758 71.9601L258.506 83.6698C258.383 82.9532 258.322 82.2273 258.324 81.5001C258.323 78.9008 259.086 76.3586 260.519 74.1901C261.952 72.0217 263.992 70.323 266.384 69.3058C268.776 68.2886 271.414 67.9979 273.971 68.4699C276.527 68.9419 278.887 70.1557 280.758 71.9601Z" fill="url(#paint17_linear_2804:695)" id="path1508"></path>
           <path d="M271.574 65.4701C271.355 65.4701 271.144 65.3828 270.989 65.2275C270.833 65.0722 270.746 64.8616 270.746 64.6419V56.6562C270.746 56.4366 270.833 56.226 270.989 56.0707C271.144 55.9154 271.355 55.8281 271.574 55.8281C271.794 55.8281 272.004 55.9154 272.16 56.0707C272.315 56.226 272.402 56.4366 272.402 56.6562V64.6419C272.402 64.8616 272.315 65.0722 272.16 65.2275C272.004 65.3828 271.794 65.4701 271.574 65.4701Z" fill="url(#paint18_linear_2804:695)" id="path1510"></path>
@@ -5803,17 +5804,17 @@
           <path d="M288.372 70.8455L285.76 72.3539C285.57 72.4637 285.431 72.6446 285.374 72.8567C285.317 73.0689 285.347 73.2949 285.457 73.4851C285.567 73.6754 285.748 73.8142 285.96 73.871C286.172 73.9279 286.398 73.8981 286.588 73.7883L289.201 72.2798L288.372 70.8455Z" fill="url(#paint41_linear_2804:695)" id="path1556"></path>
           <path d="M280.795 63.8738L279.286 66.4862C279.176 66.6764 279.146 66.9024 279.203 67.1146C279.26 67.3267 279.399 67.5076 279.589 67.6174C279.779 67.7273 280.005 67.757 280.218 67.7002C280.43 67.6433 280.611 67.5045 280.72 67.3143L282.229 64.7016L280.795 63.8738Z" fill="url(#paint42_linear_2804:695)" id="path1558"></path>
         </g>
-        <g id="battery-diagram-icon-moon">
+        <g id="ev-charger-discharger-diagram-icon-moon">
           <path id="path3464" fill="url(#paint0_linear_3029_724)" d="m 284.88881,91.059853 c -6.1614,4.1788 -14.6961,2.5703 -18.9777,-3.5149 -4.28077,-6.0863 -2.9097,-14.6628 3.1058,-19.04915 0.3868,-0.28262 0.5358,-0.78813 0.3636,-1.23405 -0.1721,-0.44652 -0.6214,-0.72175 -1.0971,-0.67151 -3.024,0.32104 -5.9366,1.41458 -8.42563,3.16596 -8.10154,5.69785 -10.01523,16.98195 -4.31714,25.08325 5.69822,8.101197 16.96497,10.113397 25.06637,4.4146 2.4889,-1.7503 4.5024,-4.1219 5.8273,-6.8599 0.2082,-0.4299 0.101,-0.9467 -0.2619,-1.2594 -0.3605,-0.3124 -0.8869,-0.3433 -1.2836,-0.0749 z m -3.065,-26.9116 c 0,0.22437 -0.0911,0.42781 -0.2379,0.57448 -0.1474,0.14691 -0.3505,0.23779 -0.5751,0.23779 h -2.022 v 2.02268 c 0,0.44899 -0.3644,0.81264 -0.8131,0.81264 -0.2243,0 -0.4276,-0.09064 -0.575,-0.23792 -0.1467,-0.1474 -0.238,-0.3501 -0.238,-0.57472 v -2.0228 h -2.0225 c -0.4479,0 -0.8122,-0.36316 -0.8122,-0.81227 0,-0.22499 0.0903,-0.42806 0.2378,-0.57509 0.1476,-0.14704 0.3505,-0.23817 0.5744,-0.23817 h 2.0225 v -2.022179 c 0,-0.448621 0.3637,-0.812641 0.813,-0.812641 0.2239,0 0.428,0.09113 0.5754,0.238288 0.1464,0.146913 0.2377,0.350473 0.2377,0.574353 v 2.022309 h 2.022 c 0.4494,0 0.813,0.36402 0.813,0.81325 z" style="fill: url(&quot;#paint0_linear_3029_724&quot;);"></path>
           <path id="path3466" fill="url(#paint1_linear_3029_724)" d="m 284.88881,91.060153 c -6.1614,4.1788 -14.6961,2.5703 -18.9777,-3.515 -4.28077,-6.0862 -2.9097,-14.6628 3.1058,-19.0491 0.3868,-0.28262 0.5358,-0.78814 0.3636,-1.23405 -0.1721,-0.44653 -0.6214,-0.72176 -1.0971,-0.67151 -3.024,0.32104 -5.9366,1.41457 -8.42563,3.16596 -8.10154,5.6978 -10.01523,16.982 -4.31714,25.0833 5.69822,8.101097 16.96497,10.113297 25.06637,4.4145 2.4889,-1.7503 4.5024,-4.1218 5.8273,-6.8599 0.2082,-0.4299 0.101,-0.9467 -0.2619,-1.2594 -0.3605,-0.3124 -0.8869,-0.3433 -1.2836,-0.0748 z m -3.065,-26.91165 c 0,0.22437 -0.0911,0.42781 -0.2379,0.57447 -0.1474,0.14692 -0.3505,0.2378 -0.5751,0.2378 h -2.022 v 2.02267 c 0,0.44899 -0.3644,0.81265 -0.8131,0.81265 -0.2243,0 -0.4276,-0.09064 -0.575,-0.23792 -0.1467,-0.14741 -0.238,-0.35011 -0.238,-0.57473 v -2.02279 h -2.0225 c -0.4479,0 -0.8122,-0.36316 -0.8122,-0.81228 0,-0.22498 0.0903,-0.42805 0.2378,-0.57509 0.1476,-0.14703 0.3505,-0.23816 0.5744,-0.23816 h 2.0225 v -2.022185 c 0,-0.448621 0.3637,-0.812641 0.813,-0.812641 0.2239,0 0.428,0.09113 0.5754,0.238288 0.1464,0.146913 0.2377,0.350474 0.2377,0.574353 v 2.022305 h 2.022 c 0.4494,0 0.813,0.36402 0.813,0.81326 z" style="fill: url(&quot;#paint1_linear_3029_724&quot;);"></path>
           <path id="path3468" fill="url(#paint2_linear_3029_724)" d="m 284.88881,91.059853 c -6.1614,4.1788 -14.6961,2.5703 -18.9777,-3.5149 -4.28077,-6.0863 -2.9097,-14.6628 3.1058,-19.04915 0.3868,-0.28262 0.5358,-0.78813 0.3636,-1.23405 -0.1721,-0.44652 -0.6214,-0.72175 -1.0971,-0.67151 -3.024,0.32104 -5.9366,1.41458 -8.42563,3.16596 -8.10154,5.69785 -10.01523,16.98195 -4.31714,25.08325 5.69822,8.101197 16.96497,10.113397 25.06637,4.4146 2.4889,-1.7503 4.5024,-4.1219 5.8273,-6.8599 0.2082,-0.4299 0.101,-0.9467 -0.2619,-1.2594 -0.3605,-0.3124 -0.8869,-0.3433 -1.2836,-0.0749 z m -3.065,-26.9116 c 0,0.22437 -0.0911,0.42781 -0.2379,0.57448 -0.1474,0.14691 -0.3505,0.23779 -0.5751,0.23779 h -2.022 v 2.02268 c 0,0.44899 -0.3644,0.81264 -0.8131,0.81264 -0.2243,0 -0.4276,-0.09064 -0.575,-0.23792 -0.1467,-0.1474 -0.238,-0.3501 -0.238,-0.57472 v -2.0228 h -2.0225 c -0.4479,0 -0.8122,-0.36316 -0.8122,-0.81227 0,-0.22499 0.0903,-0.42806 0.2378,-0.57509 0.1476,-0.14704 0.3505,-0.23817 0.5744,-0.23817 h 2.0225 v -2.022179 c 0,-0.448621 0.3637,-0.812641 0.813,-0.812641 0.2239,0 0.428,0.09113 0.5754,0.238288 0.1464,0.146913 0.2377,0.350473 0.2377,0.574353 v 2.022309 h 2.022 c 0.4494,0 0.813,0.36402 0.813,0.81325 z" style="fill: url(&quot;#paint2_linear_3029_724&quot;);"></path>
           <path id="path3470" fill="url(#paint3_linear_3029_724)" d="m 278.90631,76.952453 c 0,0.2241 -0.0911,0.4277 -0.2387,0.5751 -0.1464,0.1467 -0.3497,0.2371 -0.5743,0.2371 h -2.0218 v 2.023 c 0,0.4486 -0.3644,0.8121 -0.8137,0.8121 -0.2238,0 -0.4279,-0.0901 -0.5746,-0.2377 -0.1464,-0.147 -0.2376,-0.3498 -0.2376,-0.5744 v -2.023 h -2.0227 c -0.4486,0 -0.8122,-0.3628 -0.8122,-0.8122 0,-0.2242 0.0903,-0.4278 0.2377,-0.5748 0.1467,-0.1471 0.3498,-0.2382 0.5745,-0.2382 h 2.0227 v -2.0223 c 0,-0.449 0.3636,-0.813 0.8122,-0.813 0.2247,0 0.4277,0.0911 0.5751,0.2383 0.1474,0.1471 0.2387,0.3504 0.2387,0.5747 v 2.0223 h 2.0218 c 0.4485,1e-4 0.8129,0.3641 0.8129,0.813 z m 11.9793,-3.6478 c 0,0.2243 -0.0912,0.4278 -0.2387,0.5747 -0.1474,0.1472 -0.3505,0.2379 -0.5743,0.2379 h -2.0228 v 2.0227 c 0,0.449 -0.3644,0.8123 -0.8128,0.8123 -0.2249,0 -0.4277,-0.0903 -0.5746,-0.238 -0.1474,-0.147 -0.2384,-0.3501 -0.2384,-0.5743 v -2.0227 h -2.0221 c -0.4492,0 -0.813,-0.3636 -0.813,-0.8126 0,-0.2246 0.0911,-0.4277 0.2379,-0.5747 0.1474,-0.1471 0.3505,-0.2382 0.5751,-0.2382 h 2.0221 v -2.02195 c 0,-0.44924 0.3636,-0.81326 0.813,-0.81326 0.2244,0 0.4277,0.09101 0.5751,0.23817 0.1467,0.14741 0.2377,0.3506 0.2377,0.57521 v 2.02193 h 2.0228 c 0.4486,0 0.813,0.3635 0.813,0.8128 z" style="fill: url(&quot;#paint3_linear_3029_724&quot;);"></path>
-        </g><text fill="#515050" font-family="Rubik" font-size="16" id="battery-diagram-ip-solar" letter-spacing="0em" xml:space="preserve" style="white-space: pre;">
+        </g><text v-show="!isSimpleModeRef" fill="#515050" font-family="Rubik" font-size="16" id="ev-charger-discharger-diagram-ip-solar" letter-spacing="0em" xml:space="preserve" style="white-space: pre;">
           <tspan id="tspan1560" x="59.0234" y="265.277"> IP: 192.168.128.35</tspan>
-        </text><text fill="#515050" font-family="Rubik" font-size="16" id="battery-diagram-eoj-solar" letter-spacing="0em" xml:space="preserve" style="white-space: pre;">
+        </text><text fill="#515050" font-family="Rubik" font-size="16" id="ev-charger-discharger-diagram-eoj-solar" letter-spacing="0em" xml:space="preserve" style="white-space: pre;" v-show="!isSimpleModeRef">
           <tspan id="tspan1564" x="204.18" y="264.98"> EOJ: 0x027901</tspan>
         </text>
-        <g id="battery-diagram-icon-solar" :class="isSimpleModeRef ? 'simple-mode' : ''">
+        <g id="ev-charger-discharger-diagram-icon-solar" :class="isSimpleModeRef ? 'simple-mode' : ''">
           <path d="M150.222 139.429L150.221 174.58L148.854 175.374L148.855 140.224L150.222 139.429Z" fill="#B8B4A9" id="path1568"></path>
           <path d="M148.855 140.224L148.854 175.374L147.267 174.457V137.781C147.345 137.811 147.426 137.845 147.509 137.894C148.254 138.323 148.857 139.367 148.855 140.224Z" fill="#8D8C91" id="path1570"></path>
           <path d="M179.155 155.096L179.153 190.245L177.786 191.04L177.787 155.889L179.155 155.096Z" fill="#B8B4A9" id="path1572"></path>
@@ -6028,7 +6029,7 @@
             <path d="M238.103 117.871L200.466 155.508L186.711 163.567L235.047 115.23L238.103 117.871Z" fill="white" id="path1984" opacity="0.1"></path>
           </g>
         </g>
-        <g id="battery-diagram-live-1" role="button">
+        <g id="ev-charger-discharger-diagram-live-1" role="button">
           <path d="M30 63H115.868C124.581 63 131.645 70.0635 131.645 78.7769C131.645 87.4902 124.581 94.5537 115.868 94.5537H30V63Z" fill="url(#paint43_linear_2804:695)" id="path1988"></path>
           <path clip-rule="evenodd" d="M112.779 75.2769H117.446V79.9436C117.446 79.9436 117.446 80.6103 118.112 80.6103C118.779 80.6103 118.779 79.9436 118.779 79.9436V73.9436H112.779C112.779 73.9436 112.112 74.058 112.112 74.6103C112.112 75.1626 112.779 75.2769 112.779 75.2769ZM114.112 83.2769H109.446V78.6103C109.446 78.6103 109.446 77.9436 108.779 77.9436C108.112 77.9436 108.112 78.6103 108.112 78.6103V84.6103H114.112C114.112 84.6103 114.779 84.4959 114.779 83.9436C114.779 83.3913 114.112 83.2769 114.112 83.2769Z" fill="white" fill-rule="evenodd" id="path1990"></path>
           <rect fill="white" height="1.33333" id="rect1992" opacity="0.3" rx="0.666667" transform="rotate(-45 110.617 81.1624)" width="6.66667" x="110.617" y="81.1624"></rect><text fill="white" font-family="Rubik" font-size="15" font-weight="500" id="text1996" letter-spacing="0em" style="white-space:pre;" xml:space="preserve">
@@ -6037,7 +6038,7 @@
           <rect fill="white" height="12" id="rect1998" opacity="0.9" rx="2" width="13" x="43.4456" y="72.7769"></rect>
           <rect fill="#47E298" height="4.35386" id="rect2000" rx="2.17693" width="4.35386" x="47.7686" y="76.5999"></rect>
           <path clip-rule="evenodd" d="M61.7385 74.4838C62.3685 73.8538 63.4456 74.3 63.4456 75.1909V82.3625C63.4456 83.2534 62.3685 83.6996 61.7385 83.0696L58.1528 79.4838C57.7622 79.0933 57.7622 78.4601 58.1528 78.0696L61.7385 74.4838Z" fill="white" fill-rule="evenodd" id="path2002" opacity="0.5"></path>
-        </g><text fill="#000000" font-family="Rubik" font-size="18px" id="battery-diagram-title-solar" letter-spacing="0em" x="1.7533875" xml:space="preserve" class="" style="white-space: pre;">
+        </g><text fill="#000000" font-family="Rubik" font-size="18px" id="ev-charger-discharger-diagram-title-solar" letter-spacing="0em" x="1.7533875" xml:space="preserve" class="" style="white-space: pre;" :class="isSimpleModeRef ? 'simple-mode' : ''">
           <tspan id="tspan2004" x="98.029785" y="226.25301"> PV Power Generation </tspan>
         </text>
       </g>
@@ -6093,6 +6094,15 @@
         width="378"
         x="1155"
         y="500"
+        v-show="isPhotoModeRef"
+      ></image>
+      <image
+        id="ev-charger-discharger-diagram-solar-img"
+        href="/assets/img/photo_mode/pvpowergeneration.jpg"
+        height="260"
+        width="402"
+        x="250"
+        y="630"
         v-show="isPhotoModeRef"
       ></image>
     </svg>
@@ -7041,7 +7051,20 @@ export default defineComponent({
   bottom:    -12px;
   cursor:    nw-resize;
 }
-
+#ev-charger-discharger-diagram-icon-solar.simple-mode{
+  transform: translate(-100px, -50px) scale(1.5);
+}
+#ev-charger-discharger-diagram-title-solar.simple-mode{
+  transform: translate(-25px, 40px);
+  font-size: 24px;
+}
+#ev-charger-discharger-diagram-icon-battery.simple-mode{
+  transform: translate(-50px, -320px) scale(1.5);
+}
+#ev-charger-discharger-diagram-title-battery.simple-mode{
+  transform: translate(0px, 36px);
+  font-size: 24px;
+}
 #ev-charger-discharger-diagram-icon-solar.simple-mode{
   transform: translate(-100px, -50px) scale(1.5);
 }
