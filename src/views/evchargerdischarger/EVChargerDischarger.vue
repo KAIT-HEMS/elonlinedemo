@@ -2491,6 +2491,13 @@
           />
         </g>
       </g>
+      <g id="battery-diagram-point-a" transform="translate(8,450)">
+        <path transform="translate(-800,150)" style="fill:none;stroke:#4588f1;stroke-width:1.44852px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;" d="M 994.74475,208.237 H 1114.1051" id="path3478-8-0-1"></path>
+        <circle cx="194" cy="360.3082" r="16" fill="url(#paint15_linear_2804:695)" id="circle1496" style="fill:url(#paint15_linear_2804:695);"></circle>
+        <g aria-label="A" id="text1500" style="font-weight:500;font-size:16px;font-family:Rubik;letter-spacing:0em;white-space:pre;fill:#ffffff;" transform="translate(0.131255,0.43640202)">
+          <path d="m 199.13437,365.6882 h -1.64844 l -1.14062,-3.24219 h -5.03125 l -1.14063,3.24219 h -1.57031 l 4.23437,-11.63281 h 2.0625 z m -3.26563,-4.57031 -2.03906,-5.71094 -2.04687,5.71094 z" id="path3464"></path>
+        </g>
+      </g>
       <g
         class="arrow"
         :class="{ negative: evChargerDischargerSystemData.powerPoints['g'] < 0 }"
