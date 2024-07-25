@@ -235,8 +235,9 @@
           <div class="d-grid grid-template-max-2 justify-content-between">
             <h2 class="fs-5 me-3 text-primary">{{ text?.evChargerDischarger?.heading }}</h2>
             <div class="d-flex gap-2">
-              <button type="button" class="btn btn-primary rounded-pill px-3" :title="text?.evChargerDischarger?.searchButton?.title" @click="searchDevices">{{ text?.evChargerDischarger?.searchButton?.label }}</button>
-              <button type="button" class="btn btn-outline-primary rounded-pill px-3" :title="text?.evChargerDischarger?.clearButton?.title" @click="clearDevices">{{ text?.evChargerDischarger?.clearButton?.label }}</button>
+              <!-- todo -->
+              <button type="button" class="btn btn-primary rounded-pill px-3" :title="text?.evChargerDischarger?.searchButton?.title" @click="searchDevices">{{ text?.evChargerDischarger?.searchButton?.label }}2</button>
+              <button type="button" class="btn btn-outline-primary rounded-pill px-3" :title="text?.evChargerDischarger?.clearButton?.title" @click="clearDevices">{{ text?.evChargerDischarger?.clearButton?.label }}2</button>
             </div>
           </div>
           <div class="overflow-auto">
@@ -298,6 +299,14 @@
                     <div class="input-group">
                       <div class="input-group-text">C</div>
                       <select class="form-select" v-model.number="evChargerDischargerSystemPointCRef">
+                        <option v-for="(epc, index) of [208, 209, 210, 211, 212, 213, 214, 215, 216, 217, 218, 219, 220, 221, 222, 223, 224, 225, 226, 227, 228, 229, 230, 231, 232, 233, 234, 235, 236, 237, 238, 239, 240]" :key="index" :value="epc">CH{{ index + 1 }} ({{ epc.toHex(2).toUpperCase().prefix('0x') }})</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div v-show="!isRHEForEVChargerDischargerSystem">
+                    <div class="input-group">
+                      <div class="input-group-text">A</div>
+                      <select class="form-select" v-model.number="evChargerDischargerSystemPointARef">
                         <option v-for="(epc, index) of [208, 209, 210, 211, 212, 213, 214, 215, 216, 217, 218, 219, 220, 221, 222, 223, 224, 225, 226, 227, 228, 229, 230, 231, 232, 233, 234, 235, 236, 237, 238, 239, 240]" :key="index" :value="epc">CH{{ index + 1 }} ({{ epc.toHex(2).toUpperCase().prefix('0x') }})</option>
                       </select>
                     </div>
@@ -559,6 +568,7 @@ export default defineComponent({
           isRealDevicesForEVChargerDischargerSystem          = computed(() => store.state.evChargerDischargerSystemMode === 'real' ? true : false),
           isRHEForEVChargerDischargerSystem                  = computed(() => store.state.evChargerDischargerSystemMode === 'rhe' ? true : false),
           evChargerDischargerSystemModeRef   = ref<string>(store.state.evChargerDischargerSystemMode),
+          evChargerDischargerSystemPointARef = ref<number>(store.state.evChargerDischargerSystemPointA),
           evChargerDischargerSystemPointCRef = ref<number>(store.state.evChargerDischargerSystemPointC),
           evChargerDischargerSystemPointDRef = ref<number>(store.state.evChargerDischargerSystemPointD),
           evChargerDischargerSystemPointERef = ref<number>(store.state.evChargerDischargerSystemPointE),
@@ -772,16 +782,22 @@ export default defineComponent({
       store.commit('setEVChargerDischargerSystemMode', evChargerDischargerSystemModeRef.value);
       switch (evChargerDischargerSystemModeRef.value) {
         case 'real':
+          evChargerDischargerSystemPointARef.value = 0xE7;
           evChargerDischargerSystemPointCRef.value = 0xE7;
           evChargerDischargerSystemPointDRef.value = 0xD8;
           evChargerDischargerSystemPointERef.value = 0xD9;
           break;
         case 'rhe':
+          evChargerDischargerSystemPointARef.value = 0xEF;
           evChargerDischargerSystemPointCRef.value = 0xEF;
           evChargerDischargerSystemPointDRef.value = 0xD6;
           evChargerDischargerSystemPointERef.value = 0xD7;
           break;
       }
+    });
+
+    watch(evChargerDischargerSystemPointARef, () => {
+      store.commit('setEVChargerDischargerSystemPointA', evChargerDischargerSystemPointARef.value);
     });
 
     watch(evChargerDischargerSystemPointCRef, () => {
@@ -901,6 +917,7 @@ export default defineComponent({
       isRealDevicesForEVChargerDischargerSystem,
       isRHEForEVChargerDischargerSystem,
       evChargerDischargerSystemModeRef,
+      evChargerDischargerSystemPointARef,
       evChargerDischargerSystemPointCRef,
       evChargerDischargerSystemPointDRef,
       evChargerDischargerSystemPointERef,
