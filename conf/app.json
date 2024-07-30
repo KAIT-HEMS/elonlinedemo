@@ -100,6 +100,10 @@
         {
           "class": "0x0290",
           "checked": false
+        },
+        {
+          "class": "0x02A1",
+          "checked": false
         }
       ]
     }
