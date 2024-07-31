@@ -236,8 +236,8 @@
             <h2 class="fs-5 me-3 text-primary">{{ text?.evChargerDischarger?.heading }}</h2>
             <div class="d-flex gap-2">
               <!-- todo -->
-              <button type="button" class="btn btn-primary rounded-pill px-3" :title="text?.evChargerDischarger?.searchButton?.title" @click="searchDevices">{{ text?.evChargerDischarger?.searchButton?.label }}2</button>
-              <button type="button" class="btn btn-outline-primary rounded-pill px-3" :title="text?.evChargerDischarger?.clearButton?.title" @click="clearDevices">{{ text?.evChargerDischarger?.clearButton?.label }}2</button>
+              <button type="button" class="btn btn-primary rounded-pill px-3" :title="text?.evChargerDischarger?.searchButton?.title" @click="searchDevices">{{ text?.evChargerDischarger?.searchButton?.label }}</button>
+              <button type="button" class="btn btn-outline-primary rounded-pill px-3" :title="text?.evChargerDischarger?.clearButton?.title" @click="clearDevices">{{ text?.evChargerDischarger?.clearButton?.label }}</button>
             </div>
           </div>
           <div class="overflow-auto">
