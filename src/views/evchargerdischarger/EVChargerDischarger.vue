@@ -6066,8 +6066,8 @@ export default defineComponent({
       evChargerDischargerSystemData.value.evChargerDischarger.edt.dischargeableElectricity = (() => { let hex = ''; edt.forEach((v: number) => { hex += v.toHex(2).toUpperCase(); }); return hex === '' ? '' : hex.prefix('0x'); })();
       evChargerDischargerSystemData.value.evChargerDischarger.dischargeableElectricity = parseInt(evChargerDischargerSystemData.value.evChargerDischarger.edt.dischargeableElectricity, 16) || 0;
 
-      // remaining stored electricity: 0xC4
-      edt = store.getters.data(evChargerDischargerSystem.value.evChargerDischarger.ip, evChargerDischargerSystem.value.evChargerDischarger.eoj, 0xC4);
+      // remaining stored electricity: 0xE4
+      edt = store.getters.data(evChargerDischargerSystem.value.evChargerDischarger.ip, evChargerDischargerSystem.value.evChargerDischarger.eoj, 0xE4);
       if (edt.length > 0) {
         evChargerDischargerSystemData.value.evChargerDischarger.edt.remainingStoredElectricity = edt[0]?.toHex(2).toUpperCase().prefix('0x');
         evChargerDischargerSystemData.value.evChargerDischarger.remainingStoredElectricity = edt[0];
@@ -6381,7 +6381,7 @@ export default defineComponent({
             switch (evChargerDischargerSystem.value[x].eoj.class) {
               // EV charger discharger
               case 0x027E:
-                return [0xC2, 0xC4, 0xC7, 0xCF, 0xD3, 0xDA];
+                return [0xC2, 0xE4, 0xC7, 0xCF, 0xD3, 0xDA];
               // Household solar power generation
               case 0x0279:
                 return [0xE0];
