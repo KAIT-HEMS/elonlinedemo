@@ -782,13 +782,13 @@ export default defineComponent({
       store.commit('setEVChargerDischargerSystemMode', evChargerDischargerSystemModeRef.value);
       switch (evChargerDischargerSystemModeRef.value) {
         case 'real':
-          evChargerDischargerSystemPointARef.value = 0xE7;
+          evChargerDischargerSystemPointARef.value = 0xD2;
           evChargerDischargerSystemPointCRef.value = 0xE7;
           evChargerDischargerSystemPointDRef.value = 0xD8;
           evChargerDischargerSystemPointERef.value = 0xD9;
           break;
         case 'rhe':
-          evChargerDischargerSystemPointARef.value = 0xEF;
+          evChargerDischargerSystemPointARef.value = 0xD2;
           evChargerDischargerSystemPointCRef.value = 0xEF;
           evChargerDischargerSystemPointDRef.value = 0xD6;
           evChargerDischargerSystemPointERef.value = 0xD7;
