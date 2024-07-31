@@ -399,6 +399,7 @@ export default createStore({
     evChargerDischargerSystemData: EVChargerDischargerSystemData,
     evChargerDischargerSystemMode: localStorage.getItem('el-demoapp-evchargerdischarger-system-mode') || 'real',
     evChargerDischargerSystem: JSON.parse(localStorage.getItem('el-demoapp-evchargerdischarger-system') || 'null') || EVChargerDischargerSystem as EVChargerDischargerSystem,
+    evChargerDischargerSystemPointA: 0xD2,
     evChargerDischargerSystemPointC: 0xE7,
     evChargerDischargerSystemPointD: 0xD8,
     evChargerDischargerSystemPointE: 0xD9,
