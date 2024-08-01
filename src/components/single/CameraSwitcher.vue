@@ -3,6 +3,9 @@
     <template v-if="cameraViewType === 'diagram'">
       <div class="card flex-grow-1 flex-grow-1 card d-grid grid-template-100" style="padding: 50px;">
         <svg width="798" height="325" viewBox="0 0 798 325" style="height: 100%; width: 100%;" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path id="ELline5" d="M794 154.5C772.5 179 749.4 227 627 227" :stroke="propertyList['0xD3'] && propertyList['0xD3']?.replace(/\s|W/g, '') != 0 ? 'orange' : '#bbbbbb'" stroke-width="6" stroke-linecap="round"/>
+          <path id="ELline5" class="animate" :class="propertyList['0xD3']?.replace(/\s|W/g, '') > 0 ? 'normal' : 'reverse'" v-show="propertyList['0xD3'] && propertyList['0xD3']?.replace(/\s|W/g, '') != 0" d="M794 154.5C772.5 179 749.4 227 627 227" stroke-linejoin="round"/>
+          <rect id="Rectangle 1" x="294.5" y="0.5" width="332" height="293" rx="6.5" stroke="#A3A3A3" fill="white"/>
           <g id="ev-charger-discharger-diagram-battery">
             <g id="ev-charger-discharger-diagram-icon-battery">
               <g id="g3468">
@@ -38,8 +41,6 @@
                 </g>
                   <path id="path3362" d="M56.9346 234.085H8.14515C6.97098 234.085 6.34705 232.726 7.12328 231.864L8.38588 230.466C8.64627 230.182 9.01472 230.017 9.40776 230.017H55.6769C56.0652 230.017 56.4385 230.182 56.6988 230.466L57.9615 231.864C58.7377 232.726 58.1137 234.085 56.9396 234.085H56.9346Z" fill="#B7BFCD"/>
                 </g>
-                <path id="ELline5" d="M794 154.5C772.5 179 749.4 227 627 227" :stroke="propertyList['0xD3'] && propertyList['0xD3']?.replace(/\s|W/g, '') != 0 ? 'orange' : '#bbbbbb'" stroke-width="6" stroke-linecap="round"/>
-                <path id="ELline5" class="animate" :class="propertyList['0xD3']?.replace(/\s|W/g, '') > 0 ? 'normal' : 'reverse'" v-show="propertyList['0xD3'] && propertyList['0xD3']?.replace(/\s|W/g, '') != 0" d="M794 154.5C772.5 179 749.4 227 627 227" stroke-linejoin="round"/>
                 <path id="ELline1" d="M342.5 251.994H241.286C232.55 252.125 132 254.5 140.5 243.5C144 230 143 228.5 140.5 214.5C138.959 212.535 143.167 205.185 155.5 205.5" :stroke="(propertyList['0xC7'] === '0x40' || propertyList['0xC7'] === '0x41' || propertyList['0xC7'] === '0x42' || propertyList['0xC7'] === '0x43' || propertyList['0xC7'] === '0x44') ? 'orange' : '#bbbbbb'" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
                 <path id="ELline1" class="animate" :class="propertyList['0xDA'] === '0x43' ? 'reverse' : 'normal'" v-show="propertyList['0xDA'] === '0x42' || propertyList['0xDA'] === '0x43'" d="M342.5 251.994H241.286C232.55 252.125 132 254.5 140.5 243.5C144 230 143 228.5 140.5 214.5C138.959 212.535 143.167 205.185 155.5 205.5" stroke-linejoin="round"/>
                 <path id="ELline2" d="M160.235 209.287L157 210V200L160.235 200.713C160.674 200.808 161 201.486 161 202.281V207.712C161 208.514 160.669 209.186 160.235 209.281V209.287Z" :fill="(propertyList['0xC7'] === '0x40' || propertyList['0xC7'] === '0x41' || propertyList['0xC7'] === '0x42' || propertyList['0xC7'] === '0x43' || propertyList['0xC7'] === '0x44') ? 'orange' : '#bbbbbb'"/>
@@ -93,7 +94,6 @@
             </g>
             <line id="Line 1" x1="295" y1="61.5" x2="626" y2="61.5" stroke="#A3A3A3"/>
             <rect id="BatteryPercentage2" x="-562" y="-253" width="19" :height="propertyList['0xE4']?.replace(/\s|%/g, '') * 0.98 || 0" fill="#47E298" style="fill: rgb(71 226 152);fill-opacity:1;stroke:none;stroke-width:8.42334;transform: rotate(180deg) scale(1);width: 18px;"/>
-            <rect id="Rectangle 1" x="294.5" y="0.5" width="332" height="293" rx="6.5" stroke="#A3A3A3"/>
           </g>
         </svg>
       </div>
