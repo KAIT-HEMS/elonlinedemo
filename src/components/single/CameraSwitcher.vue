@@ -2,7 +2,7 @@
   {{ propertyList }}
   <div class="camera-switcher card shadow d-grid">
     <template v-if="cameraViewType === 'diagram_evchargerdischarger'">
-      <div class="flex-grow-1 d-grid grid-template-100" style="padding: 50px;">
+      <div class="card flex-grow-1 d-grid grid-template-100" style="padding: 50px; border: none;">
         <svg width="798" height="325" viewBox="0 0 798 325" style="height: 100%; width: 100%;" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path id="ELline5" d="M794 154.5C772.5 179 749.4 227 627 227" :stroke="propertyList['0xD3'] && propertyList['0xD3']?.replace(/\s|W/g, '') != 0 ? 'orange' : '#bbbbbb'" stroke-width="6" stroke-linecap="round"/>
           <path id="ELline5" class="animate" :class="propertyList['0xD3']?.replace(/\s|W/g, '') > 0 ? 'normal' : 'reverse'" v-show="propertyList['0xD3'] && propertyList['0xD3']?.replace(/\s|W/g, '') != 0" d="M794 154.5C772.5 179 749.4 227 627 227" stroke-linejoin="round"/>
@@ -138,7 +138,7 @@
       </div>
     </template>
     <template v-else-if="cameraViewType === 'diagram_evcharger'">
-      <div class="flex-grow-1 d-grid grid-template-100" style="padding: 50px;">
+      <div class="card flex-grow-1 d-grid grid-template-100" style="padding: 50px; border: none;">
         <svg width="798" height="325" viewBox="0 0 798 325" style="height: 100%; width: 100%;" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path id="ELline5" d="M794 154.5C772.5 179 749.4 227 627 227" :stroke="propertyList['0xD3'] && propertyList['0xD3']?.replace(/\s|W/g, '') != 0 ? 'orange' : '#bbbbbb'" stroke-width="6" stroke-linecap="round"/>
           <path id="ELline5" class="animate" :class="propertyList['0xD3']?.replace(/\s|W/g, '') > 0 ? 'normal' : 'reverse'" v-show="propertyList['0xD3'] && propertyList['0xD3']?.replace(/\s|W/g, '') != 0" d="M794 154.5C772.5 179 749.4 227 627 227" stroke-linejoin="round"/>
