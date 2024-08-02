@@ -1,5 +1,4 @@
 <template>
-  {{ propertyList }}
   <div class="camera-switcher card shadow d-grid">
     <template v-if="cameraViewType === 'diagram_evchargerdischarger'">
       <div class="card flex-grow-1 d-grid grid-template-100" style="padding: 50px; border: none;">
