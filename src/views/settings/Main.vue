@@ -376,31 +376,6 @@
                   </tbody>
                 </table>
               </div>
-              <div class="card shadow p-3 gap-3" :class="{'d-none': isRHEForEVChargerDischargerSystem, 'd-grid': isRealDevicesForEVChargerDischargerSystem}">
-                <h3 class="fs-6 text-primary fw-normal">0x028D  {{ getClassName(0x028D) }}</h3>
-                <table class="table table-hover small align-middle">
-                  <thead class="position-sticky">
-                    <tr>
-                      <th scope="col"></th>
-                      <th scope="col">{{ text?.evChargerDischarger?.ipField }}</th>
-                      <th scope="col">{{ text?.evChargerDischarger?.eojField }}</th>
-                      <th scope="col">{{ text?.evChargerDischarger?.releaseField }}</th>
-                      <th scope="col">{{ text?.evChargerDischarger?.manufacturerField }}</th>
-                      <th scope="col">{{ text?.evChargerDischarger?.idField }}</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr v-for="(device, index) of deviceListing.filter(device => device.eoj.class === 0x028D)" :key="index" @click="selectEVChargerDischargerSystemDevice('subMeter', device)" role="button">
-                      <td><input class="form-check-input" type="radio" name="device028D" :id="`device_${device.uid}`" v-model="evChargerDischargerSystem.subMeter.uid" :value="device.uid"></td>
-                      <td>{{ device.ip }}</td>
-                      <td>{{ device.eoj.hex ? '0x' + device.eoj.hex : '' }}</td>
-                      <td>{{ device.release }}</td>
-                      <td>{{ device.manufacturer }}</td>
-                      <td>{{ device.id ? '0x' + device.id : '' }}</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
               <div class="card shadow p-3 d-grid gap-3">
                 <h3 class="fs-6 text-primary fw-normal">0x0130  {{ getClassName(0x0130) }}</h3>
                 <table class="table table-hover small align-middle">
