@@ -391,7 +391,7 @@ export default createStore({
     batterySystemData: BatterySystemData,
     batterySystemMode: localStorage.getItem('el-demoapp-battery-system-mode') || 'real',
     batterySystem: JSON.parse(localStorage.getItem('el-demoapp-battery-system') || 'null') || BatterySystem as BatterySystem,
-    batterySystemPointC: 0xD2,
+    batterySystemPointC: 0xE7,
     batterySystemPointD: 0xD8,
     batterySystemPointE: 0xD9,
     batterySystemUIModeSimple: false,

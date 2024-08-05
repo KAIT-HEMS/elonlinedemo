@@ -739,7 +739,7 @@ export default defineComponent({
       store.commit('setBatterySystemMode', batterySystemModeRef.value);
       switch (batterySystemModeRef.value) {
         case 'real':
-          batterySystemPointCRef.value = 0xD2;
+          batterySystemPointCRef.value = 0xE7;
           batterySystemPointDRef.value = 0xD8;
           batterySystemPointERef.value = 0xD9;
           break;
