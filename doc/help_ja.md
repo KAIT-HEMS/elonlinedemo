@@ -6,7 +6,7 @@ ECHONET Lite（EL）オンライン制御デモプログラムは、UDPで通信
 
 v1.1.0
 
-© Kanagawa Institute of Technology 2023
+© Kanagawa Institute of Technology 2024
 
 
 # 終了手順
