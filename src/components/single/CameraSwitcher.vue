@@ -236,7 +236,7 @@
         <h3 class="fs-6 text-primary fw-normal">SET</h3>
         <div class="d-grid gap-2">
           <button class="btn btn-primary" type="button" @click="setEVChargerDischargerPropertiesSimpleMode('charging')">0xDA(0x42)<br/>Charging</button>
-          <button class="btn btn-primary" type="button" @click="setEVChargerDischargerPropertiesSimpleMode('discharging')">0xDA(0x43)<br/>Discharging</button>
+          <button class="btn btn-primary" type="button" @click="setEVChargerDischargerPropertiesSimpleMode('standby')">0xDA(0x44)<br/>Standby</button>
           <button class="btn btn-primary" type="button" @click="setEVChargerDischargerPropertiesSimpleMode('idle')">0xDA(0x47)<br/>Idle</button>
         </div>
         <div class="card shadow p-3 gap-2" v-show="false">
@@ -250,7 +250,7 @@
             <div class="form-check">
               <input class="form-check-input" id="f-ev-charger-discharger-operation-mode-43" type="radio" name="f-ev-charger-discharger-operation-mode" value="0x43">
               <label class="form-check-label" for="f-ev-charger-discharger-operation-mode-43">
-                Discharging: 0x43
+                Standby: 0x44
               </label>
             </div>
             <div class="form-check">
@@ -572,6 +572,9 @@ export default defineComponent({
           break;
         case 'standby':
           document.getElementById('f-ev-charger-discharger-operation-mode-44')!.click();
+          break;
+        case 'idle':
+          document.getElementById('f-ev-charger-discharger-operation-mode-47')!.click();
           break;
       }
 
