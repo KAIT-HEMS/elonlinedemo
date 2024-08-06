@@ -124,12 +124,6 @@
                 Standby: 0x44
               </label>
             </div>
-            <div class="form-check">
-              <input class="form-check-input" id="f-ev-charger-discharger-operation-mode-47" type="radio" name="f-ev-charger-discharger-operation-mode" value="0x47">
-              <label class="form-check-label" for="f-ev-charger-discharger-operation-mode-47">
-                Idle: 0x47
-              </label>
-            </div>
           </div>
           <h4 class="small">Charge Amount: 0xE7</h4>
           <div class="grid gap-1 align-items-center" style="--bs-columns: 4;">
@@ -213,7 +207,7 @@
             <path id="ChargeButton" d="M500.5 146H424.5C420.358 146 417 149.358 417 153.5V169.5C417 173.642 420.358 177 424.5 177H500.5C504.642 177 508 173.642 508 169.5V153.5C508 149.358 504.642 146 500.5 146Z" :stroke="propertyList['0xDA'] === '0x42' ? 'white' : '#909090'" :fill="propertyList['0xDA'] === '0x42' ? '#3779F5' : 'white'"/>
             <text id="ChargeText" :fill="propertyList['0xDA'] === '0x42' ? 'white' : '#7E7E7E'" xml:space="preserve" style="white-space: pre" font-family="Rubik" font-size="16" letter-spacing="0em"><tspan x="436" y="166.98">Charge</tspan></text>
             <path id="DischargeButton" d="M500.5 186H423.5C419.358 186 416 189.358 416 193.5V209.5C416 213.642 419.358 217 423.5 217H500.5C504.642 217 508 213.642 508 209.5V193.5C508 189.358 504.642 186 500.5 186Z" :stroke="propertyList['0xDA'] === '0x43' ? 'white' : '#909090'" :fill="propertyList['0xDA'] === '0x43' ? '#3779F5' : 'white'"/>
-            <text id="DischargeText" :fill="propertyList['0xDA'] === '0x43' ? 'white' : '#7E7E7E'" xml:space="preserve" style="white-space: pre" font-family="Rubik" font-size="16" letter-spacing="0em"><tspan x="425" y="206.98">Discharge</tspan></text>
+            <text id="DischargeText" :fill="propertyList['0xDA'] === '0x43' ? 'white' : '#7E7E7E'" xml:space="preserve" style="white-space: pre" font-family="Rubik" font-size="16" letter-spacing="0em"><tspan x="425" y="206.98">Standby</tspan></text>
             <text id="ev-charger-discharger-diagram-title-battery" fill="black" xml:space="preserve" style="white-space: pre" font-family="Rubik" font-size="16" letter-spacing="0em"><tspan x="415" y="320.98">EV Charger</tspan></text>
             <text id="ChargerDischargerType" fill="black" xml:space="preserve" style="white-space: pre" font-family="Rubik" font-size="16" letter-spacing="0em"><tspan x="407.164" y="23.98">Charger Type&#10;</tspan><tspan x="57.5%" y="45" dominant-baseline="middle" text-anchor="middle">EPC: 0xCC {{propertyList['0xCC']}}</tspan></text>
             <text id="ev-charger-discharger-diagram-title-battery_2" fill="black" xml:space="preserve" style="white-space: pre" font-family="Rubik" font-size="16" letter-spacing="0em"><tspan x="416" y="87.98">Operation&#10;</tspan><tspan x="416" y="106.98">Mode&#10;</tspan><tspan x="416" y="125.98">EPC: 0xDA</tspan></text>
@@ -260,8 +254,8 @@
               </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" id="f-ev-charger-discharger-operation-mode-44" type="radio" name="f-ev-charger-discharger-operation-mode" value="0x44">
-              <label class="form-check-label" for="f-ev-charger-discharger-operation-mode-44">
+              <input class="form-check-input" id="f-ev-charger-discharger-operation-mode-47" type="radio" name="f-ev-charger-discharger-operation-mode" value="0x47">
+              <label class="form-check-label" for="f-ev-charger-discharger-operation-mode-47">
                 Idle: 0x47
               </label>
             </div>
