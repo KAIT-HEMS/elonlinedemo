@@ -6278,7 +6278,6 @@ export default defineComponent({
           ACData                = computed(airConditionerSetup),
           StorageData           = computed(evChargerDischargerSetup),
           solarPowerData        = computed(powerGenerationSetup),
-          subMeterData          = computed(subMeterSetup),
           smartMeterData        = computed(smartMeterSetup),
           distributionBoardData = computed(powerDistributionBoardSetup),
           evChargerDischargerSystemData     = computed(() => store.state.evChargerDischargerSystemData),
@@ -6390,20 +6389,6 @@ export default defineComponent({
       evChargerDischargerSystemData.value.powerPoints.b = parseInt(evChargerDischargerSystemData.value.powerPoints.edt.b, 16).toSignedInt('int32') || 0;
 
       return evChargerDischargerSystem.value.evChargerDischarger.ip;
-    }
-
-    function subMeterSetup() {
-      // electricity: 0xE7
-      if (isRealDevices.value) {
-        const edt = store.getters.data(evChargerDischargerSystem.value.subMeter.ip, evChargerDischargerSystem.value.subMeter.eoj, 0xE7);
-        evChargerDischargerSystemData.value.powerPoints.edt.c = (() => { let hex = ''; edt.forEach((v: number) => { hex += v.toHex(2).toUpperCase(); }); return hex === '' ? '' : hex.prefix('0x'); })();
-        evChargerDischargerSystemData.value.powerPoints.c = (() => {
-          const value = parseInt(evChargerDischargerSystemData.value.powerPoints.edt.c, 16).toSignedInt('int32') || 0;
-          return value === 0x7FFFFFFE ? 'No data' : value;
-        })();
-      }
-
-      return evChargerDischargerSystem.value.subMeter.ip;
     }
 
     function powerDistributionBoardSetup() {
@@ -6696,13 +6681,6 @@ export default defineComponent({
                 } else if (isRHE.value) {
                   return [0x97, 0xE7];
                 }
-              // Smart electric energy meter for sub-metering
-              case 0x028D:
-                if (isRealDevices.value) {
-                  return [0xE7];
-                } else if (isRHE.value) {
-                  return [];
-                }
               // Home air conditioner
               case 0x0130:
                 return [0x80, 0xB0, 0xB3];
@@ -6779,7 +6757,6 @@ export default defineComponent({
       ACData,
       StorageData,
       solarPowerData,
-      subMeterData,
       distributionBoardData,
       smartMeterData,
       evChargerDischargerSystemData,
@@ -7084,13 +7061,6 @@ export default defineComponent({
 }
 #ev-charger-discharger-diagram-title-battery.simple-mode{
   transform: translate(-32px, 30px);
-  font-size: 24px;
-}
-#ev-charger-discharger-diagram-icon-submeter.simple-mode{
-  transform: translate(-295px, -310px) scale(1.5);
-}
-#ev-charger-discharger-diagram-title-submeter.simple-mode{
-  transform: translate(-15px, 47px);
   font-size: 24px;
 }
 #ev-charger-discharger-diagram-icon-smartmeter.simple-mode{
