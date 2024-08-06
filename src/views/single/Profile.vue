@@ -129,9 +129,6 @@ export default defineComponent({
         case 0x0288:
           deviceName = 'smartmeter';
           break;
-        case 0x028D:
-          deviceName = 'submeter';
-          break;
         case 0x0290:
           deviceName = 'lighting';
           break;

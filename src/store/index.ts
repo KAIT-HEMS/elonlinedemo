@@ -363,7 +363,6 @@ const EVChargerDischargerSystem = {
   solarPower: SingleDevice,
   distributionBoard: SingleDevice,
   smartMeter: SingleDevice,
-  subMeter: SingleDevice,
   airConditioner: SingleDevice
 };
 
