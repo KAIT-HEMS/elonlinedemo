@@ -235,6 +235,7 @@
           <div class="d-grid grid-template-max-2 justify-content-between">
             <h2 class="fs-5 me-3 text-primary">{{ text?.evChargerDischarger?.heading }}</h2>
             <div class="d-flex gap-2">
+              <!-- todo -->
               <button type="button" class="btn btn-primary rounded-pill px-3" :title="text?.evChargerDischarger?.searchButton?.title" @click="searchDevices">{{ text?.evChargerDischarger?.searchButton?.label }}</button>
               <button type="button" class="btn btn-outline-primary rounded-pill px-3" :title="text?.evChargerDischarger?.clearButton?.title" @click="clearDevices">{{ text?.evChargerDischarger?.clearButton?.label }}</button>
             </div>
@@ -294,7 +295,7 @@
               <div class="card shadow p-3 d-grid gap-3">
                 <h3 class="fs-6 text-primary fw-normal">0x0287  {{ getClassName(0x0287) }}</h3>
                 <section class="grid grid-template-max-3">
-                  <div v-show="isRHEForEVChargerDischargerSystem">
+                  <div>
                     <div class="input-group">
                       <div class="input-group-text">C</div>
                       <select class="form-select" v-model.number="evChargerDischargerSystemPointCRef">
@@ -358,31 +359,6 @@
                   <tbody>
                     <tr v-for="(device, index) of deviceListing.filter(device => device.eoj.class === 0x0288)" :key="index" @click="selectEVChargerDischargerSystemDevice('smartMeter', device)" role="button">
                       <td><input class="form-check-input" type="radio" name="device0288" :id="`device_${device.uid}`" v-model="evChargerDischargerSystem.smartMeter.uid" :value="device.uid"></td>
-                      <td>{{ device.ip }}</td>
-                      <td>{{ device.eoj.hex ? '0x' + device.eoj.hex : '' }}</td>
-                      <td>{{ device.release }}</td>
-                      <td>{{ device.manufacturer }}</td>
-                      <td>{{ device.id ? '0x' + device.id : '' }}</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              <div class="card shadow p-3 gap-3" :class="{'d-none': isRHEForEVChargerDischargerSystem, 'd-grid': isRealDevicesForEVChargerDischargerSystem}">
-                <h3 class="fs-6 text-primary fw-normal">0x028D  {{ getClassName(0x028D) }}</h3>
-                <table class="table table-hover small align-middle">
-                  <thead class="position-sticky">
-                    <tr>
-                      <th scope="col"></th>
-                      <th scope="col">{{ text?.evChargerDischarger?.ipField }}</th>
-                      <th scope="col">{{ text?.evChargerDischarger?.eojField }}</th>
-                      <th scope="col">{{ text?.evChargerDischarger?.releaseField }}</th>
-                      <th scope="col">{{ text?.evChargerDischarger?.manufacturerField }}</th>
-                      <th scope="col">{{ text?.evChargerDischarger?.idField }}</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr v-for="(device, index) of deviceListing.filter(device => device.eoj.class === 0x028D)" :key="index" @click="selectEVChargerDischargerSystemDevice('subMeter', device)" role="button">
-                      <td><input class="form-check-input" type="radio" name="device028D" :id="`device_${device.uid}`" v-model="evChargerDischargerSystem.subMeter.uid" :value="device.uid"></td>
                       <td>{{ device.ip }}</td>
                       <td>{{ device.eoj.hex ? '0x' + device.eoj.hex : '' }}</td>
                       <td>{{ device.release }}</td>
@@ -772,7 +748,7 @@ export default defineComponent({
       store.commit('setEVChargerDischargerSystemMode', evChargerDischargerSystemModeRef.value);
       switch (evChargerDischargerSystemModeRef.value) {
         case 'real':
-          evChargerDischargerSystemPointCRef.value = 0xE7;
+          evChargerDischargerSystemPointCRef.value = 0xD2;
           evChargerDischargerSystemPointDRef.value = 0xD8;
           evChargerDischargerSystemPointERef.value = 0xD9;
           break;

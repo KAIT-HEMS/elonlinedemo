@@ -215,10 +215,6 @@ const Settings = {
       address: "",
       id: ""
     },
-    0x028D: {
-      address: "",
-      id: ""
-    },
     0x0130: {
       address: "",
       id: ""
@@ -363,7 +359,6 @@ const EVChargerDischargerSystem = {
   solarPower: SingleDevice,
   distributionBoard: SingleDevice,
   smartMeter: SingleDevice,
-  subMeter: SingleDevice,
   airConditioner: SingleDevice
 };
 
@@ -388,6 +383,7 @@ export default createStore({
     nodes: {} as NodesCache,
     singleDeviceOptions: [] as SingleSettings[],
     device: SingleDevice,
+    cameraViewType:  'CCTV' || 'diagram',
     batterySystemData: BatterySystemData,
     batterySystemMode: localStorage.getItem('el-demoapp-battery-system-mode') || 'real',
     batterySystem: JSON.parse(localStorage.getItem('el-demoapp-battery-system') || 'null') || BatterySystem as BatterySystem,
@@ -399,7 +395,7 @@ export default createStore({
     evChargerDischargerSystemData: EVChargerDischargerSystemData,
     evChargerDischargerSystemMode: localStorage.getItem('el-demoapp-evchargerdischarger-system-mode') || 'real',
     evChargerDischargerSystem: JSON.parse(localStorage.getItem('el-demoapp-evchargerdischarger-system') || 'null') || EVChargerDischargerSystem as EVChargerDischargerSystem,
-    evChargerDischargerSystemPointC: 0xE7,
+    evChargerDischargerSystemPointC: 0xD2,
     evChargerDischargerSystemPointD: 0xD8,
     evChargerDischargerSystemPointE: 0xD9,
     evChargerDischargerSystemUIModeSimple: false,
@@ -537,6 +533,7 @@ export default createStore({
     helpMenu: state => {
       return state.helpMenu[state.locale];
     },
+    cameraViewType: state => state.cameraViewType,
   },
   mutations: {
     setLocale(state, data) {
@@ -652,6 +649,7 @@ export default createStore({
     },
     setSingleDevice(state, data) {
       state.device = data;
+      state.cameraViewType = data.eoj.class == 638 ? 'diagram' : 'CCTV';
     },
     resetSingleDevice(state) {
       state.device = SingleDevice;

@@ -93,4 +93,3 @@ The ECHONET Lite (EL) Online Control Demonstration Program provides an easy-to-u
 
 1. 本アプリを起動したターミナルで `Ctrl + C` を押下。
 2. `Bye` と表示されれば終了。
-
