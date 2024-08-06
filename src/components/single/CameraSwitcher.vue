@@ -124,6 +124,12 @@
                 Standby: 0x44
               </label>
             </div>
+            <div class="form-check">
+              <input class="form-check-input" id="f-ev-charger-discharger-operation-mode-47" type="radio" name="f-ev-charger-discharger-operation-mode" value="0x47">
+              <label class="form-check-label" for="f-ev-charger-discharger-operation-mode-47">
+                Idle: 0x47
+              </label>
+            </div>
           </div>
           <h4 class="small">Charge Amount: 0xE7</h4>
           <div class="grid gap-1 align-items-center" style="--bs-columns: 4;">
