@@ -215,10 +215,6 @@ const Settings = {
       address: "",
       id: ""
     },
-    0x028D: {
-      address: "",
-      id: ""
-    },
     0x0130: {
       address: "",
       id: ""

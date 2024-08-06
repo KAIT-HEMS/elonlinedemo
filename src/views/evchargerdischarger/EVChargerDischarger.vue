@@ -6681,13 +6681,6 @@ export default defineComponent({
                 } else if (isRHE.value) {
                   return [0x97, 0xE7];
                 }
-              // Smart electric energy meter for sub-metering
-              case 0x028D:
-                if (isRealDevices.value) {
-                  return [0xE7];
-                } else if (isRHE.value) {
-                  return [];
-                }
               // Home air conditioner
               case 0x0130:
                 return [0x80, 0xB0, 0xB3];
