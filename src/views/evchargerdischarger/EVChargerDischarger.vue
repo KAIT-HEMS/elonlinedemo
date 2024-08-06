@@ -2491,13 +2491,16 @@
           />
         </g>
       </g>
-      <g id="battery-diagram-point-a" transform="translate(8,450)">
+      <g id="ev-charger-discharger-diagram-point-a" transform="translate(8,450)">
         <path transform="translate(-800,150)" style="fill:none;stroke:#4588f1;stroke-width:1.44852px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;" d="M 994.74475,208.237 H 1114.1051" id="path3478-8-0-1"></path>
         <circle cx="194" cy="360" r="16" fill="url(#paint15_linear_2804:695)" id="circle1496" style="fill:url(#paint15_linear_2804:695);"></circle>
         <g aria-label="A" id="text1500" style="font-weight:500;font-size:16px;font-family:Rubik;letter-spacing:0em;white-space:pre;fill:#ffffff;" transform="translate(0.131255,0.43640202)">
           <path d="m 199.13437,365.6882 h -1.64844 l -1.14062,-3.24219 h -5.03125 l -1.14063,3.24219 h -1.57031 l 4.23437,-11.63281 h 2.0625 z m -3.26563,-4.57031 -2.03906,-5.71094 -2.04687,5.71094 z" id="path3464"></path>
         </g>
       </g>
+      <text y="848" x="200" text-anchor="middle" id="ev-charger-discharger-diagram-text-a" letter-spacing="0em" font-weight="500" font-size="16px" font-family="Rubik" xml:space="preserve" fill="#505050" style="white-space: pre;">
+        <tspan id="tspan1508">{{ Math.abs(evChargerDischargerSystemData.powerPoints["a"]) }} W</tspan>
+      </text>
       <g
         class="arrow"
         :class="{ negative: evChargerDischargerSystemData.powerPoints['g'] < 0 }"
@@ -5817,9 +5820,16 @@
           <path id="path3468" fill="url(#paint2_linear_3029_724)" d="m 284.88881,91.059853 c -6.1614,4.1788 -14.6961,2.5703 -18.9777,-3.5149 -4.28077,-6.0863 -2.9097,-14.6628 3.1058,-19.04915 0.3868,-0.28262 0.5358,-0.78813 0.3636,-1.23405 -0.1721,-0.44652 -0.6214,-0.72175 -1.0971,-0.67151 -3.024,0.32104 -5.9366,1.41458 -8.42563,3.16596 -8.10154,5.69785 -10.01523,16.98195 -4.31714,25.08325 5.69822,8.101197 16.96497,10.113397 25.06637,4.4146 2.4889,-1.7503 4.5024,-4.1219 5.8273,-6.8599 0.2082,-0.4299 0.101,-0.9467 -0.2619,-1.2594 -0.3605,-0.3124 -0.8869,-0.3433 -1.2836,-0.0749 z m -3.065,-26.9116 c 0,0.22437 -0.0911,0.42781 -0.2379,0.57448 -0.1474,0.14691 -0.3505,0.23779 -0.5751,0.23779 h -2.022 v 2.02268 c 0,0.44899 -0.3644,0.81264 -0.8131,0.81264 -0.2243,0 -0.4276,-0.09064 -0.575,-0.23792 -0.1467,-0.1474 -0.238,-0.3501 -0.238,-0.57472 v -2.0228 h -2.0225 c -0.4479,0 -0.8122,-0.36316 -0.8122,-0.81227 0,-0.22499 0.0903,-0.42806 0.2378,-0.57509 0.1476,-0.14704 0.3505,-0.23817 0.5744,-0.23817 h 2.0225 v -2.022179 c 0,-0.448621 0.3637,-0.812641 0.813,-0.812641 0.2239,0 0.428,0.09113 0.5754,0.238288 0.1464,0.146913 0.2377,0.350473 0.2377,0.574353 v 2.022309 h 2.022 c 0.4494,0 0.813,0.36402 0.813,0.81325 z" style="fill: url(&quot;#paint2_linear_3029_724&quot;);"></path>
           <path id="path3470" fill="url(#paint3_linear_3029_724)" d="m 278.90631,76.952453 c 0,0.2241 -0.0911,0.4277 -0.2387,0.5751 -0.1464,0.1467 -0.3497,0.2371 -0.5743,0.2371 h -2.0218 v 2.023 c 0,0.4486 -0.3644,0.8121 -0.8137,0.8121 -0.2238,0 -0.4279,-0.0901 -0.5746,-0.2377 -0.1464,-0.147 -0.2376,-0.3498 -0.2376,-0.5744 v -2.023 h -2.0227 c -0.4486,0 -0.8122,-0.3628 -0.8122,-0.8122 0,-0.2242 0.0903,-0.4278 0.2377,-0.5748 0.1467,-0.1471 0.3498,-0.2382 0.5745,-0.2382 h 2.0227 v -2.0223 c 0,-0.449 0.3636,-0.813 0.8122,-0.813 0.2247,0 0.4277,0.0911 0.5751,0.2383 0.1474,0.1471 0.2387,0.3504 0.2387,0.5747 v 2.0223 h 2.0218 c 0.4485,1e-4 0.8129,0.3641 0.8129,0.813 z m 11.9793,-3.6478 c 0,0.2243 -0.0912,0.4278 -0.2387,0.5747 -0.1474,0.1472 -0.3505,0.2379 -0.5743,0.2379 h -2.0228 v 2.0227 c 0,0.449 -0.3644,0.8123 -0.8128,0.8123 -0.2249,0 -0.4277,-0.0903 -0.5746,-0.238 -0.1474,-0.147 -0.2384,-0.3501 -0.2384,-0.5743 v -2.0227 h -2.0221 c -0.4492,0 -0.813,-0.3636 -0.813,-0.8126 0,-0.2246 0.0911,-0.4277 0.2379,-0.5747 0.1474,-0.1471 0.3505,-0.2382 0.5751,-0.2382 h 2.0221 v -2.02195 c 0,-0.44924 0.3636,-0.81326 0.813,-0.81326 0.2244,0 0.4277,0.09101 0.5751,0.23817 0.1467,0.14741 0.2377,0.3506 0.2377,0.57521 v 2.02193 h 2.0228 c 0.4486,0 0.813,0.3635 0.813,0.8128 z" style="fill: url(&quot;#paint3_linear_3029_724&quot;);"></path>
         </g><text v-show="!isSimpleModeRef" fill="#515050" font-family="Rubik" font-size="16" id="ev-charger-discharger-diagram-ip-solar" letter-spacing="0em" xml:space="preserve" style="white-space: pre;">
-          <tspan id="tspan1560" x="59.0234" y="265.277"> IP: 192.168.128.35</tspan>
+          <tspan id="tspan1560" x="59.0234" y="265.277"> IP: {{ solarPowerData }}</tspan>
         </text><text fill="#515050" font-family="Rubik" font-size="16" id="ev-charger-discharger-diagram-eoj-solar" letter-spacing="0em" xml:space="preserve" style="white-space: pre;" v-show="!isSimpleModeRef">
-          <tspan id="tspan1564" x="204.18" y="264.98"> EOJ: 0x027901</tspan>
+          <tspan id="tspan1564" x="204.18" y="264.98"> EOJ:
+            {{
+              evChargerDischargerSystem.solarPower.ip
+                ? "0x" +
+                  evChargerDischargerSystem.solarPower.eoj.class.toHex(4).toUpperCase() +
+                  evChargerDischargerSystem.solarPower.eoj.id.toHex(2).toUpperCase()
+                : ""
+            }}</tspan>
         </text>
         <g id="ev-charger-discharger-diagram-icon-solar" :class="isSimpleModeRef ? 'simple-mode' : ''">
           <path d="M150.222 139.429L150.221 174.58L148.854 175.374L148.855 140.224L150.222 139.429Z" fill="#B8B4A9" id="path1568"></path>
