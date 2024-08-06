@@ -215,13 +215,13 @@
             <text id="NotConnected" fill="black" xml:space="preserve" style="white-space: pre" font-family="Rubik" font-size="16" letter-spacing="0em"><tspan x="172" y="272.98">{{propertyList['0xE4'] ? 'Connected' : 'Not Connected'}}</tspan></text>
             <text id="ElectricPower" fill="black" xml:space="preserve" style="white-space: pre" font-family="Rubik" font-size="16" letter-spacing="0em"><tspan x="656.938" y="250.98">{{propertyList['0xD3'] || '0 W'}}</tspan></text>
             <text id="ev-charger-discharger-diagram-title-battery_4" fill="black" xml:space="preserve" style="white-space: pre" font-family="Rubik" font-size="16" letter-spacing="0em"><tspan x="643" y="181.98">Electric Power&#10;</tspan><tspan x="643" y="200.98">EPC: 0xD3</tspan></text>
-            <g id="Group 1">
+            <!-- <g id="Group 1">
               <text id="ev-charger-discharger-diagram-title-battery_5" fill="black" xml:space="preserve" style="white-space: pre" font-family="Rubik" font-size="16" letter-spacing="0em"><tspan x="33" y="128.98">Chargeable</tspan></text>
-              <!-- <text id="ev-charger-discharger-diagram-title-battery_6" fill="black" xml:space="preserve" style="white-space: pre" font-family="Rubik" font-size="16" letter-spacing="0em"><tspan x="33" y="151.98">Dischargeable</tspan></text> -->
-              <!-- <text id="ev-charger-discharger-diagram-title-battery_7" fill="black" xml:space="preserve" style="white-space: pre" font-family="Rubik" font-size="16" letter-spacing="0em"><tspan x="35" y="72.98">Vehicle Status&#10;</tspan><tspan x="35" y="91.98">EPC: 0xC7</tspan></text> -->
+              <text id="ev-charger-discharger-diagram-title-battery_6" fill="black" xml:space="preserve" style="white-space: pre" font-family="Rubik" font-size="16" letter-spacing="0em"><tspan x="33" y="151.98">Dischargeable</tspan></text>
+              <text id="ev-charger-discharger-diagram-title-battery_7" fill="black" xml:space="preserve" style="white-space: pre" font-family="Rubik" font-size="16" letter-spacing="0em"><tspan x="35" y="72.98">Vehicle Status&#10;</tspan><tspan x="35" y="91.98">EPC: 0xC7</tspan></text>
               <circle id="Chargeable" cx="154" cy="124" r="8" :fill="propertyList['0xE4'] ? 'green' : '#bbbbbb'"/>
-              <!-- <circle id="Dischargeable" cx="154" cy="146" r="8" :fill="(propertyList['0xC7'] === '0x42' || propertyList['0xC7'] === '0x43') ? 'green' : (propertyList['0xC7'] === '0x40' || propertyList['0xC7'] === '0x41') ? 'red' : '#bbbbbb'"/> -->
-            </g>
+              <circle id="Dischargeable" cx="154" cy="146" r="8" :fill="(propertyList['0xC7'] === '0x42' || propertyList['0xC7'] === '0x43') ? 'green' : (propertyList['0xC7'] === '0x40' || propertyList['0xC7'] === '0x41') ? 'red' : '#bbbbbb'"/>
+            </g> -->
             <g id="ev-charger-discharger-diagram-icon-battery-remaining">
               <path id="rect1080" d="M541 154.666V254.187C541 255.741 542.252 257 543.797 257H562.488C564.033 257 565.285 255.741 565.285 254.187V154.666C565.285 153.112 564.033 151.853 562.488 151.853H543.797C542.252 151.853 541 153.112 541 154.666Z" fill="#47E298" stroke="#5AC491"/>
               <path id="path1082" d="M547.783 148.25C547.783 147.007 548.784 146 550.021 146H556.264C557.501 146 558.502 147.007 558.502 148.25V149.646H547.783V148.25Z" fill="#5AC391"/>
