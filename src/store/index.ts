@@ -215,10 +215,6 @@ const Settings = {
       address: "",
       id: ""
     },
-    0x028D: {
-      address: "",
-      id: ""
-    },
     0x0130: {
       address: "",
       id: ""
@@ -363,7 +359,6 @@ const EVChargerDischargerSystem = {
   solarPower: SingleDevice,
   distributionBoard: SingleDevice,
   smartMeter: SingleDevice,
-  subMeter: SingleDevice,
   airConditioner: SingleDevice
 };
 
@@ -400,8 +395,7 @@ export default createStore({
     evChargerDischargerSystemData: EVChargerDischargerSystemData,
     evChargerDischargerSystemMode: localStorage.getItem('el-demoapp-evchargerdischarger-system-mode') || 'real',
     evChargerDischargerSystem: JSON.parse(localStorage.getItem('el-demoapp-evchargerdischarger-system') || 'null') || EVChargerDischargerSystem as EVChargerDischargerSystem,
-    evChargerDischargerSystemPointA: 0xD2,
-    evChargerDischargerSystemPointC: 0xE7,
+    evChargerDischargerSystemPointC: 0xD2,
     evChargerDischargerSystemPointD: 0xD8,
     evChargerDischargerSystemPointE: 0xD9,
     evChargerDischargerSystemUIModeSimple: false,
