@@ -177,8 +177,8 @@
                 </g>
                   <path id="path3362" d="M56.9346 234.085H8.14515C6.97098 234.085 6.34705 232.726 7.12328 231.864L8.38588 230.466C8.64627 230.182 9.01472 230.017 9.40776 230.017H55.6769C56.0652 230.017 56.4385 230.182 56.6988 230.466L57.9615 231.864C58.7377 232.726 58.1137 234.085 56.9396 234.085H56.9346Z" fill="#B7BFCD"/>
                 </g>
-                <path id="ELline1" d="M342.5 251.994H241.286C232.55 252.125 132 254.5 140.5 243.5C144 230 143 228.5 140.5 214.5C138.959 212.535 143.167 205.185 155.5 205.5" :stroke="(propertyList['0xC7'] === '0x40' || propertyList['0xC7'] === '0x41' || propertyList['0xC7'] === '0x42' || propertyList['0xC7'] === '0x43' || propertyList['0xC7'] === '0x44') ? 'orange' : '#bbbbbb'" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
-                <path id="ELline1" class="animate" :class="propertyList['0xDA'] === '0x43' ? 'reverse' : 'normal'" v-show="propertyList['0xDA'] === '0x42' || propertyList['0xDA'] === '0x43'" d="M342.5 251.994H241.286C232.55 252.125 132 254.5 140.5 243.5C144 230 143 228.5 140.5 214.5C138.959 212.535 143.167 205.185 155.5 205.5" stroke-linejoin="round"/>
+                <path id="ELline1" d="M342.5 251.994H241.286C232.55 252.125 132 254.5 140.5 243.5C144 230 143 228.5 140.5 214.5C138.959 212.535 143.167 205.185 155.5 205.5" :stroke="propertyList['0xE4'] ? 'orange' : '#bbbbbb'" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+                <path id="ELline1" class="animate normal" v-show="propertyList['0xDA'] === '0x42'" d="M342.5 251.994H241.286C232.55 252.125 132 254.5 140.5 243.5C144 230 143 228.5 140.5 214.5C138.959 212.535 143.167 205.185 155.5 205.5" stroke-linejoin="round"/>
                 <path id="ELline2" d="M160.235 209.287L157 210V200L160.235 200.713C160.674 200.808 161 201.486 161 202.281V207.712C161 208.514 160.669 209.186 160.235 209.281V209.287Z" :fill="(propertyList['0xC7'] === '0x40' || propertyList['0xC7'] === '0x41' || propertyList['0xC7'] === '0x42' || propertyList['0xC7'] === '0x43' || propertyList['0xC7'] === '0x44') ? 'orange' : '#bbbbbb'"/>
                 <path id="ELline3" d="M159 201V209C156.792 209 155 207.207 155 205C155 202.793 156.792 201 159 201Z" :fill="(propertyList['0xC7'] === '0x40' || propertyList['0xC7'] === '0x41' || propertyList['0xC7'] === '0x42' || propertyList['0xC7'] === '0x43' || propertyList['0xC7'] === '0x44') ? 'orange' : '#bbbbbb'"/>
                 <path id="path3372" d="M341.541 152.043H384.545V255.105H341.541V152.043Z" fill="#EFF8FF"/>
@@ -195,15 +195,15 @@
                 <path id="path3396" d="M365.505 195.138L365.769 193.853H362.222L361.958 195.138H360.586L358.073 207.336H364.397L366.91 195.138H365.505Z" fill="#407BFF"/>
                 <path id="path3398" opacity="0.4" d="M365.175 199.468L363.882 205.754C363.791 206.199 363.4 206.516 362.947 206.516H359.792C359.424 206.516 359.153 206.183 359.227 205.824L360.521 199.538C360.611 199.093 361.003 198.776 361.456 198.776H364.611C364.978 198.776 365.25 199.109 365.175 199.468Z" fill="white"/>
                 <path id="path3400" opacity="0.4" d="M353.405 186.071H370.524V189.725H358.055L353.405 186.071Z" fill="#C9CEE2"/>
-                <path id="ELline4" d="M363 220.5C365.5 219.333 371.3 217 374.5 217C378.5 217 381.5 217.5 383.5 220.5C385.5 223.5 387 227 386 234C385 241 385 249 388.5 252.5C392 256 399 256.5 403 254.5C407 252.5 410 248 403.5 245C398.3 242.6 392.333 242.667 390 243" :stroke="(propertyList['0xC7'] === '0x40' || propertyList['0xC7'] === '0x41' || propertyList['0xC7'] === '0x42' || propertyList['0xC7'] === '0x43' || propertyList['0xC7'] === '0x44') ? 'orange' : '#bbbbbb'" stroke-width="6" stroke-linecap="round"/>
-                <path id="ELline4" class="animate" :class="propertyList['0xDA'] === '0x43' ? 'reverse' : 'normal'" v-show="propertyList['0xDA'] === '0x42' || propertyList['0xDA'] === '0x43'" d="M363 220.5C365.5 219.333 371.3 217 374.5 217C378.5 217 381.5 217.5 383.5 220.5C385.5 223.5 387 227 386 234C385 241 385 249 388.5 252.5C392 256 399 256.5 403 254.5C407 252.5 410 248 403.5 245C398.3 242.6 392.333 242.667 390 243" :stroke="(propertyList['0xC7'] === '0x40' || propertyList['0xC7'] === '0x41' || propertyList['0xC7'] === '0x42' || propertyList['0xC7'] === '0x43' || propertyList['0xC7'] === '0x44') ? 'orange' : '#bbbbbb'" stroke-width="4"/>
+                <path id="ELline4" d="M363 220.5C365.5 219.333 371.3 217 374.5 217C378.5 217 381.5 217.5 383.5 220.5C385.5 223.5 387 227 386 234C385 241 385 249 388.5 252.5C392 256 399 256.5 403 254.5C407 252.5 410 248 403.5 245C398.3 242.6 392.333 242.667 390 243" :stroke="propertyList['0xE4'] ? 'orange' : '#bbbbbb'" stroke-width="6" stroke-linecap="round"/>
+                <path id="ELline4" class="animate normal" v-show="propertyList['0xDA'] === '0x42'" d="M363 220.5C365.5 219.333 371.3 217 374.5 217C378.5 217 381.5 217.5 383.5 220.5C385.5 223.5 387 227 386 234C385 241 385 249 388.5 252.5C392 256 399 256.5 403 254.5C407 252.5 410 248 403.5 245C398.3 242.6 392.333 242.667 390 243" :stroke="(propertyList['0xC7'] === '0x40' || propertyList['0xC7'] === '0x41' || propertyList['0xC7'] === '0x42' || propertyList['0xC7'] === '0x43' || propertyList['0xC7'] === '0x44') ? 'orange' : '#bbbbbb'" stroke-width="4"/>
               </g>
             </g>
             <text id="BatteryPercentage1" fill="#2D9E68" xml:space="preserve" style="white-space: pre" font-family="Rubik" font-size="16" letter-spacing="0em"><tspan x="69.5%" y="278" dominant-baseline="middle" text-anchor="middle">{{propertyList['0xE4'] || '0 %'}}</tspan></text>
             <text id="text1096" fill="#787676" xml:space="preserve" style="white-space: pre" font-family="Rubik" font-size="14" letter-spacing="0em"><tspan x="572" y="257.295">0%</tspan></text>
             <text id="text1100" fill="#787676" xml:space="preserve" style="white-space: pre" font-family="Rubik" font-size="14" letter-spacing="0em"><tspan x="572" y="166.295">100%</tspan></text>
             <path id="StandbyButton" d="M500 225H424C419.582 225 416 228.582 416 233V249C416 253.418 419.582 257 424 257H500C504.418 257 508 253.418 508 249V233C508 228.582 504.418 225 500 225Z" :stroke="propertyList['0xDA'] === '0x44' ? 'white' : '#909090'" :fill="propertyList['0xDA'] === '0x44' ? '#3779F5' : 'white'"/>
-            <text id="StandbyText" :fill="propertyList['0xDA'] === '0x44' ? 'white' : '#7E7E7E'" xml:space="preserve" style="white-space: pre" font-family="Rubik" font-size="16" letter-spacing="0em"><tspan x="431" y="245.98">Standby</tspan></text>
+            <text id="StandbyText" :fill="propertyList['0xDA'] === '0x44' ? 'white' : '#7E7E7E'" xml:space="preserve" style="white-space: pre" font-family="Rubik" font-size="16" letter-spacing="0em"><tspan x="445" y="245.98">Idle</tspan></text>
             <path id="ChargeButton" d="M500.5 146H424.5C420.358 146 417 149.358 417 153.5V169.5C417 173.642 420.358 177 424.5 177H500.5C504.642 177 508 173.642 508 169.5V153.5C508 149.358 504.642 146 500.5 146Z" :stroke="propertyList['0xDA'] === '0x42' ? 'white' : '#909090'" :fill="propertyList['0xDA'] === '0x42' ? '#3779F5' : 'white'"/>
             <text id="ChargeText" :fill="propertyList['0xDA'] === '0x42' ? 'white' : '#7E7E7E'" xml:space="preserve" style="white-space: pre" font-family="Rubik" font-size="16" letter-spacing="0em"><tspan x="436" y="166.98">Charge</tspan></text>
             <path id="DischargeButton" d="M500.5 186H423.5C419.358 186 416 189.358 416 193.5V209.5C416 213.642 419.358 217 423.5 217H500.5C504.642 217 508 213.642 508 209.5V193.5C508 189.358 504.642 186 500.5 186Z" :stroke="propertyList['0xDA'] === '0x43' ? 'white' : '#909090'" :fill="propertyList['0xDA'] === '0x43' ? '#3779F5' : 'white'"/>
@@ -213,8 +213,8 @@
             <text id="ev-charger-discharger-diagram-title-battery_2" fill="black" xml:space="preserve" style="white-space: pre" font-family="Rubik" font-size="16" letter-spacing="0em"><tspan x="416" y="87.98">Operation&#10;</tspan><tspan x="416" y="106.98">Mode&#10;</tspan><tspan x="416" y="125.98">EPC: 0xDA</tspan></text>
             <text id="ev-charger-discharger-diagram-title-battery_3" fill="black" xml:space="preserve" style="white-space: pre" font-family="Rubik" font-size="16" letter-spacing="0em"><tspan x="513" y="87.98">Remaining&#10;</tspan><tspan x="513" y="106.98">Energy&#10;</tspan><tspan x="513" y="125.98">EPC: 0xE4</tspan></text>
             <text id="NotConnected" fill="black" xml:space="preserve" style="white-space: pre" font-family="Rubik" font-size="16" letter-spacing="0em"><tspan x="172" y="272.98">{{propertyList['0xE4'] ? 'Connected' : 'Not Connected'}}</tspan></text>
-            <!-- <text id="ElectricPower" fill="black" xml:space="preserve" style="white-space: pre" font-family="Rubik" font-size="16" letter-spacing="0em"><tspan x="656.938" y="250.98">{{propertyList['0xD3'] || '0 W'}}</tspan></text> -->
-            <!-- <text id="ev-charger-discharger-diagram-title-battery_4" fill="black" xml:space="preserve" style="white-space: pre" font-family="Rubik" font-size="16" letter-spacing="0em"><tspan x="643" y="181.98">Electric Power&#10;</tspan><tspan x="643" y="200.98">EPC: 0xD3</tspan></text> -->
+            <text id="ElectricPower" fill="black" xml:space="preserve" style="white-space: pre" font-family="Rubik" font-size="16" letter-spacing="0em"><tspan x="656.938" y="250.98">{{propertyList['0xD3'] || '0 W'}}</tspan></text>
+            <text id="ev-charger-discharger-diagram-title-battery_4" fill="black" xml:space="preserve" style="white-space: pre" font-family="Rubik" font-size="16" letter-spacing="0em"><tspan x="643" y="181.98">Electric Power&#10;</tspan><tspan x="643" y="200.98">EPC: 0xD3</tspan></text>
             <g id="Group 1">
               <text id="ev-charger-discharger-diagram-title-battery_5" fill="black" xml:space="preserve" style="white-space: pre" font-family="Rubik" font-size="16" letter-spacing="0em"><tspan x="33" y="128.98">Chargeable</tspan></text>
               <!-- <text id="ev-charger-discharger-diagram-title-battery_6" fill="black" xml:space="preserve" style="white-space: pre" font-family="Rubik" font-size="16" letter-spacing="0em"><tspan x="33" y="151.98">Dischargeable</tspan></text> -->
@@ -237,7 +237,7 @@
         <div class="d-grid gap-2">
           <button class="btn btn-primary" type="button" @click="setEVChargerDischargerPropertiesSimpleMode('charging')">0xDA(0x42)<br/>Charging</button>
           <button class="btn btn-primary" type="button" @click="setEVChargerDischargerPropertiesSimpleMode('discharging')">0xDA(0x43)<br/>Discharging</button>
-          <button class="btn btn-primary" type="button" @click="setEVChargerDischargerPropertiesSimpleMode('standby')">0xDA(0x44)<br/>Standby</button>
+          <button class="btn btn-primary" type="button" @click="setEVChargerDischargerPropertiesSimpleMode('idle')">0xDA(0x47)<br/>Idle</button>
         </div>
         <div class="card shadow p-3 gap-2" v-show="false">
           <div>
@@ -256,7 +256,7 @@
             <div class="form-check">
               <input class="form-check-input" id="f-ev-charger-discharger-operation-mode-44" type="radio" name="f-ev-charger-discharger-operation-mode" value="0x44">
               <label class="form-check-label" for="f-ev-charger-discharger-operation-mode-44">
-                Standby: 0x44
+                Idle: 0x47
               </label>
             </div>
           </div>
@@ -510,6 +510,11 @@ export default defineComponent({
         case '0x44':
           epcList.push(0xDA);
           edtList.push([0x44]);
+          break;
+        // Idle
+        case '0x47':
+          epcList.push(0xDA);
+          edtList.push([0x47]);
           break;
       }
 
