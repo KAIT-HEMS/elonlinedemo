@@ -2499,7 +2499,7 @@
         </g>
       </g>
       <text y="848" x="200" text-anchor="middle" id="ev-charger-discharger-diagram-text-a" letter-spacing="0em" font-weight="500" font-size="16px" font-family="Rubik" xml:space="preserve" fill="#505050" style="white-space: pre;">
-        <tspan id="tspan1508">0 W</tspan>
+        <tspan id="tspan1508">{{ Math.abs(evChargerDischargerSystemData.powerPoints["a"]) }} W</tspan>
       </text>
       <g
         class="arrow"
