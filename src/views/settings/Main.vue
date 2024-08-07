@@ -421,7 +421,7 @@
           <div class="overflow-auto">
             <div class="d-grid gap-3">
               <div class="card shadow p-3 d-grid gap-3">
-                <h3 class="fs-6 text-primary fw-normal">0x027E  {{ getClassName(0x027E) }}</h3>
+                <h3 class="fs-6 text-primary fw-normal">0x02A1  {{ getClassName(0x02A1) }}</h3>
                 <table class="table table-hover small align-middle">
                   <thead class="position-sticky">
                     <tr>
@@ -434,7 +434,7 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr v-for="(device, index) of deviceListing.filter(device => device.eoj.class === 0x027E)" :key="index" @click="selectEVChargerSystemDevice('evCharger', device)" role="button">
+                    <tr v-for="(device, index) of deviceListing.filter(device => device.eoj.class === 0x02A1)" :key="index" @click="selectEVChargerSystemDevice('evCharger', device)" role="button">
                       <td><input class="form-check-input" type="radio" name="device027D" :id="`device_${device.uid}`" v-model="evChargerSystem.evCharger.uid" :value="device.uid"></td>
                       <td>{{ device.ip }}</td>
                       <td>{{ device.eoj.hex ? '0x' + device.eoj.hex : '' }}</td>
@@ -475,8 +475,8 @@
                 <section class="grid grid-template-max-3">
                   <div>
                     <div class="input-group">
-                      <div class="input-group-text">C</div>
-                      <select class="form-select" v-model.number="evChargerSystemPointCRef">
+                      <div class="input-group-text">B</div>
+                      <select class="form-select" v-model.number="evChargerSystemPointBRef">
                         <option v-for="(epc, index) of [208, 209, 210, 211, 212, 213, 214, 215, 216, 217, 218, 219, 220, 221, 222, 223, 224, 225, 226, 227, 228, 229, 230, 231, 232, 233, 234, 235, 236, 237, 238, 239, 240]" :key="index" :value="epc">CH{{ index + 1 }} ({{ epc.toHex(2).toUpperCase().prefix('0x') }})</option>
                       </select>
                     </div>
@@ -721,7 +721,7 @@ export default defineComponent({
           isRealDevicesForEVChargerSystem          = computed(() => store.state.evChargerSystemMode === 'real' ? true : false),
           isRHEForEVChargerSystem                  = computed(() => store.state.evChargerSystemMode === 'rhe' ? true : false),
           evChargerSystemModeRef   = ref<string>(store.state.evChargerSystemMode),
-          evChargerSystemPointCRef = ref<number>(store.state.evChargerSystemPointC),
+          evChargerSystemPointBRef = ref<number>(store.state.evChargerSystemPointC),
           evChargerSystemPointDRef = ref<number>(store.state.evChargerSystemPointD),
           evChargerSystemPointERef = ref<number>(store.state.evChargerSystemPointE),
 
@@ -862,7 +862,7 @@ export default defineComponent({
       for (const ip in nodes.value) {
         for (const classCode in nodes.value[ip]) {
           // Checks if classCode is search target
-          if ([0x027D, 0x027E, 0x0279, 0x0287, 0x0288, 0x028D, 0x0130].indexOf(Number(classCode)) === -1) { continue; }
+          if ([0x027D, 0x02A1, 0x027E, 0x0279, 0x0287, 0x0288, 0x028D, 0x0130].indexOf(Number(classCode)) === -1) { continue; }
 
           // Pushes into newList
           for (const id in nodes.value[ip][classCode]) {
@@ -990,20 +990,20 @@ export default defineComponent({
       store.commit('setEVChargerSystemMode', evChargerSystemModeRef.value);
       switch (evChargerSystemModeRef.value) {
         case 'real':
-          evChargerSystemPointCRef.value = 0xD2;
+          evChargerSystemPointBRef.value = 0xD7;
           evChargerSystemPointDRef.value = 0xD8;
           evChargerSystemPointERef.value = 0xD9;
           break;
         case 'rhe':
-          evChargerSystemPointCRef.value = 0xEF;
+          evChargerSystemPointBRef.value = 0xEF;
           evChargerSystemPointDRef.value = 0xD6;
           evChargerSystemPointERef.value = 0xD7;
           break;
       }
     });
 
-    watch(evChargerSystemPointCRef, () => {
-      store.commit('setEVChargerSystemPointC', evChargerSystemPointCRef.value);
+    watch(evChargerSystemPointBRef, () => {
+      store.commit('setEVChargerSystemPointC', evChargerSystemPointBRef.value);
     });
 
     watch(evChargerSystemPointDRef, () => {
@@ -1127,7 +1127,7 @@ export default defineComponent({
       isRealDevicesForEVChargerSystem,
       isRHEForEVChargerSystem,
       evChargerSystemModeRef,
-      evChargerSystemPointCRef,
+      evChargerSystemPointBRef,
       evChargerSystemPointDRef,
       evChargerSystemPointERef,
       networkRef,
