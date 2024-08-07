@@ -64,7 +64,7 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .header {
-  grid-template-columns: 1fr 630px 116px;
+  grid-template-columns: 1fr 756px 116px;
 }
 .header-main-title {
   font-size:   var(--size-text-xxl);
@@ -79,7 +79,7 @@ export default defineComponent({
   font-weight: var(--weight-light);
 }
 .header-nav-list {
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(6, minmax(0, 1fr));
 }
 .header-nav-list-item {
   padding-top: 52px;
