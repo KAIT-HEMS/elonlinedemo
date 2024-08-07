@@ -444,11 +444,11 @@
           },
           "evChargerDischarger": {
             "title": "EV充放電器システム制御画面を表示",
-            "label": "EV充放電器 システム"
+            "label": "EV充放電器システム"
           },
           "evCharger": {
-            "title": "EV充放電器システム制御画面を表示",
-            "label": "EV充放電器 システム"
+            "title": "EV充電器システム制御画面を表示",
+            "label": "EV充電器システム"
           },
           "settings": {
             "title": "設定画面を表示",
@@ -484,8 +484,8 @@
             "label": "EV充放電器システム"
           },
           "evCharger": {
-            "title": "EV充放電器システム制御画面を表示",
-            "label": "EV充放電器システム"
+            "title": "EV充電器システム制御画面を表示",
+            "label": "EV充電器システム"
           }
         }
       },
@@ -690,7 +690,7 @@
             "single": "単体機器",
             "battery": "蓄電池システム",
             "evChargerDischarger": "EV充放電器システム",
-            "evCharger": "EV充放電器システム",
+            "evCharger": "EV充電器システム",
             "network": "ネットワーク",
             "cameras": "ライブ映像",
             "ui": "UI"
