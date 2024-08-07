@@ -209,19 +209,10 @@
             <path id="ChargeButton" d="M500.5 186H423.5C419.358 186 416 189.358 416 193.5V209.5C416 213.642 419.358 217 423.5 217H500.5C504.642 217 508 213.642 508 209.5V193.5C508 189.358 504.642 186 500.5 186Z" :stroke="propertyList['0xDA'] === '0x43' ? 'white' : '#909090'" :fill="propertyList['0xDA'] === '0x43' ? '#3779F5' : 'white'"/>
             <text id="ChargeText" :fill="propertyList['0xDA'] === '0x43' ? 'white' : '#7E7E7E'" xml:space="preserve" style="white-space: pre" font-family="Rubik" font-size="16" letter-spacing="0em"><tspan x="432" y="206.98">Standby</tspan></text>
             <text id="ev-charger-diagram-title-battery" fill="black" xml:space="preserve" style="white-space: pre" font-family="Rubik" font-size="16" letter-spacing="0em"><tspan x="415" y="320.98">EV Charger</tspan></text>
-            <text id="ChargerDischargerType" fill="black" xml:space="preserve" style="white-space: pre" font-family="Rubik" font-size="16" letter-spacing="0em"><tspan x="407.164" y="23.98">Charger Type&#10;</tspan><tspan x="57.5%" y="45" dominant-baseline="middle" text-anchor="middle">EPC: 0xCC {{propertyList['0xCC']}}</tspan></text>
+            <text id="ChargerType" fill="black" xml:space="preserve" style="white-space: pre" font-family="Rubik" font-size="16" letter-spacing="0em"><tspan x="407.164" y="23.98">Charger Type&#10;</tspan><tspan x="57.5%" y="45" dominant-baseline="middle" text-anchor="middle">EPC: 0xCC {{propertyList['0xCC']}}</tspan></text>
             <text id="ev-charger-diagram-title-battery_2" fill="black" xml:space="preserve" style="white-space: pre" font-family="Rubik" font-size="16" letter-spacing="0em"><tspan x="416" y="87.98">Operation&#10;</tspan><tspan x="416" y="106.98">Mode&#10;</tspan><tspan x="416" y="125.98">EPC: 0xDA</tspan></text>
             <text id="ev-charger-diagram-title-battery_3" fill="black" xml:space="preserve" style="white-space: pre" font-family="Rubik" font-size="16" letter-spacing="0em"><tspan x="513" y="87.98">Remaining&#10;</tspan><tspan x="513" y="106.98">Energy&#10;</tspan><tspan x="513" y="125.98">EPC: 0xE4</tspan></text>
             <text id="NotConnected" fill="black" xml:space="preserve" style="white-space: pre" font-family="Rubik" font-size="16" letter-spacing="0em"><tspan x="172" y="272.98">{{propertyList['0xE4'] ? 'Connected' : 'Not Connected'}}</tspan></text>
-            <!-- <text id="ElectricPower" fill="black" xml:space="preserve" style="white-space: pre" font-family="Rubik" font-size="16" letter-spacing="0em"><tspan x="656.938" y="250.98">{{propertyList['0xD3'] || '0 W'}}</tspan></text> -->
-            <!-- <text id="ev-charger-diagram-title-battery_4" fill="black" xml:space="preserve" style="white-space: pre" font-family="Rubik" font-size="16" letter-spacing="0em"><tspan x="643" y="181.98">Electric Power&#10;</tspan><tspan x="643" y="200.98">EPC: 0xD3</tspan></text> -->
-            <!-- <g id="Group 1">
-              <text id="ev-charger-diagram-title-battery_5" fill="black" xml:space="preserve" style="white-space: pre" font-family="Rubik" font-size="16" letter-spacing="0em"><tspan x="33" y="128.98">Chargeable</tspan></text>
-              <text id="ev-charger-diagram-title-battery_6" fill="black" xml:space="preserve" style="white-space: pre" font-family="Rubik" font-size="16" letter-spacing="0em"><tspan x="33" y="151.98">Dischargeable</tspan></text>
-              <text id="ev-charger-diagram-title-battery_7" fill="black" xml:space="preserve" style="white-space: pre" font-family="Rubik" font-size="16" letter-spacing="0em"><tspan x="35" y="72.98">Vehicle Status&#10;</tspan><tspan x="35" y="91.98">EPC: 0xC7</tspan></text>
-              <circle id="Chargeable" cx="154" cy="124" r="8" :fill="propertyList['0xE4'] ? 'green' : '#bbbbbb'"/>
-              <circle id="Dischargeable" cx="154" cy="146" r="8" :fill="(propertyList['0xC7'] === '0x42' || propertyList['0xC7'] === '0x43') ? 'green' : (propertyList['0xC7'] === '0x40' || propertyList['0xC7'] === '0x41') ? 'red' : '#bbbbbb'"/>
-            </g> -->
             <g id="ev-charger-diagram-icon-battery-remaining">
               <path id="rect1080" d="M541 154.666V254.187C541 255.741 542.252 257 543.797 257H562.488C564.033 257 565.285 255.741 565.285 254.187V154.666C565.285 153.112 564.033 151.853 562.488 151.853H543.797C542.252 151.853 541 153.112 541 154.666Z" fill="#47E298" stroke="#5AC491"/>
               <path id="path1082" d="M547.783 148.25C547.783 147.007 548.784 146 550.021 146H556.264C557.501 146 558.502 147.007 558.502 148.25V149.646H547.783V148.25Z" fill="#5AC391"/>
@@ -579,17 +570,14 @@ export default defineComponent({
             edtList = [];
 
       // Operation Mode: 0xDA
-      const mode = (document.querySelector('input[name="f-ev-charger-discharger-operation-mode"]:checked') as HTMLInputElement)?.value;
+      const mode = (document.querySelector('input[name="f-ev-charger-operation-mode"]:checked') as HTMLInputElement)?.value;
       if (!mode) { return; }
 
-      const chargeAmountField = document.getElementById('f-ev-charger-discharger-charge-amount') as HTMLInputElement,
-            dischargeAmountField = document.getElementById('f-ev-charger-discharger-discharge-amount') as HTMLInputElement;
-      let chargeAmount = 0,
-          dischargeAmount = 0;
+      const chargeAmountField = document.getElementById('f-ev-charger-charge-amount') as HTMLInputElement;
+      let chargeAmount = 0;
 
       // Reset errors
       chargeAmountField.classList.remove('is-invalid');
-      dischargeAmountField.classList.remove('is-invalid');
 
       switch (mode) {
         // Charging
