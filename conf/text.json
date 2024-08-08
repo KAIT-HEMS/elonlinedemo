@@ -19,7 +19,11 @@
           },
           "evChargerDischarger": {
             "title": "Opens the EV Charger/Discharger System Control page",
-            "label": "EV Charger/ Discharger"
+            "label": "EV Charger/Discharger"
+          },
+          "evCharger": {
+            "title": "Opens the EV Charger System Control page",
+            "label": "EV Charger"
           },
           "settings": {
             "title": "Opens the Settings page",
@@ -53,6 +57,10 @@
           "evChargerDischarger": {
             "title": "Opens the EV Charger/Discharger System Control page",
             "label": "EV Charger/Discharger"
+          },
+          "evCharger": {
+            "title": "Opens the EV Charger System Control page",
+            "label": "EV Charger"
           }
         }
       },
@@ -220,6 +228,36 @@
           }
         }
       },
+      "evCharger": {
+        "main": {
+          "cameraSwitcher": {
+            "pan": {
+              "title": "Move the view horizontally",
+              "label": "Pan"
+            },
+            "tilt": {
+              "title": "Move the view vertically",
+              "label": "Tilt"
+            },
+            "zoom": {
+              "title": "Zoom the view",
+              "label": "Zoom"
+            }
+          }
+        },
+        "controls": {
+          "nav": {
+            "control": {
+              "title": "Change state of system",
+              "label": "Control"
+            },
+            "monitor": {
+              "title": "See details of system",
+              "label": "Monitor"
+            }
+          }
+        }
+      },
       "settings": {
         "menu": {
           "heading": "Settings",
@@ -227,6 +265,7 @@
             "single": "Single device",
             "battery": "Storage battery system",
             "evChargerDischarger": "EV charger/discharger system",
+            "evCharger": "EV charger system",
             "network": "Network",
             "cameras": "Streaming video",
             "ui": "UI"
@@ -290,6 +329,29 @@
           "idField": "ID"
         },
         "evChargerDischarger": {
+          "modeField": {
+            "heading": "Select a mode",
+            "modes": {
+              "real": "Real Devices",
+              "rhe": "RHE"
+            }
+          },
+          "heading": "Select devices to monitor and control",
+          "searchButton": {
+            "label": "Search",
+            "title": "Search for available devices"
+          },
+          "clearButton": {
+            "label": "Clear",
+            "title": "Clear the search results"
+          },
+          "ipField": "IP",
+          "eojField": "EOJ",
+          "releaseField": "Rel.",
+          "manufacturerField": "Manufacturer",
+          "idField": "ID"
+        },
+        "evCharger": {
           "modeField": {
             "heading": "Select a mode",
             "modes": {
@@ -382,7 +444,11 @@
           },
           "evChargerDischarger": {
             "title": "EV充放電器システム制御画面を表示",
-            "label": "EV充放電器 システム"
+            "label": "EV充放電器システム"
+          },
+          "evCharger": {
+            "title": "EV充電器システム制御画面を表示",
+            "label": "EV充電器システム"
           },
           "settings": {
             "title": "設定画面を表示",
@@ -416,6 +482,10 @@
           "evChargerDischarger": {
             "title": "EV充放電器システム制御画面を表示",
             "label": "EV充放電器システム"
+          },
+          "evCharger": {
+            "title": "EV充電器システム制御画面を表示",
+            "label": "EV充電器システム"
           }
         }
       },
@@ -583,6 +653,36 @@
           }
         }
       },
+      "evCharger": {
+        "main": {
+          "cameraSwitcher": {
+            "pan": {
+              "title": "水平方向にカメラを動かす",
+              "label": "左右"
+            },
+            "tilt": {
+              "title": "垂直方向にカメラを動かす",
+              "label": "上下"
+            },
+            "zoom": {
+              "title": "カメラをズーム",
+              "label": "ズーム"
+            }
+          }
+        },
+        "controls": {
+          "nav": {
+            "control": {
+              "title": "システム状態を変更",
+              "label": "制御"
+            },
+            "monitor": {
+              "title": "システムの詳細を確認",
+              "label": "監視"
+            }
+          }
+        }
+      },
       "settings": {
         "menu": {
           "heading": "設定",
@@ -590,6 +690,7 @@
             "single": "単体機器",
             "battery": "蓄電池システム",
             "evChargerDischarger": "EV充放電器システム",
+            "evCharger": "EV充電器システム",
             "network": "ネットワーク",
             "cameras": "ライブ映像",
             "ui": "UI"
@@ -653,6 +754,29 @@
           "idField": "ID"
         },
         "evChargerDischarger": {
+          "modeField": {
+            "heading": "モードを選択",
+            "modes": {
+              "real": "実機",
+              "rhe": "RHE"
+            }
+          },
+          "heading": "監視・制御する機器を選択",
+          "searchButton": {
+            "label": "検索",
+            "title": "利用可能な機器を検索"
+          },
+          "clearButton": {
+            "label": "クリア",
+            "title": "検索結果をクリア"
+          },
+          "ipField": "IP",
+          "eojField": "EOJ",
+          "releaseField": "Rel.",
+          "manufacturerField": "メーカー",
+          "idField": "ID"
+        },
+        "evCharger": {
           "modeField": {
             "heading": "モードを選択",
             "modes": {
