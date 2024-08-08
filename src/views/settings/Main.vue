@@ -1003,7 +1003,7 @@ export default defineComponent({
     });
 
     watch(evChargerSystemPointBRef, () => {
-      store.commit('setEVChargerSystemPointC', evChargerSystemPointBRef.value);
+      store.commit('setEVChargerSystemPointB', evChargerSystemPointBRef.value);
     });
 
     watch(evChargerSystemPointDRef, () => {
