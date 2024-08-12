@@ -1,5 +1,5 @@
 <template>
-  <div class="ev-charger-discharger-main card flex-grow-1">
+  <div class="ev-charger-main card flex-grow-1">
     <svg
       class="w-100 h-100"
       fill="none"
@@ -16,7 +16,7 @@
     >
       <path
         d="M405 0V126.5C405 139.203 394.703 149.5 382 149.5H64H27C14.2975 149.5 4 159.797 4 172.5V205.5V338"
-        id="ev-charger-discharger-diagram-wire-b"
+        id="ev-charger-diagram-wire-b"
         stroke="url(#paint0_linear_2804_4803)"
         :stroke-width="isSimpleModeRef ? 16 : 8"
         style="stroke: url(#paint14_linear_2804:695)"
@@ -24,9 +24,9 @@
       />
       <path
         class="opposite animate"
-        :class="{ negative: evChargerDischargerSystemData.powerPoints['b'] < 0 }"
+        :class="{ negative: evChargerSystemData.powerPoints['b'] < 0 }"
         d="M405 0V126.5C405 139.203 394.703 149.5 382 149.5H64H27C14.2975 149.5 4 159.797 4 172.5V205.5V338"
-        id="ev-charger-discharger-diagram-flow-b"
+        id="ev-charger-diagram-flow-b"
         stroke="url(#paint14_linear_2804:695)"
         :stroke-width="isSimpleModeRef ? 8 : 4"
         transform="matrix(1, 0, 0, 1, 394, 135)"
@@ -35,20 +35,20 @@
           stroke-miterlimit: 4;
           stroke-opacity: 1;
         "
-        v-show="evChargerDischargerSystemData.powerPoints['b'] !== 0"
+        v-show="evChargerSystemData.powerPoints['b'] !== 0"
       />
       <path
         d="m 1023.9819,149.297 h 178.6947"
-        id="ev-charger-discharger-diagram-wire-g"
+        id="ev-charger-diagram-wire-g"
         stroke="url(#paint1_linear_2804:695)"
         :stroke-width="isSimpleModeRef ? 16 : 8"
         style="stroke: url(#paint1_linear_2804:695)"
       />
       <path
         class="animate"
-        :class="{ negative: evChargerDischargerSystemData.powerPoints['g'] < 0 }"
+        :class="{ negative: evChargerSystemData.powerPoints['g'] < 0 }"
         d="m 1023.9819,149.297 h 178.6947"
-        id="ev-charger-discharger-diagram-flow-g"
+        id="ev-charger-diagram-flow-g"
         stroke="url(#paint1_linear_2804:695)"
         :stroke-width="isSimpleModeRef ? 8 : 4"
         style="
@@ -57,18 +57,18 @@
           stroke-opacity: 1;
           stroke-miterlimit: 4;
         "
-        v-show="evChargerDischargerSystemData.powerPoints['g'] !== 0"
+        v-show="evChargerSystemData.powerPoints['g'] !== 0"
       />
       <path
         d="m 876.03432,323.69531 v -88.4166"
-        id="ev-charger-discharger-diagram-wire-f"
+        id="ev-charger-diagram-wire-f"
         stroke="url(#paint1_linear_2804:695)"
         :stroke-width="isSimpleModeRef ? 16 : 8"
         style="stroke: url(#paint1_linear_2804:695-6)"
       />
       <path
         d="m 837.5421,520.76702 1.52631,192.17844"
-        id="ev-charger-discharger-diagram-wire-e"
+        id="ev-charger-diagram-wire-e"
         stroke="url(#paint3_linear_2804:695)"
         :stroke-width="isSimpleModeRef ? 16 : 8"
         style="
@@ -78,20 +78,20 @@
       />
       <path
         d="m 963.422,516.43787 c 0,0 -0.174,-15.64587 -0.302,86.33213 -0.016,12.71 10.281,22.999 22.992,23.003 l 187.0582,0.094"
-        id="ev-charger-discharger-diagram-wire-d"
+        id="ev-charger-diagram-wire-d"
         stroke="url(#paint4_linear_2804:695)"
         :stroke-width="isSimpleModeRef ? 16 : 8"
       />
-      <path v-show="!isPhotoModeRef" d="m 118,460 h 178.6947" id="ev-charger-discharger-diagram-wire-ev" :stroke="evChargerDischargerSystemData.evChargerDischarger.chargeDischargeStatus === 0xFF || evChargerDischargerSystemData.evChargerDischarger.chargeDischargeStatus === 0x30 ? 'grey' : '#FACC91'" :stroke-width="isSimpleModeRef ? 16 : 8"></path>
-      <path v-show="!isPhotoModeRef && (evChargerDischargerSystemData.evChargerDischarger.workingOperationStatus === 0x42 || evChargerDischargerSystemData.evChargerDischarger.workingOperationStatus === 0x43)" class="animate" :class="{ negative: evChargerDischargerSystemData.evChargerDischarger.workingOperationStatus === 0x43 }" :stroke-width="isSimpleModeRef ? 8 : 4" d="m 118,460 h 178.6947" id="ev-charger-discharger-diagram-wire-ev" stroke="url(#paint1_linear_2804:695)" style="stroke: #000000; fill: none; stroke-opacity: 1; stroke-miterlimit: 4;"></path>
-      <path id="ev-charger-discharger-diagram-solar-wire"
+      <path v-show="!isPhotoModeRef" d="m 118,460 h 178.6947" id="ev-charger-diagram-wire-ev" :stroke="evChargerSystemData.evCharger.chargeStatus === 0xFF || evChargerSystemData.evCharger.chargeStatus === 0x30 ? 'grey' : '#FACC91'" :stroke-width="isSimpleModeRef ? 16 : 8"></path>
+      <path v-show="!isPhotoModeRef && (evChargerSystemData.evCharger.workingOperationStatus === 0x42 || evChargerSystemData.evCharger.workingOperationStatus === 0x43)" class="animate" :class="{ negative: evChargerSystemData.evCharger.workingOperationStatus === 0x43 }" :stroke-width="isSimpleModeRef ? 8 : 4" d="m 118,460 h 178.6947" id="ev-charger-diagram-wire-ev" stroke="url(#paint1_linear_2804:695)" style="stroke: #000000; fill: none; stroke-opacity: 1; stroke-miterlimit: 4;"></path>
+      <path id="ev-charger-diagram-solar-wire"
         d="M263 0V199C263 263 263 263 199 263H0"
         stroke="url(#paint4_linear_2804:695)"
         transform="matrix(1, 0, 0, 1, 470, 450)"
         :stroke-width="isSimpleModeRef ? 16 : 8"
       />
-      <g id="ev-charger-discharger-diagram-grid" v-show="!isPhotoModeRef">
-        <g filter="url(#filter1_d_2804:695)" id="ev-charger-discharger-diagram-box-grid" :class="isSimpleModeRef ? 'simple-mode' : ''">
+      <g id="ev-charger-diagram-grid" v-show="!isPhotoModeRef">
+        <g filter="url(#filter1_d_2804:695)" id="ev-charger-diagram-box-grid" :class="isSimpleModeRef ? 'simple-mode' : ''">
           <rect
             fill="#ffffff"
             height="177"
@@ -102,7 +102,7 @@
             y="70"
           />
         </g>
-        <g id="ev-charger-discharger-diagram-icon-grid" :class="isSimpleModeRef ? 'simple-mode' : ''">
+        <g id="ev-charger-diagram-icon-grid" :class="isSimpleModeRef ? 'simple-mode' : ''">
           <g clip-path="url(#clip0_2804:695)" id="g546">
             <path
               d="M1311.45 122.902L1304.02 116.335L1304.68 115.599L1311.48 121.618L1318.7 115.885L1319.31 116.654L1311.45 122.902Z"
@@ -2442,7 +2442,7 @@
           fill="black"
           font-family="Rubik"
           font-size="18"
-          id="ev-charger-discharger-diagram-title-grid"
+          id="ev-charger-diagram-title-grid"
           letter-spacing="0em"
           style="white-space: pre"
           xml:space="preserve"
@@ -2451,7 +2451,7 @@
           <tspan id="tspan1036" x="1235.28" y="218.665">Power Grid</tspan>
         </text>
       </g>
-      <g id="ev-charger-discharger-diagram-point-g">
+      <g id="ev-charger-diagram-point-g">
         <path
           style="
             fill: none;
@@ -2491,25 +2491,25 @@
           />
         </g>
       </g>
-      <g id="ev-charger-discharger-diagram-point-a" transform="translate(8,450)">
+      <g id="ev-charger-diagram-point-a" transform="translate(8,450)">
         <path transform="translate(-800,150)" style="fill:none;stroke:#4588f1;stroke-width:1.44852px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;" d="M 994.74475,208.237 H 1114.1051" id="path3478-8-0-1"></path>
         <circle cx="194" cy="360" r="16" fill="url(#paint15_linear_2804:695)" id="circle1496" style="fill:url(#paint15_linear_2804:695);"></circle>
         <g aria-label="A" id="text1500" style="font-weight:500;font-size:16px;font-family:Rubik;letter-spacing:0em;white-space:pre;fill:#ffffff;" transform="translate(0.131255,0.43640202)">
           <path d="m 199.13437,365.6882 h -1.64844 l -1.14062,-3.24219 h -5.03125 l -1.14063,3.24219 h -1.57031 l 4.23437,-11.63281 h 2.0625 z m -3.26563,-4.57031 -2.03906,-5.71094 -2.04687,5.71094 z" id="path3464"></path>
         </g>
       </g>
-      <text y="848" x="200" text-anchor="middle" id="ev-charger-discharger-diagram-text-a" letter-spacing="0em" font-weight="500" font-size="16px" font-family="Rubik" xml:space="preserve" fill="#505050" style="white-space: pre;">
-        <tspan id="tspan1508">{{ Math.abs(evChargerDischargerSystemData.powerPoints["a"]) }} W</tspan>
+      <text y="848" x="200" text-anchor="middle" id="ev-charger-diagram-text-a" letter-spacing="0em" font-weight="500" font-size="16px" font-family="Rubik" xml:space="preserve" fill="#505050" style="white-space: pre;">
+        <tspan id="tspan1508">{{ Math.abs(evChargerSystemData.powerPoints["a"]) }} W</tspan>
       </text>
       <g
         class="arrow"
-        :class="{ negative: evChargerDischargerSystemData.powerPoints['g'] < 0 }"
+        :class="{ negative: evChargerSystemData.powerPoints['g'] < 0 }"
         transform="translate(-6.3982198,-3.015834)"
-        id="ev-charger-discharger-diagram-arrow-g"
+        id="ev-charger-diagram-arrow-g"
         opacity="0.5"
-        v-show="evChargerDischargerSystemData.powerPoints['g'] !== 0"
+        v-show="evChargerSystemData.powerPoints['g'] !== 0"
       >
-        <g :class="{ inverse: evChargerDischargerSystemData.powerPoints['g'] < 0 }">
+        <g :class="{ inverse: evChargerSystemData.powerPoints['g'] < 0 }">
           <path
             id="path2024"
             fill="#3775f0"
@@ -2526,7 +2526,7 @@
         text-anchor="middle"
         y="-4"
         x="33.312077"
-        id="ev-charger-discharger-diagram-text-g"
+        id="ev-charger-diagram-text-g"
         letter-spacing="0em"
         font-weight="500"
         font-size="16px"
@@ -2541,10 +2541,10 @@
           x="1113.3903"
           :style="isSimpleModeRef ? 'font-size: 24px;' : ''"
         >
-          {{ Math.abs(evChargerDischargerSystemData.powerPoints["g"]) }} W
+          {{ Math.abs(evChargerSystemData.powerPoints["g"]) }} W
         </tspan>
       </text>
-      <g id="ev-charger-discharger-diagram-point-f">
+      <g id="ev-charger-diagram-point-f">
         <path
           style="
             fill: none;
@@ -2586,13 +2586,13 @@
       </g>
       <g
         class="arrow"
-        :class="{ negative: evChargerDischargerSystemData.powerPoints['f'] < 0 }"
+        :class="{ negative: evChargerSystemData.powerPoints['f'] < 0 }"
         transform="translate(-87.837977,-32.551626)"
-        id="ev-charger-discharger-diagram-arrow-f"
+        id="ev-charger-diagram-arrow-f"
         opacity="0.5"
-        v-show="evChargerDischargerSystemData.powerPoints['f'] !== 0"
+        v-show="evChargerSystemData.powerPoints['f'] !== 0"
       >
-        <g :class="{ inverse: evChargerDischargerSystemData.powerPoints['f'] < 0 }">
+        <g :class="{ inverse: evChargerSystemData.powerPoints['f'] < 0 }">
           <path
             id="path2040"
             fill="#3775f0"
@@ -2609,7 +2609,7 @@
         text-anchor="middle"
         y="-28.443352"
         x="-54.103706"
-        id="ev-charger-discharger-diagram-text-f"
+        id="ev-charger-diagram-text-f"
         letter-spacing="0em"
         font-weight="500"
         font-size="16px"
@@ -2624,10 +2624,10 @@
           :x="isSimpleModeRef ? 1040 : 972.41437"
           :style="isSimpleModeRef ? 'font-size: 24px;' : ''"
         >
-          {{ Math.abs(evChargerDischargerSystemData.powerPoints["f"]) }} W
+          {{ Math.abs(evChargerSystemData.powerPoints["f"]) }} W
         </tspan>
       </text>
-      <g transform="translate(-10,-18)" id="ev-charger-discharger-diagram-point-d">
+      <g transform="translate(-10,-18)" id="ev-charger-diagram-point-d">
         <path
           sodipodi:nodetypes="cccc"
           id="path3478-8-0-6"
@@ -2670,13 +2670,13 @@
       </g>
       <g
         class="arrow"
-        :class="{ negative: evChargerDischargerSystemData.powerPoints['d'] < 0 }"
+        :class="{ negative: evChargerSystemData.powerPoints['d'] < 0 }"
         transform="translate(-28,-9.0296041)"
-        id="ev-charger-discharger-diagram-arrow-d"
+        id="ev-charger-diagram-arrow-d"
         opacity="0.5"
-        v-show="evChargerDischargerSystemData.powerPoints['d'] !== 0"
+        v-show="evChargerSystemData.powerPoints['d'] !== 0"
       >
-        <g :class="{ inverse: evChargerDischargerSystemData.powerPoints['d'] < 0 }">
+        <g :class="{ inverse: evChargerSystemData.powerPoints['d'] < 0 }">
           <path
             id="path2056"
             fill="#3775f0"
@@ -2693,7 +2693,7 @@
         text-anchor="middle"
         x="6.1342373"
         y="50.442123"
-        id="ev-charger-discharger-diagram-text-d"
+        id="ev-charger-diagram-text-d"
         letter-spacing="0em"
         font-weight="500"
         font-size="16px"
@@ -2708,10 +2708,10 @@
           :x="isSimpleModeRef ? 1100 : 1032.2523"
           :style="isSimpleModeRef ? 'font-size: 24px;' : ''"
         >
-          {{ Math.abs(evChargerDischargerSystemData.powerPoints["d"]) }} W
+          {{ Math.abs(evChargerSystemData.powerPoints["d"]) }} W
         </tspan>
       </text>
-      <g transform="translate(-2,-44)" id="ev-charger-discharger-diagram-point-e">
+      <g transform="translate(-2,-44)" id="ev-charger-diagram-point-e">
         <path
           style="
             fill: none;
@@ -2753,13 +2753,13 @@
       </g>
       <g
         class="arrow"
-        :class="{ negative: evChargerDischargerSystemData.powerPoints['e'] < 0 }"
+        :class="{ negative: evChargerSystemData.powerPoints['e'] < 0 }"
         transform="translate(-14,-53.029604)"
-        id="ev-charger-discharger-diagram-arrow-e"
+        id="ev-charger-diagram-arrow-e"
         opacity="0.5"
-        v-show="evChargerDischargerSystemData.powerPoints['e'] !== 0"
+        v-show="evChargerSystemData.powerPoints['e'] !== 0"
       >
-        <g :class="{ inverse: evChargerDischargerSystemData.powerPoints['e'] < 0 }">
+        <g :class="{ inverse: evChargerSystemData.powerPoints['e'] < 0 }">
           <path
             id="path2072"
             fill="#3775f0"
@@ -2776,7 +2776,7 @@
         text-anchor="middle"
         y="7.3946228"
         x="19.742188"
-        id="ev-charger-discharger-diagram-text-e"
+        id="ev-charger-diagram-text-e"
         letter-spacing="0em"
         font-weight="500"
         font-size="16px"
@@ -2791,10 +2791,10 @@
           x="902.76129"
           :style="isSimpleModeRef ? 'font-size: 24px;' : ''"
         >
-          {{ Math.abs(evChargerDischargerSystemData.powerPoints["e"]) }} W
+          {{ Math.abs(evChargerSystemData.powerPoints["e"]) }} W
         </tspan>
       </text>
-      <g transform="matrix(1, 0, 0, 1, 0, -240)" id="ev-charger-discharger-diagram-point-b">
+      <g transform="matrix(1, 0, 0, 1, 0, -240)" id="ev-charger-diagram-point-b">
         <path
           style="
             fill: none;
@@ -2835,13 +2835,13 @@
       </g>
       <g
         class="arrow"
-        :class="{ negative: evChargerDischargerSystemData.powerPoints['b'] < 0 }"
+        :class="{ negative: evChargerSystemData.powerPoints['b'] < 0 }"
         transform="translate(0,-160)"
-        id="ev-charger-discharger-diagram-arrow-b"
+        id="ev-charger-diagram-arrow-b"
         opacity="0.5"
-        v-show="evChargerDischargerSystemData.powerPoints['b'] !== 0"
+        v-show="evChargerSystemData.powerPoints['b'] !== 0"
       >
-        <g :class="{ inverse: evChargerDischargerSystemData.powerPoints['b'] < 0 }">
+        <g :class="{ inverse: evChargerSystemData.powerPoints['b'] < 0 }">
           <path
             id="path2088"
             fill="#3775f0"
@@ -2858,7 +2858,7 @@
         text-anchor="middle"
         y="0"
         x="22.742188"
-        id="ev-charger-discharger-diagram-text-b"
+        id="ev-charger-diagram-text-b"
         letter-spacing="0em"
         font-weight="500"
         font-size="16px"
@@ -2874,14 +2874,14 @@
           x="277.2063"
           :style="isSimpleModeRef ? 'font-size: 24px;' : ''"
         >
-          {{ Math.abs(evChargerDischargerSystemData.powerPoints["b"]) }} W
+          {{ Math.abs(evChargerSystemData.powerPoints["b"]) }} W
         </tspan>
       </text>
       <path
         class="animate"
-        :class="{ negative: evChargerDischargerSystemData.powerPoints['f'] < 0 }"
+        :class="{ negative: evChargerSystemData.powerPoints['f'] < 0 }"
         d="m 876.03432,323.69531 v -88.4166"
-        id="ev-charger-discharger-diagram-flow-f"
+        id="ev-charger-diagram-flow-f"
         stroke="url(#paint1_linear_2804:695)"
         :stroke-width="isSimpleModeRef ? 8 : 4"
         style="
@@ -2889,12 +2889,12 @@
           stroke-opacity: 1;
           stroke-miterlimit: 4;
         "
-        v-show="evChargerDischargerSystemData.powerPoints['f'] !== 0"
+        v-show="evChargerSystemData.powerPoints['f'] !== 0"
       />
-      <g id="ev-charger-discharger-diagram-smartmeter" v-show="!isPhotoModeRef">
+      <g id="ev-charger-diagram-smartmeter" v-show="!isPhotoModeRef">
         <g
           filter="url(#filter7_d_2804:695)"
-          id="ev-charger-discharger-diagram-box-smartmeter"
+          id="ev-charger-diagram-box-smartmeter"
         >
           <rect
             fill="#ffffff"
@@ -2907,7 +2907,7 @@
           />
         </g>
         <g
-          id="ev-charger-discharger-diagram-icon-smartmeter"
+          id="ev-charger-diagram-icon-smartmeter"
           transform="matrix(1.2373772,0,0,1.2373772,-200.09498,-33.606575)"
           :class="isSimpleModeRef ? 'simple-mode' : ''"
         >
@@ -3114,7 +3114,7 @@
           fill="#515050"
           font-family="Rubik"
           font-size="16"
-          id="ev-charger-discharger-diagram-ip-smartmeter"
+          id="ev-charger-diagram-ip-smartmeter"
           letter-spacing="0em"
           style="white-space: pre"
           xml:space="preserve"
@@ -3128,7 +3128,7 @@
           fill="#515050"
           font-family="Rubik"
           font-size="16"
-          id="ev-charger-discharger-diagram-eoj-smartmeter"
+          id="ev-charger-diagram-eoj-smartmeter"
           letter-spacing="0em"
           style="white-space: pre"
           xml:space="preserve"
@@ -3137,15 +3137,15 @@
           <tspan id="tspan2200" x="887.18" y="229.98">
             EOJ:
             {{
-              evChargerDischargerSystem.smartMeter.ip
+              evChargerSystem.smartMeter.ip
                 ? "0x" +
-                  evChargerDischargerSystem.smartMeter.eoj.class.toHex(4).toUpperCase() +
-                  evChargerDischargerSystem.smartMeter.eoj.id.toHex(2).toUpperCase()
+                  evChargerSystem.smartMeter.eoj.class.toHex(4).toUpperCase() +
+                  evChargerSystem.smartMeter.eoj.id.toHex(2).toUpperCase()
                 : ""
             }}
           </tspan>
         </text>
-        <g id="ev-charger-discharger-diagram-live-3" role="button" @click="switchCamera(2, true)"
+        <g id="ev-charger-diagram-live-3" role="button" @click="switchCamera(2, true)"
           v-show="isRealDevices"
         >
           <path
@@ -3215,7 +3215,7 @@
           fill="#000000"
           font-family="Rubik"
           font-size="18px"
-          id="ev-charger-discharger-diagram-title-smartmeter"
+          id="ev-charger-diagram-title-smartmeter"
           letter-spacing="0em"
           style="white-space: pre"
           x="-4.5717773"
@@ -4254,9 +4254,9 @@
       </defs>
       <path
         class="opposite animate"
-        :class="{ negative: evChargerDischargerSystemData.powerPoints['d'] < 0 }"
+        :class="{ negative: evChargerSystemData.powerPoints['d'] < 0 }"
         d="m 963.422,516.43787 c 0,0 -0.174,-15.64587 -0.302,86.33213 -0.016,12.71 10.281,22.999 22.992,23.003 l 187.0582,0.094"
-        id="ev-charger-discharger-diagram-flow-d"
+        id="ev-charger-diagram-flow-d"
         stroke="url(#paint4_linear_2804:695)"
         :stroke-width="isSimpleModeRef ? 8 : 4"
         style="
@@ -4264,10 +4264,10 @@
           stroke-opacity: 1;
           stroke-miterlimit: 4;
         "
-        v-show="evChargerDischargerSystemData.powerPoints['d'] !== 0"
+        v-show="evChargerSystemData.powerPoints['d'] !== 0"
       />
-      <g id="ev-charger-discharger-diagram-ac" v-show="!isPhotoModeRef">
-        <g filter="url(#filter3_d_2804:695)" id="ev-charger-discharger-diagram-box-ac">
+      <g id="ev-charger-diagram-ac" v-show="!isPhotoModeRef">
+        <g filter="url(#filter3_d_2804:695)" id="ev-charger-diagram-box-ac">
           <rect
             fill="#ffffff"
             height="260"
@@ -4278,7 +4278,7 @@
             y="511"
           />
         </g>
-        <g id="ev-charger-discharger-diagram-icon-ac" :class="isSimpleModeRef ? 'simple-mode' : ''">
+        <g id="ev-charger-diagram-icon-ac" :class="isSimpleModeRef ? 'simple-mode' : ''">
           <path
             d="M1282.97 627.696C1284.36 626.343 1285.44 624.741 1286.36 622.947C1287.29 621.152 1287.75 619.452 1287.75 618.114L1287.61 585.279C1287.6 584.043 1286.45 583.788 1285.44 584.797L1282.82 587.413L1282.97 627.696Z"
             fill="#C9CEE2"
@@ -4339,18 +4339,18 @@
           <path
             :class="{
               heating:
-                evChargerDischargerSystemData.homeAirConditioner.operationModeSetting ===
+                evChargerSystemData.homeAirConditioner.operationModeSetting ===
                 67,
             }"
             d="M1171.06 661C1187.08 644.973 1182.31 633.148 1181.74 625.74H1278.97C1272.78 643.477 1285.17 656.512 1292.65 661H1171.06Z"
             fill="url(#paint7_linear_2804:695)"
             fill-opacity="0.5"
-            id="ev-charger-discharger-diagram-icon-ac-wind"
-            v-show="evChargerDischargerSystemData.homeAirConditioner.operationStatus === 48"
+            id="ev-charger-diagram-icon-ac-wind"
+            v-show="evChargerSystemData.homeAirConditioner.operationStatus === 48"
           />
           <g
-            id="ev-charger-discharger-diagram-icon-ac-swing"
-            v-show="evChargerDischargerSystemData.homeAirConditioner.operationStatus === 48"
+            id="ev-charger-diagram-icon-ac-swing"
+            v-show="evChargerSystemData.homeAirConditioner.operationStatus === 48"
           >
             <path
               d="M1182.81 661C1198.84 644.973 1194.06 633.148 1193.49 625.74H1202.04C1196.7 643.049 1209.02 654.803 1215.72 661H1182.81Z"
@@ -4398,7 +4398,7 @@
           fill="#515050"
           font-family="Rubik"
           font-size="16"
-          id="ev-charger-discharger-diagram-ip-ac"
+          id="ev-charger-diagram-ip-ac"
           letter-spacing="0em"
           style="white-space: pre"
           xml:space="preserve"
@@ -4410,7 +4410,7 @@
           fill="#515050"
           font-family="Rubik"
           font-size="16"
-          id="ev-charger-discharger-diagram-eoj-ac"
+          id="ev-charger-diagram-eoj-ac"
           letter-spacing="0em"
           style="white-space: pre"
           xml:space="preserve"
@@ -4419,17 +4419,17 @@
           <tspan id="tspan1196" x="1312.12" y="750.98">
             EOJ:
             {{
-              evChargerDischargerSystem.airConditioner.ip
+              evChargerSystem.airConditioner.ip
                 ? "0x" +
-                  evChargerDischargerSystem.airConditioner.eoj.class
+                  evChargerSystem.airConditioner.eoj.class
                     .toHex(4)
                     .toUpperCase() +
-                  evChargerDischargerSystem.airConditioner.eoj.id.toHex(2).toUpperCase()
+                  evChargerSystem.airConditioner.eoj.id.toHex(2).toUpperCase()
                 : ""
             }}
           </tspan>
         </text>
-        <g id="ev-charger-discharger-diagram-live-4" role="button" @click="switchCamera(3, true)"
+        <g id="ev-charger-diagram-live-4" role="button" @click="switchCamera(3, true)"
           v-show="isRealDevices"
         >
           <path
@@ -4507,7 +4507,7 @@
           d="m 1374.781,710.39634 c 3.4329,0 6.219,-2.78365 6.219,-6.21905 0,-2.30105 -1.2562,-4.31105 -3.1095,-5.38694 v -6.01383 c 0,-1.7177 -1.3931,-3.10952 -3.1095,-3.10952 -1.7165,0 -3.1096,1.39182 -3.1096,3.10952 v 6.01383 c -1.8533,1.07589 -3.1095,3.08589 -3.1095,5.38694 0,3.4354 2.7861,6.21905 6.2191,6.21905 z m 1.0323,-10.40945 1.0448,0.59827 c 1.2687,0.73758 2.0647,2.09458 2.0647,3.59213 0,2.28985 -1.8532,4.14686 -4.1418,4.14686 -2.2887,0 -4.1419,-1.85701 -4.1419,-4.14686 0,-1.49755 0.796,-2.85455 2.0647,-3.59213 l 1.0448,-0.59827 v -7.21037 c 0,-0.29602 0.4975,-1.04604 1.0324,-1.03733 0.4975,0.01 1.0323,0.75997 1.0323,1.03733 z"
           fill="#505050"
           fill-rule="evenodd"
-          id="ev-charger-discharger-diagram-icon-ac-temp"
+          id="ev-charger-diagram-icon-ac-temp"
           style="stroke-width: 1.24381"
           v-show="!isSimpleModeRef"
         />
@@ -4515,7 +4515,7 @@
           fill="#505050"
           font-family="Rubik"
           font-size="16"
-          id="ev-charger-discharger-diagram-value-ac-temp"
+          id="ev-charger-diagram-value-ac-temp"
           letter-spacing="0em"
           style="white-space: pre"
           xml:space="preserve"
@@ -4523,9 +4523,9 @@
         >
           <tspan id="tspan1220" x="1391.62" y="703.98">
             {{
-              0 <= evChargerDischargerSystemData.homeAirConditioner.setTemperatureValue &&
-              evChargerDischargerSystemData.homeAirConditioner.setTemperatureValue <= 50
-                ? evChargerDischargerSystemData.homeAirConditioner.setTemperatureValue
+              0 <= evChargerSystemData.homeAirConditioner.setTemperatureValue &&
+              evChargerSystemData.homeAirConditioner.setTemperatureValue <= 50
+                ? evChargerSystemData.homeAirConditioner.setTemperatureValue
                 : "‐"
             }}℃
           </tspan>
@@ -4534,7 +4534,7 @@
           fill="#505050"
           font-family="Rubik"
           font-size="16px"
-          id="ev-charger-discharger-diagram-label-ac-temp"
+          id="ev-charger-diagram-label-ac-temp"
           letter-spacing="0em"
           style="white-space: pre"
           x="-6.602921"
@@ -4547,7 +4547,7 @@
           fill="#505050"
           font-family="Rubik"
           :font-size="isSimpleModeRef? '22' : '16'"
-          id="ev-charger-discharger-diagram-label-ac-status"
+          id="ev-charger-diagram-label-ac-status"
           letter-spacing="0em"
           style="white-space: pre"
           xml:space="preserve"
@@ -4558,7 +4558,7 @@
           fill="#505050"
           font-family="Rubik"
           font-size="16"
-          id="ev-charger-discharger-diagram-label-ac-mode"
+          id="ev-charger-diagram-label-ac-mode"
           letter-spacing="0em"
           style="white-space: pre"
           xml:space="preserve"
@@ -4569,11 +4569,11 @@
         <rect
           class="indicator"
           :class="{
-            on: evChargerDischargerSystemData.homeAirConditioner.operationStatus === 48,
+            on: evChargerSystemData.homeAirConditioner.operationStatus === 48,
           }"
           fill="#3779F5"
           :height="isSimpleModeRef ? '45' : '32'"
-          id="ev-charger-discharger-diagram-rect-ac-status-on"
+          id="ev-charger-diagram-rect-ac-status-on"
           rx="8"
           :width="isSimpleModeRef ? '60' : '41'"
           :x="isSimpleModeRef ? '1390' : '1327'"
@@ -4584,7 +4584,7 @@
           font-family="Rubik"
           :font-size="isSimpleModeRef ? '22px' : '16px'"
           :font-weight="isSimpleModeRef ? 'bold' : 'inherit'"
-          id="ev-charger-discharger-diagram-value-ac-status-on"
+          id="ev-charger-diagram-value-ac-status-on"
           letter-spacing="0em"
           style="white-space: pre"
           x="-0.6171875"
@@ -4596,10 +4596,10 @@
         <rect
           class="indicator"
           :class="{
-            on: evChargerDischargerSystemData.homeAirConditioner.operationStatus === 49,
+            on: evChargerSystemData.homeAirConditioner.operationStatus === 49,
           }"
           :height="isSimpleModeRef ? '45' : '31'"
-          id="ev-charger-discharger-diagram-rect-ac-status-off"
+          id="ev-charger-diagram-rect-ac-status-off"
           rx="7.5"
           stroke="#909090"
           :width="isSimpleModeRef ? '60' : '40'"
@@ -4611,7 +4611,7 @@
           font-family="Rubik"
           :font-size="isSimpleModeRef ? '22px' : '16px'"
           :font-weight="isSimpleModeRef ? 'bold' : 'inherit'"
-          id="ev-charger-discharger-diagram-value-ac-status-off"
+          id="ev-charger-diagram-value-ac-status-off"
           letter-spacing="0em"
           style="white-space: pre"
           x="-1.1289062"
@@ -4624,10 +4624,10 @@
           class="indicator"
           :class="{
             on:
-              evChargerDischargerSystemData.homeAirConditioner.operationModeSetting === 67,
+              evChargerSystemData.homeAirConditioner.operationModeSetting === 67,
           }"
           height="31"
-          id="ev-charger-discharger-diagram-rect-ac-mode-heating"
+          id="ev-charger-diagram-rect-ac-mode-heating"
           rx="7.5"
           stroke="#909090"
           width="79"
@@ -4639,7 +4639,7 @@
           fill="#7e7e7e"
           font-family="Rubik"
           font-size="16px"
-          id="ev-charger-discharger-diagram-value-ac-mode-heating"
+          id="ev-charger-diagram-value-ac-mode-heating"
           letter-spacing="0em"
           style="white-space: pre"
           x="-1.0585938"
@@ -4653,11 +4653,11 @@
           class="indicator"
           :class="{
             on:
-              evChargerDischargerSystemData.homeAirConditioner.operationModeSetting === 66,
+              evChargerSystemData.homeAirConditioner.operationModeSetting === 66,
           }"
           fill="#3779F5"
           height="32"
-          id="ev-charger-discharger-diagram-rect-ac-mode-cooling"
+          id="ev-charger-diagram-rect-ac-mode-cooling"
           rx="8"
           width="80"
           x="1376"
@@ -4668,7 +4668,7 @@
           fill="#ffffff"
           font-family="Rubik"
           font-size="16px"
-          id="ev-charger-discharger-diagram-value-ac-mode-cooling"
+          id="ev-charger-diagram-value-ac-mode-cooling"
           letter-spacing="0em"
           style="white-space: pre"
           x="-1.4921875"
@@ -4681,7 +4681,7 @@
           fill="black"
           font-family="Rubik"
           font-size="18"
-          id="ev-charger-discharger-diagram-title-ac"
+          id="ev-charger-diagram-title-ac"
           letter-spacing="0em"
           style="white-space: pre"
           xml:space="preserve"
@@ -4692,9 +4692,9 @@
       </g>
       <path
         class="opposite animate"
-        :class="{ negative: evChargerDischargerSystemData.powerPoints['e'] < 0 }"
+        :class="{ negative: evChargerSystemData.powerPoints['e'] < 0 }"
         d="m 837.5421,520.76702 1.52631,192.17844"
-        id="ev-charger-discharger-diagram-flow-e"
+        id="ev-charger-diagram-flow-e"
         stroke="url(#paint3_linear_2804:695)"
         :stroke-width="isSimpleModeRef ? 8 : 4"
         style="
@@ -4702,10 +4702,10 @@
           stroke-miterlimit: 4;
           stroke-opacity: 1;
         "
-        v-show="evChargerDischargerSystemData.powerPoints['e'] !== 0"
+        v-show="evChargerSystemData.powerPoints['e'] !== 0"
       />
-      <g id="ev-charger-discharger-diagram-load" transform="translate(-12.929457,-18.675882)"  v-show="!isPhotoModeRef">
-        <g filter="url(#filter0_d_2804:695)" id="ev-charger-discharger-diagram-box-load" :class="isSimpleModeRef ? 'simple-mode' : ''">
+      <g id="ev-charger-diagram-load" transform="translate(-12.929457,-18.675882)"  v-show="!isPhotoModeRef">
+        <g filter="url(#filter0_d_2804:695)" id="ev-charger-diagram-box-load" :class="isSimpleModeRef ? 'simple-mode' : ''">
           <rect
             fill="#ffffff"
             height="153.01431"
@@ -4717,7 +4717,7 @@
             y="726.54907"
           />
         </g>
-        <g id="ev-charger-discharger-diagram-icon-load" :class="isSimpleModeRef ? 'simple-mode' : ''">
+        <g id="ev-charger-diagram-icon-load" :class="isSimpleModeRef ? 'simple-mode' : ''">
           <path
             d="m 891.067,750.703 h 14.802 c 1.511,0 2.735,1.225 2.735,2.736 v 40.33 c 0,1.511 -1.224,2.736 -2.735,2.736 h -14.802 c -1.511,0 -2.736,-1.225 -2.736,-2.736 v -40.33 c 0,-1.511 1.225,-2.736 2.736,-2.736 z"
             fill="url(#paint5_linear_2804:695)"
@@ -4854,7 +4854,7 @@
           fill="#000000"
           font-family="Rubik"
           font-size="18px"
-          id="ev-charger-discharger-diagram-title-load"
+          id="ev-charger-diagram-title-load"
           letter-spacing="0em"
           style="white-space: pre"
           xml:space="preserve"
@@ -4864,8 +4864,8 @@
           <tspan id="tspan68" x="839.10901" y="852.66498">Load</tspan>
         </text>
       </g>
-      <g id="ev-charger-discharger-diagram-board" v-show="!isPhotoModeRef">
-        <g filter="url(#filter4_d_2804:695)" id="ev-charger-discharger-diagram-box-board">
+      <g id="ev-charger-diagram-board" v-show="!isPhotoModeRef">
+        <g filter="url(#filter4_d_2804:695)" id="ev-charger-diagram-box-board">
           <rect
             fill="#ffffff"
             height="223"
@@ -4876,7 +4876,7 @@
             y="312"
           />
         </g>
-        <g id="ev-charger-discharger-diagram-icon-board" :class="isSimpleModeRef ? 'simple-mode' : ''">
+        <g id="ev-charger-diagram-icon-board" :class="isSimpleModeRef ? 'simple-mode' : ''">
           <path
             d="M896.761 347.483C898.283 347.562 899.55 348.017 900.459 348.811C901.368 349.606 901.893 350.718 901.992 352.057L901.908 418.349C901.908 420.887 899.526 422.963 896.636 422.981L847.231 410.959C845.71 410.879 844.444 410.423 843.535 409.629C842.626 408.834 842.1 407.723 842 406.386L798.083 352.093C798.083 349.555 800.466 347.48 803.356 347.462L896.761 347.483Z"
             fill="#8D8C91"
@@ -5308,7 +5308,7 @@
           fill="#515050"
           font-family="Rubik"
           font-size="16"
-          id="ev-charger-discharger-diagram-ip-board"
+          id="ev-charger-diagram-ip-board"
           letter-spacing="0em"
           style="white-space: pre"
           xml:space="preserve"
@@ -5322,7 +5322,7 @@
           fill="#515050"
           font-family="Rubik"
           font-size="16"
-          id="ev-charger-discharger-diagram-eoj-board"
+          id="ev-charger-diagram-eoj-board"
           letter-spacing="0em"
           style="white-space: pre"
           xml:space="preserve"
@@ -5331,17 +5331,17 @@
           <tspan id="tspan1404" x="855.18" y="514.98">
             EOJ:
             {{
-              evChargerDischargerSystem.distributionBoard.ip
+              evChargerSystem.distributionBoard.ip
                 ? "0x" +
-                  evChargerDischargerSystem.distributionBoard.eoj.class
+                  evChargerSystem.distributionBoard.eoj.class
                     .toHex(4)
                     .toUpperCase() +
-                  evChargerDischargerSystem.distributionBoard.eoj.id.toHex(2).toUpperCase()
+                  evChargerSystem.distributionBoard.eoj.id.toHex(2).toUpperCase()
                 : ""
             }}
           </tspan>
         </text>
-        <g id="ev-charger-discharger-diagram-info-board">
+        <g id="ev-charger-diagram-info-board">
           <path
             d="M981.5 340C981.5 346.351 976.351 351.5 970 351.5C963.649 351.5 958.5 346.351 958.5 340C958.5 333.649 963.649 328.5 970 328.5C976.351 328.5 981.5 333.649 981.5 340Z"
             fill="#D7D7D7"
@@ -5358,7 +5358,7 @@
           fill="#000000"
           font-family="Rubik"
           font-size="18px"
-          id="ev-charger-discharger-diagram-title-board"
+          id="ev-charger-diagram-title-board"
           letter-spacing="0em"
           style="white-space: pre"
           x="-17.514832"
@@ -5370,8 +5370,8 @@
           </tspan>
         </text>
       </g>
-      <g id="ev-charger-discharger-diagram-battery" transform="matrix(1, 0, 0, 1, 200, -250)" v-show="!isPhotoModeRef">
-        <g filter="url(#filter2_d_2804:695)" id="ev-charger-discharger-diagram-box-battery">
+      <g id="ev-charger-diagram-battery" transform="matrix(1, 0, 0, 1, 200, -250)" v-show="!isPhotoModeRef">
+        <g filter="url(#filter2_d_2804:695)" id="ev-charger-diagram-box-battery">
           <rect
             fill="#ffffff"
             height="265"
@@ -5382,7 +5382,7 @@
             y="565"
           />
         </g>
-        <g xmlns="http://www.w3.org/2000/svg" id="ev-charger-discharger-diagram-icon-battery" :class="isSimpleModeRef ? 'simple-mode' : ''">
+        <g xmlns="http://www.w3.org/2000/svg" id="ev-charger-diagram-icon-battery" :class="isSimpleModeRef ? 'simple-mode' : ''">
           <g style="fill:none" id="g3468" transform="matrix(0.5612884,0,0,0.5612884,39.925553,619.27591)">
             <g id="g3364" :transform="isSimpleModeRef ? 'matrix(2.5,0,0,2.5,-550,-200)' : 'matrix(2,0,0,2,-400,-100)'">
               <path d="m 85.6735,123.781 c 0,0 -0.0307,0 -0.0422,0 H 73.867 c -5.0638,0 -9.1692,6.643 -9.1692,14.838 0,8.196 4.1054,14.839 9.1692,14.839 h 11.7643 c 0,0 0.0307,0 0.0422,0 5.0638,0 9.1692,-6.643 9.1692,-14.839 0,-8.195 -4.1054,-14.838 -9.1692,-14.838 z" fill="#8591A6" id="path3308"/>
@@ -5446,7 +5446,7 @@
             letter-spacing="0em"
             style="white-space: pre"
             xml:space="preserve"
-            v-show="evChargerDischargerSystemData.evChargerDischarger.chargeDischargeStatus === 0x43"
+            v-show="evChargerSystemData.evCharger.chargeStatus === 0x43"
           >
             <tspan>Ready</tspan>
           </text>
@@ -5456,7 +5456,7 @@
           font-family="Rubik"
           :font-size="isSimpleModeRef ? '18' : '14'"
           font-weight="500"
-          id="ev-charger-discharger-diagram-value-battery-remaining"
+          id="ev-charger-diagram-value-battery-remaining"
           letter-spacing="0em"
           style="white-space: pre"
           xml:space="preserve"
@@ -5464,14 +5464,14 @@
           :text-anchor="isSimpleModeRef ? 'middle' : 'inherit'"
         >
           <tspan id="tspan1086" x="315" y="743.295">
-            {{ evChargerDischargerSystemData.evChargerDischarger.remainingStoredElectricity }}%
+            {{ evChargerSystemData.evCharger.remainingStoredElectricity }}%
           </tspan>
         </text>
         <text
           fill="#2D9E68"
           font-family="Rubik"
           :font-size="isSimpleModeRef ? '18' : '14'"
-          id="ev-charger-discharger-diagram-label-battery-remaining"
+          id="ev-charger-diagram-label-battery-remaining"
           letter-spacing="0em"
           style="white-space: pre"
           xml:space="preserve"
@@ -5509,7 +5509,7 @@
           fill="#515050"
           font-family="Rubik"
           font-size="16"
-          id="ev-charger-discharger-diagram-ip-battery"
+          id="ev-charger-diagram-ip-battery"
           letter-spacing="0em"
           style="white-space: pre"
           xml:space="preserve"
@@ -5523,7 +5523,7 @@
           fill="#515050"
           font-family="Rubik"
           font-size="16"
-          id="ev-charger-discharger-diagram-eoj-battery"
+          id="ev-charger-diagram-eoj-battery"
           letter-spacing="0em"
           style="white-space: pre"
           xml:space="preserve"
@@ -5532,17 +5532,17 @@
           <tspan id="tspan1106" x="211.18" y="809.98">
             EOJ:
             {{
-              evChargerDischargerSystem.evChargerDischarger.ip
+              evChargerSystem.evCharger.ip
                 ? "0x" +
-                  evChargerDischargerSystem.evChargerDischarger.eoj.class
+                  evChargerSystem.evCharger.eoj.class
                     .toHex(4)
                     .toUpperCase() +
-                  evChargerDischargerSystem.evChargerDischarger.eoj.id.toHex(2).toUpperCase()
+                  evChargerSystem.evCharger.eoj.id.toHex(2).toUpperCase()
                 : ""
             }}
           </tspan>
         </text>
-        <g id="ev-charger-discharger-diagram-live-2" role="button" @click="switchCamera(1, true)"
+        <g id="ev-charger-diagram-live-2" role="button" @click="switchCamera(1, true)"
           v-show="isRealDevices"
         >
           <path
@@ -5612,7 +5612,7 @@
           fill="#505050"
           font-family="Rubik"
           :font-size="isSimpleModeRef? '22' : '16'"
-          id="ev-charger-discharger-diagram-label-battery-mode"
+          id="ev-charger-diagram-label-battery-mode"
           letter-spacing="0em"
           xml:space="preserve"
           data-v-6de17741=""
@@ -5626,12 +5626,12 @@
           :class="{
             on:
               [0x42, 0x43].indexOf(
-                evChargerDischargerSystemData.evChargerDischarger.workingOperationStatus
+                evChargerSystemData.evCharger.workingOperationStatus
               ) === -1,
           }"
           fill="#3779F5"
           :height="isSimpleModeRef ? '45' : '32'"
-          id="ev-charger-discharger-diagram-rect-battery-status-standby"
+          id="ev-charger-diagram-rect-battery-status-standby"
           rx="8"
           :width="isSimpleModeRef ? '120' : '92'"
           x="199"
@@ -5642,7 +5642,7 @@
           font-family="Rubik"
           :font-size="isSimpleModeRef ? '22px' : '16px'"
           :font-weight="isSimpleModeRef ? 'bold' : 'inherit'"
-          id="ev-charger-discharger-diagram-value-battery-status-standby"
+          id="ev-charger-diagram-value-battery-status-standby"
           letter-spacing="0em"
           style="white-space: pre"
           x="-1.4726562"
@@ -5655,10 +5655,10 @@
         <rect
           class="indicator"
           :class="{
-            on: evChargerDischargerSystemData.evChargerDischarger.workingOperationStatus === 0x42,
+            on: evChargerSystemData.evCharger.workingOperationStatus === 0x42,
           }"
           :height="isSimpleModeRef ? '45' : '31'"
-          id="ev-charger-discharger-diagram-rect-battery-status-charging"
+          id="ev-charger-diagram-rect-battery-status-charging"
           rx="7.5"
           stroke="#909090"
           :width="isSimpleModeRef ? '120' : '91'"
@@ -5670,7 +5670,7 @@
           font-family="Rubik"
           :font-size="isSimpleModeRef ? '22px' : '16px'"
           :font-weight="isSimpleModeRef ? 'bold' : 'inherit'"
-          id="ev-charger-discharger-diagram-value-battery-status-charging"
+          id="ev-charger-diagram-value-battery-status-charging"
           letter-spacing="0em"
           style="white-space: pre"
           x="-1.039566"
@@ -5683,10 +5683,10 @@
         <rect
           class="indicator"
           :class="{
-            on: evChargerDischargerSystemData.evChargerDischarger.workingOperationStatus === 0x43,
+            on: evChargerSystemData.evCharger.workingOperationStatus === 0x43,
           }"
           :height="isSimpleModeRef ? '45' : '31'"
-          id="ev-charger-discharger-diagram-rect-battery-status-discharging"
+          id="ev-charger-diagram-rect-battery-status-discharging"
           rx="7.5"
           stroke="#909090"
           :width="isSimpleModeRef ? '120' : '92'"
@@ -5698,7 +5698,7 @@
           font-family="Rubik"
           :font-size="isSimpleModeRef ? '22px' : '16px'"
           :font-weight="isSimpleModeRef ? 'bold' : 'inherit'"
-          id="ev-charger-discharger-diagram-value-battery-status-discharging"
+          id="ev-charger-diagram-value-battery-status-discharging"
           letter-spacing="0em"
           style="white-space: pre"
           x="-2.15625"
@@ -5712,16 +5712,16 @@
           fill="black"
           font-family="Rubik"
           font-size="18"
-          id="ev-charger-discharger-diagram-title-battery"
+          id="ev-charger-diagram-title-battery"
           letter-spacing="0em"
           style="white-space: pre"
           xml:space="preserve"
           :class="isSimpleModeRef ? 'simple-mode' : ''"
         >
-          <tspan id="tspan1144" :x="isSimpleModeRef ? '115' : '66.1865'" y="775.665">EV Charger/Discharger</tspan>
+          <tspan id="tspan1144" :x="isSimpleModeRef ? '115' : '66.1865'" y="775.665">EV Charger</tspan>
         </text>
         <g
-          id="ev-charger-discharger-diagram-icon-battery-remaining"
+          id="ev-charger-diagram-icon-battery-remaining"
           :transform="isSimpleModeRef ? 'translate(20,0)' : 'inherit'"
         >
           <rect
@@ -5753,11 +5753,11 @@
           />
           <g
             class="inverse"
-            id="ev-charger-discharger-diagram-icon-battery-remaining-overlay"
+            id="ev-charger-diagram-icon-battery-remaining-overlay"
           >
             <rect
               height="90.239799"
-              id="ev-charger-discharger-diagram-indicator-battery-remaining"
+              id="ev-charger-diagram-indicator-battery-remaining"
               rx="1.5853161"
               style="
                 fill: #47e298;
@@ -5767,7 +5767,7 @@
               "
               :style="{
                 height:
-                  (evChargerDischargerSystemData.evChargerDischarger.remainingStoredElectricity *
+                  (evChargerSystemData.evCharger.remainingStoredElectricity *
                     85.8) /
                     100 +
                   'px',
@@ -5780,12 +5780,12 @@
           </g>
         </g>
       </g>
-      <g id="ev-charger-discharger-diagram-solar" transform="matrix(1, 0, 0, 1, 250, 600)" v-show="!isPhotoModeRef">
-        <g filter="url(#filter6_d_2804:695)" id="ev-charger-discharger-diagram-box-solar">
+      <g id="ev-charger-diagram-solar" transform="matrix(1, 0, 0, 1, 250, 600)" v-show="!isPhotoModeRef">
+        <g filter="url(#filter6_d_2804:695)" id="ev-charger-diagram-box-solar">
           <rect fill="#ffffff" height="242" id="rect1502" rx="16" width="326" x="30" y="43" style="display: none;"></rect>
           <rect fill="#c3c3c3" height="242" id="rect1502" rx="16" width="326" x="30" y="43"></rect>
         </g>
-        <g id="ev-charger-discharger-diagram-icon-sun" style="display: none;">
+        <g id="ev-charger-diagram-icon-sun" style="display: none;">
           <path d="M271.574 94.75C278.892 94.75 284.824 88.8178 284.824 81.5C284.824 74.1822 278.892 68.25 271.574 68.25C264.256 68.25 258.324 74.1822 258.324 81.5C258.324 88.8178 264.256 94.75 271.574 94.75Z" fill="url(#paint16_linear_2804:695)" id="path1506"></path>
           <path d="M280.758 71.9601L258.506 83.6698C258.383 82.9532 258.322 82.2273 258.324 81.5001C258.323 78.9008 259.086 76.3586 260.519 74.1901C261.952 72.0217 263.992 70.323 266.384 69.3058C268.776 68.2886 271.414 67.9979 273.971 68.4699C276.527 68.9419 278.887 70.1557 280.758 71.9601Z" fill="url(#paint17_linear_2804:695)" id="path1508"></path>
           <path d="M271.574 65.4701C271.355 65.4701 271.144 65.3828 270.989 65.2275C270.833 65.0722 270.746 64.8616 270.746 64.6419V56.6562C270.746 56.4366 270.833 56.226 270.989 56.0707C271.144 55.9154 271.355 55.8281 271.574 55.8281C271.794 55.8281 272.004 55.9154 272.16 56.0707C272.315 56.226 272.402 56.4366 272.402 56.6562V64.6419C272.402 64.8616 272.315 65.0722 272.16 65.2275C272.004 65.3828 271.794 65.4701 271.574 65.4701Z" fill="url(#paint18_linear_2804:695)" id="path1510"></path>
@@ -5814,24 +5814,24 @@
           <path d="M288.372 70.8455L285.76 72.3539C285.57 72.4637 285.431 72.6446 285.374 72.8567C285.317 73.0689 285.347 73.2949 285.457 73.4851C285.567 73.6754 285.748 73.8142 285.96 73.871C286.172 73.9279 286.398 73.8981 286.588 73.7883L289.201 72.2798L288.372 70.8455Z" fill="url(#paint41_linear_2804:695)" id="path1556"></path>
           <path d="M280.795 63.8738L279.286 66.4862C279.176 66.6764 279.146 66.9024 279.203 67.1146C279.26 67.3267 279.399 67.5076 279.589 67.6174C279.779 67.7273 280.005 67.757 280.218 67.7002C280.43 67.6433 280.611 67.5045 280.72 67.3143L282.229 64.7016L280.795 63.8738Z" fill="url(#paint42_linear_2804:695)" id="path1558"></path>
         </g>
-        <g id="ev-charger-discharger-diagram-icon-moon">
+        <g id="ev-charger-diagram-icon-moon">
           <path id="path3464" fill="url(#paint0_linear_3029_724)" d="m 284.88881,91.059853 c -6.1614,4.1788 -14.6961,2.5703 -18.9777,-3.5149 -4.28077,-6.0863 -2.9097,-14.6628 3.1058,-19.04915 0.3868,-0.28262 0.5358,-0.78813 0.3636,-1.23405 -0.1721,-0.44652 -0.6214,-0.72175 -1.0971,-0.67151 -3.024,0.32104 -5.9366,1.41458 -8.42563,3.16596 -8.10154,5.69785 -10.01523,16.98195 -4.31714,25.08325 5.69822,8.101197 16.96497,10.113397 25.06637,4.4146 2.4889,-1.7503 4.5024,-4.1219 5.8273,-6.8599 0.2082,-0.4299 0.101,-0.9467 -0.2619,-1.2594 -0.3605,-0.3124 -0.8869,-0.3433 -1.2836,-0.0749 z m -3.065,-26.9116 c 0,0.22437 -0.0911,0.42781 -0.2379,0.57448 -0.1474,0.14691 -0.3505,0.23779 -0.5751,0.23779 h -2.022 v 2.02268 c 0,0.44899 -0.3644,0.81264 -0.8131,0.81264 -0.2243,0 -0.4276,-0.09064 -0.575,-0.23792 -0.1467,-0.1474 -0.238,-0.3501 -0.238,-0.57472 v -2.0228 h -2.0225 c -0.4479,0 -0.8122,-0.36316 -0.8122,-0.81227 0,-0.22499 0.0903,-0.42806 0.2378,-0.57509 0.1476,-0.14704 0.3505,-0.23817 0.5744,-0.23817 h 2.0225 v -2.022179 c 0,-0.448621 0.3637,-0.812641 0.813,-0.812641 0.2239,0 0.428,0.09113 0.5754,0.238288 0.1464,0.146913 0.2377,0.350473 0.2377,0.574353 v 2.022309 h 2.022 c 0.4494,0 0.813,0.36402 0.813,0.81325 z" style="fill: url(&quot;#paint0_linear_3029_724&quot;);"></path>
           <path id="path3466" fill="url(#paint1_linear_3029_724)" d="m 284.88881,91.060153 c -6.1614,4.1788 -14.6961,2.5703 -18.9777,-3.515 -4.28077,-6.0862 -2.9097,-14.6628 3.1058,-19.0491 0.3868,-0.28262 0.5358,-0.78814 0.3636,-1.23405 -0.1721,-0.44653 -0.6214,-0.72176 -1.0971,-0.67151 -3.024,0.32104 -5.9366,1.41457 -8.42563,3.16596 -8.10154,5.6978 -10.01523,16.982 -4.31714,25.0833 5.69822,8.101097 16.96497,10.113297 25.06637,4.4145 2.4889,-1.7503 4.5024,-4.1218 5.8273,-6.8599 0.2082,-0.4299 0.101,-0.9467 -0.2619,-1.2594 -0.3605,-0.3124 -0.8869,-0.3433 -1.2836,-0.0748 z m -3.065,-26.91165 c 0,0.22437 -0.0911,0.42781 -0.2379,0.57447 -0.1474,0.14692 -0.3505,0.2378 -0.5751,0.2378 h -2.022 v 2.02267 c 0,0.44899 -0.3644,0.81265 -0.8131,0.81265 -0.2243,0 -0.4276,-0.09064 -0.575,-0.23792 -0.1467,-0.14741 -0.238,-0.35011 -0.238,-0.57473 v -2.02279 h -2.0225 c -0.4479,0 -0.8122,-0.36316 -0.8122,-0.81228 0,-0.22498 0.0903,-0.42805 0.2378,-0.57509 0.1476,-0.14703 0.3505,-0.23816 0.5744,-0.23816 h 2.0225 v -2.022185 c 0,-0.448621 0.3637,-0.812641 0.813,-0.812641 0.2239,0 0.428,0.09113 0.5754,0.238288 0.1464,0.146913 0.2377,0.350474 0.2377,0.574353 v 2.022305 h 2.022 c 0.4494,0 0.813,0.36402 0.813,0.81326 z" style="fill: url(&quot;#paint1_linear_3029_724&quot;);"></path>
           <path id="path3468" fill="url(#paint2_linear_3029_724)" d="m 284.88881,91.059853 c -6.1614,4.1788 -14.6961,2.5703 -18.9777,-3.5149 -4.28077,-6.0863 -2.9097,-14.6628 3.1058,-19.04915 0.3868,-0.28262 0.5358,-0.78813 0.3636,-1.23405 -0.1721,-0.44652 -0.6214,-0.72175 -1.0971,-0.67151 -3.024,0.32104 -5.9366,1.41458 -8.42563,3.16596 -8.10154,5.69785 -10.01523,16.98195 -4.31714,25.08325 5.69822,8.101197 16.96497,10.113397 25.06637,4.4146 2.4889,-1.7503 4.5024,-4.1219 5.8273,-6.8599 0.2082,-0.4299 0.101,-0.9467 -0.2619,-1.2594 -0.3605,-0.3124 -0.8869,-0.3433 -1.2836,-0.0749 z m -3.065,-26.9116 c 0,0.22437 -0.0911,0.42781 -0.2379,0.57448 -0.1474,0.14691 -0.3505,0.23779 -0.5751,0.23779 h -2.022 v 2.02268 c 0,0.44899 -0.3644,0.81264 -0.8131,0.81264 -0.2243,0 -0.4276,-0.09064 -0.575,-0.23792 -0.1467,-0.1474 -0.238,-0.3501 -0.238,-0.57472 v -2.0228 h -2.0225 c -0.4479,0 -0.8122,-0.36316 -0.8122,-0.81227 0,-0.22499 0.0903,-0.42806 0.2378,-0.57509 0.1476,-0.14704 0.3505,-0.23817 0.5744,-0.23817 h 2.0225 v -2.022179 c 0,-0.448621 0.3637,-0.812641 0.813,-0.812641 0.2239,0 0.428,0.09113 0.5754,0.238288 0.1464,0.146913 0.2377,0.350473 0.2377,0.574353 v 2.022309 h 2.022 c 0.4494,0 0.813,0.36402 0.813,0.81325 z" style="fill: url(&quot;#paint2_linear_3029_724&quot;);"></path>
           <path id="path3470" fill="url(#paint3_linear_3029_724)" d="m 278.90631,76.952453 c 0,0.2241 -0.0911,0.4277 -0.2387,0.5751 -0.1464,0.1467 -0.3497,0.2371 -0.5743,0.2371 h -2.0218 v 2.023 c 0,0.4486 -0.3644,0.8121 -0.8137,0.8121 -0.2238,0 -0.4279,-0.0901 -0.5746,-0.2377 -0.1464,-0.147 -0.2376,-0.3498 -0.2376,-0.5744 v -2.023 h -2.0227 c -0.4486,0 -0.8122,-0.3628 -0.8122,-0.8122 0,-0.2242 0.0903,-0.4278 0.2377,-0.5748 0.1467,-0.1471 0.3498,-0.2382 0.5745,-0.2382 h 2.0227 v -2.0223 c 0,-0.449 0.3636,-0.813 0.8122,-0.813 0.2247,0 0.4277,0.0911 0.5751,0.2383 0.1474,0.1471 0.2387,0.3504 0.2387,0.5747 v 2.0223 h 2.0218 c 0.4485,1e-4 0.8129,0.3641 0.8129,0.813 z m 11.9793,-3.6478 c 0,0.2243 -0.0912,0.4278 -0.2387,0.5747 -0.1474,0.1472 -0.3505,0.2379 -0.5743,0.2379 h -2.0228 v 2.0227 c 0,0.449 -0.3644,0.8123 -0.8128,0.8123 -0.2249,0 -0.4277,-0.0903 -0.5746,-0.238 -0.1474,-0.147 -0.2384,-0.3501 -0.2384,-0.5743 v -2.0227 h -2.0221 c -0.4492,0 -0.813,-0.3636 -0.813,-0.8126 0,-0.2246 0.0911,-0.4277 0.2379,-0.5747 0.1474,-0.1471 0.3505,-0.2382 0.5751,-0.2382 h 2.0221 v -2.02195 c 0,-0.44924 0.3636,-0.81326 0.813,-0.81326 0.2244,0 0.4277,0.09101 0.5751,0.23817 0.1467,0.14741 0.2377,0.3506 0.2377,0.57521 v 2.02193 h 2.0228 c 0.4486,0 0.813,0.3635 0.813,0.8128 z" style="fill: url(&quot;#paint3_linear_3029_724&quot;);"></path>
-        </g><text v-show="!isSimpleModeRef" fill="#515050" font-family="Rubik" font-size="16" id="ev-charger-discharger-diagram-ip-solar" letter-spacing="0em" xml:space="preserve" style="white-space: pre;">
+        </g><text v-show="!isSimpleModeRef" fill="#515050" font-family="Rubik" font-size="16" id="ev-charger-diagram-ip-solar" letter-spacing="0em" xml:space="preserve" style="white-space: pre;">
           <tspan id="tspan1560" x="59.0234" y="265.277"> IP: {{ solarPowerData }}</tspan>
-        </text><text fill="#515050" font-family="Rubik" font-size="16" id="ev-charger-discharger-diagram-eoj-solar" letter-spacing="0em" xml:space="preserve" style="white-space: pre;" v-show="!isSimpleModeRef">
+        </text><text fill="#515050" font-family="Rubik" font-size="16" id="ev-charger-diagram-eoj-solar" letter-spacing="0em" xml:space="preserve" style="white-space: pre;" v-show="!isSimpleModeRef">
           <tspan id="tspan1564" x="204.18" y="264.98"> EOJ:
             {{
-              evChargerDischargerSystem.solarPower.ip
+              evChargerSystem.solarPower.ip
                 ? "0x" +
-                  evChargerDischargerSystem.solarPower.eoj.class.toHex(4).toUpperCase() +
-                  evChargerDischargerSystem.solarPower.eoj.id.toHex(2).toUpperCase()
+                  evChargerSystem.solarPower.eoj.class.toHex(4).toUpperCase() +
+                  evChargerSystem.solarPower.eoj.id.toHex(2).toUpperCase()
                 : ""
             }}</tspan>
         </text>
-        <g id="ev-charger-discharger-diagram-icon-solar" :class="isSimpleModeRef ? 'simple-mode' : ''">
+        <g id="ev-charger-diagram-icon-solar" :class="isSimpleModeRef ? 'simple-mode' : ''">
           <path d="M150.222 139.429L150.221 174.58L148.854 175.374L148.855 140.224L150.222 139.429Z" fill="#B8B4A9" id="path1568"></path>
           <path d="M148.855 140.224L148.854 175.374L147.267 174.457V137.781C147.345 137.811 147.426 137.845 147.509 137.894C148.254 138.323 148.857 139.367 148.855 140.224Z" fill="#8D8C91" id="path1570"></path>
           <path d="M179.155 155.096L179.153 190.245L177.786 191.04L177.787 155.889L179.155 155.096Z" fill="#B8B4A9" id="path1572"></path>
@@ -6046,7 +6046,7 @@
             <path d="M238.103 117.871L200.466 155.508L186.711 163.567L235.047 115.23L238.103 117.871Z" fill="white" id="path1984" opacity="0.1"></path>
           </g>
         </g>
-        <g id="ev-charger-discharger-diagram-live-1" role="button">
+        <g id="ev-charger-diagram-live-1" role="button">
           <path d="M30 63H115.868C124.581 63 131.645 70.0635 131.645 78.7769C131.645 87.4902 124.581 94.5537 115.868 94.5537H30V63Z" fill="url(#paint43_linear_2804:695)" id="path1988"></path>
           <path clip-rule="evenodd" d="M112.779 75.2769H117.446V79.9436C117.446 79.9436 117.446 80.6103 118.112 80.6103C118.779 80.6103 118.779 79.9436 118.779 79.9436V73.9436H112.779C112.779 73.9436 112.112 74.058 112.112 74.6103C112.112 75.1626 112.779 75.2769 112.779 75.2769ZM114.112 83.2769H109.446V78.6103C109.446 78.6103 109.446 77.9436 108.779 77.9436C108.112 77.9436 108.112 78.6103 108.112 78.6103V84.6103H114.112C114.112 84.6103 114.779 84.4959 114.779 83.9436C114.779 83.3913 114.112 83.2769 114.112 83.2769Z" fill="white" fill-rule="evenodd" id="path1990"></path>
           <rect fill="white" height="1.33333" id="rect1992" opacity="0.3" rx="0.666667" transform="rotate(-45 110.617 81.1624)" width="6.66667" x="110.617" y="81.1624"></rect><text fill="white" font-family="Rubik" font-size="15" font-weight="500" id="text1996" letter-spacing="0em" style="white-space:pre;" xml:space="preserve">
@@ -6055,13 +6055,13 @@
           <rect fill="white" height="12" id="rect1998" opacity="0.9" rx="2" width="13" x="43.4456" y="72.7769"></rect>
           <rect fill="#47E298" height="4.35386" id="rect2000" rx="2.17693" width="4.35386" x="47.7686" y="76.5999"></rect>
           <path clip-rule="evenodd" d="M61.7385 74.4838C62.3685 73.8538 63.4456 74.3 63.4456 75.1909V82.3625C63.4456 83.2534 62.3685 83.6996 61.7385 83.0696L58.1528 79.4838C57.7622 79.0933 57.7622 78.4601 58.1528 78.0696L61.7385 74.4838Z" fill="white" fill-rule="evenodd" id="path2002" opacity="0.5"></path>
-        </g><text fill="#000000" font-family="Rubik" font-size="18px" id="ev-charger-discharger-diagram-title-solar" letter-spacing="0em" x="1.7533875" xml:space="preserve" class="" style="white-space: pre;" :class="isSimpleModeRef ? 'simple-mode' : ''">
+        </g><text fill="#000000" font-family="Rubik" font-size="18px" id="ev-charger-diagram-title-solar" letter-spacing="0em" x="1.7533875" xml:space="preserve" class="" style="white-space: pre;" :class="isSimpleModeRef ? 'simple-mode' : ''">
           <tspan id="tspan2004" x="98.029785" y="226.25301"> PV Power Generation </tspan>
         </text>
       </g>
       <image
-        id="ev-charger-discharger-diagram-battery-img"
-        href="/assets/img/photo_mode/evchargerdischarger.jpg"
+        id="ev-charger-diagram-battery-img"
+        href="/assets/img/photo_mode/evcharger.jpg"
         height="260"
         width="350"
         x="200"
@@ -6069,7 +6069,7 @@
         v-show="isPhotoModeRef"
       ></image>
       <image
-        id="ev-charger-discharger-diagram-box-smartmeter-img"
+        id="ev-charger-diagram-box-smartmeter-img"
         href="/assets/img/photo_mode/smartmeter.jpg"
         height="230"
         width="356"
@@ -6078,7 +6078,7 @@
         v-show="isPhotoModeRef"
       ></image>
       <image
-        id="ev-charger-discharger-diagram-board-img"
+        id="ev-charger-diagram-board-img"
         href="/assets/img/photo_mode/powerdistributionboard.jpg"
         height="230"
         width="368"
@@ -6087,7 +6087,7 @@
         v-show="isPhotoModeRef"
       ></image>
       <image
-        id="ev-charger-discharger-diagram-load-img"
+        id="ev-charger-diagram-load-img"
         href="/assets/img/photo_mode/load.jpg"
         height="220"
         width="187"
@@ -6096,7 +6096,7 @@
         v-show="isPhotoModeRef"
       ></image>
       <image
-        id="ev-charger-discharger-diagram-grid-img"
+        id="ev-charger-diagram-grid-img"
         href="/assets/img/photo_mode/powergrid.jpg"
         height="270"
         width="189"
@@ -6105,7 +6105,7 @@
         v-show="isPhotoModeRef"
       ></image>
       <image
-        id="ev-charger-discharger-diagram-ac-img"
+        id="ev-charger-diagram-ac-img"
         href="/assets/img/photo_mode/airconditioner.jpg"
         height="270"
         width="378"
@@ -6114,7 +6114,7 @@
         v-show="isPhotoModeRef"
       ></image>
       <image
-        id="ev-charger-discharger-diagram-solar-img"
+        id="ev-charger-diagram-solar-img"
         href="/assets/img/photo_mode/pvpowergeneration.jpg"
         height="260"
         width="402"
@@ -6131,7 +6131,7 @@
       style="z-index: 1900"
     >
       <img class="h-100" src="/assets/img/logo-rhe.svg" alt="">
-      <span class="align-self-center">{{ evChargerDischargerSystemData.smartMeter.currentTimeSetting }}</span>
+      <span class="align-self-center">{{ evChargerSystemData.smartMeter.currentTimeSetting }}</span>
     </div>
 
     <!-- UI Mode Indicator -->
@@ -6281,22 +6281,22 @@ export default defineComponent({
     const store                 = useStore(),
           route                 = useRoute(),
           routeName             = computed(() => route.name),
-          evChargerDischargerSystem         = computed(() => store.state.evChargerDischargerSystem),
-          evChargerDischargerSystemPointC   = computed(() => store.state.evChargerDischargerSystemPointC),
-          evChargerDischargerSystemPointD   = computed(() => store.state.evChargerDischargerSystemPointD),
-          evChargerDischargerSystemPointE   = computed(() => store.state.evChargerDischargerSystemPointE),
+          evChargerSystem         = computed(() => store.state.evChargerSystem),
+          evChargerSystemPointC   = computed(() => store.state.evChargerSystemPointC),
+          evChargerSystemPointD   = computed(() => store.state.evChargerSystemPointD),
+          evChargerSystemPointE   = computed(() => store.state.evChargerSystemPointE),
           ACData                = computed(airConditionerSetup),
-          StorageData           = computed(evChargerDischargerSetup),
+          StorageData           = computed(evChargerSetup),
           solarPowerData        = computed(powerGenerationSetup),
           smartMeterData        = computed(smartMeterSetup),
           distributionBoardData = computed(powerDistributionBoardSetup),
-          evChargerDischargerSystemData     = computed(() => store.state.evChargerDischargerSystemData),
-          isSimpleMode          = computed(() => store.state.evChargerDischargerSystemUIModeSimple),
-          isPhotoMode           = computed(() => store.state.evChargerDischargerSystemUIModePhoto),
+          evChargerSystemData     = computed(() => store.state.evChargerSystemData),
+          isSimpleMode          = computed(() => store.state.evChargerSystemUIModeSimple),
+          isPhotoMode           = computed(() => store.state.evChargerSystemUIModePhoto),
           isSimpleModeRef       = ref<string>(''),
           isPhotoModeRef        = ref<string>(''),
-          isRealDevices         = computed(() => store.state.evChargerDischargerSystemMode === 'real' ? true : false),
-          isRHE                 = computed(() => store.state.evChargerDischargerSystemMode === 'rhe' ? true : false),
+          isRealDevices         = computed(() => store.state.evChargerSystemMode === 'real' ? true : false),
+          isRHE                 = computed(() => store.state.evChargerSystemMode === 'rhe' ? true : false),
           cameraModal           = ref<HTMLElement|null>(null),
           cameraHeader          = ref<HTMLElement|null>(null),
           cameraError           = ref<boolean>(true),
@@ -6354,51 +6354,51 @@ export default defineComponent({
 
     function powerGenerationSetup() {
       // generated electricity: 0xE0
-      const edt = store.getters.data(evChargerDischargerSystem.value.solarPower.ip, evChargerDischargerSystem.value.solarPower.eoj, 0xE0);
-      evChargerDischargerSystemData.value.powerPoints.edt.a = (() => { let hex = ''; edt.forEach((v: number) => { hex += v.toHex(2).toUpperCase(); }); return hex === '' ? '' : hex.prefix('0x'); })();
-      evChargerDischargerSystemData.value.powerPoints.a = parseInt(evChargerDischargerSystemData.value.powerPoints.edt.a, 16) || 0;
+      const edt = store.getters.data(evChargerSystem.value.solarPower.ip, evChargerSystem.value.solarPower.eoj, 0xE0);
+      evChargerSystemData.value.powerPoints.edt.a = (() => { let hex = ''; edt.forEach((v: number) => { hex += v.toHex(2).toUpperCase(); }); return hex === '' ? '' : hex.prefix('0x'); })();
+      evChargerSystemData.value.powerPoints.a = parseInt(evChargerSystemData.value.powerPoints.edt.a, 16) || 0;
 
-      return evChargerDischargerSystem.value.solarPower.ip;
+      return evChargerSystem.value.solarPower.ip;
     }
 
-    function evChargerDischargerSetup() {
+    function evChargerSetup() {
       // chargable electricity: 0xCF
-      let edt = store.getters.data(evChargerDischargerSystem.value.evChargerDischarger.ip, evChargerDischargerSystem.value.evChargerDischarger.eoj, 0xCF);
-      evChargerDischargerSystemData.value.evChargerDischarger.edt.chargeableElectricity = (() => { let hex = ''; edt.forEach((v: number) => { hex += v.toHex(2).toUpperCase(); }); return hex === '' ? '' : hex.prefix('0x'); })();
-      evChargerDischargerSystemData.value.evChargerDischarger.chargeableElectricity = parseInt(evChargerDischargerSystemData.value.evChargerDischarger.edt.chargeableElectricity, 16) || 0;
+      let edt = store.getters.data(evChargerSystem.value.evCharger.ip, evChargerSystem.value.evCharger.eoj, 0xCF);
+      evChargerSystemData.value.evCharger.edt.chargeableElectricity = (() => { let hex = ''; edt.forEach((v: number) => { hex += v.toHex(2).toUpperCase(); }); return hex === '' ? '' : hex.prefix('0x'); })();
+      evChargerSystemData.value.evCharger.chargeableElectricity = parseInt(evChargerSystemData.value.evCharger.edt.chargeableElectricity, 16) || 0;
 
       // dischargable electricity: 0xC2
-      edt = store.getters.data(evChargerDischargerSystem.value.evChargerDischarger.ip, evChargerDischargerSystem.value.evChargerDischarger.eoj, 0xC2);
-      evChargerDischargerSystemData.value.evChargerDischarger.edt.dischargeableElectricity = (() => { let hex = ''; edt.forEach((v: number) => { hex += v.toHex(2).toUpperCase(); }); return hex === '' ? '' : hex.prefix('0x'); })();
-      evChargerDischargerSystemData.value.evChargerDischarger.dischargeableElectricity = parseInt(evChargerDischargerSystemData.value.evChargerDischarger.edt.dischargeableElectricity, 16) || 0;
+      edt = store.getters.data(evChargerSystem.value.evCharger.ip, evChargerSystem.value.evCharger.eoj, 0xC2);
+      evChargerSystemData.value.evCharger.edt.dischargeableElectricity = (() => { let hex = ''; edt.forEach((v: number) => { hex += v.toHex(2).toUpperCase(); }); return hex === '' ? '' : hex.prefix('0x'); })();
+      evChargerSystemData.value.evCharger.dischargeableElectricity = parseInt(evChargerSystemData.value.evCharger.edt.dischargeableElectricity, 16) || 0;
 
       // remaining stored electricity: 0xE4
-      edt = store.getters.data(evChargerDischargerSystem.value.evChargerDischarger.ip, evChargerDischargerSystem.value.evChargerDischarger.eoj, 0xE4);
+      edt = store.getters.data(evChargerSystem.value.evCharger.ip, evChargerSystem.value.evCharger.eoj, 0xE4);
       if (edt.length > 0) {
-        evChargerDischargerSystemData.value.evChargerDischarger.edt.remainingStoredElectricity = edt[0]?.toHex(2).toUpperCase().prefix('0x');
-        evChargerDischargerSystemData.value.evChargerDischarger.remainingStoredElectricity = edt[0];
+        evChargerSystemData.value.evCharger.edt.remainingStoredElectricity = edt[0]?.toHex(2).toUpperCase().prefix('0x');
+        evChargerSystemData.value.evCharger.remainingStoredElectricity = edt[0];
       }
 
       // operation mode: 0xDA
-      edt = store.getters.data(evChargerDischargerSystem.value.evChargerDischarger.ip, evChargerDischargerSystem.value.evChargerDischarger.eoj, 0xDA);
+      edt = store.getters.data(evChargerSystem.value.evCharger.ip, evChargerSystem.value.evCharger.eoj, 0xDA);
       if (edt.length > 0) {
-        evChargerDischargerSystemData.value.evChargerDischarger.edt.workingOperationStatus = edt[0]?.toHex(2).toUpperCase().prefix('0x');
-        evChargerDischargerSystemData.value.evChargerDischarger.workingOperationStatus = edt[0];
+        evChargerSystemData.value.evCharger.edt.workingOperationStatus = edt[0]?.toHex(2).toUpperCase().prefix('0x');
+        evChargerSystemData.value.evCharger.workingOperationStatus = edt[0];
       }
 
       // Vehicle connection and chargeable/dischargeable status: 0xC7
-      edt = store.getters.data(evChargerDischargerSystem.value.evChargerDischarger.ip, evChargerDischargerSystem.value.evChargerDischarger.eoj, 0xC7);
+      edt = store.getters.data(evChargerSystem.value.evCharger.ip, evChargerSystem.value.evCharger.eoj, 0xC7);
       if (edt.length > 0) {
-        evChargerDischargerSystemData.value.evChargerDischarger.edt.chargeDischargeStatus = edt[0]?.toHex(2).toUpperCase().prefix('0x');
-        evChargerDischargerSystemData.value.evChargerDischarger.chargeDischargeStatus = edt[0];
+        evChargerSystemData.value.evCharger.edt.chargeStatus = edt[0]?.toHex(2).toUpperCase().prefix('0x');
+        evChargerSystemData.value.evCharger.chargeStatus = edt[0];
       }
 
       // generated electricity: 0xD3
-      edt = store.getters.data(evChargerDischargerSystem.value.evChargerDischarger.ip, evChargerDischargerSystem.value.evChargerDischarger.eoj, 0xD3);
-      evChargerDischargerSystemData.value.powerPoints.edt.b = (() => { let hex = ''; edt.forEach((v: number) => { hex += v.toHex(2).toUpperCase(); }); return hex === '' ? '' : hex.prefix('0x'); })();
-      evChargerDischargerSystemData.value.powerPoints.b = parseInt(evChargerDischargerSystemData.value.powerPoints.edt.b, 16).toSignedInt('int32') || 0;
+      edt = store.getters.data(evChargerSystem.value.evCharger.ip, evChargerSystem.value.evCharger.eoj, 0xD3);
+      evChargerSystemData.value.powerPoints.edt.b = (() => { let hex = ''; edt.forEach((v: number) => { hex += v.toHex(2).toUpperCase(); }); return hex === '' ? '' : hex.prefix('0x'); })();
+      evChargerSystemData.value.powerPoints.b = parseInt(evChargerSystemData.value.powerPoints.edt.b, 16).toSignedInt('int32') || 0;
 
-      return evChargerDischargerSystem.value.evChargerDischarger.ip;
+      return evChargerSystem.value.evCharger.ip;
     }
 
     function powerDistributionBoardSetup() {
@@ -6409,8 +6409,8 @@ export default defineComponent({
       Measurement channel
       */
       if (isRHE.value) {
-        edt = store.getters.data(evChargerDischargerSystem.value.distributionBoard.ip, evChargerDischargerSystem.value.distributionBoard.eoj, evChargerDischargerSystemPointC.value);
-        evChargerDischargerSystemData.value.powerPoints.edt.c = (() => { let hex = ''; edt.forEach((v: number) => { hex += v.toHex(2).toUpperCase(); }); return hex === '' ? '' : hex.prefix('0x'); })();
+        edt = store.getters.data(evChargerSystem.value.distributionBoard.ip, evChargerSystem.value.distributionBoard.eoj, evChargerSystemPointC.value);
+        evChargerSystemData.value.powerPoints.edt.c = (() => { let hex = ''; edt.forEach((v: number) => { hex += v.toHex(2).toUpperCase(); }); return hex === '' ? '' : hex.prefix('0x'); })();
         if (edt.length > 0) {
           currentR = edt[4] * 16**2 + edt[5];
           currentT = edt[6] * 16**2 + edt[7];
@@ -6420,15 +6420,15 @@ export default defineComponent({
           if (currentT === 0x7FFE) {
             currentT = 0;
           }
-          evChargerDischargerSystemData.value.powerPoints.c = Math.round((currentR.toSignedInt('int16') + currentT.toSignedInt('int16')) * 0.1 * 100);
+          evChargerSystemData.value.powerPoints.c = Math.round((currentR.toSignedInt('int16') + currentT.toSignedInt('int16')) * 0.1 * 100);
         }
       }
       /*
       Property D
       Measurement channel
       */
-      edt = store.getters.data(evChargerDischargerSystem.value.distributionBoard.ip, evChargerDischargerSystem.value.distributionBoard.eoj, evChargerDischargerSystemPointD.value);
-      evChargerDischargerSystemData.value.powerPoints.edt.d = (() => { let hex = ''; edt.forEach((v: number) => { hex += v.toHex(2).toUpperCase(); }); return hex === '' ? '' : hex.prefix('0x'); })();
+      edt = store.getters.data(evChargerSystem.value.distributionBoard.ip, evChargerSystem.value.distributionBoard.eoj, evChargerSystemPointD.value);
+      evChargerSystemData.value.powerPoints.edt.d = (() => { let hex = ''; edt.forEach((v: number) => { hex += v.toHex(2).toUpperCase(); }); return hex === '' ? '' : hex.prefix('0x'); })();
       if (edt.length > 0) {
         currentR = edt[4] * 16**2 + edt[5];
         currentT = edt[6] * 16**2 + edt[7];
@@ -6438,14 +6438,14 @@ export default defineComponent({
         if (currentT === 0x7FFE) {
           currentT = 0;
         }
-        evChargerDischargerSystemData.value.powerPoints.d = Math.round((currentR.toSignedInt('int16') + currentT.toSignedInt('int16')) * 0.1 * 100);
+        evChargerSystemData.value.powerPoints.d = Math.round((currentR.toSignedInt('int16') + currentT.toSignedInt('int16')) * 0.1 * 100);
       }
       /*
       property E
       Measurement channel
       */
-      edt = store.getters.data(evChargerDischargerSystem.value.distributionBoard.ip, evChargerDischargerSystem.value.distributionBoard.eoj, evChargerDischargerSystemPointE.value);
-      evChargerDischargerSystemData.value.powerPoints.edt.e = (() => { let hex = ''; edt.forEach((v: number) => { hex += v.toHex(2).toUpperCase(); }); return hex === '' ? '' : hex.prefix('0x'); })();
+      edt = store.getters.data(evChargerSystem.value.distributionBoard.ip, evChargerSystem.value.distributionBoard.eoj, evChargerSystemPointE.value);
+      evChargerSystemData.value.powerPoints.edt.e = (() => { let hex = ''; edt.forEach((v: number) => { hex += v.toHex(2).toUpperCase(); }); return hex === '' ? '' : hex.prefix('0x'); })();
       if (edt.length > 0) {
         currentR = edt[4] * 16**2 + edt[5];
         currentT = edt[6] * 16**2 + edt[7];
@@ -6455,26 +6455,26 @@ export default defineComponent({
         if (currentT === 0x7FFE) {
           currentT = 0;
         }
-        evChargerDischargerSystemData.value.powerPoints.e =  Math.round((currentR.toSignedInt('int16') + currentT.toSignedInt('int16')) * 0.1 * 100);
+        evChargerSystemData.value.powerPoints.e =  Math.round((currentR.toSignedInt('int16') + currentT.toSignedInt('int16')) * 0.1 * 100);
       }
 
       // property F
       // electric energy: 0xC6
-      edt = store.getters.data(evChargerDischargerSystem.value.distributionBoard.ip, evChargerDischargerSystem.value.distributionBoard.eoj, 0xC6);
-      evChargerDischargerSystemData.value.powerPoints.edt.f = (() => { let hex = ''; edt.forEach((v: number) => { hex += v.toHex(2).toUpperCase(); }); return hex === '' ? '' : hex.prefix('0x'); })();
-      evChargerDischargerSystemData.value.powerPoints.f = (() => {
-        const value = parseInt(evChargerDischargerSystemData.value.powerPoints.edt.f, 16).toSignedInt('int32') || 0;
+      edt = store.getters.data(evChargerSystem.value.distributionBoard.ip, evChargerSystem.value.distributionBoard.eoj, 0xC6);
+      evChargerSystemData.value.powerPoints.edt.f = (() => { let hex = ''; edt.forEach((v: number) => { hex += v.toHex(2).toUpperCase(); }); return hex === '' ? '' : hex.prefix('0x'); })();
+      evChargerSystemData.value.powerPoints.f = (() => {
+        const value = parseInt(evChargerSystemData.value.powerPoints.edt.f, 16).toSignedInt('int32') || 0;
         return value === 0x7FFFFFFE ? 'No data' : value;
       })();
 
-      return evChargerDischargerSystem.value.distributionBoard.ip;
+      return evChargerSystem.value.distributionBoard.ip;
     }
 
     function smartMeterSetup() {
       // Current time setting: 0x97
-      let edt = store.getters.data(evChargerDischargerSystem.value.smartMeter.ip, evChargerDischargerSystem.value.smartMeter.eoj, 0x97);
-      evChargerDischargerSystemData.value.smartMeter.edt.currentTimeSetting = (() => { let hex = ''; edt.forEach((v: number) => { hex += v.toHex(2).toUpperCase(); }); return hex === '' ? '' : hex.prefix('0x'); })();
-      evChargerDischargerSystemData.value.smartMeter.currentTimeSetting = (() => {
+      let edt = store.getters.data(evChargerSystem.value.smartMeter.ip, evChargerSystem.value.smartMeter.eoj, 0x97);
+      evChargerSystemData.value.smartMeter.edt.currentTimeSetting = (() => { let hex = ''; edt.forEach((v: number) => { hex += v.toHex(2).toUpperCase(); }); return hex === '' ? '' : hex.prefix('0x'); })();
+      evChargerSystemData.value.smartMeter.currentTimeSetting = (() => {
         if (edt.length === 0) { return '--:--'; }
         const hour = (edt[0] + '').padStart(2, '0');
         const minute = (edt[1] + '').padStart(2, '0');
@@ -6482,43 +6482,43 @@ export default defineComponent({
       })();
 
       // electricity: 0xE7
-      edt = store.getters.data(evChargerDischargerSystem.value.smartMeter.ip, evChargerDischargerSystem.value.smartMeter.eoj, 0xE7);
-      evChargerDischargerSystemData.value.powerPoints.edt.g = (() => { let hex = ''; edt.forEach((v: number) => { hex += v.toHex(2).toUpperCase(); }); return hex === '' ? '' : hex.prefix('0x'); })();
-      evChargerDischargerSystemData.value.powerPoints.g = (() => {
-        const value = parseInt(evChargerDischargerSystemData.value.powerPoints.edt.g, 16).toSignedInt('int32') || 0;
+      edt = store.getters.data(evChargerSystem.value.smartMeter.ip, evChargerSystem.value.smartMeter.eoj, 0xE7);
+      evChargerSystemData.value.powerPoints.edt.g = (() => { let hex = ''; edt.forEach((v: number) => { hex += v.toHex(2).toUpperCase(); }); return hex === '' ? '' : hex.prefix('0x'); })();
+      evChargerSystemData.value.powerPoints.g = (() => {
+        const value = parseInt(evChargerSystemData.value.powerPoints.edt.g, 16).toSignedInt('int32') || 0;
         return value === 0x7FFFFFFE ? 'No data' : value;
       })();
 
-      return evChargerDischargerSystem.value.smartMeter.ip;
+      return evChargerSystem.value.smartMeter.ip;
     }
 
     function airConditionerSetup() {
       // operation status: 0x80
-      let edt = store.getters.data(evChargerDischargerSystem.value.airConditioner.ip, evChargerDischargerSystem.value.airConditioner.eoj, 0x80);
+      let edt = store.getters.data(evChargerSystem.value.airConditioner.ip, evChargerSystem.value.airConditioner.eoj, 0x80);
       if (edt.length > 0) {
-        evChargerDischargerSystemData.value.homeAirConditioner.edt.operationStatus = edt[0]?.toHex(2).toUpperCase().prefix('0x');
-        evChargerDischargerSystemData.value.homeAirConditioner.operationStatus = edt[0];
+        evChargerSystemData.value.homeAirConditioner.edt.operationStatus = edt[0]?.toHex(2).toUpperCase().prefix('0x');
+        evChargerSystemData.value.homeAirConditioner.operationStatus = edt[0];
       }
 
       // operation mode: 0xB0
-      edt = store.getters.data(evChargerDischargerSystem.value.airConditioner.ip, evChargerDischargerSystem.value.airConditioner.eoj, 0xB0);
+      edt = store.getters.data(evChargerSystem.value.airConditioner.ip, evChargerSystem.value.airConditioner.eoj, 0xB0);
       if (edt.length > 0) {
-        evChargerDischargerSystemData.value.homeAirConditioner.edt.operationModeSetting = edt[0]?.toHex(2).toUpperCase().prefix('0x');
-        evChargerDischargerSystemData.value.homeAirConditioner.operationModeSetting = edt[0];
+        evChargerSystemData.value.homeAirConditioner.edt.operationModeSetting = edt[0]?.toHex(2).toUpperCase().prefix('0x');
+        evChargerSystemData.value.homeAirConditioner.operationModeSetting = edt[0];
       }
 
       // target temperature: 0xB3
-      edt = store.getters.data(evChargerDischargerSystem.value.airConditioner.ip, evChargerDischargerSystem.value.airConditioner.eoj, 0xB3);
+      edt = store.getters.data(evChargerSystem.value.airConditioner.ip, evChargerSystem.value.airConditioner.eoj, 0xB3);
       if (edt.length > 0) {
-        evChargerDischargerSystemData.value.homeAirConditioner.edt.setTemperatureValue = edt[0]?.toHex(2).toUpperCase().prefix('0x');
-        evChargerDischargerSystemData.value.homeAirConditioner.setTemperatureValue = edt[0] === 0xFD ? 'Undefined' : edt[0];
+        evChargerSystemData.value.homeAirConditioner.edt.setTemperatureValue = edt[0]?.toHex(2).toUpperCase().prefix('0x');
+        evChargerSystemData.value.homeAirConditioner.setTemperatureValue = edt[0] === 0xFD ? 'Undefined' : edt[0];
       }
 
-      return evChargerDischargerSystem.value.airConditioner.ip;
+      return evChargerSystem.value.airConditioner.ip;
     }
 
     function switchCamera(id: number, isReload?: boolean) {
-      const source = store.state.cameras[store.state.cameraHolders['evChargerDischarger' + id]],
+      const source = store.state.cameras[store.state.cameraHolders['evCharger' + id]],
             origin = `${source.protocol}://${source.host}:${source.port}`;
 
       cameraView.value!.style.backgroundImage = '';
@@ -6553,7 +6553,7 @@ export default defineComponent({
     function panCamera() {
       if (cameraError.value) { return; }
 
-      const source = store.state.cameras[store.state.cameraHolders['evChargerDischarger' + cameraOption.value]],
+      const source = store.state.cameras[store.state.cameraHolders['evCharger' + cameraOption.value]],
             origin = `${source.protocol}://${source.host}:${source.port}`;
 
       axios.get(`${origin}/?action=command&group=1&id=10094856&value=${cameras[cameraOption.value].pan}`).catch(err => !err);
@@ -6562,7 +6562,7 @@ export default defineComponent({
     function tiltCamera() {
       if (cameraError.value) { return; }
 
-      const source = store.state.cameras[store.state.cameraHolders['evChargerDischarger' + cameraOption.value]],
+      const source = store.state.cameras[store.state.cameraHolders['evCharger' + cameraOption.value]],
             origin = `${source.protocol}://${source.host}:${source.port}`;
 
       axios.get(`${origin}/?action=command&group=1&id=10094857&value=${cameras[cameraOption.value].tilt}`).catch(err => !err);
@@ -6571,7 +6571,7 @@ export default defineComponent({
     function zoomCamera() {
       if (cameraError.value) { return; }
 
-      const source = store.state.cameras[store.state.cameraHolders['evChargerDischarger' + cameraOption.value]],
+      const source = store.state.cameras[store.state.cameraHolders['evCharger' + cameraOption.value]],
             origin = `${source.protocol}://${source.host}:${source.port}`;
 
       axios.get(`${origin}/?action=command&group=1&id=10094861&value=${cameras[cameraOption.value].zoom}`).catch(err => !err);
@@ -6616,7 +6616,7 @@ export default defineComponent({
     }
 
     watch(routeName, value => {
-      if (value !== 'evchargerdischarger' || store.state.cameras.length === 0) { return; }
+      if (value !== 'evcharger' || store.state.cameras.length === 0) { return; }
       reloadCamera();
     });
 
@@ -6632,12 +6632,12 @@ export default defineComponent({
 
     watch(isSimpleModeRef, () => {
       if (isSimpleModeRef.value === isSimpleMode.value) { return; }
-      store.commit('setEVChargerDischargerSystemUIModeSimple', isSimpleModeRef.value);
+      store.commit('setEVChargerSystemUIModeSimple', isSimpleModeRef.value);
     });
 
     watch(isPhotoModeRef, () => {
       if (isPhotoModeRef.value === isPhotoMode.value) { return; }
-      store.commit('setEVChargerDischargerSystemUIModePhoto', isPhotoModeRef.value);
+      store.commit('setEVChargerSystemUIModePhoto', isPhotoModeRef.value);
     });
 
     onMounted(() => {
@@ -6645,17 +6645,17 @@ export default defineComponent({
       setInterval(() => {
         if (routeName.value && ['single', 'single.search'].indexOf(routeName.value.toString()) !== -1) { return; }
 
-        Object.keys(evChargerDischargerSystem.value).forEach(x => {
-          if (evChargerDischargerSystem.value[x].ip === '') { return; }
+        Object.keys(evChargerSystem.value).forEach(x => {
+          if (evChargerSystem.value[x].ip === '') { return; }
 
-          // Confirms the connection status of EV charger discharger
-          switch(evChargerDischargerSystem.value[x].eoj.class) {
+          // Confirms the connection status of EV charger
+          switch(evChargerSystem.value[x].eoj.class) {
             // EV charger discharger
             case 0x027E:
               store.dispatch('sendEL', {
-                ip: evChargerDischargerSystem.value[x].ip,
+                ip: evChargerSystem.value[x].ip,
                 el: {
-                  deoj: evChargerDischargerSystem.value[x].eoj,
+                  deoj: evChargerSystem.value[x].eoj,
                   esv: 0x61,
                   opc: {
                     ops: [
@@ -6670,8 +6670,8 @@ export default defineComponent({
           }
 
           const questions = (() => {
-            switch (evChargerDischargerSystem.value[x].eoj.class) {
-              // EV charger discharger
+            switch (evChargerSystem.value[x].eoj.class) {
+              // EV charger
               case 0x027E:
                 return [0xC2, 0xE4, 0xC7, 0xCF, 0xD3, 0xDA];
               // Household solar power generation
@@ -6680,9 +6680,9 @@ export default defineComponent({
               // Power distribution board
               case 0x0287:
                 if (isRealDevices.value) {
-                  return [evChargerDischargerSystemPointD.value, evChargerDischargerSystemPointE.value, 0xC6];
+                  return [evChargerSystemPointD.value, evChargerSystemPointE.value, 0xC6];
                 } else if (isRHE.value) {
-                  return [evChargerDischargerSystemPointC.value, evChargerDischargerSystemPointD.value, evChargerDischargerSystemPointE.value, 0xC6];
+                  return [evChargerSystemPointC.value, evChargerSystemPointD.value, evChargerSystemPointE.value, 0xC6];
                 }
               // Low-voltage smart electric energy meter
               case 0x0288:
@@ -6705,9 +6705,9 @@ export default defineComponent({
             for (let i = 0; i < questions.length; i += 4) {
               batch = questions.slice(i, i + 4);
               store.dispatch('sendEL', {
-                ip: evChargerDischargerSystem.value[x].ip,
+                ip: evChargerSystem.value[x].ip,
                 el: {
-                  deoj: evChargerDischargerSystem.value[x].eoj,
+                  deoj: evChargerSystem.value[x].eoj,
                   esv: 0x62,
                   opc: {
                     ops: batch.map((epc: number) => { return { epc: epc, edt: [] }; })
@@ -6723,11 +6723,11 @@ export default defineComponent({
       setInterval(() => {
         if (routeName.value && ['single', 'single.search'].indexOf(routeName.value.toString()) !== -1) { return; }
 
-        Object.keys(evChargerDischargerSystem.value).forEach(x => {
-          if (evChargerDischargerSystem.value[x].ip === '') { return; }
+        Object.keys(evChargerSystem.value).forEach(x => {
+          if (evChargerSystem.value[x].ip === '') { return; }
 
           const questions = (() => {
-            switch (evChargerDischargerSystem.value[x].eoj.class) {
+            switch (evChargerSystem.value[x].eoj.class) {
               // Low-voltage smart electric energy meter
               case 0x0288:
                 if (isRealDevices.value) {
@@ -6746,9 +6746,9 @@ export default defineComponent({
             for (let i = 0; i < questions.length; i += 4) {
               batch = questions.slice(i, i + 4);
               store.dispatch('sendEL', {
-                ip: evChargerDischargerSystem.value[x].ip,
+                ip: evChargerSystem.value[x].ip,
                 el: {
-                  deoj: evChargerDischargerSystem.value[x].eoj,
+                  deoj: evChargerSystem.value[x].eoj,
                   esv: 0x62,
                   opc: {
                     ops: batch.map((epc: number) => { return { epc: epc, edt: [] }; })
@@ -6762,14 +6762,14 @@ export default defineComponent({
     });
 
     return {
-      text: computed(() => store.getters.text?.evChargerDischarger?.main),
-      evChargerDischargerSystem,
+      text: computed(() => store.getters.text?.evCharger?.main),
+      evChargerSystem,
       ACData,
       StorageData,
       solarPowerData,
       distributionBoardData,
       smartMeterData,
-      evChargerDischargerSystemData,
+      evChargerSystemData,
       isSimpleModeRef,
       isPhotoModeRef,
       isRealDevices,
@@ -6798,7 +6798,7 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-.ev-charger-discharger-main {
+.ev-charger-main {
   background-color: #e5faff;
 }
 .inverse {
@@ -7045,78 +7045,78 @@ export default defineComponent({
   bottom:    -12px;
   cursor:    nw-resize;
 }
-#ev-charger-discharger-diagram-icon-solar.simple-mode{
+#ev-charger-diagram-icon-solar.simple-mode{
   transform: translate(-100px, -50px) scale(1.5);
 }
-#ev-charger-discharger-diagram-title-solar.simple-mode{
+#ev-charger-diagram-title-solar.simple-mode{
   transform: translate(-25px, 40px);
   font-size: 24px;
 }
-#ev-charger-discharger-diagram-icon-battery.simple-mode{
+#ev-charger-diagram-icon-battery.simple-mode{
   transform: translate(-50px, -320px) scale(1.5);
 }
-#ev-charger-discharger-diagram-title-battery.simple-mode{
+#ev-charger-diagram-title-battery.simple-mode{
   transform: translate(0px, 36px);
   font-size: 24px;
 }
-#ev-charger-discharger-diagram-icon-solar.simple-mode{
+#ev-charger-diagram-icon-solar.simple-mode{
   transform: translate(-100px, -50px) scale(1.5);
 }
-#ev-charger-discharger-diagram-title-solar.simple-mode{
+#ev-charger-diagram-title-solar.simple-mode{
   transform: translate(-25px, 40px);
   font-size: 24px;
 }
-#ev-charger-discharger-diagram-icon-battery.simple-mode{
+#ev-charger-diagram-icon-battery.simple-mode{
   transform: translate(0px, 22px) scale(1);
 }
-#ev-charger-discharger-diagram-title-battery.simple-mode{
+#ev-charger-diagram-title-battery.simple-mode{
   transform: translate(-32px, 30px);
   font-size: 24px;
 }
-#ev-charger-discharger-diagram-icon-smartmeter.simple-mode{
+#ev-charger-diagram-icon-smartmeter.simple-mode{
   transform: translate(-430px, -40px) scale(1.5);
 }
-#ev-charger-discharger-diagram-title-smartmeter.simple-mode{
+#ev-charger-diagram-title-smartmeter.simple-mode{
   transform: translate(-15px, 35px);
   font-size: 24px;
 }
-#ev-charger-discharger-diagram-icon-board.simple-mode{
+#ev-charger-diagram-icon-board.simple-mode{
   transform: translate(-430px, -170px) scale(1.5);
 }
-#ev-charger-discharger-diagram-title-board.simple-mode{
+#ev-charger-diagram-title-board.simple-mode{
   transform: translate(-35px, 42px);
   font-size: 24px;
 }
-#ev-charger-discharger-diagram-icon-ac.simple-mode{
+#ev-charger-diagram-icon-ac.simple-mode{
   transform: translate(-565px, -275px) scale(1.5);
 }
-#ev-charger-discharger-diagram-title-ac.simple-mode{
+#ev-charger-diagram-title-ac.simple-mode{
   transform: translate(25px, 30px);
   font-size: 24px;
 }
 
-#ev-charger-discharger-diagram-box-grid.simple-mode{
+#ev-charger-diagram-box-grid.simple-mode{
   transform: translate(-255px, -30px) scale(1.2);
 }
 
-#ev-charger-discharger-diagram-icon-grid.simple-mode{
+#ev-charger-diagram-icon-grid.simple-mode{
   transform: translate(-255px, -30px) scale(1.2);
 }
 
-#ev-charger-discharger-diagram-title-grid.simple-mode{
+#ev-charger-diagram-title-grid.simple-mode{
   transform: translate(-10px, 20px);
   font-size: 24px;
 }
 
-#ev-charger-discharger-diagram-box-load.simple-mode{
+#ev-charger-diagram-box-load.simple-mode{
   transform: translate(-180px, -160px) scale(1.2);
 }
 
-#ev-charger-discharger-diagram-icon-load.simple-mode{
+#ev-charger-diagram-icon-load.simple-mode{
   transform: translate(-180px, -150px) scale(1.2);
 }
 
-#ev-charger-discharger-diagram-title-load.simple-mode{
+#ev-charger-diagram-title-load.simple-mode{
   transform: translate(-10px, 20px);
   font-size: 24px;
 }
