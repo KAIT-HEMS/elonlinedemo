@@ -721,7 +721,7 @@ export default defineComponent({
           isRealDevicesForEVChargerSystem          = computed(() => store.state.evChargerSystemMode === 'real' ? true : false),
           isRHEForEVChargerSystem                  = computed(() => store.state.evChargerSystemMode === 'rhe' ? true : false),
           evChargerSystemModeRef   = ref<string>(store.state.evChargerSystemMode),
-          evChargerSystemPointBRef = ref<number>(store.state.evChargerSystemPointC),
+          evChargerSystemPointBRef = ref<number>(store.state.evChargerSystemPointB),
           evChargerSystemPointDRef = ref<number>(store.state.evChargerSystemPointD),
           evChargerSystemPointERef = ref<number>(store.state.evChargerSystemPointE),
 
@@ -1003,7 +1003,7 @@ export default defineComponent({
     });
 
     watch(evChargerSystemPointBRef, () => {
-      store.commit('setEVChargerSystemPointC', evChargerSystemPointBRef.value);
+      store.commit('setEVChargerSystemPointB', evChargerSystemPointBRef.value);
     });
 
     watch(evChargerSystemPointDRef, () => {

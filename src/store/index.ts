@@ -486,7 +486,7 @@ export default createStore({
     evChargerSystemData: EVChargerSystemData,
     evChargerSystemMode: localStorage.getItem('el-demoapp-evcharger-system-mode') || 'real',
     evChargerSystem: JSON.parse(localStorage.getItem('el-demoapp-evcharger-system') || 'null') || EVChargerSystem as EVChargerSystem,
-    evChargerSystemPointC: 0xD2,
+    evChargerSystemPointB: 0xD7,
     evChargerSystemPointD: 0xD8,
     evChargerSystemPointE: 0xD9,
     evChargerSystemUIModeSimple: false,
@@ -799,8 +799,8 @@ export default createStore({
       state.evChargerSystem[data.type] = data.device;
       localStorage.setItem('el-demoapp-evcharger-system', JSON.stringify(state.evChargerSystem));
     },
-    setEVChargerSystemPointC(state, data) {
-      state.evChargerSystemPointC = data;
+    setEVChargerSystemPointB(state, data) {
+      state.evChargerSystemPointB = data;
     },
     setEVChargerSystemPointD(state, data) {
       state.evChargerSystemPointD = data;
