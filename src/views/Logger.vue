@@ -47,6 +47,7 @@ export default defineComponent({
           activeDevice   = computed(() => store.state.device),
           batterySystem  = computed(() => store.state.batterySystem),
           evChargerDischargerSystem  = computed(() => store.state.evChargerDischargerSystem),
+          evChargerSystem  = computed(() => store.state.evChargerSystem),
           // @ts-ignore
           dateTimeFormat = new Intl.DateTimeFormat([], {timeStyle: 'medium', hour12: false});
 
@@ -87,6 +88,16 @@ export default defineComponent({
           for (let key in evChargerDischargerSystem.value) {
             if (evChargerDischargerSystem.value[key].ip === '') { continue; }
             if (msg.ip === evChargerDischargerSystem.value[key].ip) {
+              return true;
+            }
+          }
+          return false;
+        });
+      } else if (props.filterLog === 'evcharger') {
+        filteredLog = rawLog.filter((msg: { ip: any; }) => {
+          for (let key in evChargerSystem.value) {
+            if (evChargerSystem.value[key].ip === '') { continue; }
+            if (msg.ip === evChargerSystem.value[key].ip) {
               return true;
             }
           }
@@ -157,7 +168,8 @@ export default defineComponent({
       sort,
       activeDevice,
       batterySystem,
-      evChargerDischargerSystem
+      evChargerDischargerSystem,
+      evChargerSystem
     };
   }
 });
