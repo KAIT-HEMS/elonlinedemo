@@ -83,7 +83,7 @@
         :stroke-width="isSimpleModeRef ? 16 : 8"
       />
       <path v-show="!isPhotoModeRef" d="m 118,460 h 178.6947" id="ev-charger-diagram-wire-ev" :stroke="evChargerSystemData.evCharger.chargeStatus === 0xFF || evChargerSystemData.evCharger.chargeStatus === 0x30 ? 'grey' : '#FACC91'" :stroke-width="isSimpleModeRef ? 16 : 8"></path>
-      <path v-show="!isPhotoModeRef && (evChargerSystemData.evCharger.workingOperationStatus === 0x42 || evChargerSystemData.evCharger.workingOperationStatus === 0x43)" class="animate" :class="{ negative: evChargerSystemData.evCharger.workingOperationStatus === 0x43 }" :stroke-width="isSimpleModeRef ? 8 : 4" d="m 118,460 h 178.6947" id="ev-charger-diagram-wire-ev" stroke="url(#paint1_linear_2804:695)" style="stroke: #000000; fill: none; stroke-opacity: 1; stroke-miterlimit: 4;"></path>
+      <path v-show="!isPhotoModeRef && evChargerSystemData.evCharger.workingOperationStatus === 0x42" class="animate" :stroke-width="isSimpleModeRef ? 8 : 4" d="m 118,460 h 178.6947" id="ev-charger-diagram-wire-ev" stroke="url(#paint1_linear_2804:695)" style="stroke: #000000; fill: none; stroke-opacity: 1; stroke-miterlimit: 4;"></path>
       <path id="ev-charger-diagram-solar-wire"
         d="M263 0V199C263 263 263 263 199 263H0"
         stroke="url(#paint4_linear_2804:695)"
@@ -5446,7 +5446,7 @@
             letter-spacing="0em"
             style="white-space: pre"
             xml:space="preserve"
-            v-show="evChargerSystemData.evCharger.chargeStatus === 0x43"
+            v-show="evChargerSystemData.evCharger.chargeStatus === 0x42"
           >
             <tspan>Ready</tspan>
           </text>
@@ -5625,13 +5625,13 @@
           class="indicator"
           :class="{
             on:
-              [0x42, 0x43].indexOf(
+              [0x42, 0x44].indexOf(
                 evChargerSystemData.evCharger.workingOperationStatus
               ) === -1,
           }"
           fill="#3779F5"
           :height="isSimpleModeRef ? '45' : '32'"
-          id="ev-charger-diagram-rect-battery-status-standby"
+          id="ev-charger-diagram-rect-battery-status-idle"
           rx="8"
           :width="isSimpleModeRef ? '120' : '92'"
           x="199"
@@ -5642,7 +5642,7 @@
           font-family="Rubik"
           :font-size="isSimpleModeRef ? '22px' : '16px'"
           :font-weight="isSimpleModeRef ? 'bold' : 'inherit'"
-          id="ev-charger-diagram-value-battery-status-standby"
+          id="ev-charger-diagram-value-battery-status-idle"
           letter-spacing="0em"
           style="white-space: pre"
           x="-1.4726562"
@@ -5650,7 +5650,7 @@
           y="-0.51123047"
           :transform="isSimpleModeRef ? 'translate(11,0)' : 'inherit'"
         >
-          <tspan id="tspan1128" :x="isSimpleModeRef ? '202' : '211.52734'" :y="isSimpleModeRef ? '743' : '714.46875'">Standby</tspan>
+          <tspan id="tspan1128" :x="isSimpleModeRef ? '230' : '231.52734'" :y="isSimpleModeRef ? '745' : '714.46875'">Idle</tspan>
         </text>
         <rect
           class="indicator"
@@ -5683,10 +5683,10 @@
         <rect
           class="indicator"
           :class="{
-            on: evChargerSystemData.evCharger.workingOperationStatus === 0x43,
+            on: evChargerSystemData.evCharger.workingOperationStatus === 0x44,
           }"
           :height="isSimpleModeRef ? '45' : '31'"
-          id="ev-charger-diagram-rect-battery-status-discharging"
+          id="ev-charger-diagram-rect-battery-status-standby"
           rx="7.5"
           stroke="#909090"
           :width="isSimpleModeRef ? '120' : '92'"
@@ -5698,7 +5698,7 @@
           font-family="Rubik"
           :font-size="isSimpleModeRef ? '22px' : '16px'"
           :font-weight="isSimpleModeRef ? 'bold' : 'inherit'"
-          id="ev-charger-diagram-value-battery-status-discharging"
+          id="ev-charger-diagram-value-battery-status-standby"
           letter-spacing="0em"
           style="white-space: pre"
           x="-2.15625"
@@ -5706,7 +5706,7 @@
           y="-0.55419922"
           :transform="isSimpleModeRef ? 'translate(4,0)' : 'inherit'"
         >
-          <tspan id="tspan1138" :x="isSimpleModeRef ? '203' : '204.84375'" :y="isSimpleModeRef ? '694' : '675.42578'">Discharge</tspan>
+          <tspan id="tspan1138" :x="isSimpleModeRef ? '212' : '213.84375'" :y="isSimpleModeRef ? '694' : '675.42578'">Standby</tspan>
         </text>
         <text
           fill="black"
