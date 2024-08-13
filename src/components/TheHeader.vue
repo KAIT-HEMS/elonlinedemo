@@ -168,19 +168,19 @@ export default defineComponent({
 .nav-evcharger {
   .header-nav-highlight {
     display: block;
-    left:    252px;
+    left:    378px;
   }
 }
 .nav-settings {
   .header-nav-highlight {
     display: block;
-    left:    378px;
+    left:    504px;
   }
 }
 .nav-help {
   .header-nav-highlight {
     display:      block;
-    left:         504px;
+    left:         630px;
     border-right: none !important;
   }
 }
