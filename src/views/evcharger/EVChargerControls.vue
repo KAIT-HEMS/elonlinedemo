@@ -16,8 +16,8 @@
           <h4 class="small">Operation Mode: 0xDA</h4>
           <div class="d-grid gap-2" v-show="isSimpleModeRef">
             <button class="btn btn-primary" type="button" v-show="isSimpleModeRef" @click="setEVChargerPropertiesSimpleMode('charging')">Charging</button>
-            <button class="btn btn-primary" type="button" v-show="isSimpleModeRef" @click="setEVChargerPropertiesSimpleMode('discharging')">Discharging</button>
             <button class="btn btn-primary" type="button" v-show="isSimpleModeRef" @click="setEVChargerPropertiesSimpleMode('standby')">Standby</button>
+            <button class="btn btn-primary" type="button" v-show="isSimpleModeRef" @click="setEVChargerPropertiesSimpleMode('idle')">Idle</button>
           </div>
           <div v-show="!isSimpleModeRef">
             <div class="form-check">
@@ -27,15 +27,15 @@
               </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" id="f-ev-charger-operation-mode-43" type="radio" name="f-ev-charger-operation-mode" value="0x43">
-              <label class="form-check-label" for="f-ev-charger-operation-mode-43">
-                Discharging: 0x43
-              </label>
-            </div>
-            <div class="form-check">
               <input class="form-check-input" id="f-ev-charger-operation-mode-44" type="radio" name="f-ev-charger-operation-mode" value="0x44">
               <label class="form-check-label" for="f-ev-charger-operation-mode-44">
                 Standby: 0x44
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" id="f-ev-charger-operation-mode-47" type="radio" name="f-ev-charger-operation-mode" value="0x47">
+              <label class="form-check-label" for="f-ev-charger-operation-mode-47">
+                Idle: 0x47
               </label>
             </div>
           </div>
@@ -43,11 +43,6 @@
           <div class="grid gap-1 align-items-center" style="--bs-columns: 4;" v-show="!isSimpleModeRef">
             <input class="form-control h-100" id="f-ev-charger-charge-amount">
             <label class="g-col-3" for="f-ev-charger-charge-amount">Wh (max {{ evChargerSystemData.evCharger.chargeableElectricity }} Wh)</label>
-          </div>
-          <h4 class="small" v-show="!isSimpleModeRef">Discharge Amount: 0xEA</h4>
-          <div class="grid gap-1 align-items-center" style="--bs-columns: 4;" v-show="!isSimpleModeRef">
-            <input class="form-control h-100" id="f-ev-charger-amount">
-            <label class="g-col-3" for="f-ev-charger-amount">Wh (max {{ evChargerSystemData.evCharger.dischargeableElectricity }} Wh)</label>
           </div>
           <div class="d-grid justify-content-evenly" v-show="!isSimpleModeRef">
             <button class="btn btn-secondary rounded-pill px-4" type="button" @click="setEVChargerProperties" v-show="!isSimpleModeRef">Set</button>
@@ -141,7 +136,7 @@
           <h3 class="fs-6 text-primary fw-normal">Power Distribution Board</h3>
           <div class="flex-row justify-content-sm-between" :class="{'d-none': isRealDevices, 'd-flex': isRHE}">
             <div class="d-flex flex-column">
-              <div class="small">{{ evChargerSystemPointC.toHex(2).toUpperCase().prefix('0x') }}: Electric power</div>
+              <div class="small">{{ evChargerSystemPointB.toHex(2).toUpperCase().prefix('0x') }}: Electric power</div>
               <div class="small">{{ evChargerSystemData.powerPoints.c }} W (EDT: {{ evChargerSystemData.powerPoints.edt.c }})</div>
             </div>
             <div class="flex-shrink-0 power-circle">C</div>
@@ -208,7 +203,7 @@ export default defineComponent({
           tab                   = ref<string>('control'),
           evChargerSystem         = computed(() => store.state.evChargerSystem),
           evChargerSystemData     = computed(() => store.state.evChargerSystemData),
-          evChargerSystemPointC   = computed(() => store.state.evChargerSystemPointC),
+          evChargerSystemPointB   = computed(() => store.state.evChargerSystemPointB),
           evChargerSystemPointD   = computed(() => store.state.evChargerSystemPointD),
           evChargerSystemPointE   = computed(() => store.state.evChargerSystemPointE),
           isRealDevices         = computed(() => store.state.evChargerSystemMode === 'real' ? true : false),
@@ -356,32 +351,15 @@ export default defineComponent({
           epcList.push(0xDA);
           edtList.push([0x42]);
           break;
-        // Discharging
-        case '0x43':
-          if (dischargeAmountField.value === '' || Number.isNaN(dischargeAmountField.value)) {
-            dischargeAmountField.classList.add('is-invalid');
-            return;
-          }
-
-          dischargeAmount = parseInt(dischargeAmountField.value);
-          if (dischargeAmount < 0 || evChargerSystemData.value.evCharger.dischargeableElectricity < dischargeAmount) {
-            dischargeAmountField.classList.add('is-invalid');
-            return;
-          }
-
-          epcList.push(0xEA);
-          edtList.push(dischargeAmount.toHex(8).toUint8Array());
-
-          epcList.push(0xEC);
-          edtList.push([0x00, 0x00, 0x07, 0xD0]);
-
-          epcList.push(0xDA);
-          edtList.push([0x43]);
-          break;
         // Standby
         case '0x44':
           epcList.push(0xDA);
           edtList.push([0x44]);
+          break;
+        // Idle
+        case '0x47':
+          epcList.push(0xDA);
+          edtList.push([0x47]);
           break;
       }
 
@@ -433,12 +411,11 @@ export default defineComponent({
           document.getElementById('f-ev-charger-operation-mode-42')!.click();
           (document.getElementById('f-ev-charger-charge-amount') as HTMLInputElement).value = '100';
           break;
-        case 'discharging':
-          document.getElementById('f-ev-charger-operation-mode-43')!.click();
-          (document.getElementById('f-ev-charger-amount') as HTMLInputElement).value = '100';
-          break;
         case 'standby':
           document.getElementById('f-ev-charger-operation-mode-44')!.click();
+          break;
+        case 'idle':
+          document.getElementById('f-ev-charger-operation-mode-47')!.click();
           break;
       }
 
@@ -545,7 +522,7 @@ export default defineComponent({
       monitorDevicesData,
       evChargerSystem,
       evChargerSystemData,
-      evChargerSystemPointC,
+      evChargerSystemPointB,
       evChargerSystemPointD,
       evChargerSystemPointE,
       isSimpleModeRef,

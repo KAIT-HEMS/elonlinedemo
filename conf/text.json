@@ -19,7 +19,7 @@
           },
           "evChargerDischarger": {
             "title": "Opens the EV Charger/Discharger System Control page",
-            "label": "EV Charger/Discharger"
+            "label": "EV Charger/ Discharger"
           },
           "evCharger": {
             "title": "Opens the EV Charger System Control page",
