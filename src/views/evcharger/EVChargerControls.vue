@@ -124,16 +124,16 @@
             <div class="small">0xDA: Operation mode</div>
             <div class="small">{{ monitorDevicesData.evCharger.workingOperationStatus }} (EDT: {{ evChargerSystemData.evCharger.edt.workingOperationStatus }})</div>
           </div>
+        </div>
+        <div class="card shadow p-3 d-grid gap-2">
+          <h3 class="fs-6 text-primary fw-normal">Power Distribution Board</h3>
           <div class="d-flex flex-row justify-content-sm-between">
             <div class="d-flex flex-column">
-              <div class="small">0xD3: Charge(+)/Discharge(-) electric power</div>
+              <div class="small">{{ evChargerSystemPointB.toHex(2).toUpperCase().prefix('0x') }}: Electric power</div>
               <div class="small">{{ evChargerSystemData.powerPoints.b }} W (EDT: {{ evChargerSystemData.powerPoints.edt.b }})</div>
             </div>
             <div class="flex-shrink-0 power-circle">B</div>
           </div>
-        </div>
-        <div class="card shadow p-3 d-grid gap-2">
-          <h3 class="fs-6 text-primary fw-normal">Power Distribution Board</h3>
           <div class="flex-row justify-content-sm-between" :class="{'d-none': isRealDevices, 'd-flex': isRHE}">
             <div class="d-flex flex-column">
               <div class="small">{{ evChargerSystemPointB.toHex(2).toUpperCase().prefix('0x') }}: Electric power</div>
