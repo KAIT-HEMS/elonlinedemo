@@ -5421,7 +5421,6 @@
             <path d="m 157.879,3.1488 h 76.617 V 186.765 h -76.617 z" fill="#eff8ff" id="path3372"/>
             <path d="m 205.356,30.4735 h -9.908 l 8.661,-13.8373 H 193.22 l -7.273,19.5475 H 195 l -5.522,17.6535 z" fill="#407bff" fill-opacity="0.5" id="path3374"/>
             <path d="m 205.356,30.4737 h -9.908 l -7.075,-0.8978 -2.426,6.608 H 195 l -5.522,17.6535 z" fill="#407bff" id="path3376"/>
-            <path d="m 117.374,48.6408 0.001,-16.5983 V 15.4443 m 0,0 -9.372,9.0611 m 9.372,-9.0611 9.061,9.3712" stroke="#407bff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" id="path3378"/>
             <path d="m 141.113,13.8636 v 16.5983 16.5982 m 0,0 9.371,-9.0611 m -9.371,9.0611 -9.062,-9.3712" stroke="#407bff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" id="path3380"/>
             <path d="m 172.123,0 h 71.332 v 2.77275 h -71.332 z" fill="#6c9aff" id="path3382"/>
             <path opacity="0.4" d="m 172.41,0 h 8.463 v 2.2826 h -8.463 z" fill="#2550fa" id="path3384"/>
@@ -5718,7 +5717,7 @@
           xml:space="preserve"
           :class="isSimpleModeRef ? 'simple-mode' : ''"
         >
-          <tspan id="tspan1144" :x="isSimpleModeRef ? '115' : '66.1865'" y="775.665">EV Charger</tspan>
+          <tspan id="tspan1144" :x="isSimpleModeRef ? '175' : '156.1865'" y="775.665">EV Charger</tspan>
         </text>
         <g
           id="ev-charger-diagram-icon-battery-remaining"
