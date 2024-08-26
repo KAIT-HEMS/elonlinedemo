@@ -100,10 +100,36 @@
       <div class="card-body d-grid justify-items-center align-content-start gap-4 form-check" style="border-left: 1px solid rgba(0,0,0,.125);">
         <h3 class="fs-6 text-primary fw-normal">SET</h3>
         <div class="d-grid gap-2">
-          <button class="btn btn-primary" type="button" @click="setEVChargerDischargerPropertiesSimpleMode('charging')">0xDA(0x42)<br/>Charging</button>
-          <button class="btn btn-primary" type="button" @click="setEVChargerDischargerPropertiesSimpleMode('discharging')">0xDA(0x43)<br/>Discharging</button>
-          <button class="btn btn-primary" type="button" @click="setEVChargerDischargerPropertiesSimpleMode('standby')">0xDA(0x44)<br/>Standby</button>
-        </div>
+          <button
+            class="btn"
+            :class="hoveredButton === 'charging' ? 'btn-primary' : 'btn-secondary'"
+            type="button"
+            @click="setEVChargerDischargerPropertiesSimpleMode('charging')"
+            @mouseover="hoveredButton = 'charging'"
+            @mouseout="hoveredButton = ''"
+          >
+            0xDA(0x42)<br/>Charging
+          </button>
+          <button
+            class="btn"
+            :class="hoveredButton === 'discharging' ? 'btn-primary' : 'btn-secondary'"
+            type="button"
+            @click="setEVChargerDischargerPropertiesSimpleMode('discharging')"
+            @mouseover="hoveredButton = 'discharging'"
+            @mouseout="hoveredButton = ''"
+          >
+            0xDA(0x43)<br/>Discharging
+          </button>
+          <button
+            class="btn"
+            :class="hoveredButton === 'standby' ? 'btn-primary' : 'btn-secondary'"
+            type="button"
+            @click="setEVChargerDischargerPropertiesSimpleMode('standby')"
+            @mouseover="hoveredButton = 'standby'"
+            @mouseout="hoveredButton = ''"
+          >
+            0xDA(0x44)<br/>Standby
+          </button>        </div>
         <div class="card shadow p-3 gap-2" v-show="false">
           <div>
             <div class="form-check">
@@ -220,7 +246,8 @@ export default defineComponent({
           device       = computed(() => store.state.device),
           locale       = computed(() => store.state.locale),
           release      = computed(() => device.value.ip ? nodes.value[device.value.ip][device.value.eoj.class][device.value.eoj.id].release : ''),
-          propertyList = ref<EpcEdtList>({});
+          propertyList = ref<EpcEdtList>({}),
+          hoveredButton = ref('');
 
     const cameraViewType = computed(() => store.getters.cameraViewType);
 
@@ -476,7 +503,8 @@ export default defineComponent({
       zoomUp: () => { zoom.up(); zoomCamera(); },
       zoomDown: () => { zoom.down(); zoomCamera(); },
       propertyList,
-      setEVChargerDischargerPropertiesSimpleMode
+      setEVChargerDischargerPropertiesSimpleMode,
+      hoveredButton
     };
   }
 });
