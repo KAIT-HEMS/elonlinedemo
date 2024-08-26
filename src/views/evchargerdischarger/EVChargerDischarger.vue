@@ -82,7 +82,6 @@
         stroke="url(#paint4_linear_2804:695)"
         :stroke-width="isSimpleModeRef ? 16 : 8"
       />
-      <!-- todo>>>>wire 1 -->
       <path v-show="!isPhotoModeRef" d="m 118,460 h 178.6947" id="ev-charger-discharger-diagram-wire-ev" :stroke="evChargerDischargerSystemData.evChargerDischarger.chargeDischargeStatus === 0xFF || evChargerDischargerSystemData.evChargerDischarger.chargeDischargeStatus === 0x30 ? 'grey' : '#FACC91'" :stroke-width="isSimpleModeRef ? 16 : 8"></path>
       <path v-show="!isPhotoModeRef && (evChargerDischargerSystemData.evChargerDischarger.workingOperationStatus === 0x42 || evChargerDischargerSystemData.evChargerDischarger.workingOperationStatus === 0x43)" class="animate" :class="{ negative: evChargerDischargerSystemData.evChargerDischarger.workingOperationStatus === 0x43 }" :stroke-width="isSimpleModeRef ? 8 : 4" d="m 118,460 h 178.6947" id="ev-charger-discharger-diagram-wire-ev" stroke="url(#paint1_linear_2804:695)" style="stroke: #000000; fill: none; stroke-opacity: 1; stroke-miterlimit: 4;"></path>
       <path id="ev-charger-discharger-diagram-solar-wire"
