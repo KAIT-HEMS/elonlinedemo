@@ -19,7 +19,6 @@
         id="ev-charger-discharger-diagram-wire-b"
         :stroke="evChargerDischargerSystemData.evChargerDischarger.chargeDischargeStatus === 0xFF || evChargerDischargerSystemData.evChargerDischarger.chargeDischargeStatus === 0x30 ? 'grey' : '#FACC91'"
         :stroke-width="isSimpleModeRef ? 16 : 8"
-        style="stroke: url(#paint14_linear_2804:695)"
         transform="matrix(1, 0, 0, 1, 394, 135)"
       />
       <path
@@ -30,11 +29,6 @@
         stroke="url(#paint14_linear_2804:695)"
         :stroke-width="isSimpleModeRef ? 8 : 4"
         transform="matrix(1, 0, 0, 1, 394, 135)"
-        style="
-          stroke: #000000;
-          stroke-miterlimit: 4;
-          stroke-opacity: 1;
-        "
         v-show="evChargerDischargerSystemData.evChargerDischarger.workingOperationStatus === 0x42 || evChargerDischargerSystemData.evChargerDischarger.workingOperationStatus === 0x43"
       />
       <path
