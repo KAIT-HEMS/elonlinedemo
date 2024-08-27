@@ -219,6 +219,28 @@ const Settings = {
       address: "",
       id: ""
     }
+  },
+  evCharger: {
+    0x02A1: {
+      address: "",
+      id: ""
+    },
+    0x0279: {
+      address: "",
+      id: ""
+    },
+    0x0287: {
+      address: "",
+      id: ""
+    },
+    0x0288: {
+      address: "",
+      id: ""
+    },
+    0x0130: {
+      address: "",
+      id: ""
+    }
   }
 };
 const SingleDevice = {
@@ -246,7 +268,11 @@ const CameraHolders = {
   evChargerDischarger0: 0,
   evChargerDischarger1: 0,
   evChargerDischarger2: 0,
-  evChargerDischarger3: 0
+  evChargerDischarger3: 0,
+  evCharger0: 0,
+  evCharger1: 0,
+  evCharger2: 0,
+  evCharger3: 0
 };
 const BatterySystemData = {
   powerPoints: {
@@ -361,6 +387,63 @@ const EVChargerDischargerSystem = {
   smartMeter: SingleDevice,
   airConditioner: SingleDevice
 };
+const EVChargerSystemData = {
+  powerPoints: {
+    a: 0,
+    b: 0,
+    c: 0,
+    d: 0,
+    e: 0,
+    f: 0,
+    g: 0,
+    edt: {
+      a: '',
+      b: '',
+      c: '',
+      d: '',
+      e: '',
+      f: '',
+      g: ''
+    }
+  },
+  evCharger: {
+    chargeableElectricity: 0,
+    dischargeableElectricity: 0,
+    workingOperationStatus: 0,
+    remainingStoredElectricity: 0,
+    chargeDischargeStatus: 0,
+    edt: {
+      chargeableElectricity: '',
+      dischargeableElectricity: '',
+      workingOperationStatus: '',
+      remainingStoredElectricity: '',
+      chargeDischargeStatus: '',
+    }
+  },
+  homeAirConditioner: {
+    operationStatus: 0,
+    operationModeSetting: 0,
+    setTemperatureValue: 0,
+    edt: {
+      operationStatus: '',
+      operationModeSetting: '',
+      setTemperatureValue: ''
+    }
+  },
+  smartMeter: {
+    currentTimeSetting: 0,
+    edt: {
+      currentTimeSetting: '--:--'
+    }
+  }
+};
+const EVChargerSystem = {
+  evCharger: SingleDevice,
+  solarPower: SingleDevice,
+  distributionBoard: SingleDevice,
+  smartMeter: SingleDevice,
+  airConditioner: SingleDevice
+};
 
 export default createStore({
   state: {
@@ -400,6 +483,14 @@ export default createStore({
     evChargerDischargerSystemPointE: 0xD9,
     evChargerDischargerSystemUIModeSimple: false,
     evChargerDischargerSystemUIModePhoto: false,
+    evChargerSystemData: EVChargerSystemData,
+    evChargerSystemMode: localStorage.getItem('el-demoapp-evcharger-system-mode') || 'real',
+    evChargerSystem: JSON.parse(localStorage.getItem('el-demoapp-evcharger-system') || 'null') || EVChargerSystem as EVChargerSystem,
+    evChargerSystemPointB: 0xD7,
+    evChargerSystemPointD: 0xD8,
+    evChargerSystemPointE: 0xD9,
+    evChargerSystemUIModeSimple: false,
+    evChargerSystemUIModePhoto: false,
     cameraSearchCriteria: CameraSearchCriteria as CameraSearchCriteria,
     cameras: JSON.parse(localStorage.getItem('el-demoapp-cameras') || 'null') || [] as Camera[],
     cameraHolders: JSON.parse(localStorage.getItem('el-demoapp-camera-holders') || 'null') || CameraHolders as CameraHolders,
@@ -699,6 +790,29 @@ export default createStore({
     },
     setEVChargerDischargerSystemUIModePhoto(state, data) {
       state.evChargerDischargerSystemUIModePhoto = data;
+    },
+    setEVChargerSystemMode(state, data) {
+      state.evChargerSystemMode = data;
+      localStorage.setItem('el-demoapp-evcharger-system-mode', data);
+    },
+    assignEVChargerSystemDevice(state, data: { type: string, device: typeof SingleDevice }) {
+      state.evChargerSystem[data.type] = data.device;
+      localStorage.setItem('el-demoapp-evcharger-system', JSON.stringify(state.evChargerSystem));
+    },
+    setEVChargerSystemPointB(state, data) {
+      state.evChargerSystemPointB = data;
+    },
+    setEVChargerSystemPointD(state, data) {
+      state.evChargerSystemPointD = data;
+    },
+    setEVChargerSystemPointE(state, data) {
+      state.evChargerSystemPointE = data;
+    },
+    setEVChargerSystemUIModeSimple(state, data) {
+      state.evChargerSystemUIModeSimple = data;
+    },
+    setEVChargerSystemUIModePhoto(state, data) {
+      state.evChargerSystemUIModePhoto = data;
     },
     setCameraSearchCriteria(state, data) {
       state.cameraSearchCriteria = merge(state.cameraSearchCriteria, data);
