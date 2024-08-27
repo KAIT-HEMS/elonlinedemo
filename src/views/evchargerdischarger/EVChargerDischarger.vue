@@ -26,7 +26,7 @@
         :class="{ negative: evChargerDischargerSystemData.evChargerDischarger.workingOperationStatus === 0x43 }"
         d="M405 0V126.5C405 139.203 394.703 149.5 382 149.5H64H27C14.2975 149.5 4 159.797 4 172.5V205.5V338"
         id="ev-charger-discharger-diagram-flow-b"
-        stroke="url(#paint14_linear_2804:695)"
+        stroke="#000000"
         :stroke-width="isSimpleModeRef ? 8 : 4"
         transform="matrix(1, 0, 0, 1, 394, 135)"
         v-show="evChargerDischargerSystemData.evChargerDischarger.workingOperationStatus === 0x42 || evChargerDischargerSystemData.evChargerDischarger.workingOperationStatus === 0x43"
