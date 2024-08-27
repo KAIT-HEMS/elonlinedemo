@@ -25,6 +25,14 @@
           </div>
         </div>
       </router-link>
+      <router-link :to="{ name: 'evCharger' }" custom v-slot="{ navigate }">
+        <div class="home-nav-item-evcharger home-nav-item card shadow-lg d-grid align-content-end" :title="text?.nav?.evCharger?.title" @click="navigate">
+          <div class="home-nav-item-label text-white d-grid grid-template-max-2 justify-content-between align-content-center">
+            <span>{{ text?.nav?.evCharger?.label }}</span>
+            <span>→</span>
+          </div>
+        </div>
+      </router-link>
     </div>
   </div>
 </template>
@@ -99,6 +107,19 @@ export default defineComponent({
   }
   > .home-nav-item-label {
     background-image: linear-gradient(90deg, var(--color-gradient-evchargerdischarger-start) 0%, var(--color-gradient-evchargerdischarger-end) 100%);
+  }
+}
+.home-nav-item-evcharger {
+  background-image:    url('/assets/img/home-evcharger.svg');
+  background-repeat:   no-repeat;
+  background-position: center 34%;
+  background-size: 80%;
+
+  &:hover {
+    box-shadow: 0 0 0 .25rem #915EFD80 !important;
+  }
+  > .home-nav-item-label {
+    background-image: linear-gradient(90deg, var(--color-gradient-evcharger-start) 0%, var(--color-gradient-evcharger-end) 100%);
   }
 }
 </style>

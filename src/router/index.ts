@@ -9,6 +9,8 @@ import Battery from '@/views/battery/Battery.vue';
 import BatteryControls from '@/views/battery/BatteryControls.vue';
 import EVChargerDischarger from '@/views/evchargerdischarger/EVChargerDischarger.vue';
 import EVChargerDischargerControls from '@/views/evchargerdischarger/EVChargerDischargerControls.vue';
+import EVCharger from '@/views/evcharger/EVCharger.vue';
+import EVChargerControls from '@/views/evcharger/EVChargerControls.vue';
 import Settings from '@/views/settings/Main.vue';
 import SettingsMenu from '@/views/settings/Menu.vue';
 import SettingsDetails from '@/views/settings/Details.vue';
@@ -72,6 +74,18 @@ const routes: RouteRecordRaw[] = [
     },
     meta: {
       feature: 'evchargerdischarger'
+    }
+  },
+  {
+    name: 'evCharger',
+    path: '/evcharger',
+    components: {
+      main: EVCharger,
+      footer: Logger,
+      drawer: EVChargerControls
+    },
+    meta: {
+      feature: 'evcharger'
     }
   },
   {
