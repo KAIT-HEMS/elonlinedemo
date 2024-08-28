@@ -404,23 +404,30 @@ export default defineComponent({
           break;
       }
 
+      epcList.push(0xE4);
+      edtList.push([]);
+      epcList.push(0xD3);
+      edtList.push([]);
+
       for (let i = 0; i < epcList.length; i++) {
         // Set property
-        store.dispatch('sendEL', {
-          ip: device.value.ip,
-          el: {
-            deoj: device.value.eoj,
-            esv: 0x61,
-            opc: {
-              ops: [
-                {
-                  epc: epcList[i],
-                  edt: edtList[i]
-                }
-              ]
+        if(epcList[i] !== 228 && epcList[i] !== 211) {
+          store.dispatch('sendEL', {
+            ip: device.value.ip,
+            el: {
+              deoj: device.value.eoj,
+              esv: 0x61,
+              opc: {
+                ops: [
+                  {
+                    epc: epcList[i],
+                    edt: edtList[i]
+                  }
+                ]
+              }
             }
-          }
-        });
+          });
+        }
 
         // Get property
         setTimeout(() => {
