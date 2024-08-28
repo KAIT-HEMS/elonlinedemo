@@ -20,7 +20,7 @@
             <div class="card-body d-grid align-content-start">
               <h3 class="d-flex justify-content-between fs-6 text-primary">
                 {{ text?.dataHeading }}
-                <button type="button" id="btnUpdateELProperties" class="btn btn-secondary btn-sm" :title="text?.getButton?.title" @click="getEDTAll">{{ text?.getButton?.label }}</button>
+                <button type="button" class="btn btn-secondary btn-sm" :title="text?.getButton?.title" @click="getEDTAll">{{ text?.getButton?.label }}</button>
               </h3>
               <div class="overflow-auto">
                 <table class="table">
