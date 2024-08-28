@@ -441,6 +441,8 @@ export default defineComponent({
         });
         }, 1000);
       }
+
+      document.getElementById('btnUpdateELProperties')!.click()
     }
 
     /*
