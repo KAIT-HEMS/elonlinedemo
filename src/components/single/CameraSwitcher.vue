@@ -411,21 +411,23 @@ export default defineComponent({
 
       for (let i = 0; i < epcList.length; i++) {
         // Set property
-        store.dispatch('sendEL', {
-          ip: device.value.ip,
-          el: {
-            deoj: device.value.eoj,
-            esv: 0x61,
-            opc: {
-              ops: [
-                {
-                  epc: epcList[i],
-                  edt: edtList[i]
-                }
-              ]
+        if(epcList[i] !== 228 && epcList[i] !== 211) {
+          store.dispatch('sendEL', {
+            ip: device.value.ip,
+            el: {
+              deoj: device.value.eoj,
+              esv: 0x61,
+              opc: {
+                ops: [
+                  {
+                    epc: epcList[i],
+                    edt: edtList[i]
+                  }
+                ]
+              }
             }
-          }
-        });
+          });
+        }
 
         // Get property
         setTimeout(() => {
