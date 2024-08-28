@@ -404,6 +404,11 @@ export default defineComponent({
           break;
       }
 
+      epcList.push(0xE4);
+      edtList.push([]);
+      epcList.push(0xD3);
+      edtList.push([]);
+
       for (let i = 0; i < epcList.length; i++) {
         // Set property
         store.dispatch('sendEL', {
@@ -441,8 +446,6 @@ export default defineComponent({
         });
         }, 1000);
       }
-
-      document.getElementById('btnUpdateELProperties')!.click()
     }
 
     /*
