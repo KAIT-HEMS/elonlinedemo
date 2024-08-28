@@ -141,6 +141,7 @@ export default defineComponent({
 
     watch([nodes, device, locale], () => {
       updateProperties();
+      getEDTAll();
     });
 
     // Update button
