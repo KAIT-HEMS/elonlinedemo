@@ -59,9 +59,9 @@ export default defineComponent({
   background-size:  cover;
 }
 .home-body {
-  gap:                   100px;
+  gap:                   80px;
   grid-template-rows:    456px;
-  grid-template-columns: repeat(3, 370px);
+  grid-template-columns: repeat(3, 360px);
 }
 .home-nav-item {
   grid-template-rows: 90px;

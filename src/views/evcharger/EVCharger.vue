@@ -6400,7 +6400,7 @@ export default defineComponent({
       Property B
       Measurement channel
       */
-      edt = store.getters.data(evChargerSystem.value.distributionBoard.ip, evChargerSystem.value.distributionBoard.eoj, evChargerSystemPointD.value);
+      edt = store.getters.data(evChargerSystem.value.distributionBoard.ip, evChargerSystem.value.distributionBoard.eoj, evChargerSystemPointB.value);
       evChargerSystemData.value.powerPoints.edt.b = (() => { let hex = ''; edt.forEach((v: number) => { hex += v.toHex(2).toUpperCase(); }); return hex === '' ? '' : hex.prefix('0x'); })();
       if (edt.length > 0) {
         currentR = edt[4] * 16**2 + edt[5];
