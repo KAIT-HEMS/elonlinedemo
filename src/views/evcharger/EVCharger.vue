@@ -6669,11 +6669,7 @@ export default defineComponent({
                 return [0xE0];
               // Power distribution board
               case 0x0287:
-                if (isRealDevices.value) {
-                  return [evChargerSystemPointD.value, evChargerSystemPointE.value, 0xC6];
-                } else if (isRHE.value) {
-                  return [evChargerSystemPointB.value, evChargerSystemPointD.value, evChargerSystemPointE.value, 0xC6];
-                }
+                return [evChargerSystemPointB.value, evChargerSystemPointD.value, evChargerSystemPointE.value, 0xC6];
               // Low-voltage smart electric energy meter
               case 0x0288:
                 if (isRealDevices.value) {
