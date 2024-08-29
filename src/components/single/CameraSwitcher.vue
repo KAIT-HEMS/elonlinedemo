@@ -128,7 +128,8 @@
             @mouseout="hoveredButton = ''"
           >
             0xDA(0x44)<br/>Standby
-          </button>        </div>
+          </button>
+        </div>
         <div class="card shadow p-3 gap-2" v-show="false">
           <div>
             <div class="form-check">
@@ -251,9 +252,36 @@
       <div class="card-body d-grid justify-items-center align-content-start gap-4 form-check" style="border-left: 1px solid rgba(0,0,0,.125);">
         <h3 class="fs-6 text-primary fw-normal">SET</h3>
         <div class="d-grid gap-2">
-          <button class="btn btn-primary" type="button" @click="setEVChargerPropertiesSimpleMode('charging')">0xDA(0x42)<br/>Charging</button>
-          <button class="btn btn-primary" type="button" @click="setEVChargerPropertiesSimpleMode('standby')">0xDA(0x44)<br/>Standby</button>
-          <button class="btn btn-primary" type="button" @click="setEVChargerPropertiesSimpleMode('idle')">0xDA(0x47)<br/>Idle</button>
+          <button
+            class="btn"
+            :class="hoveredButton === 'charging' ? 'btn-primary' : 'btn-secondary'"
+            type="button"
+            @click="setEVChargerPropertiesSimpleMode('charging')"
+            @mouseover="hoveredButton = 'charging'"
+            @mouseout="hoveredButton = ''"
+          >
+            0xDA(0x42)<br/>Charging
+          </button>
+          <button
+            class="btn"
+            :class="hoveredButton === 'standby' ? 'btn-primary' : 'btn-secondary'"
+            type="button"
+            @click="setEVChargerPropertiesSimpleMode('standby')"
+            @mouseover="hoveredButton = 'standby'"
+            @mouseout="hoveredButton = ''"
+          >
+            0xDA(0x44)<br/>Standby
+          </button>
+          <button
+            class="btn"
+            :class="hoveredButton === 'idle' ? 'btn-primary' : 'btn-secondary'"
+            type="button"
+            @click="setEVChargerPropertiesSimpleMode('idle')"
+            @mouseover="hoveredButton = 'idle'"
+            @mouseout="hoveredButton = ''"
+          >
+            0xDA(0x47)<br/>Idle
+          </button>
         </div>
         <div class="card shadow p-3 gap-2" v-show="false">
           <div>
@@ -746,7 +774,7 @@ export default defineComponent({
       propertyList,
       setEVChargerDischargerPropertiesSimpleMode,
       setEVChargerPropertiesSimpleMode,
-      hoveredButton
+      hoveredButton,
     };
   }
 });
