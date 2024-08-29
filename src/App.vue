@@ -41,6 +41,8 @@ export default defineComponent({
   --color-gradient-battery-end:               #27f561;
   --color-gradient-evchargerdischarger-start: #4911BE;
   --color-gradient-evchargerdischarger-end:   #915EFD;
+  --color-gradient-evcharger-start:           #4911BE;
+  --color-gradient-evcharger-end:             #915EFD;
   --color-list-highlight:                     rgba(255, 255, 255, .2);
 
   // Typography
