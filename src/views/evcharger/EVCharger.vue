@@ -80,7 +80,7 @@
         stroke="url(#paint4_linear_2804:695)"
         :stroke-width="isSimpleModeRef ? 16 : 8"
       />
-      <path v-show="!isPhotoModeRef" d="m 118,460 h 178.6947" id="ev-charger-diagram-wire-ev" :stroke="evChargerSystemData.evCharger.chargeStatus ? '#FACC91' : 'grey'" :stroke-width="isSimpleModeRef ? 16 : 8"></path>
+      <path v-show="!isPhotoModeRef" d="m 118,460 h 178.6947" id="ev-charger-diagram-wire-ev" :stroke="evChargerSystemData.evCharger.workingOperationStatus ? '#FACC91' : 'grey'" :stroke-width="isSimpleModeRef ? 16 : 8"></path>
       <path v-show="!isPhotoModeRef && evChargerSystemData.evCharger.workingOperationStatus === 0x42" class="animate" :stroke-width="isSimpleModeRef ? 8 : 4" d="m 118,460 h 178.6947" id="ev-charger-diagram-wire-ev" stroke="url(#paint1_linear_2804:695)" style="stroke: #000000; fill: none; stroke-opacity: 1; stroke-miterlimit: 4;"></path>
       <path id="ev-charger-diagram-solar-wire"
         d="M263 0V199C263 263 263 263 199 263H0"
