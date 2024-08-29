@@ -6392,11 +6392,6 @@ export default defineComponent({
         evChargerSystemData.value.evCharger.chargeStatus = edt[0];
       }
 
-      // generated electricity: 0xD3
-      edt = store.getters.data(evChargerSystem.value.evCharger.ip, evChargerSystem.value.evCharger.eoj, 0xD3);
-      evChargerSystemData.value.powerPoints.edt.b = (() => { let hex = ''; edt.forEach((v: number) => { hex += v.toHex(2).toUpperCase(); }); return hex === '' ? '' : hex.prefix('0x'); })();
-      evChargerSystemData.value.powerPoints.b = parseInt(evChargerSystemData.value.powerPoints.edt.b, 16).toSignedInt('int32') || 0;
-
       return evChargerSystem.value.evCharger.ip;
     }
 
@@ -6407,20 +6402,18 @@ export default defineComponent({
       Property B
       Measurement channel
       */
-      if (isRHE.value) {
-        edt = store.getters.data(evChargerSystem.value.distributionBoard.ip, evChargerSystem.value.distributionBoard.eoj, evChargerSystemPointB.value);
-        evChargerSystemData.value.powerPoints.edt.b = (() => { let hex = ''; edt.forEach((v: number) => { hex += v.toHex(2).toUpperCase(); }); return hex === '' ? '' : hex.prefix('0x'); })();
-        if (edt.length > 0) {
-          currentR = edt[4] * 16**2 + edt[5];
-          currentT = edt[6] * 16**2 + edt[7];
-          if (currentR === 0x7FFE) {
-            currentR = 0;
-          }
-          if (currentT === 0x7FFE) {
-            currentT = 0;
-          }
-          evChargerSystemData.value.powerPoints.b = Math.round((currentR.toSignedInt('int16') + currentT.toSignedInt('int16')) * 0.1 * 100);
+      edt = store.getters.data(evChargerSystem.value.distributionBoard.ip, evChargerSystem.value.distributionBoard.eoj, evChargerSystemPointD.value);
+      evChargerSystemData.value.powerPoints.edt.b = (() => { let hex = ''; edt.forEach((v: number) => { hex += v.toHex(2).toUpperCase(); }); return hex === '' ? '' : hex.prefix('0x'); })();
+      if (edt.length > 0) {
+        currentR = edt[4] * 16**2 + edt[5];
+        currentT = edt[6] * 16**2 + edt[7];
+        if (currentR === 0x7FFE) {
+          currentR = 0;
         }
+        if (currentT === 0x7FFE) {
+          currentT = 0;
+        }
+        evChargerSystemData.value.powerPoints.b = Math.round((currentR.toSignedInt('int16') + currentT.toSignedInt('int16')) * 0.1 * 100);
       }
       /*
       Property D
