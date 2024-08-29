@@ -134,13 +134,6 @@
             </div>
             <div class="flex-shrink-0 power-circle">B</div>
           </div>
-          <div class="flex-row justify-content-sm-between" :class="{'d-none': isRealDevices, 'd-flex': isRHE}">
-            <div class="d-flex flex-column">
-              <div class="small">{{ evChargerSystemPointB.toHex(2).toUpperCase().prefix('0x') }}: Electric power</div>
-              <div class="small">{{ evChargerSystemData.powerPoints.c }} W (EDT: {{ evChargerSystemData.powerPoints.edt.c }})</div>
-            </div>
-            <div class="flex-shrink-0 power-circle">C</div>
-          </div>
           <div class="d-flex flex-row justify-content-sm-between">
             <div class="d-flex flex-column">
               <div class="small">{{ evChargerSystemPointD.toHex(2).toUpperCase().prefix('0x') }}: Electric power</div>
@@ -319,14 +312,11 @@ export default defineComponent({
       const mode = (document.querySelector('input[name="f-ev-charger-operation-mode"]:checked') as HTMLInputElement)?.value;
       if (!mode) { return; }
 
-      const chargeAmountField = document.getElementById('f-ev-charger-charge-amount') as HTMLInputElement,
-            dischargeAmountField = document.getElementById('f-ev-charger-amount') as HTMLInputElement;
-      let chargeAmount = 0,
-          dischargeAmount = 0;
+      const chargeAmountField = document.getElementById('f-ev-charger-charge-amount') as HTMLInputElement;
+      let chargeAmount = 0;
 
       // Reset errors
       chargeAmountField.classList.remove('is-invalid');
-      dischargeAmountField.classList.remove('is-invalid');
 
       switch (mode) {
         // Charging
