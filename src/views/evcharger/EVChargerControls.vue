@@ -312,14 +312,11 @@ export default defineComponent({
       const mode = (document.querySelector('input[name="f-ev-charger-operation-mode"]:checked') as HTMLInputElement)?.value;
       if (!mode) { return; }
 
-      const chargeAmountField = document.getElementById('f-ev-charger-charge-amount') as HTMLInputElement,
-            dischargeAmountField = document.getElementById('f-ev-charger-amount') as HTMLInputElement;
-      let chargeAmount = 0,
-          dischargeAmount = 0;
+      const chargeAmountField = document.getElementById('f-ev-charger-charge-amount') as HTMLInputElement;
+      let chargeAmount = 0;
 
       // Reset errors
       chargeAmountField.classList.remove('is-invalid');
-      dischargeAmountField.classList.remove('is-invalid');
 
       switch (mode) {
         // Charging
