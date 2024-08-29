@@ -6281,7 +6281,7 @@ export default defineComponent({
           route                 = useRoute(),
           routeName             = computed(() => route.name),
           evChargerSystem         = computed(() => store.state.evChargerSystem),
-          evChargerSystemPointC   = computed(() => store.state.evChargerSystemPointC),
+          evChargerSystemPointB   = computed(() => store.state.evChargerSystemPointB),
           evChargerSystemPointD   = computed(() => store.state.evChargerSystemPointD),
           evChargerSystemPointE   = computed(() => store.state.evChargerSystemPointE),
           ACData                = computed(airConditionerSetup),
@@ -6404,12 +6404,12 @@ export default defineComponent({
       let edt, currentR, currentT;
 
       /*
-      Property C
+      Property B
       Measurement channel
       */
       if (isRHE.value) {
-        edt = store.getters.data(evChargerSystem.value.distributionBoard.ip, evChargerSystem.value.distributionBoard.eoj, evChargerSystemPointC.value);
-        evChargerSystemData.value.powerPoints.edt.c = (() => { let hex = ''; edt.forEach((v: number) => { hex += v.toHex(2).toUpperCase(); }); return hex === '' ? '' : hex.prefix('0x'); })();
+        edt = store.getters.data(evChargerSystem.value.distributionBoard.ip, evChargerSystem.value.distributionBoard.eoj, evChargerSystemPointB.value);
+        evChargerSystemData.value.powerPoints.edt.b = (() => { let hex = ''; edt.forEach((v: number) => { hex += v.toHex(2).toUpperCase(); }); return hex === '' ? '' : hex.prefix('0x'); })();
         if (edt.length > 0) {
           currentR = edt[4] * 16**2 + edt[5];
           currentT = edt[6] * 16**2 + edt[7];
@@ -6419,7 +6419,7 @@ export default defineComponent({
           if (currentT === 0x7FFE) {
             currentT = 0;
           }
-          evChargerSystemData.value.powerPoints.c = Math.round((currentR.toSignedInt('int16') + currentT.toSignedInt('int16')) * 0.1 * 100);
+          evChargerSystemData.value.powerPoints.b = Math.round((currentR.toSignedInt('int16') + currentT.toSignedInt('int16')) * 0.1 * 100);
         }
       }
       /*
@@ -6681,7 +6681,7 @@ export default defineComponent({
                 if (isRealDevices.value) {
                   return [evChargerSystemPointD.value, evChargerSystemPointE.value, 0xC6];
                 } else if (isRHE.value) {
-                  return [evChargerSystemPointC.value, evChargerSystemPointD.value, evChargerSystemPointE.value, 0xC6];
+                  return [evChargerSystemPointB.value, evChargerSystemPointD.value, evChargerSystemPointE.value, 0xC6];
                 }
               // Low-voltage smart electric energy meter
               case 0x0288:
