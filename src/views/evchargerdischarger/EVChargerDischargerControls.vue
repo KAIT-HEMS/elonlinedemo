@@ -122,7 +122,7 @@
             <div class="small">{{ monitorDevicesData.evChargerDischarger.chargeDischargeStatus }} (EDT: {{ evChargerDischargerSystemData.evChargerDischarger.edt.chargeDischargeStatus }})</div>
           </div>
           <div class="d-flex flex-column">
-            <div class="small">0xC4: Remaining stored electricity</div>
+            <div class="small">0xE4: Remaining stored electricity</div>
             <div class="small">{{ evChargerDischargerSystemData.evChargerDischarger.remainingStoredElectricity }} % (EDT: {{ evChargerDischargerSystemData.evChargerDischarger.edt.remainingStoredElectricity }})</div>
           </div>
           <div class="d-flex flex-column">
@@ -135,16 +135,6 @@
               <div class="small">{{ evChargerDischargerSystemData.powerPoints.b }} W (EDT: {{ evChargerDischargerSystemData.powerPoints.edt.b }})</div>
             </div>
             <div class="flex-shrink-0 power-circle">B</div>
-          </div>
-        </div>
-        <div class="card shadow p-3 gap-2" :class="{'d-none': isRHE, 'd-grid': isRealDevices}">
-          <h3 class="fs-6 text-primary fw-normal">Sub Meter</h3>
-          <div class="d-flex flex-row justify-content-sm-between">
-            <div class="d-flex flex-column">
-              <div class="small">0xE7: Electric power</div>
-              <div class="small">{{ evChargerDischargerSystemData.powerPoints.c === 'No data' ? 'No Data' : evChargerDischargerSystemData.powerPoints.c + ' W' }} (EDT: {{ evChargerDischargerSystemData.powerPoints.edt.c }})</div>
-            </div>
-            <div class="flex-shrink-0 power-circle">C</div>
           </div>
         </div>
         <div class="card shadow p-3 d-grid gap-2">
