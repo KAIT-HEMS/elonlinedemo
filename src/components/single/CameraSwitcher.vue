@@ -3,9 +3,8 @@
     <template v-if="cameraViewType === 'diagram_evchargerdischarger'">
       <div class="card flex-grow-1 d-grid grid-template-100" style="padding: 50px; border: none;">
         <svg width="798" height="325" viewBox="0 0 798 325" style="height: 100%; width: 100%;" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path id="ELline5" d="M794 154.5C772.5 179 749.4 227 627 227" :stroke="propertyList['0xD3'] && propertyList['0xD3']?.replace(/\s|W/g, '') != 0 ? 'orange' : '#bbbbbb'" stroke-width="6" stroke-linecap="round"/>
-          <path id="ELline5" class="animate" :class="propertyList['0xD3']?.replace(/\s|W/g, '') > 0 ? 'normal' : 'reverse'" v-show="propertyList['0xD3'] && propertyList['0xD3']?.replace(/\s|W/g, '') != 0" d="M794 154.5C772.5 179 749.4 227 627 227" stroke-linejoin="round"/>
-          <rect id="Rectangle 1" x="294.5" y="0.5" width="332" height="293" rx="6.5" stroke="#A3A3A3" fill="white"/>
+          <path id="ELline5" d="M794 154.5C772.5 179 749.4 227 627 227" :stroke="(propertyList['0xC7'] === '0x40' || propertyList['0xC7'] === '0x41' || propertyList['0xC7'] === '0x42' || propertyList['0xC7'] === '0x43' || propertyList['0xC7'] === '0x44') ? 'orange' : '#bbbbbb'" stroke-width="6" stroke-linecap="round"/>
+          <path id="ELline5" class="animate" :class="propertyList['0xDA'] === '0x43' ? 'reverse' : 'normal'" v-show="propertyList['0xDA'] === '0x42' || propertyList['0xDA'] === '0x43'" d="M794 154.5C772.5 179 749.4 227 627 227" stroke-linejoin="round"/>          <rect id="Rectangle 1" x="294.5" y="0.5" width="332" height="293" rx="6.5" stroke="#A3A3A3" fill="white"/>
           <g id="ev-charger-discharger-diagram-battery">
             <g id="ev-charger-discharger-diagram-icon-battery">
               <g id="g3468">
@@ -555,23 +554,30 @@ export default defineComponent({
           break;
       }
 
+      epcList.push(0xE4);
+      edtList.push([]);
+      epcList.push(0xD3);
+      edtList.push([]);
+
       for (let i = 0; i < epcList.length; i++) {
         // Set property
-        store.dispatch('sendEL', {
-          ip: device.value.ip,
-          el: {
-            deoj: device.value.eoj,
-            esv: 0x61,
-            opc: {
-              ops: [
-                {
-                  epc: epcList[i],
-                  edt: edtList[i]
-                }
-              ]
+        if(epcList[i] !== 228 && epcList[i] !== 211) {
+          store.dispatch('sendEL', {
+            ip: device.value.ip,
+            el: {
+              deoj: device.value.eoj,
+              esv: 0x61,
+              opc: {
+                ops: [
+                  {
+                    epc: epcList[i],
+                    edt: edtList[i]
+                  }
+                ]
+              }
             }
-          }
-        });
+          });
+        }
 
         // Get property
         setTimeout(() => {
