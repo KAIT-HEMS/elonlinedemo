@@ -17,14 +17,12 @@
       <path
         d="M405 0V126.5C405 139.203 394.703 149.5 382 149.5H64H27C14.2975 149.5 4 159.797 4 172.5V205.5V338"
         id="ev-charger-diagram-wire-b"
-        stroke="url(#paint0_linear_2804_4803)"
+        :stroke="evChargerSystemData.evCharger.workingOperationStatus ? '#FACC91' : 'grey'"
         :stroke-width="isSimpleModeRef ? 16 : 8"
-        style="stroke: url(#paint14_linear_2804:695)"
         transform="matrix(1, 0, 0, 1, 394, 135)"
       />
       <path
-        class="opposite animate"
-        :class="{ negative: evChargerSystemData.powerPoints['b'] < 0 }"
+        class="animate opposite"
         d="M405 0V126.5C405 139.203 394.703 149.5 382 149.5H64H27C14.2975 149.5 4 159.797 4 172.5V205.5V338"
         id="ev-charger-diagram-flow-b"
         stroke="url(#paint14_linear_2804:695)"
@@ -35,7 +33,7 @@
           stroke-miterlimit: 4;
           stroke-opacity: 1;
         "
-        v-show="evChargerSystemData.powerPoints['b'] !== 0"
+        v-show="evChargerSystemData.evCharger.workingOperationStatus === 0x42"
       />
       <path
         d="m 1023.9819,149.297 h 178.6947"
@@ -82,7 +80,7 @@
         stroke="url(#paint4_linear_2804:695)"
         :stroke-width="isSimpleModeRef ? 16 : 8"
       />
-      <path v-show="!isPhotoModeRef" d="m 118,460 h 178.6947" id="ev-charger-diagram-wire-ev" :stroke="evChargerSystemData.evCharger.chargeStatus === 0xFF || evChargerSystemData.evCharger.chargeStatus === 0x30 ? 'grey' : '#FACC91'" :stroke-width="isSimpleModeRef ? 16 : 8"></path>
+      <path v-show="!isPhotoModeRef" d="m 118,460 h 178.6947" id="ev-charger-diagram-wire-ev" :stroke="evChargerSystemData.evCharger.chargeStatus ? '#FACC91' : 'grey'" :stroke-width="isSimpleModeRef ? 16 : 8"></path>
       <path v-show="!isPhotoModeRef && evChargerSystemData.evCharger.workingOperationStatus === 0x42" class="animate" :stroke-width="isSimpleModeRef ? 8 : 4" d="m 118,460 h 178.6947" id="ev-charger-diagram-wire-ev" stroke="url(#paint1_linear_2804:695)" style="stroke: #000000; fill: none; stroke-opacity: 1; stroke-miterlimit: 4;"></path>
       <path id="ev-charger-diagram-solar-wire"
         d="M263 0V199C263 263 263 263 199 263H0"
