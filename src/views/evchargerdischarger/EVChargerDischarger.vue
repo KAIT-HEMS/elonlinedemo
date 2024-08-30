@@ -85,7 +85,7 @@
         :stroke-width="isSimpleModeRef ? 16 : 8"
       />
       <path id="ev-charger-discharger-diagram-solar-wire-animation"
-        class="animate opposite"
+        class="animate"
         v-show="evChargerDischargerSystemData.powerPoints['a'] >= 100"
         d="M263 0V199C263 263 263 263 199 263H0"
         stroke="url(#paint1_linear_2804:695)"
