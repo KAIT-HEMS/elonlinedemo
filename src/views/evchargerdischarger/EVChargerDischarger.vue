@@ -84,6 +84,15 @@
         transform="matrix(1, 0, 0, 1, 470, 450)"
         :stroke-width="isSimpleModeRef ? 16 : 8"
       />
+      <path id="ev-charger-discharger-diagram-solar-wire-animation"
+        class="animate opposite"
+        v-show="evChargerDischargerSystemData.powerPoints['a'] >= 100"
+        d="M263 0V199C263 263 263 263 199 263H0"
+        stroke="url(#paint1_linear_2804:695)"
+        transform="matrix(1, 0, 0, 1, 470, 450)"
+        :stroke-width="isSimpleModeRef ? 8 : 4"
+        style="stroke: #000000; fill: none; stroke-opacity: 1; stroke-miterlimit: 4;"
+      />
       <g id="ev-charger-discharger-diagram-grid" v-show="!isPhotoModeRef">
         <g filter="url(#filter1_d_2804:695)" id="ev-charger-discharger-diagram-box-grid" :class="isSimpleModeRef ? 'simple-mode' : ''">
           <rect
