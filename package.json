@@ -1,6 +1,10 @@
 {
   "name": "el-demoapp",
+<<<<<<< HEAD
   "version": "1.3.0",
+=======
+  "version": "1.2.1",
+>>>>>>> 9bb4e7ef512003114d9bf49f5fc1e5f9b8722898
   "releaseDate": "2023-10-23",
   "private": true,
   "description": "The ECHONET Lite (EL) Online Control Demonstration Program provides an easy-to-use UI to allow users to search, confugure, or get/set property values of, any EL-compliant devices (or nodes) that can communicate with your system through UDP.",
