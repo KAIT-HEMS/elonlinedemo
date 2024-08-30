@@ -2801,7 +2801,7 @@
           {{ Math.abs(evChargerSystemData.powerPoints["e"]) }} W
         </tspan>
       </text>
-      <g transform="matrix(1, 0, 0, 1, 0, -240)" id="ev-charger-diagram-point-b">
+      <g transform="matrix(1, 0, 0, 1, 40, -240)" id="ev-charger-diagram-point-b">
         <path
           style="
             fill: none;
@@ -2878,7 +2878,7 @@
         <tspan
           id="tspan2094"
           y="476.27701"
-          x="277.2063"
+          x="317.2063"
           :style="isSimpleModeRef ? 'font-size: 24px;' : ''"
         >
           {{ Math.abs(evChargerSystemData.powerPoints["b"]) }} W
@@ -5377,7 +5377,7 @@
           </tspan>
         </text>
       </g>
-      <g id="ev-charger-diagram-battery" transform="matrix(1, 0, 0, 1, 200, -250)" v-show="!isPhotoModeRef">
+      <g id="ev-charger-diagram-battery" transform="matrix(1, 0, 0, 1, 240, -250)" v-show="!isPhotoModeRef">
         <g filter="url(#filter2_d_2804:695)" id="ev-charger-diagram-box-battery">
           <rect
             fill="#ffffff"
@@ -5391,7 +5391,7 @@
         </g>
         <g xmlns="http://www.w3.org/2000/svg" id="ev-charger-diagram-icon-battery" :class="isSimpleModeRef ? 'simple-mode' : ''">
           <g style="fill:none" id="g3468" transform="matrix(0.5612884,0,0,0.5612884,39.925553,619.27591)">
-            <g id="g3364" :transform="isSimpleModeRef ? 'matrix(2.5,0,0,2.5,-550,-200)' : 'matrix(2,0,0,2,-400,-100)'">
+            <g id="g3364" :transform="isSimpleModeRef ? 'matrix(2.5,0,0,2.5,-470,-200)' : 'matrix(2,0,0,2,-400,-100)'">
               <path d="m 85.6735,123.781 c 0,0 -0.0307,0 -0.0422,0 H 73.867 c -5.0638,0 -9.1692,6.643 -9.1692,14.838 0,8.196 4.1054,14.839 9.1692,14.839 h 11.7643 c 0,0 0.0307,0 0.0422,0 5.0638,0 9.1692,-6.643 9.1692,-14.839 0,-8.195 -4.1054,-14.838 -9.1692,-14.838 z" fill="#8591A6" id="path3308"/>
               <path d="m 85.6735,123.781 c 0,0 -0.0307,0 -0.0422,0 H 73.867 c -5.0638,0 -9.1692,6.643 -9.1692,14.838 0,8.196 4.1054,14.839 9.1692,14.839 h 11.7643 c 0,0 0.0307,0 0.0422,0 5.0638,0 9.1692,-6.643 9.1692,-14.839 0,-8.195 -4.1054,-14.838 -9.1692,-14.838 z" fill="#8591A6" id="path3310"/>
               <path d="m 32.3756,123.781 c 0,0 -0.0307,0 -0.0422,0 H 20.5691 c -5.0638,0 -9.1692,6.643 -9.1692,14.838 0,8.196 4.1054,14.839 9.1692,14.839 h 11.7643 c 0,0 0.0307,0 0.0422,0 5.0638,0 9.1692,-6.643 9.1692,-14.839 0,-8.195 -4.1054,-14.838 -9.1692,-14.838 z" fill="#8591A6" id="path3312"/>
