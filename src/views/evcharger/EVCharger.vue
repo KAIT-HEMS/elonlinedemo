@@ -2505,8 +2505,8 @@
           <path d="m 199.13437,365.6882 h -1.64844 l -1.14062,-3.24219 h -5.03125 l -1.14063,3.24219 h -1.57031 l 4.23437,-11.63281 h 2.0625 z m -3.26563,-4.57031 -2.03906,-5.71094 -2.04687,5.71094 z" id="path3464"></path>
         </g>
       </g>
-      <text y="848" x="200" text-anchor="middle" id="ev-charger-diagram-text-a" letter-spacing="0em" font-weight="500" font-size="16px" font-family="Rubik" xml:space="preserve" fill="#505050" style="white-space: pre;">
-        <tspan id="tspan1508">{{ Math.abs(evChargerSystemData.powerPoints["a"]) }} W</tspan>
+      <text :y="isSimpleModeRef ? '854' : '848'" x="200" text-anchor="middle" id="ev-charger-diagram-text-a" letter-spacing="0em" font-weight="500" font-size="16px" font-family="Rubik" xml:space="preserve" fill="#505050" style="white-space: pre;">
+        <tspan id="tspan1508" :style="isSimpleModeRef ? 'font-size: 24px;' : ''">{{ Math.abs(evChargerSystemData.powerPoints["a"]) }} W</tspan>
       </text>
       <g
         class="arrow"
