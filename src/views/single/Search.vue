@@ -256,6 +256,9 @@ export default defineComponent({
         case 0x0290:
           deviceName = 'lighting';
           break;
+        case 0x02A1:
+          deviceName = 'evcharger';
+          break;
       }
       return `/assets/img/avatar-${deviceName}.svg`;
     }
