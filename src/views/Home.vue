@@ -59,7 +59,7 @@ export default defineComponent({
   background-size:  cover;
 }
 .home-body {
-  gap:                   80px;
+  gap:                   clamp(10px, calc(10px + (80 - 10) * ((100vw - 1500px) / (1750 - 1500))), 80px);
   grid-template-rows:    456px;
   grid-template-columns: repeat(4, 360px);
 }
