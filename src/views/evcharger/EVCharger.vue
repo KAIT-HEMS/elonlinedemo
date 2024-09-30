@@ -80,13 +80,22 @@
         stroke="url(#paint4_linear_2804:695)"
         :stroke-width="isSimpleModeRef ? 16 : 8"
       />
-      <path v-show="!isPhotoModeRef" d="m 118,460 h 178.6947" id="ev-charger-diagram-wire-ev" :stroke="evChargerSystemData.evCharger.chargeStatus ? '#FACC91' : 'grey'" :stroke-width="isSimpleModeRef ? 16 : 8"></path>
+      <path v-show="!isPhotoModeRef" d="m 118,460 h 178.6947" id="ev-charger-diagram-wire-ev" :stroke="evChargerSystemData.evCharger.workingOperationStatus ? '#FACC91' : 'grey'" :stroke-width="isSimpleModeRef ? 16 : 8"></path>
       <path v-show="!isPhotoModeRef && evChargerSystemData.evCharger.workingOperationStatus === 0x42" class="animate" :stroke-width="isSimpleModeRef ? 8 : 4" d="m 118,460 h 178.6947" id="ev-charger-diagram-wire-ev" stroke="url(#paint1_linear_2804:695)" style="stroke: #000000; fill: none; stroke-opacity: 1; stroke-miterlimit: 4;"></path>
       <path id="ev-charger-diagram-solar-wire"
         d="M263 0V199C263 263 263 263 199 263H0"
         stroke="url(#paint4_linear_2804:695)"
         transform="matrix(1, 0, 0, 1, 470, 450)"
         :stroke-width="isSimpleModeRef ? 16 : 8"
+      />
+      <path id="ev-charger-diagram-solar-wire-animation"
+        class="animate"
+        v-show="evChargerSystemData.powerPoints['a'] >= 100"
+        d="M263 0V199C263 263 263 263 199 263H0"
+        stroke="url(#paint1_linear_2804:695)"
+        transform="matrix(1, 0, 0, 1, 470, 450)"
+        :stroke-width="isSimpleModeRef ? 8 : 4"
+        style="stroke: #000000; fill: none; stroke-opacity: 1; stroke-miterlimit: 4;"
       />
       <g id="ev-charger-diagram-grid" v-show="!isPhotoModeRef">
         <g filter="url(#filter1_d_2804:695)" id="ev-charger-diagram-box-grid" :class="isSimpleModeRef ? 'simple-mode' : ''">
@@ -2496,8 +2505,8 @@
           <path d="m 199.13437,365.6882 h -1.64844 l -1.14062,-3.24219 h -5.03125 l -1.14063,3.24219 h -1.57031 l 4.23437,-11.63281 h 2.0625 z m -3.26563,-4.57031 -2.03906,-5.71094 -2.04687,5.71094 z" id="path3464"></path>
         </g>
       </g>
-      <text y="848" x="200" text-anchor="middle" id="ev-charger-diagram-text-a" letter-spacing="0em" font-weight="500" font-size="16px" font-family="Rubik" xml:space="preserve" fill="#505050" style="white-space: pre;">
-        <tspan id="tspan1508">{{ Math.abs(evChargerSystemData.powerPoints["a"]) }} W</tspan>
+      <text :y="isSimpleModeRef ? '854' : '848'" x="200" text-anchor="middle" id="ev-charger-diagram-text-a" letter-spacing="0em" font-weight="500" font-size="16px" font-family="Rubik" xml:space="preserve" fill="#505050" style="white-space: pre;">
+        <tspan id="tspan1508" :style="isSimpleModeRef ? 'font-size: 24px;' : ''">{{ Math.abs(evChargerSystemData.powerPoints["a"]) }} W</tspan>
       </text>
       <g
         class="arrow"
@@ -2792,7 +2801,7 @@
           {{ Math.abs(evChargerSystemData.powerPoints["e"]) }} W
         </tspan>
       </text>
-      <g transform="matrix(1, 0, 0, 1, 0, -240)" id="ev-charger-diagram-point-b">
+      <g transform="matrix(1, 0, 0, 1, 40, -240)" id="ev-charger-diagram-point-b">
         <path
           style="
             fill: none;
@@ -2869,7 +2878,7 @@
         <tspan
           id="tspan2094"
           y="476.27701"
-          x="277.2063"
+          x="317.2063"
           :style="isSimpleModeRef ? 'font-size: 24px;' : ''"
         >
           {{ Math.abs(evChargerSystemData.powerPoints["b"]) }} W
@@ -5368,7 +5377,7 @@
           </tspan>
         </text>
       </g>
-      <g id="ev-charger-diagram-battery" transform="matrix(1, 0, 0, 1, 200, -250)" v-show="!isPhotoModeRef">
+      <g id="ev-charger-diagram-battery" transform="matrix(1, 0, 0, 1, 240, -250)" v-show="!isPhotoModeRef">
         <g filter="url(#filter2_d_2804:695)" id="ev-charger-diagram-box-battery">
           <rect
             fill="#ffffff"
@@ -5382,7 +5391,7 @@
         </g>
         <g xmlns="http://www.w3.org/2000/svg" id="ev-charger-diagram-icon-battery" :class="isSimpleModeRef ? 'simple-mode' : ''">
           <g style="fill:none" id="g3468" transform="matrix(0.5612884,0,0,0.5612884,39.925553,619.27591)">
-            <g id="g3364" :transform="isSimpleModeRef ? 'matrix(2.5,0,0,2.5,-550,-200)' : 'matrix(2,0,0,2,-400,-100)'">
+            <g id="g3364" :transform="isSimpleModeRef ? 'matrix(2.5,0,0,2.5,-470,-200)' : 'matrix(2,0,0,2,-400,-100)'">
               <path d="m 85.6735,123.781 c 0,0 -0.0307,0 -0.0422,0 H 73.867 c -5.0638,0 -9.1692,6.643 -9.1692,14.838 0,8.196 4.1054,14.839 9.1692,14.839 h 11.7643 c 0,0 0.0307,0 0.0422,0 5.0638,0 9.1692,-6.643 9.1692,-14.839 0,-8.195 -4.1054,-14.838 -9.1692,-14.838 z" fill="#8591A6" id="path3308"/>
               <path d="m 85.6735,123.781 c 0,0 -0.0307,0 -0.0422,0 H 73.867 c -5.0638,0 -9.1692,6.643 -9.1692,14.838 0,8.196 4.1054,14.839 9.1692,14.839 h 11.7643 c 0,0 0.0307,0 0.0422,0 5.0638,0 9.1692,-6.643 9.1692,-14.839 0,-8.195 -4.1054,-14.838 -9.1692,-14.838 z" fill="#8591A6" id="path3310"/>
               <path d="m 32.3756,123.781 c 0,0 -0.0307,0 -0.0422,0 H 20.5691 c -5.0638,0 -9.1692,6.643 -9.1692,14.838 0,8.196 4.1054,14.839 9.1692,14.839 h 11.7643 c 0,0 0.0307,0 0.0422,0 5.0638,0 9.1692,-6.643 9.1692,-14.839 0,-8.195 -4.1054,-14.838 -9.1692,-14.838 z" fill="#8591A6" id="path3312"/>
@@ -5779,10 +5788,10 @@
       </g>
       <g id="ev-charger-diagram-solar" transform="matrix(1, 0, 0, 1, 250, 600)" v-show="!isPhotoModeRef">
         <g filter="url(#filter6_d_2804:695)" id="ev-charger-diagram-box-solar">
-          <rect fill="#ffffff" height="242" id="rect1502" rx="16" width="326" x="30" y="43" style="display: none;"></rect>
-          <rect fill="#c3c3c3" height="242" id="rect1502" rx="16" width="326" x="30" y="43"></rect>
+          <rect fill="#ffffff" height="242" id="rect1502" rx="16" width="326" x="30" y="43" v-show="evChargerSystemData.powerPoints['a'] >= 100"></rect>
+          <rect fill="#c3c3c3" height="242" id="rect1502" rx="16" width="326" x="30" y="43" v-show="evChargerSystemData.powerPoints['a'] < 100"></rect>
         </g>
-        <g id="ev-charger-diagram-icon-sun" style="display: none;">
+        <g id="ev-charger-diagram-icon-sun" v-show="evChargerSystemData.powerPoints['a'] >= 100">
           <path d="M271.574 94.75C278.892 94.75 284.824 88.8178 284.824 81.5C284.824 74.1822 278.892 68.25 271.574 68.25C264.256 68.25 258.324 74.1822 258.324 81.5C258.324 88.8178 264.256 94.75 271.574 94.75Z" fill="url(#paint16_linear_2804:695)" id="path1506"></path>
           <path d="M280.758 71.9601L258.506 83.6698C258.383 82.9532 258.322 82.2273 258.324 81.5001C258.323 78.9008 259.086 76.3586 260.519 74.1901C261.952 72.0217 263.992 70.323 266.384 69.3058C268.776 68.2886 271.414 67.9979 273.971 68.4699C276.527 68.9419 278.887 70.1557 280.758 71.9601Z" fill="url(#paint17_linear_2804:695)" id="path1508"></path>
           <path d="M271.574 65.4701C271.355 65.4701 271.144 65.3828 270.989 65.2275C270.833 65.0722 270.746 64.8616 270.746 64.6419V56.6562C270.746 56.4366 270.833 56.226 270.989 56.0707C271.144 55.9154 271.355 55.8281 271.574 55.8281C271.794 55.8281 272.004 55.9154 272.16 56.0707C272.315 56.226 272.402 56.4366 272.402 56.6562V64.6419C272.402 64.8616 272.315 65.0722 272.16 65.2275C272.004 65.3828 271.794 65.4701 271.574 65.4701Z" fill="url(#paint18_linear_2804:695)" id="path1510"></path>
@@ -5811,7 +5820,7 @@
           <path d="M288.372 70.8455L285.76 72.3539C285.57 72.4637 285.431 72.6446 285.374 72.8567C285.317 73.0689 285.347 73.2949 285.457 73.4851C285.567 73.6754 285.748 73.8142 285.96 73.871C286.172 73.9279 286.398 73.8981 286.588 73.7883L289.201 72.2798L288.372 70.8455Z" fill="url(#paint41_linear_2804:695)" id="path1556"></path>
           <path d="M280.795 63.8738L279.286 66.4862C279.176 66.6764 279.146 66.9024 279.203 67.1146C279.26 67.3267 279.399 67.5076 279.589 67.6174C279.779 67.7273 280.005 67.757 280.218 67.7002C280.43 67.6433 280.611 67.5045 280.72 67.3143L282.229 64.7016L280.795 63.8738Z" fill="url(#paint42_linear_2804:695)" id="path1558"></path>
         </g>
-        <g id="ev-charger-diagram-icon-moon">
+        <g id="ev-charger-diagram-icon-moon" v-show="evChargerSystemData.powerPoints['a'] < 100">
           <path id="path3464" fill="url(#paint0_linear_3029_724)" d="m 284.88881,91.059853 c -6.1614,4.1788 -14.6961,2.5703 -18.9777,-3.5149 -4.28077,-6.0863 -2.9097,-14.6628 3.1058,-19.04915 0.3868,-0.28262 0.5358,-0.78813 0.3636,-1.23405 -0.1721,-0.44652 -0.6214,-0.72175 -1.0971,-0.67151 -3.024,0.32104 -5.9366,1.41458 -8.42563,3.16596 -8.10154,5.69785 -10.01523,16.98195 -4.31714,25.08325 5.69822,8.101197 16.96497,10.113397 25.06637,4.4146 2.4889,-1.7503 4.5024,-4.1219 5.8273,-6.8599 0.2082,-0.4299 0.101,-0.9467 -0.2619,-1.2594 -0.3605,-0.3124 -0.8869,-0.3433 -1.2836,-0.0749 z m -3.065,-26.9116 c 0,0.22437 -0.0911,0.42781 -0.2379,0.57448 -0.1474,0.14691 -0.3505,0.23779 -0.5751,0.23779 h -2.022 v 2.02268 c 0,0.44899 -0.3644,0.81264 -0.8131,0.81264 -0.2243,0 -0.4276,-0.09064 -0.575,-0.23792 -0.1467,-0.1474 -0.238,-0.3501 -0.238,-0.57472 v -2.0228 h -2.0225 c -0.4479,0 -0.8122,-0.36316 -0.8122,-0.81227 0,-0.22499 0.0903,-0.42806 0.2378,-0.57509 0.1476,-0.14704 0.3505,-0.23817 0.5744,-0.23817 h 2.0225 v -2.022179 c 0,-0.448621 0.3637,-0.812641 0.813,-0.812641 0.2239,0 0.428,0.09113 0.5754,0.238288 0.1464,0.146913 0.2377,0.350473 0.2377,0.574353 v 2.022309 h 2.022 c 0.4494,0 0.813,0.36402 0.813,0.81325 z" style="fill: url(&quot;#paint0_linear_3029_724&quot;);"></path>
           <path id="path3466" fill="url(#paint1_linear_3029_724)" d="m 284.88881,91.060153 c -6.1614,4.1788 -14.6961,2.5703 -18.9777,-3.515 -4.28077,-6.0862 -2.9097,-14.6628 3.1058,-19.0491 0.3868,-0.28262 0.5358,-0.78814 0.3636,-1.23405 -0.1721,-0.44653 -0.6214,-0.72176 -1.0971,-0.67151 -3.024,0.32104 -5.9366,1.41457 -8.42563,3.16596 -8.10154,5.6978 -10.01523,16.982 -4.31714,25.0833 5.69822,8.101097 16.96497,10.113297 25.06637,4.4145 2.4889,-1.7503 4.5024,-4.1218 5.8273,-6.8599 0.2082,-0.4299 0.101,-0.9467 -0.2619,-1.2594 -0.3605,-0.3124 -0.8869,-0.3433 -1.2836,-0.0748 z m -3.065,-26.91165 c 0,0.22437 -0.0911,0.42781 -0.2379,0.57447 -0.1474,0.14692 -0.3505,0.2378 -0.5751,0.2378 h -2.022 v 2.02267 c 0,0.44899 -0.3644,0.81265 -0.8131,0.81265 -0.2243,0 -0.4276,-0.09064 -0.575,-0.23792 -0.1467,-0.14741 -0.238,-0.35011 -0.238,-0.57473 v -2.02279 h -2.0225 c -0.4479,0 -0.8122,-0.36316 -0.8122,-0.81228 0,-0.22498 0.0903,-0.42805 0.2378,-0.57509 0.1476,-0.14703 0.3505,-0.23816 0.5744,-0.23816 h 2.0225 v -2.022185 c 0,-0.448621 0.3637,-0.812641 0.813,-0.812641 0.2239,0 0.428,0.09113 0.5754,0.238288 0.1464,0.146913 0.2377,0.350474 0.2377,0.574353 v 2.022305 h 2.022 c 0.4494,0 0.813,0.36402 0.813,0.81326 z" style="fill: url(&quot;#paint1_linear_3029_724&quot;);"></path>
           <path id="path3468" fill="url(#paint2_linear_3029_724)" d="m 284.88881,91.059853 c -6.1614,4.1788 -14.6961,2.5703 -18.9777,-3.5149 -4.28077,-6.0863 -2.9097,-14.6628 3.1058,-19.04915 0.3868,-0.28262 0.5358,-0.78813 0.3636,-1.23405 -0.1721,-0.44652 -0.6214,-0.72175 -1.0971,-0.67151 -3.024,0.32104 -5.9366,1.41458 -8.42563,3.16596 -8.10154,5.69785 -10.01523,16.98195 -4.31714,25.08325 5.69822,8.101197 16.96497,10.113397 25.06637,4.4146 2.4889,-1.7503 4.5024,-4.1219 5.8273,-6.8599 0.2082,-0.4299 0.101,-0.9467 -0.2619,-1.2594 -0.3605,-0.3124 -0.8869,-0.3433 -1.2836,-0.0749 z m -3.065,-26.9116 c 0,0.22437 -0.0911,0.42781 -0.2379,0.57448 -0.1474,0.14691 -0.3505,0.23779 -0.5751,0.23779 h -2.022 v 2.02268 c 0,0.44899 -0.3644,0.81264 -0.8131,0.81264 -0.2243,0 -0.4276,-0.09064 -0.575,-0.23792 -0.1467,-0.1474 -0.238,-0.3501 -0.238,-0.57472 v -2.0228 h -2.0225 c -0.4479,0 -0.8122,-0.36316 -0.8122,-0.81227 0,-0.22499 0.0903,-0.42806 0.2378,-0.57509 0.1476,-0.14704 0.3505,-0.23817 0.5744,-0.23817 h 2.0225 v -2.022179 c 0,-0.448621 0.3637,-0.812641 0.813,-0.812641 0.2239,0 0.428,0.09113 0.5754,0.238288 0.1464,0.146913 0.2377,0.350473 0.2377,0.574353 v 2.022309 h 2.022 c 0.4494,0 0.813,0.36402 0.813,0.81325 z" style="fill: url(&quot;#paint2_linear_3029_724&quot;);"></path>
@@ -6400,7 +6409,7 @@ export default defineComponent({
       Property B
       Measurement channel
       */
-      edt = store.getters.data(evChargerSystem.value.distributionBoard.ip, evChargerSystem.value.distributionBoard.eoj, evChargerSystemPointD.value);
+      edt = store.getters.data(evChargerSystem.value.distributionBoard.ip, evChargerSystem.value.distributionBoard.eoj, evChargerSystemPointB.value);
       evChargerSystemData.value.powerPoints.edt.b = (() => { let hex = ''; edt.forEach((v: number) => { hex += v.toHex(2).toUpperCase(); }); return hex === '' ? '' : hex.prefix('0x'); })();
       if (edt.length > 0) {
         currentR = edt[4] * 16**2 + edt[5];
@@ -6669,11 +6678,7 @@ export default defineComponent({
                 return [0xE0];
               // Power distribution board
               case 0x0287:
-                if (isRealDevices.value) {
-                  return [evChargerSystemPointD.value, evChargerSystemPointE.value, 0xC6];
-                } else if (isRHE.value) {
-                  return [evChargerSystemPointB.value, evChargerSystemPointD.value, evChargerSystemPointE.value, 0xC6];
-                }
+                return [evChargerSystemPointB.value, evChargerSystemPointD.value, evChargerSystemPointE.value, 0xC6];
               // Low-voltage smart electric energy meter
               case 0x0288:
                 if (isRealDevices.value) {
