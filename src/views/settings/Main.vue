@@ -798,7 +798,7 @@ export default defineComponent({
     function selectEVChargerSystemDevice(type: string, device: any) {
       store.commit('assignEVChargerSystemDevice', { type: type, device: device });
 
-      const questions = store.getters.getPropertyMap(device.ip, device.eoj).filter((epc: number) => [0x82, 0x83, 0x8A].indexOf(epc) === -1);
+      const questions = store.getters.getPropertyMap(device.ip, device.eoj).filter((epc: number) => [0x82, 0x83, 0x8A, 0x9E].indexOf(epc) === -1);
       if (0 < questions.length) {
         let batch = [];
         for (let i = 0; i < questions.length; i += 4) {
