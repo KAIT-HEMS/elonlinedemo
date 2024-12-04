@@ -195,7 +195,6 @@ export default defineComponent({
     const store                 = useStore(),
           tab                   = ref<string>('control'),
           evChargerSystem         = computed(() => store.state.evChargerSystem),
-          edtttData                     = computed(() => store.getters.data(evChargerSystem.value.evCharger.ip, evChargerSystem.value.evCharger.eoj, 0x9E)),
           evChargerSystemData     = computed(() => store.state.evChargerSystemData),
           evChargerSystemPointB   = computed(() => store.state.evChargerSystemPointB),
           evChargerSystemPointD   = computed(() => store.state.evChargerSystemPointD),
@@ -500,9 +499,6 @@ export default defineComponent({
       isSimpleModeRef.value = isSimpleMode.value;
     });
 
-    watch(edtttData, () => {
-      console.log("11111: edtttData.value><><><><>>>>", edtttData.value)
-    })
     return {
       text: computed(() => store.getters.text?.evCharger?.controls),
       tab,
