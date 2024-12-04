@@ -91,7 +91,7 @@
             <span class="font-weight-bold ms-2" v-show="!isSimpleModeRef"> {{ airConditionerTargetTemperature }}</span>
           </div>
           <div class="d-grid justify-content-evenly" v-show="!isSimpleModeRef">
-            <button class="btn btn-secondary rounded-pill px-4" type="button" @click="setAirConditionerProperties" v-show="!isSimpleModeRef">Set2</button>
+            <button class="btn btn-secondary rounded-pill px-4" type="button" @click="setAirConditionerProperties" v-show="!isSimpleModeRef">Set</button>
           </div>
         </div>
       </div>
