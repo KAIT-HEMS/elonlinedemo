@@ -39,8 +39,8 @@
               </label>
             </div>
           </div>
-          <h4 class="small" v-show="!isSimpleModeRef">Charge Amount: 0xE7</h4>
-          <div class="grid gap-1 align-items-center" style="--bs-columns: 4;" v-show="!isSimpleModeRef">
+          <h4 class="small" v-show="!isSimpleModeRef && isChargingSetShow">Charge Amount: 0xE7</h4>
+          <div class="grid gap-1 align-items-center" style="--bs-columns: 4;" v-show="!isSimpleModeRef && isChargingSetShow">
             <input class="form-control h-100" id="f-ev-charger-charge-amount">
             <label class="g-col-3" for="f-ev-charger-charge-amount">Wh (max {{ evChargerSystemData.evCharger.chargeableElectricity }} Wh)</label>
           </div>
@@ -321,7 +321,7 @@ export default defineComponent({
       switch (mode) {
         // Charging
         case '0x42':
-          if (chargeAmountField.value === '' || Number.isNaN(chargeAmountField.value)) {
+          if (Number.isNaN(chargeAmountField.value)) {
             chargeAmountField.classList.add('is-invalid');
             return;
           }
@@ -517,7 +517,8 @@ export default defineComponent({
       evChargerSystemPointE,
       isSimpleModeRef,
       isRealDevices,
-      isRHE
+      isRHE,
+      isChargingSetShow: computed(() => store.getters.data(evChargerSystem.value.evCharger.ip, evChargerSystem.value.evCharger.eoj, 0x9E).indexOf(231) !== -1),
     };
   }
 });
