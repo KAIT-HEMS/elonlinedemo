@@ -44,8 +44,8 @@
             <input class="form-control h-100" id="f-ev-charger-charge-amount">
             <label class="g-col-3" for="f-ev-charger-charge-amount">Wh (max {{ evChargerSystemData.evCharger.chargeableElectricity }} Wh)</label>
           </div>
-          <div class="d-grid justify-content-evenly" v-show="!isSimpleModeRef && isChargingSetShow">
-            <button class="btn btn-secondary rounded-pill px-4" type="button" @click="setEVChargerProperties" v-show="!isSimpleModeRef && isChargingSetShow">Set</button>
+          <div class="d-grid justify-content-evenly" v-show="!isSimpleModeRef">
+            <button class="btn btn-secondary rounded-pill px-4" type="button" @click="setEVChargerProperties" v-show="!isSimpleModeRef">Set</button>
           </div>
         </div>
         <!-- Air Conditioner Control -->
