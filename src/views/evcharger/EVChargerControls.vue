@@ -203,6 +203,7 @@ export default defineComponent({
           isRHE                 = computed(() => store.state.evChargerSystemMode === 'rhe' ? true : false),
           isSimpleMode          = computed(() => store.state.evChargerSystemUIModeSimple),
           isSimpleModeRef       = ref<string>(''),
+          isChargingSetShow     = computed(() => store.getters.data(evChargerSystem.value.evCharger.ip, evChargerSystem.value.evCharger.eoj, 0x9E).indexOf(231) !== -1),
           monitorDevicesData    = reactive<any>({
             evCharger: {
               workingOperationStatus: "",
@@ -332,8 +333,10 @@ export default defineComponent({
             return;
           }
 
-          epcList.push(0xE7);
-          edtList.push(chargeAmount.toHex(8).toUint8Array());
+          if(isChargingSetShow.value && chargeAmountField.value !== '') {
+            epcList.push(0xE7);
+            edtList.push(chargeAmount.toHex(8).toUint8Array());
+          }
 
           epcList.push(0xEB);
           edtList.push([0x00, 0x00, 0x07, 0xD0]);
@@ -518,7 +521,7 @@ export default defineComponent({
       isSimpleModeRef,
       isRealDevices,
       isRHE,
-      isChargingSetShow: computed(() => store.getters.data(evChargerSystem.value.evCharger.ip, evChargerSystem.value.evCharger.eoj, 0x9E).indexOf(231) !== -1),
+      isChargingSetShow,
     };
   }
 });
