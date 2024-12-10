@@ -203,6 +203,7 @@ export default defineComponent({
           isRHE                 = computed(() => store.state.evChargerSystemMode === 'rhe' ? true : false),
           isSimpleMode          = computed(() => store.state.evChargerSystemUIModeSimple),
           isSimpleModeRef       = ref<string>(''),
+          isChargingSetShow     = ref<boolean>(false),
           monitorDevicesData    = reactive<any>({
             evCharger: {
               workingOperationStatus: "",
@@ -332,8 +333,10 @@ export default defineComponent({
             return;
           }
 
-          epcList.push(0xE7);
-          edtList.push(chargeAmount.toHex(8).toUint8Array());
+          if(isChargingSetShow.value) {
+            epcList.push(0xE7);
+            edtList.push(chargeAmount.toHex(8).toUint8Array());
+          }
 
           epcList.push(0xEB);
           edtList.push([0x00, 0x00, 0x07, 0xD0]);
