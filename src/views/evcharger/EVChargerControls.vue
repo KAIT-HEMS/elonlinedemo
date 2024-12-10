@@ -333,7 +333,7 @@ export default defineComponent({
             return;
           }
 
-          if(isChargingSetShow.value) {
+          if(isChargingSetShow.value && chargeAmountField.value !== '') {
             epcList.push(0xE7);
             edtList.push(chargeAmount.toHex(8).toUint8Array());
           }
