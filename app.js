@@ -53,7 +53,7 @@ require('json-refs').resolveRefs(conf.mra).then(res => {
 conf.mfrs = (data => Object.fromEntries(Object.keys(data).map(v => [parseInt(v, 16), data[v]])))(require(`./${conf.app.dict.mfrs}`).data);
 conf.help = {};
 ['en', 'ja'].forEach(v => {
-  conf.help[v] = marked(fs.readFileSync(`${conf.app.dir.help}/help_${v}.md`, 'utf8'));
+  conf.help[v] = marked.parse(fs.readFileSync(`${conf.app.dir.help}/help_${v}.md`, 'utf8'));
 });
 
 // Set up verbose mode
