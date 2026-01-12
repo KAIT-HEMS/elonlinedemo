@@ -38,7 +38,7 @@ Number.prototype.toSignedInt = function (format) {
       return 'overflowed';
   }
 
-  if (underflow < this) {
+  if (underflow < num) {
     return num - underflow - 2**bits / 2;
   }
 
@@ -561,7 +561,7 @@ export default createStore({
     },
     setPropertyMap: (_, getters) => (ip: string, eoj: { class: number, id: number }, includeUserDefinedEPCs: boolean) => {
       const setMap = [...getters.data(ip, eoj, 0x9E)];
-      if (setMap === []) { return setMap; }
+      if (setMap.length === 0) { return setMap; }
       let res = [];
       if (setMap.shift() < 16) {
         res = setMap;
@@ -585,7 +585,7 @@ export default createStore({
     },
     getPropertyMap: (_, getters) => (ip: string, eoj: { class: number, id: number }) => {
       const getMap = [...getters.data(ip, eoj, 0x9F)];
-      if (getMap === []) { return getMap; }
+      if (getMap.length === 0) { return getMap; }
       let res = [];
       if (getMap.shift() < 16) {
         res = getMap;
